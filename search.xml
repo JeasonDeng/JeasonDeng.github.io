@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>firstBlog</title>
+    <url>/2021/05/27/firstBlog/</url>
+    <content><![CDATA[<h1 id="开始写博客"><a href="#开始写博客" class="headerlink" title="开始写博客"></a>开始写博客</h1><span id="more"></span>
+<p>注意「你的用户名.github.io」上保存的只是你的博客，并没有保存「生成博客的程序代码」，你需要再创建一个名为 blog-generator 的空仓库，用来保存 myBlog 里面的「生成博客的程序代码」</p>
+<ol>
+<li><p>在 GitHub 创建 blog-generator 空仓库</p>
+</li>
+<li><p>将本地 myBlog 上传到 blog-generator 仓库</p>
+</li>
+</ol>
+<p>以后每次 hexo deploy 完之后，博客就会更新</p>
+<ul>
+<li><p>然后你还要要 add / commit /push 一下「生成博客的程序代码」，以防万一</p>
+</li>
+<li><p>这个 blog-generator 就是用来生成博客的程序，而「你的用户名.github.io」仓库就是你的博客页面</p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/05/27/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>前端发展</title>
+    <url>/2016/06/03/%E5%89%8D%E7%AB%AF%E5%8F%91%E5%B1%95/</url>
+    <content><![CDATA[<h1 id="前端到底是个啥？"><a href="#前端到底是个啥？" class="headerlink" title="前端到底是个啥？"></a>前端到底是个啥？</h1><p>针对 web 开发的前端而言</p>
+<ul>
+<li>针对浏览器的开发，浏览器呈现出来的页面就是前端</li>
+<li>它的实质是前端代码在浏览器端被编译、运行、渲染</li>
+<li>前端代码主要由三个部分构成：HTML + CSS + JavaScript<span id="more"></span></li>
+</ul>
+<h1 id="前后端分工"><a href="#前后端分工" class="headerlink" title="前后端分工"></a>前后端分工</h1><p><img src="https://segmentfault.com/img/bVbxgak?w=1534&h=862"></p>
+<h1 id="前端开发发展史"><a href="#前端开发发展史" class="headerlink" title="前端开发发展史"></a>前端开发发展史</h1><ol>
+<li><p>多页面项目</p>
+<ul>
+<li><p>一个页面对应一个 html 页面，html 页面内显式地引入 js、css 文件</p>
+</li>
+<li><p>通过模版引擎将 js 数据动态地渲染到页面上</p>
+</li>
+<li><p>各页面的切换由 a 链接或 location.href 实现</p>
+</li>
+<li><p>切换页面时，会刷新界面，重新发起请求</p>
+<blockquote>
+<p>src</p>
+<p>|—— images</p>
+<p>|—— js</p>
+<p>|—— css</p>
+<p>|—— index.html</p>
+<p>|—— about.html</p>
+<p>|—— list.html</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>SPA</p>
+<ul>
+<li>利用 Vue、 React 框架生成的项目</li>
+<li>只有一个主界面，各个页面由组件实现，页面间的切换由路由实现</li>
+<li>路由切换时，不会刷新界面，用户体验好</li>
+</ul>
+</li>
+</ol>
+<h1 id="前端项目的产出"><a href="#前端项目的产出" class="headerlink" title="前端项目的产出"></a>前端项目的产出</h1><p>前端项目<strong>最终</strong>打包上线的都是 html+CSS + JS 的静态资源包</p>
+<ul>
+<li>因为前端项目依赖于浏览器运行</li>
+<li>而浏览器只认识 html、css、js 代码</li>
+</ul>
+<p>也就是说前端开发中用到的各种技术都是对 html、css、js 的一些预处理操作，是对程序员友好的一些技术手段</p>
+<h1 id="处理技术"><a href="#处理技术" class="headerlink" title="处理技术"></a>处理技术</h1><table>
+<thead>
+<tr>
+<th></th>
+<th align="left">技术名词</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HTML</td>
+<td align="left">模版引擎                                       (art-template、EJS)</td>
+<td>把 js 数据传到 html 中展示出来，<strong>动态生成 html 结构</strong></td>
+</tr>
+<tr>
+<td>CSS</td>
+<td align="left">less、stylus</td>
+<td>扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展</td>
+</tr>
+<tr>
+<td>JS</td>
+<td align="left">ES6+</td>
+<td>是 JavaScript 的下一个版本标准，扩展了 ES5 的语法</td>
+</tr>
+<tr>
+<td>HTML + JS</td>
+<td align="left">React</td>
+<td>前端框架，混合了 HTML 和 JS 语法，实现虚拟 DOM 来构建用户界面</td>
+</tr>
+<tr>
+<td>HTML + JS + CSS</td>
+<td align="left">Vue</td>
+<td>前端框架，混合了 HTML、CSS 和 JS 语法，实现虚拟 DOM 来构建用户界面</td>
+</tr>
+</tbody></table>
+]]></content>
+  </entry>
+</search>
