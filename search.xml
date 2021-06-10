@@ -1,91 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>前端发展</title>
-    <url>/2016/06/03/%E5%89%8D%E7%AB%AF%E5%8F%91%E5%B1%95/</url>
-    <content><![CDATA[<h1 id="前端到底是个啥？"><a href="#前端到底是个啥？" class="headerlink" title="前端到底是个啥？"></a>前端到底是个啥？</h1><p>针对 web 开发的前端而言</p>
-<ul>
-<li>针对浏览器的开发，浏览器呈现出来的页面就是前端</li>
-<li>它的实质是前端代码在浏览器端被编译、运行、渲染</li>
-<li>前端代码主要由三个部分构成：HTML + CSS + JavaScript<span id="more"></span></li>
-</ul>
-<h1 id="前后端分工"><a href="#前后端分工" class="headerlink" title="前后端分工"></a>前后端分工</h1><p><img src="https://segmentfault.com/img/bVbxgak?w=1534&h=862"></p>
-<h1 id="前端开发发展史"><a href="#前端开发发展史" class="headerlink" title="前端开发发展史"></a>前端开发发展史</h1><ol>
-<li><p>多页面项目</p>
-<ul>
-<li><p>一个页面对应一个 html 页面，html 页面内显式地引入 js、css 文件</p>
-</li>
-<li><p>通过模版引擎将 js 数据动态地渲染到页面上</p>
-</li>
-<li><p>各页面的切换由 a 链接或 location.href 实现</p>
-</li>
-<li><p>切换页面时，会刷新界面，重新发起请求</p>
-<blockquote>
-<p>src</p>
-<p>|—— images</p>
-<p>|—— js</p>
-<p>|—— css</p>
-<p>|—— index.html</p>
-<p>|—— about.html</p>
-<p>|—— list.html</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>SPA</p>
-<ul>
-<li>利用 Vue、 React 框架生成的项目</li>
-<li>只有一个主界面，各个页面由组件实现，页面间的切换由路由实现</li>
-<li>路由切换时，不会刷新界面，用户体验好</li>
-</ul>
-</li>
-</ol>
-<h1 id="前端项目的产出"><a href="#前端项目的产出" class="headerlink" title="前端项目的产出"></a>前端项目的产出</h1><p>前端项目<strong>最终</strong>打包上线的都是 html+CSS + JS 的静态资源包</p>
-<ul>
-<li>因为前端项目依赖于浏览器运行</li>
-<li>而浏览器只认识 html、css、js 代码</li>
-</ul>
-<p>也就是说前端开发中用到的各种技术都是对 html、css、js 的一些预处理操作，是对程序员友好的一些技术手段</p>
-<h1 id="处理技术"><a href="#处理技术" class="headerlink" title="处理技术"></a>处理技术</h1><table>
-<thead>
-<tr>
-<th></th>
-<th align="left">技术名词</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>HTML</td>
-<td align="left">模版引擎                                       (art-template、EJS)</td>
-<td>把 js 数据传到 html 中展示出来，<strong>动态生成 html 结构</strong></td>
-</tr>
-<tr>
-<td>CSS</td>
-<td align="left">less、stylus</td>
-<td>扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展</td>
-</tr>
-<tr>
-<td>JS</td>
-<td align="left">ES6+</td>
-<td>是 JavaScript 的下一个版本标准，扩展了 ES5 的语法</td>
-</tr>
-<tr>
-<td>HTML + JS</td>
-<td align="left">React</td>
-<td>前端框架，混合了 HTML 和 JS 语法，实现虚拟 DOM 来构建用户界面</td>
-</tr>
-<tr>
-<td>HTML + JS + CSS</td>
-<td align="left">Vue</td>
-<td>前端框架，混合了 HTML、CSS 和 JS 语法，实现虚拟 DOM 来构建用户界面</td>
-</tr>
-</tbody></table>
-]]></content>
-      <tags>
-        <tag>前端知识</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Less</title>
     <url>/2016/06/11/Less/</url>
     <content><![CDATA[<h1 id="什么是-less"><a href="#什么是-less" class="headerlink" title="什么是 less?"></a>什么是 less?</h1><p><a href="http://lesscss.cn/">官网</a></p>
@@ -1819,6 +1734,91 @@
 <h1 id="通用-css-重置文件-base-css"><a href="#通用-css-重置文件-base-css" class="headerlink" title="通用 css 重置文件 base.css"></a>通用 css 重置文件 base.css</h1><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* reset css */</span></span><br><span class="line"><span class="selector-tag">html</span>,</span><br><span class="line"><span class="selector-tag">body</span>,</span><br><span class="line"><span class="selector-tag">div</span>,</span><br><span class="line"><span class="selector-tag">p</span>,</span><br><span class="line"><span class="selector-tag">h1</span>,</span><br><span class="line"><span class="selector-tag">h2</span>,</span><br><span class="line"><span class="selector-tag">h3</span>,</span><br><span class="line"><span class="selector-tag">h4</span>,</span><br><span class="line"><span class="selector-tag">h5</span>,</span><br><span class="line"><span class="selector-tag">h6</span>,</span><br><span class="line"><span class="selector-tag">ul</span>,</span><br><span class="line"><span class="selector-tag">ol</span>,</span><br><span class="line"><span class="selector-tag">li</span>,</span><br><span class="line"><span class="selector-tag">a</span>,</span><br><span class="line"><span class="selector-tag">span</span>,</span><br><span class="line"><span class="selector-tag">input</span>,</span><br><span class="line"><span class="selector-tag">textarea</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">ul</span>,</span><br><span class="line"><span class="selector-tag">li</span>,</span><br><span class="line"><span class="selector-tag">ol</span> &#123;</span><br><span class="line">  <span class="attribute">list-style</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">  -webkit-tap-highlight-<span class="attribute">color</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span>,</span><br><span class="line"><span class="selector-tag">textarea</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: none;</span><br><span class="line">  <span class="attribute">outline</span>: none;</span><br><span class="line">  -webkit-appearance: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* common css */</span></span><br><span class="line"><span class="selector-tag">html</span>,</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#f0f0f0</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.m_l10</span> &#123;</span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.m_r10</span> &#123;</span><br><span class="line">  <span class="attribute">margin-right</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.m_t10</span> &#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.m_b10</span> &#123;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.p_l10</span> &#123;</span><br><span class="line">  <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.p_r10</span> &#123;</span><br><span class="line">  <span class="attribute">padding-right</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.p_t10</span> &#123;</span><br><span class="line">  <span class="attribute">padding-top</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.p_b10</span> &#123;</span><br><span class="line">  <span class="attribute">padding-bottom</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.f_l</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.f_r</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: right;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.b_l</span> &#123;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">1px</span> solid <span class="number">#eee</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.b_r</span> &#123;</span><br><span class="line">  <span class="attribute">border-right</span>: <span class="number">1px</span> solid <span class="number">#eee</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.b_t</span> &#123;</span><br><span class="line">  <span class="attribute">border-top</span>: <span class="number">1px</span> solid <span class="number">#eee</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.b_b</span> &#123;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#eee</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-attr">[class^=<span class="string">&quot;icon_&quot;</span>]</span>,</span><br><span class="line"><span class="selector-attr">[class*=<span class="string">&quot; icon_&quot;</span>]</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">../images/sprites.png</span>) no-repeat;</span><br><span class="line">  <span class="attribute">background-size</span>: <span class="number">200px</span> <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.more</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">9px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">9px</span>;</span><br><span class="line">  <span class="attribute">border-top</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">  <span class="attribute">border-right</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">45deg</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">::before</span>,</span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">  <span class="attribute">display</span>: table;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端发展</title>
+    <url>/2016/06/03/%E5%89%8D%E7%AB%AF%E5%8F%91%E5%B1%95/</url>
+    <content><![CDATA[<h1 id="前端到底是个啥？"><a href="#前端到底是个啥？" class="headerlink" title="前端到底是个啥？"></a>前端到底是个啥？</h1><p>针对 web 开发的前端而言</p>
+<ul>
+<li>针对浏览器的开发，浏览器呈现出来的页面就是前端</li>
+<li>它的实质是前端代码在浏览器端被编译、运行、渲染</li>
+<li>前端代码主要由三个部分构成：HTML + CSS + JavaScript<span id="more"></span></li>
+</ul>
+<h1 id="前后端分工"><a href="#前后端分工" class="headerlink" title="前后端分工"></a>前后端分工</h1><p><img src="https://segmentfault.com/img/bVbxgak?w=1534&h=862"></p>
+<h1 id="前端开发发展史"><a href="#前端开发发展史" class="headerlink" title="前端开发发展史"></a>前端开发发展史</h1><ol>
+<li><p>多页面项目</p>
+<ul>
+<li><p>一个页面对应一个 html 页面，html 页面内显式地引入 js、css 文件</p>
+</li>
+<li><p>通过模版引擎将 js 数据动态地渲染到页面上</p>
+</li>
+<li><p>各页面的切换由 a 链接或 location.href 实现</p>
+</li>
+<li><p>切换页面时，会刷新界面，重新发起请求</p>
+<blockquote>
+<p>src</p>
+<p>|—— images</p>
+<p>|—— js</p>
+<p>|—— css</p>
+<p>|—— index.html</p>
+<p>|—— about.html</p>
+<p>|—— list.html</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>SPA</p>
+<ul>
+<li>利用 Vue、 React 框架生成的项目</li>
+<li>只有一个主界面，各个页面由组件实现，页面间的切换由路由实现</li>
+<li>路由切换时，不会刷新界面，用户体验好</li>
+</ul>
+</li>
+</ol>
+<h1 id="前端项目的产出"><a href="#前端项目的产出" class="headerlink" title="前端项目的产出"></a>前端项目的产出</h1><p>前端项目<strong>最终</strong>打包上线的都是 html+CSS + JS 的静态资源包</p>
+<ul>
+<li>因为前端项目依赖于浏览器运行</li>
+<li>而浏览器只认识 html、css、js 代码</li>
+</ul>
+<p>也就是说前端开发中用到的各种技术都是对 html、css、js 的一些预处理操作，是对程序员友好的一些技术手段</p>
+<h1 id="处理技术"><a href="#处理技术" class="headerlink" title="处理技术"></a>处理技术</h1><table>
+<thead>
+<tr>
+<th></th>
+<th align="left">技术名词</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HTML</td>
+<td align="left">模版引擎                                       (art-template、EJS)</td>
+<td>把 js 数据传到 html 中展示出来，<strong>动态生成 html 结构</strong></td>
+</tr>
+<tr>
+<td>CSS</td>
+<td align="left">less、stylus</td>
+<td>扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展</td>
+</tr>
+<tr>
+<td>JS</td>
+<td align="left">ES6+</td>
+<td>是 JavaScript 的下一个版本标准，扩展了 ES5 的语法</td>
+</tr>
+<tr>
+<td>HTML + JS</td>
+<td align="left">React</td>
+<td>前端框架，混合了 HTML 和 JS 语法，实现虚拟 DOM 来构建用户界面</td>
+</tr>
+<tr>
+<td>HTML + JS + CSS</td>
+<td align="left">Vue</td>
+<td>前端框架，混合了 HTML、CSS 和 JS 语法，实现虚拟 DOM 来构建用户界面</td>
+</tr>
+</tbody></table>
+]]></content>
+      <tags>
+        <tag>前端知识</tag>
       </tags>
   </entry>
 </search>
