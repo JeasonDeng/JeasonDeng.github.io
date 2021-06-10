@@ -86,6 +86,137 @@
       </tags>
   </entry>
   <entry>
+    <title>Less</title>
+    <url>/2016/06/11/Less/</url>
+    <content><![CDATA[<h1 id="什么是-less"><a href="#什么是-less" class="headerlink" title="什么是 less?"></a>什么是 less?</h1><p><a href="http://lesscss.cn/">官网</a></p>
+<p>Less 是一门 CSS 预处理语言, 它扩展了 CSS 语言, 增加了变量、Mixin、函数等特性, 使 CSS 更容易维护和扩展</p>
+<p>Less 可以运行在 Node 或浏览器端</p>
+<span id="more"></span>
+
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>⚠️ 最好在 less 文件开头加</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@charset</span> <span class="string">&quot;UTF-8&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="浏览器端用法"><a href="#浏览器端用法" class="headerlink" title="浏览器端用法"></a>浏览器端用法</h2><p>less 无法在浏览器端直接使用</p>
+<ul>
+<li><p>解决方式</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 以下两行必须写在头部 head 标签里; 并且 link 的 type 属性必须写 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet/less&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/less&quot;</span> <span class="attr">href</span>=<span class="string">&quot;styles.less&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;less.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>less 自带监听模式 (无刷新预览效果, <strong>有延迟</strong>)</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 紧挨着上面两行之后 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span>less.watch();<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>解决原理</p>
+<blockquote>
+<ol>
+<li><p>浏览器端通过发送请求到服务端 </p>
+</li>
+<li><p>拿到 less 文件的内容 </p>
+</li>
+<li><p>然后再通过 less.js 解析 less 文件内容</p>
+</li>
+<li><p>将解析后的结果追加到 html 中 (会在 html 中生成 style 标签)</p>
+</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<p>所以, 引入 less 文件的网页 <code>必须以 http 形式打开</code></p>
+<h1 id="less-编译"><a href="#less-编译" class="headerlink" title="less 编译"></a>less 编译</h1><h2 id="命令行编译"><a href="#命令行编译" class="headerlink" title="命令行编译"></a>命令行编译</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lessc style.less style.css</span><br></pre></td></tr></table></figure>
+
+<h2 id="Koala工具编译"><a href="#Koala工具编译" class="headerlink" title="Koala工具编译"></a>Koala工具编译</h2><p><a href="http://koala-app.com/index-zh.html">Koala</a></p>
+<p>⚠️ 拖目录, 不要拖文件</p>
+<h1 id="less-语法"><a href="#less-语法" class="headerlink" title="less 语法"></a>less 语法</h1><h2 id="less-中的注释"><a href="#less-中的注释" class="headerlink" title="less 中的注释"></a>less 中的注释</h2><ol>
+<li><p>以 // 开头的注释, 不会被编译到 css 文件中</p>
+</li>
+<li><p>以 /**/ 开头的注释, 会被编译到 css 文件中</p>
+</li>
+<li><p>建议使用 <code>/**/</code></p>
+</li>
+</ol>
+<h2 id="less-中的变量"><a href="#less-中的变量" class="headerlink" title="less 中的变量"></a>less 中的变量</h2><p>使用 @ 来声明一个变量 —— <code>@pink: pink;</code></p>
+<ul>
+<li><p>变量是 <code>块级作用域</code></p>
+</li>
+<li><p>属性值作为变量 —— 直接使用 @pink</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="variable">@color:</span> <span class="number">#ccc</span>;</span><br><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="variable">@color</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>选择器或属性名作为变量 —— @{ 变量名 }</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="variable">@className:</span> .box;</span><br><span class="line"><span class="variable">@&#123;className&#125;</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>作为 URL —— @{ url }</p>
+</li>
+<li><p>变量的延迟加载</p>
+</li>
+</ul>
+<h2 id="less-的混入-Mixin"><a href="#less-的混入-Mixin" class="headerlink" title="less 的混入(Mixin)"></a>less 的混入(Mixin)</h2><p>将一系列属性从一个规则集引入到另一个规则集的方式</p>
+<ul>
+<li>混入的定义在 less 规范里有明确的指定, 使用 <code>.</code> 来定义</li>
+</ul>
+<h3 id="类混入"><a href="#类混入" class="headerlink" title="类混入"></a>类混入</h3><p>也叫 <code>普通混入</code></p>
+<ul>
+<li><p>缺点</p>
+<ul>
+<li>类混入定义的样式会被编译到 css 文件中</li>
+</ul>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.w50</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.f_left</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 类混入 */</span></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="selector-class">.w50</span>();    <span class="comment">/* 相当于函数调用 */</span></span><br><span class="line">    <span class="selector-class">.f_left</span>();</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="函数混入"><a href="#函数混入" class="headerlink" title="函数混入"></a>函数混入</h3><p>可以带参数, 也可以不带参数</p>
+<ul>
+<li><p>不会被编译到 css 文件中</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 不带参数 */</span></span><br><span class="line"><span class="selector-class">.w50</span>() &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 带参数的混入在调用时, 必须传参 */</span></span><br><span class="line"><span class="selector-class">.f</span>(<span class="variable">@direction</span>) &#123;</span><br><span class="line">    <span class="attribute">float</span>: <span class="variable">@direction</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 带默认参数, 调用时可传可不传 */</span></span><br><span class="line"><span class="selector-class">.bordeRadius</span>(<span class="variable">@radius</span>: <span class="number">100px</span>) &#123;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="variable">@radius</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 多个参数 */</span></span><br><span class="line"><span class="selector-class">.m</span>(<span class="variable">@v</span>: <span class="number">0</span>, <span class="variable">@h</span>) &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="variable">@v</span> <span class="variable">@h</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 函数混入 */</span></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="selector-class">.w50</span>();    <span class="comment">/* 相当于函数调用 */</span></span><br><span class="line">    <span class="selector-class">.f</span>(left);</span><br><span class="line">    <span class="selector-class">.borderRadius</span>();</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">      <span class="selector-class">.m</span>(<span class="variable">@h</span>: auto); <span class="comment">/* 命名参数 当实参与形参个数不一致时, 可以采用这种命名参数形式 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>匹配模式</strong></p>
+<ul>
+<li>调用 .triangle(L, 10px, red) 时<ul>
+<li>第一个参数为 <code>@_</code> 的混合(<em>放共用的重复代码</em>) 会自动调用</li>
+<li>然后再调用同名的 .triangle(L, @w, @c)</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/%E5%8C%B9%E9%85%8D%E6%A8%A1%E5%BC%8F.png"></p>
+</li>
+<li><p>argumrnts 变量</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.border</span>(<span class="variable">@a</span>, <span class="variable">@b</span>, <span class="variable">@c</span>) &#123;</span><br><span class="line">    <span class="attribute">border</span>: <span class="variable">@arguments</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#wrap</span> <span class="selector-class">.sjx</span> &#123;</span><br><span class="line">    <span class="selector-class">.border</span>(<span class="number">1px</span>, solid, black);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="less-的嵌套"><a href="#less-的嵌套" class="headerlink" title="less 的嵌套"></a>less 的嵌套</h2><p>基本嵌套规则</p>
+<ul>
+<li><p><strong>&amp; 的使用 —— 同级</strong></p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="selector-tag">a</span> &#123;</span><br><span class="line">        <span class="attribute">color</span>: <span class="number">#000</span>;</span><br><span class="line">        <span class="selector-tag">&amp;</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">          <span class="attribute">color</span>: red;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &gt; <span class="selector-tag">div</span> &#123;</span><br><span class="line">        <span class="attribute">display</span>: inline;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="less-中使用媒体查询"><a href="#less-中使用媒体查询" class="headerlink" title="less 中使用媒体查询"></a>less 中使用媒体查询</h2><p>⚠️ 多个 @media 之间使用分号</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">// mixins.less</span></span><br><span class="line"><span class="selector-class">.1-px</span>(<span class="variable">@color</span>) &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">1px</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="variable">@color</span>;</span><br><span class="line">    <span class="keyword">@media</span> (<span class="attribute">-webkit-device-pixel-ratio</span>: <span class="number">2</span>)&#123;</span><br><span class="line">      <span class="attribute">transform</span>: scaleY(.<span class="number">5</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">@media</span> (<span class="attribute">device-pixel-ratio</span>: <span class="number">2</span>) &#123;</span><br><span class="line">      <span class="attribute">transform</span>: scaleY(.<span class="number">5</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">@media</span> (<span class="attribute">-webkit-device-pixel-ratio</span>: <span class="number">3</span>)&#123;</span><br><span class="line">      <span class="attribute">transform</span>: scaleY(.<span class="number">333333</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">@media</span> (<span class="attribute">device-pixel-ratio</span>: <span class="number">3</span>) &#123;</span><br><span class="line">      <span class="attribute">transform</span>: scaleY(.<span class="number">33333</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="导入-import"><a href="#导入-import" class="headerlink" title="导入 import"></a>导入 import</h2><p>使用 @import “文件名”;</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* variables.less */</span></span><br><span class="line"><span class="keyword">@charset</span> <span class="string">&quot;UTF-8&quot;</span>;</span><br><span class="line"><span class="variable">@mainColor:</span> <span class="number">#e32322</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* main.less */</span></span><br><span class="line"><span class="keyword">@charset</span> <span class="string">&quot;UTF-8&quot;</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;variables&quot;</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;mixin&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>⚠️ less 中的 @import 和 css 中的 @import 不一样</p>
+<p>less 中 —— 合并代码</p>
+<p>css 中 —— 发请求</p>
+<h2 id="less-的运算函数"><a href="#less-的运算函数" class="headerlink" title="less 的运算函数"></a>less 的运算函数</h2><p>在 less 中可以进行 <code>加减乘除</code> 的运算, <em>计算的一方带单位就可以了</em></p>
+<ul>
+<li><p>在 less 中可以使用 <a href="http://lesscss.cn/functions/">内置函数</a> 进行运算</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.sjx</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: (<span class="number">100</span> + <span class="number">100px</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">@num:</span> <span class="number">8</span>;</span><br><span class="line"><span class="selector-tag">ul</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span> * <span class="variable">@num</span>;</span><br><span class="line">    <span class="selector-tag">li</span> &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span> / <span class="variable">@num</span>;</span><br><span class="line">        <span class="attribute">color</span>: lighten(red, <span class="number">20%</span>); <span class="comment">/* 比红色亮 20% */</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="less-继承"><a href="#less-继承" class="headerlink" title="less 继承"></a>less 继承</h2><p>继承 <strong>只能继承类样式, 不能加 () 来传递参数</strong></p>
+<ul>
+<li><p>比混合性能高, 没有混合灵活</p>
+</li>
+<li><p>语法</p>
+<ol>
+<li><p>.a:extend(.b) { … }</p>
+</li>
+<li><p>.a {</p>
+<p>​  &amp;:extend(.b all);</p>
+<p>​  …</p>
+<p>}</p>
+<p><code>all</code> 表示继承与 b 相关的所有样式</p>
+</li>
+</ol>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">// extend.less</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;./juzhong-extend.less&#x27;</span>;</span><br><span class="line"><span class="selector-id">#wrap</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid;</span><br><span class="line">    <span class="selector-class">.inner</span> &#123;</span><br><span class="line">        <span class="selector-tag">&amp;</span>:<span class="selector-tag">extend</span>(.juzhong all);</span><br><span class="line">        <span class="selector-tag">&amp;</span><span class="selector-pseudo">:nth-child</span>(<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">            <span class="attribute">background</span>: pink;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="selector-tag">&amp;</span><span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>) &#123;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">            <span class="attribute">background</span>: deeppink;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// juzhong-extend.less</span></span><br><span class="line"><span class="selector-class">.juzhong</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="less-避免编译"><a href="#less-避免编译" class="headerlink" title="less 避免编译"></a>less 避免编译</h2><p>使用 ~ “属性值” 避免被编译</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="string">~&quot;cacl(100 + 100px)&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>HTML</title>
     <url>/2016/06/05/HTML/</url>
     <content><![CDATA[<h1 id="网站是什么"><a href="#网站是什么" class="headerlink" title="网站是什么"></a>网站是什么</h1><p><a href="http://c.biancheng.net/view/7410.html">参考资料</a></p>
@@ -783,6 +914,8 @@
     <url>/2016/06/08/CSS/</url>
     <content><![CDATA[<h1 id="CSS-Cascading-Style-Sheet"><a href="#CSS-Cascading-Style-Sheet" class="headerlink" title="CSS(Cascading Style Sheet)"></a>CSS(Cascading Style Sheet)</h1><p>层叠样式表，通过样式表对网页进行装饰</p>
 <p><a href="http://www.w3school.com.cn/cssref/index.asp">CSS 参考手册</a></p>
+<span id="more"></span>
+
 <h2 id="样式表的组成"><a href="#样式表的组成" class="headerlink" title="样式表的组成"></a>样式表的组成</h2><ul>
 <li><p>样式表由 <code>规则</code> 组成</p>
 </li>
