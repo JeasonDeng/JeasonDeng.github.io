@@ -714,6 +714,8 @@
     <title>CSS3</title>
     <url>/2016/06/15/CSS3/</url>
     <content><![CDATA[<h1 id="CSS3-选择器"><a href="#CSS3-选择器" class="headerlink" title="CSS3 选择器"></a>CSS3 选择器</h1><p><a href="http://www.w3school.com.cn/cssref/css_selectors.asp">选择器汇总</a></p>
+<span id="more"></span>
+
 <h2 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a>基本选择器</h2><ol>
 <li>id 选择器 (#)</li>
 <li>类选择器 (.)</li>
