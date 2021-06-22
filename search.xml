@@ -397,6 +397,194 @@
       </tags>
   </entry>
   <entry>
+    <title>移动端适配</title>
+    <url>/2016/06/22/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D/</url>
+    <content><![CDATA[<h1 id="移动端适配基本概念"><a href="#移动端适配基本概念" class="headerlink" title="移动端适配基本概念"></a>移动端适配基本概念</h1><p><a href="https://blog.csdn.net/qq_34629352/article/details/104959500">参考</a></p>
+<h2 id="视口-viewport"><a href="#视口-viewport" class="headerlink" title="视口 viewport"></a>视口 viewport</h2><p>一个虚拟的区域, 就是设备上用来显示网页的那一块区域</p>
+<ul>
+<li>浏览器承载 viewport , viewport 承载网页, <code>viewport 默认会对网页进行缩放来呈现完整内容</code><ul>
+<li><em>可能造成元素太小看不清</em><span id="more"></span></li>
+</ul>
+</li>
+</ul>
+<h3 id="布局适口"><a href="#布局适口" class="headerlink" title="布局适口"></a>布局适口</h3><p>用来布局的区域</p>
+<blockquote>
+<p>有自己的默认值，可以通过 width=device-width 或 initial-scale 来重新设置</p>
+<p>当发生冲突时，取较大的值</p>
+</blockquote>
+<ul>
+<li>PC 端<ul>
+<li>布局视口默认和视觉视口等大</li>
+<li>进行网页放大时，布局视口变小；缩小时，布局视口变大(<em>缩放时的是每个像素点的大小</em>)</li>
+</ul>
+</li>
+<li>移动端<ul>
+<li>各个设备有自己固定的布局适口大小 (iphone 为 980px)</li>
+<li>进行缩放时，布局适口不会变化(<em>物理像素值不会变化</em>)</li>
+</ul>
+</li>
+</ul>
+<h3 id="视觉适口"><a href="#视觉适口" class="headerlink" title="视觉适口"></a>视觉适口</h3><p>用户能看到的区域</p>
+<blockquote>
+<p>默认情况下是等于设备宽的，只有设置了 initial-scale 才会改变大小</p>
+<p>当布局视口的内容超出视觉视口时，才会出现滚动条</p>
+</blockquote>
+<ul>
+<li>PC 端<ul>
+<li>用户可任意缩放</li>
+</ul>
+</li>
+<li>移动端<ul>
+<li>通过 initial-scale 来设置缩放(<em>相对于设备宽</em>)</li>
+</ul>
+</li>
+</ul>
+<h3 id="适配方案要求"><a href="#适配方案要求" class="headerlink" title="适配方案要求"></a>适配方案要求</h3><ol>
+<li><p>网页宽度必须和浏览器保持一致 (防止出现水平滚动条)</p>
+</li>
+<li><p>默认显示的缩放比例和 PC 端保持一致</p>
+</li>
+<li><p>不允许用户自行缩放网页</p>
+</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width,initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0,user-scalable=no&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">device-width           —— 视觉视口大小</span></span><br><span class="line"><span class="comment">width=device-width     —— 改变的是布局视口大小</span></span><br><span class="line"><span class="comment">initial-scale          —— 设备独立像素对视觉视口(布局视口)的比例</span></span><br><span class="line"><span class="comment">initial-scale=1.0      —— 同时改变布局视口和视觉视口大小都为设备像素的 1 倍</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="理想适口"><a href="#理想适口" class="headerlink" title="理想适口"></a>理想适口</h3><p>让 layout viewport (布局视口)的宽度等于设备宽度</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="完美视口"><a href="#完美视口" class="headerlink" title="完美视口"></a>完美视口</h3><p>同时不让系统对网页进行缩放</p>
+<blockquote>
+<p>默认视觉视口宽度就是等于设备宽度的</p>
+<p>设置 initial-scale 是同时在设置布局视口和视觉视口的宽度</p>
+<p>当元素超出视觉视口宽度时，就会出现滚动条</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width,initial-scale=1.0&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="物理像素-屏幕的分辨率"><a href="#物理像素-屏幕的分辨率" class="headerlink" title="物理像素(屏幕的分辨率)"></a>物理像素(屏幕的分辨率)</h2><p><strong>设备能控制显示的最小单元</strong>，可以把物理像素看成是对应的像素点</p>
+<blockquote>
+<p>物理像素是一个抽象单位，我们不能说 1 个物理像素有多大，这还跟设备分辨率有关</p>
+</blockquote>
+<ul>
+<li>eg 屏幕的分辨率 (<em>1366 x 768 ect.</em>) 可以理解为物理像素</li>
+</ul>
+<h2 id="设备分辨率-PPI"><a href="#设备分辨率-PPI" class="headerlink" title="设备分辨率 PPI"></a>设备分辨率 PPI</h2><p>设备的分辨率指的是每英寸显示屏上像素点个数</p>
+<p>计算公式为 PPI = 物理像素/物理尺寸</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// iPhone6 的分辨率为 </span></span><br><span class="line"><span class="number">326</span> = √(<span class="number">750</span>^<span class="number">2</span> + <span class="number">1334</span>^<span class="number">2</span>) / <span class="number">4.7</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="设备独立像素-amp-css像素"><a href="#设备独立像素-amp-css像素" class="headerlink" title="设备独立像素 &amp; css像素"></a>设备独立像素 &amp; css像素</h2><p>设备独立像素(也叫密度无关像素)，可以认为是计算机坐标系统中的一个点，这个点代表一个可以由程序使用并控制的虚拟像素</p>
+<ul>
+<li>我们写 CSS 时所用的像素，它是一个抽像的单位</li>
+<li>css 像素是浏览器特有的概念</li>
+</ul>
+<h2 id="设备像素比-dpr"><a href="#设备像素比-dpr" class="headerlink" title="设备像素比 dpr"></a>设备像素比 dpr</h2><p>设备像素比 = 物理像素 / css 像素</p>
+<ul>
+<li><em>在普通屏幕下1个 CSS像素对应1个物理像素，而在Retina屏幕下，1个CSS像素对应的却是4个物理像素</em></li>
+</ul>
+<h2 id="dpr-amp-DPI-amp-PPI"><a href="#dpr-amp-DPI-amp-PPI" class="headerlink" title="dpr &amp; DPI &amp; PPI"></a>dpr &amp; DPI &amp; PPI</h2><p>dpr —— 设备像素比，物理像素/设备独立像素 = dpr， 一般以 Iphon6 的 dpr 为准 dpr = 2</p>
+<p>PPI ——  一英寸显示屏上的像素点个数 (iPhone6 为 326 = √(750^2 + 1334^2) / 4.7)</p>
+<p>DPI —— 最早指的是打印机在单位面积上打印的墨点数，墨点越多越清晰</p>
+<h2 id="位图像素"><a href="#位图像素" class="headerlink" title="位图像素"></a>位图像素</h2><p>1 个位图像素是一个栅格图像上最小的数据单元</p>
+<h1 id="移动端适配方案"><a href="#移动端适配方案" class="headerlink" title="移动端适配方案"></a>移动端适配方案</h1><p>所谓的移动端适配，就是让页面在不同尺寸的移动设备上展现出理想的视觉效果<br><a href="https://zhuanlan.zhihu.com/p/80692165">参考</a></p>
+<h2 id="viewport-适配"><a href="#viewport-适配" class="headerlink" title="viewport 适配"></a>viewport 适配</h2><p>原理</p>
+<blockquote>
+<p>视口默认会对网页内容进行缩放来呈现内容，利用 initial-scale 来设置布局视口和视觉视口的大小后，网页内容再进行缩放；同一个元素在不同设备上的 css 像素是一样的，但是缩放比是不一样的</p>
+</blockquote>
+<ol>
+<li>根据设计稿标准（750px 宽度）开发页面，写完后页面及元素自动缩放，适配不同的设备</li>
+</ol>
+<ul>
+<li>在 initial-scale 上做文章，<strong>initial-scale = 设备的宽度 / 设计稿的宽度</strong><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 设计稿尺寸</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> WIDTH = <span class="number">750</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> mobileAdapter = <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// 为了适配其他屏幕，需要动态的设置 initial-scale 的值</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">let</span> scale = screen.width / WIDTH</span></span><br><span class="line"><span class="javascript">      <span class="keyword">let</span> content = <span class="string">`initial-scale=<span class="subst">$&#123;scale&#125;</span>, maximum-scale=<span class="subst">$&#123;scale&#125;</span>, minimum-scale=<span class="subst">$&#123;scale&#125;</span>`</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">let</span> meta = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;meta[name=viewport]&#x27;</span>)</span></span><br><span class="line"><span class="javascript">      <span class="keyword">if</span> (!meta) &#123;</span></span><br><span class="line"><span class="javascript">        meta = <span class="built_in">document</span>.createElement(<span class="string">&#x27;meta&#x27;</span>)</span></span><br><span class="line"><span class="javascript">        meta.setAttribute(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;viewport&#x27;</span>)</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.head.appendChild(meta)</span></span><br><span class="line"><span class="javascript">      &#125;</span></span><br><span class="line"><span class="javascript">      meta.setAttribute(<span class="string">&#x27;content&#x27;</span>,content)</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript">    mobileAdapter()</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 屏幕翻转时再次执行</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.onorientationchange = mobileAdapter </span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>优点</p>
+<ul>
+<li>元素尺寸直接按设计稿来</li>
+</ul>
+<p>缺点</p>
+<ul>
+<li>边线问题，不同尺寸下，边线的粗细是不一样的（等比缩放后），全部元素都是等比缩放，实际显示效果可能不太好</li>
+</ul>
+<h2 id="vw-wh-部分等比缩放"><a href="#vw-wh-部分等比缩放" class="headerlink" title="vw/wh(部分等比缩放)"></a>vw/wh(部分等比缩放)</h2><p>原理</p>
+<blockquote>
+<p>浏览器默认将设备宽度分为 100 份，对于不同的设备，每一份的宽度是不一样的，以 vw 为单位的同一个元素在不同设备上的 css 像素也是不一样的</p>
+</blockquote>
+<ol>
+<li>开发者拿到设计稿（<em>假设设计稿尺寸为750px，设计稿的元素标注是基于此宽度标注</em>）</li>
+<li>开始开发，对设计稿的标注进行转换，把 px 换成 vw<ul>
+<li>比如页面元素字体标注的大小是 28px，换成 vw 为 (100/750)*28 vw</li>
+</ul>
+</li>
+<li>对于需要等比缩放的元素，CSS 使用转换后的单位 vw</li>
+<li>对于不需要缩放的元素，比如边框阴影，使用固定单位 px</li>
+</ol>
+<p>为了开发方便，利用自定义属性，CSS变量</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> WIDTH = <span class="number">750</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//:root &#123; --width: 0.133333 &#125; 1像素等于多少 vw</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.documentElement.style.setProperty(<span class="string">&#x27;--width&#x27;</span>, (<span class="number">100</span> / WIDTH)) </span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>注意此时，meta 里就不要去设置缩放了</p>
+<p>业务代码里就可以写</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="built_in">calc</span>(<span class="number">28vw</span> * <span class="built_in">var</span>(--width));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实现了按需缩放</p>
+<h2 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h2><p>原理</p>
+<blockquote>
+<p>根据设备宽度给不同的设备设置不同的 rem(<em>根元素字体大小</em>)，以 rem 为单位的同一个元素在不同设备上的 css 像素是不一样的</p>
+</blockquote>
+<ol>
+<li>开发者拿到设计稿（<em>假设设计稿尺寸为750px，设计稿的元素标是基于此宽度标注</em>）</li>
+<li>开始开发，对设计稿的标注进行转换</li>
+<li>对于需要等比缩放的元素，CSS 使用转换后的单位 rem</li>
+<li>对于不需要缩放的元素，比如边框阴影，使用固定单位 px</li>
+</ol>
+<p>根据不同屏幕宽度，设置 html 的 font-size 值</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 设计稿尺寸</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> WIDTH = <span class="number">750</span> </span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> setView = <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">document</span>.documentElement.style.fontSize = (<span class="number">100</span> * screen.width / WIDTH) + <span class="string">&#x27;px&#x27;</span></span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.onorientationchange = setView</span></span><br><span class="line"><span class="javascript">    setView()</span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>对于需要等比缩放的元素，CSS 使用转换后的单位 rem</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">header</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: .<span class="number">28rem</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于不需要缩放的元素，比如边框阴影，使用固定单位px</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">header</span> &gt; <span class="selector-tag">span</span><span class="selector-class">.active</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.3</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>⚠️ <strong>以上的三种适配方案，都是等比缩放</strong></p>
+<ul>
+<li>放到 ipad 上时（设计稿以手机屏幕设计的），页面元素会很大很丑</li>
+<li>有些场景下，并不需要页面整体缩放（viewport 自动处理的也很好了），所以有时只需要合理的布局即可</li>
+</ul>
+<h3 id="rem-amp-less-适配方案"><a href="#rem-amp-less-适配方案" class="headerlink" title="rem &amp; less 适配方案"></a>rem &amp; less 适配方案</h3><figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">// variables.less</span></span><br><span class="line"><span class="keyword">@charset</span> <span class="string">&quot;UTF-8&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 主流设备尺寸列表, 可根据需要增减</span></span><br><span class="line"><span class="variable">@adapterDeviceList:</span> <span class="number">750px</span>, <span class="number">720px</span>, <span class="number">640px</span>, <span class="number">540px</span>, <span class="number">480px</span>, <span class="number">424px</span>, <span class="number">414px</span>, <span class="number">400px</span>, <span class="number">384px</span>, <span class="number">375px</span>, <span class="number">360px</span>, <span class="number">320px</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设计稿尺寸, 可根据需要修改</span></span><br><span class="line"><span class="variable">@psdWidth:</span> <span class="number">750px</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 预设基准值, 可根据需要修改</span></span><br><span class="line"><span class="variable">@baseRem:</span> <span class="number">100px</span>; <span class="comment">// 当基准值设为 100px 时, 对 750px 的设计稿, 只需对 设计稿尺寸/ 100 就转成了对应的rem 尺寸</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设备种类长度 </span></span><br><span class="line"><span class="variable">@len:</span> length(<span class="variable">@adapterDeviceList</span>); <span class="comment">// less 内置函数</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">// mixins.less</span></span><br><span class="line"><span class="comment">// less没有循环语法</span></span><br><span class="line"><span class="comment">// 我们可以使用函数的迭代</span></span><br><span class="line"><span class="comment">// 根据数组长度停止当前循环</span></span><br><span class="line"><span class="comment">// 函数的执行有条件</span></span><br><span class="line"><span class="comment">// less 里 @index 是从 1 开始的</span></span><br><span class="line"><span class="selector-class">.adapter</span>(<span class="variable">@index</span>) <span class="keyword">when</span> (<span class="variable">@index</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="keyword">@media</span> (<span class="attribute">min-width</span>: extract(<span class="variable">@adapterDeviceList</span>, <span class="variable">@index</span>)) &#123;</span><br><span class="line">    <span class="selector-tag">html</span> &#123;</span><br><span class="line">      <span class="attribute">font-size</span>: <span class="variable">@baseRem</span> / <span class="variable">@psdWidth</span> * extract(<span class="variable">@adapterDeviceList</span>, <span class="variable">@index</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="selector-class">.adapter</span>(<span class="variable">@index</span> - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">// adapter.less</span></span><br><span class="line"><span class="selector-class">.adapter</span>(<span class="variable">@len</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">// index.less</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;variables&quot;</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;mixins&quot;</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;adapter&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="弹性盒布局-合理布局"><a href="#弹性盒布局-合理布局" class="headerlink" title="弹性盒布局(合理布局)"></a>弹性盒布局(合理布局)</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width,initial-scale=1.0&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>使用 flex 布局</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">section</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>对于多列的布局情形非常适合</strong></p>
+<h2 id="百分比布局-宽度适配"><a href="#百分比布局-宽度适配" class="headerlink" title="百分比布局(宽度适配)"></a>百分比布局(宽度适配)</h2><p>只做到了宽度适配</p>
+<h2 id="响应式布局-媒体查询"><a href="#响应式布局-媒体查询" class="headerlink" title="响应式布局(媒体查询)"></a>响应式布局(媒体查询)</h2><p>核心还是利用 <code>媒体查询</code></p>
+<ul>
+<li>如果是大项目，自己写响应式代码不现实，尽量利用 Bootstrap</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>对于更复杂的场景，需要更灵活考虑，<strong>没有一种适配方式可以囊括所有场景</strong></p>
+<h1 id="1px-细线边框"><a href="#1px-细线边框" class="headerlink" title="1px 细线边框"></a>1px 细线边框</h1><p>方式一—— rem + initial-scale</p>
+<ul>
+<li>所有元素先放大  dpr 倍，再缩放 1/dpr</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">  <span class="comment">// 设计稿宽度</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> WIDTH = <span class="number">750</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> dpr = <span class="built_in">window</span>.devicePixelRatio</span></span><br><span class="line"><span class="javascript">  <span class="comment">// 1 rem</span></span></span><br><span class="line"><span class="javascript">  <span class="built_in">document</span>.documentElement.style.fontSize = (<span class="number">100</span> * screen.width / WIDTH) * dpr + <span class="string">&#x27;px&#x27;</span></span></span><br><span class="line"><span class="javascript">  </span></span><br><span class="line"><span class="javascript">  <span class="keyword">let</span> scale = <span class="number">1</span> / dpr</span></span><br><span class="line"><span class="javascript">  <span class="keyword">let</span> content = <span class="string">`initial-scale=<span class="subst">$&#123;scale&#125;</span>, maximum-scale=<span class="subst">$&#123;scale&#125;</span>, minimum-scale=<span class="subst">$&#123;scale&#125;</span>`</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">let</span> meta = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;meta[name=viewport]&#x27;</span>)</span></span><br><span class="line"><span class="javascript">  meta.content = content</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">1rem</span>;</span><br><span class="line">  heiht: <span class="number">1px</span>;</span><br><span class="line">  <span class="attribute">background</span>: black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>方式二 —— 伪元素 + transform</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.border-1px-bot</span>,</span><br><span class="line"><span class="selector-class">.border-1px-top</span>,</span><br><span class="line"><span class="selector-class">.border-1px-left</span>,</span><br><span class="line"><span class="selector-class">.border-1px-right</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.border-1px-bot</span><span class="selector-pseudo">::after</span>,</span><br><span class="line"><span class="selector-class">.border-1px-top</span><span class="selector-pseudo">::after</span>,</span><br><span class="line"><span class="selector-class">.border-1px-left</span><span class="selector-pseudo">::after</span>,</span><br><span class="line"><span class="selector-class">.border-1px-right</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.border-1px-bot</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">1px</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.border-1px-top</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">1px</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.border-1px-left</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">1px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.border-1px-right</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">1px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">-webkit-min-device-pixel-ratio</span>: <span class="number">1.5</span>) <span class="keyword">and</span> (<span class="attribute">-webkit-max-device-pixel-ratio</span>: <span class="number">2.49</span>) &#123;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.border-1px-bot</span><span class="selector-pseudo">::after</span>,</span><br><span class="line">  <span class="selector-class">.border-1px-top</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scaleY</span>(.<span class="number">5</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.border-1px-left</span><span class="selector-pseudo">::after</span>,</span><br><span class="line">  <span class="selector-class">.border-1px-right</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scaleX</span>(.<span class="number">5</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">-webkit-min-device-pixel-ratio</span>: <span class="number">2.5</span>) &#123;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.border-1px-bot</span><span class="selector-pseudo">::after</span>,</span><br><span class="line">  <span class="selector-class">.border-1px-top</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scaleY</span>(.<span class="number">33</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.border-1px-left</span><span class="selector-pseudo">::after</span>,</span><br><span class="line">  <span class="selector-class">.border-1px-right</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scaleX</span>(.<span class="number">33</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;border-1px-right&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>移动端开发</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Bootstrap</title>
     <url>/2016/06/17/Bootstrap/</url>
     <content><![CDATA[<h1 id="响应式-UI-框架"><a href="#响应式-UI-框架" class="headerlink" title="响应式 UI 框架"></a>响应式 UI 框架</h1><p><a href="https://v3.bootcss.com/">官网</a></p>
