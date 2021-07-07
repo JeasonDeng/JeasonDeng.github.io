@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="DOM介绍参考手册 Document Object Model 文档对象模型  DOM 干嘛的?  就是 操作网页 的 JS 通过 DOM 来对 HTML 文档进行操作   文档 表示的就是整个 HTML 网页文档   对象 将网页中的每一个部分都转换为一个对象   模型 使用模型来表示对象之间的关系, 方便我们获取对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS基础之DOM">
+<meta property="og:url" content="http://example.com/2016/07/07/12-JS%E5%9F%BA%E7%A1%80%E4%B9%8BDOM/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="DOM介绍参考手册 Document Object Model 文档对象模型  DOM 干嘛的?  就是 操作网页 的 JS 通过 DOM 来对 HTML 文档进行操作   文档 表示的就是整个 HTML 网页文档   对象 将网页中的每一个部分都转换为一个对象   模型 使用模型来表示对象之间的关系, 方便我们获取对象">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-07-07T05:15:53.000Z">
+<meta property="article:modified_time" content="2016-07-07T05:15:53.000Z">
+<meta property="article:author" content="JeasonDeng">
+<meta property="article:tag" content="JS 基础">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2016/07/07/12-JS%E5%9F%BA%E7%A1%80%E4%B9%8BDOM/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>JS基础之DOM | Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    <a target="_blank" rel="noopener" href="https://github.com/JeasonDeng" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2016/07/07/12-JS%E5%9F%BA%E7%A1%80%E4%B9%8BDOM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="JeasonDeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JS基础之DOM
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-07-07 13:15:53" itemprop="dateCreated datePublished" datetime="2016-07-07T13:15:53+08:00">2016-07-07</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="DOM介绍"><a href="#DOM介绍" class="headerlink" title="DOM介绍"></a>DOM介绍</h1><p><a target="_blank" rel="noopener" href="http://www.w3school.com.cn/htmldom/index.asp">参考手册</a></p>
+<p>Document Object Model 文档对象模型</p>
+<ul>
+<li>DOM 干嘛的? <ul>
+<li>就是 <strong>操作网页</strong> 的</li>
+<li>JS 通过 DOM 来对 HTML 文档进行操作</li>
+</ul>
+</li>
+<li>文档<ul>
+<li>表示的就是整个 HTML 网页文档</li>
+</ul>
+</li>
+<li>对象<ul>
+<li>将网页中的每一个部分都转换为一个对象</li>
+</ul>
+</li>
+<li>模型<ul>
+<li>使用模型来表示对象之间的关系, 方便我们获取对象</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+<h2 id="文档的加载"><a href="#文档的加载" class="headerlink" title="文档的加载"></a>文档的加载</h2><p>浏览器在加载页面时, 是按照从上到下的顺序加载的, 读取到一行就运行一行</p>
+<blockquote>
+<p>如果将 js 代码写到页面的上面, 在代码执行时, 页面还没有加载<br>把 js 代码写到页面最后, 是为了保证页面加载完毕后, 再执行 js 代码</p>
+</blockquote>
+<ul>
+<li>onload 事件会在 <strong>页面加载完成之后</strong> 才触发<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="节点-Node"><a href="#节点-Node" class="headerlink" title="节点 (Node)"></a>节点 (Node)</h1><p>构成网页的最基本的组成部分, 网页中的每一个部分都可以称为节点</p>
+<ul>
+<li><p>常用节点分类</p>
+<ul>
+<li>文档节点 —— document (整个 HTML 文档)</li>
+<li>元素节点 —— 标签</li>
+<li>属性节点 —— 元素的属性</li>
+<li>文本节点 —— 标签中的文本内容</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType">节点类型</a></li>
+</ul>
+</li>
+<li><p>浏览器为我们提供了文档节点(document) , 这个对象是 window 的属性</p>
+<p>document 可以在页面中直接使用, <code>文档节点代表的是整个网页</code></p>
+</li>
+</ul>
+<h2 id="获取元素节点API"><a href="#获取元素节点API" class="headerlink" title="获取元素节点API"></a>获取元素节点API</h2><h3 id="通过-document-对象获取"><a href="#通过-document-对象获取" class="headerlink" title="通过 document 对象获取"></a>通过 document 对象获取</h3><table>
+<thead>
+<tr>
+<th>API</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>getElementById()</td>
+<td>通过 id 获取 <strong>一个</strong> 元素对象</td>
+</tr>
+<tr>
+<td>getElementsByTagName()</td>
+<td>通过标签名获取 <strong>一组</strong> 元素对象</td>
+</tr>
+<tr>
+<td>getElementsByName()</td>
+<td>通过 name 属性获取 <strong>一组</strong> (<em>表单</em>)元素对象</td>
+</tr>
+<tr>
+<td>getElementsByClassName()</td>
+<td>通过类名获取 <strong>一组</strong> 元素对象</td>
+</tr>
+<tr>
+<td><font color=#c00><strong>querySelector()</strong></font></td>
+<td>返回 <strong>一个</strong> 元素对象 (需要 <strong>CSS 选择器作为参数</strong>)</td>
+</tr>
+<tr>
+<td><font color=#c00><strong>querySelectorAll()</strong></font></td>
+<td>返回 <strong>一组</strong> 元素对象</td>
+</tr>
+<tr>
+<td>document.body</td>
+<td>获取 body 元素</td>
+</tr>
+<tr>
+<td>document.documentElement</td>
+<td>获取 html 元素</td>
+</tr>
+<tr>
+<td>document.all</td>
+<td>获取所有元素</td>
+</tr>
+<tr>
+<td>document.getElementsByTagName(‘*’)</td>
+<td>同上</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> inputs = <span class="built_in">document</span>.getElementsByName(<span class="string">&#x27;gender&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.box div&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>⚠️ querySelectorAll 获取的是静态列表，如果 dom 结构发生改变(<em>新增元素</em>)，querySelectorAll 将获取不到任何元素 —— <em>如果改变 dom 结构，需要再次重新获取</em></p>
+<h3 id="通过具体的元素节点获取"><a href="#通过具体的元素节点获取" class="headerlink" title="通过具体的元素节点获取"></a>通过具体的元素节点获取</h3><table>
+<thead>
+<tr>
+<th>API</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>getElementsByTagName()</td>
+<td>返回当前节点的 <strong>指定标签名的后代节点</strong></td>
+</tr>
+<tr>
+<td>childNodes (<strong>不常用</strong>)</td>
+<td>属性, 返回当前节点的所有子节点 (包含文本节点)</td>
+</tr>
+<tr>
+<td>children (<strong>常用</strong>)</td>
+<td>属性, 返回当前节点的所有子元素 (不包含文本节点)</td>
+</tr>
+<tr>
+<td>firstElementChild (IE8 不支持)</td>
+<td>属性, 返回当前节点的第一个子元素</td>
+</tr>
+<tr>
+<td>lastElementChild (IE8 不支持)</td>
+<td>属性, 返回当前节点的最后一个子元素</td>
+</tr>
+<tr>
+<td>parentNode</td>
+<td>属性, 返回当前节点的父元素</td>
+</tr>
+<tr>
+<td>parentElement</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>previousElementSibling (IE8 不支持)</td>
+<td>属性, 返回当前节点的前一个兄弟元素</td>
+</tr>
+<tr>
+<td>nextElementSibling (IE8 不支持)</td>
+<td>属性, 返回当前节点的后一个兄弟元素</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> lis = ul.getElementsByTagName(<span class="string">&#x27;li&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fir = ul.firstElementChild</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> pre = li.previousElementSibling</span><br></pre></td></tr></table></figure>
+
+<h2 id="增删改节点方法"><a href="#增删改节点方法" class="headerlink" title="增删改节点方法"></a>增删改节点方法</h2><table>
+<thead>
+<tr>
+<th>API</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>createElement()</td>
+<td>创建元素节点(需要一个 <code>标签名</code> 作为参数)</td>
+</tr>
+<tr>
+<td>appendChild()</td>
+<td>向父节点的最后添加新的子节点</td>
+</tr>
+<tr>
+<td>insertBefore()</td>
+<td>将节点插入到指定节点前边</td>
+</tr>
+<tr>
+<td>replaceChild()</td>
+<td>使用指定的节点替换已有的子节点</td>
+</tr>
+<tr>
+<td>removeChild()</td>
+<td>删除指定的子节点</td>
+</tr>
+<tr>
+<td>remove()</td>
+<td>删除自身</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.createElement(<span class="string">&#x27;li&#x27;</span>)</span><br><span class="line"></span><br><span class="line">父节点.appendChild(子节点)</span><br><span class="line"></span><br><span class="line">父节点.insertBefore(新节点, 旧节点)</span><br><span class="line"></span><br><span class="line">父节点.replaceChild(新节点, 旧节点)</span><br><span class="line"></span><br><span class="line">父节点.removeChild(子节点)</span><br><span class="line"></span><br><span class="line">el.remove() <span class="comment">// 删除自身</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-innerHTML-也可以完成增删改节点操作"><a href="#使用-innerHTML-也可以完成增删改节点操作" class="headerlink" title="使用 innerHTML 也可以完成增删改节点操作"></a>使用 innerHTML 也可以完成增删改节点操作</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ul.innerHTML += <span class="string">&#x27;&lt;li&gt;苹果&lt;/li&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="获取-设置元素的属性"><a href="#获取-设置元素的属性" class="headerlink" title="获取/设置元素的属性"></a>获取/设置元素的属性</h2><ul>
+<li><p>元素对象.属性名</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">元素对象.value</span><br></pre></td></tr></table></figure></li>
+<li><p>表单元素.disabled</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">input.disabled = <span class="literal">true</span>  <span class="comment">// 禁用</span></span><br><span class="line">input.disabled = <span class="literal">false</span> <span class="comment">// 启用</span></span><br></pre></td></tr></table></figure></li>
+<li><p>class 是个例外</p>
+<ul>
+<li>读取 class 属性要使用 <code>元素对象.className</code><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">input.className</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h3 id="类的操作"><a href="#类的操作" class="headerlink" title="类的操作"></a>类的操作</h3><p>通过修改 class 属性来修改元素的样式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box.className += <span class="string">&#x27; b2&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="添加-删除类"><a href="#添加-删除类" class="headerlink" title="添加/删除类"></a>添加/删除类</h3><p>通过 classList 属性来添加删除类</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ele.classList.add(<span class="string">&#x27;foo&#x27;</span>)</span><br><span class="line">ele.classList.remove(<span class="string">&#x27;bar&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="获取元素节点的内部内容"><a href="#获取元素节点的内部内容" class="headerlink" title="获取元素节点的内部内容"></a>获取元素节点的内部内容</h2><ol>
+<li>元素对象.innerHTML<ul>
+<li>只能获取 <code>非自结束标签 (非单标签) </code>的内容</li>
+</ul>
+</li>
+<li>元素对象.innerText<ul>
+<li>只获取文本内容, 如果有标签, 会自动去除 html 标签</li>
+</ul>
+</li>
+</ol>
+<h1 id="操作-获取元素样式"><a href="#操作-获取元素样式" class="headerlink" title="操作/获取元素样式"></a>操作/获取元素样式</h1><table>
+<thead>
+<tr>
+<th>API</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>元素.style.样式名 = 值</td>
+<td>设置的是 <strong>内联样式</strong>(具有较高的优先级，样式名使用 <strong>驼峰命名法</strong>)</td>
+</tr>
+<tr>
+<td>元素.style.样式名</td>
+<td>获取的是 <strong>内联样式</strong>, <strong>无法获取到 css 样式表中的样式</strong>，带单位</td>
+</tr>
+<tr>
+<td>元素.currentStyle.样式名 <strong>(只有 IE 支持)</strong></td>
+<td>获取 <code>当前显示的样式</code>; <strong>谁生效获取谁</strong>，只读，不可修改；<em>如果要修改, 必须通过 style 属性</em></td>
+</tr>
+<tr>
+<td>getComputedStyle()</td>
+<td>获取 <code>当前显示的样式</code>; window 的方法, 直接使用 **(IE8 不支持)**；获取到的样式是 <font color=#c00>只读的</font>, 不能修改; <em>如果要修改, 必须通过 style 属性</em></td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">box.style.width = <span class="string">&#x27;300px&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 第一个参数 —— 要获取样式的元素</span></span><br><span class="line"><span class="comment">// 第二个参数 —— 一般传 null</span></span><br><span class="line"><span class="comment">// 返回一个对象, 对象中封装了当前元素的样式</span></span><br><span class="line"><span class="built_in">console</span>.log(getComputedStyle(box1, <span class="literal">null</span>).width) <span class="comment">// 100px</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取元素样式的兼容方法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getStyle</span>(<span class="params">element, attr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">window</span>.getComputedStyle ? getComputedStyle(element, <span class="literal">null</span>)[attr] : element.currentStyle[attr]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="获取-DOM-元素的尺寸-amp-位置"><a href="#获取-DOM-元素的尺寸-amp-位置" class="headerlink" title="获取 DOM 元素的尺寸&amp;位置"></a>获取 DOM 元素的尺寸&amp;位置</h1><h2 id="client-系列-padding-box"><a href="#client-系列-padding-box" class="headerlink" title="client 系列 (padding-box)"></a>client 系列 (padding-box)</h2><ul>
+<li>clientHeight/clientWidth<ul>
+<li>获取元素的 <strong><code>可见大小</code></strong></li>
+<li>返回的是数值, <em>不带 px</em></li>
+<li>包含 padding, 不包含 border</li>
+<li><strong>只读的, 不能修改</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="offset-系列-border-box"><a href="#offset-系列-border-box" class="headerlink" title="offset 系列 (border-box)"></a>offset 系列 (border-box)</h2><ul>
+<li>offsetWidth/offsetHeight<ul>
+<li>获取元素的大小</li>
+<li>包含 padding 和 border</li>
+</ul>
+</li>
+<li>element.offsetParent<ul>
+<li>获取当前元素的**<code>定位</code>**父元素</li>
+<li>返回父元素对象</li>
+<li>获取到离当前元素最近的 <strong>开启了定位</strong> 的祖先元素</li>
+</ul>
+</li>
+<li>offsetLeft/offsetTop<ul>
+<li>获取当前元素相对于其定位父元素的 <code>偏移量</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="scroll-系列"><a href="#scroll-系列" class="headerlink" title="scroll 系列"></a>scroll 系列</h2><ul>
+<li><p>scrollWidth/scrollHeight</p>
+<ul>
+<li>获取当前元素整个实际的大小</li>
+</ul>
+</li>
+<li><p>element.scrollLeft</p>
+<ul>
+<li>获取当前元素水平滚动出去的距离</li>
+</ul>
+</li>
+<li><p><strong>element.scrollTop</strong></p>
+<ul>
+<li>一个元素的 <code>scrollTop</code> 值是这个元素的 <strong>内容顶部</strong>（卷起来的）到它的视口可见内容（的顶部）的距离的度量</li>
+<li>当一个元素的内容没有产生垂直方向的滚动条，那么它的 <code>scrollTop</code> 值为 <code>0</code></li>
+<li><font color=#c00>当满足 ele.scrollHeight - ele.scrollTop = ele.clientHeight 时, 表示垂直滚动条已经到底了</font></li>
+<li>⚠️ 网页向上卷曲出去的高度问题<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> st = <span class="built_in">document</span>.documentElement.scrollTop</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h1 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h1><p><a target="_blank" rel="noopener" href="https://www.runoob.com/jsref/dom-obj-event.html">事件参考</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Events">事件汇总MDN</a><br>文档或浏览器窗口中发生的一些 <strong>特定的交互瞬间</strong>, 就是用户和浏览器之间的交互行为</p>
+<ul>
+<li>JS 和 HTML 之间的额交互是通过 <code>事件</code> 实现的</li>
+<li>代表性事件<ul>
+<li>点击、鼠标移入/出、键盘按下……</li>
+<li>事件被触发时, 对应的函数执行</li>
+</ul>
+</li>
+</ul>
+<h2 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h2><p>当事件响应函数被触发时, 浏览器每次都会将一个 <strong>事件对象</strong> 作为实参传递给响应函数</p>
+<ul>
+<li>在事件对象中, 封装了当前事件相关的一切信息, 比如:<font color=#c00>鼠标坐标、键盘哪个按键被按下、阻止事件冒泡、阻止浏览器默认行为、判断触发事件的对象…</font></li>
+</ul>
+<h3 id="event-对象常用属性"><a href="#event-对象常用属性" class="headerlink" title="event 对象常用属性"></a>event 对象常用属性</h3><ul>
+<li><p>clientX/clientY</p>
+<ul>
+<li>鼠标相对于 <strong>当前可见窗口左上角</strong> 的坐标值</li>
+</ul>
+</li>
+<li><p>pageX/pageY (IE8 不支持)</p>
+<ul>
+<li>鼠标相对于 <strong>页面左上角</strong> 的坐标值<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实时获取鼠标的坐标</span></span><br><span class="line">areaDiv.onmousemove = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    e = e || <span class="built_in">window</span>.event <span class="comment">// 兼容 IE8 写法</span></span><br><span class="line">    <span class="built_in">console</span>.log(e) <span class="comment">// [object MouseEvent]</span></span><br><span class="line">    <span class="keyword">var</span> x = e.clientX</span><br><span class="line">    <span class="keyword">var</span> y = e.clientY</span><br><span class="line">    </span><br><span class="line">    showMsg.innerHTML = <span class="string">&#x27;x=&#x27;</span> + x + <span class="string">&#x27;, y=&#x27;</span> + y</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>offsetX/offsetY</p>
+<ul>
+<li>鼠标相对于 <strong>事件元素左上角</strong> 的坐标值</li>
+</ul>
+</li>
+<li><p>target</p>
+<ul>
+<li>返回触发此事件的元素</li>
+</ul>
+</li>
+<li><p>keyCode</p>
+<ul>
+<li>对于 keydown 和 keyup 事件，返回按键编码</li>
+</ul>
+</li>
+<li><p>cancelBubble</p>
+<ul>
+<li>阻止事件冒泡</li>
+</ul>
+</li>
+<li><p>preventDefault()</p>
+<ul>
+<li>阻止浏览器默认行为, IE8 不支持</li>
+</ul>
+</li>
+<li><p>⚠️在 IE8 中, 响应函数触发时, 浏览器不会传递事件对象; 而是将事件对象作为 window 的属性保存的</p>
+<p><strong>window.event</strong></p>
+</li>
+<li><p>解决兼容性问题</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">event = event || <span class="built_in">window</span>.event   <span class="comment">// 兼容 IE8 写法</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="事件冒泡-Bubble"><a href="#事件冒泡-Bubble" class="headerlink" title="事件冒泡(Bubble)"></a>事件冒泡(Bubble)</h2><p>指的就是事件的向上传导, 当后代的元素被触发时, 其祖先元素的**<code>相同</code>**事件也会被触发</p>
+<ul>
+<li>在触发事件的元素(<em>后代元素</em>)的响应事件函数中 <strong>取消冒泡</strong><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">event.stopPropagation()</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="事件委派"><a href="#事件委派" class="headerlink" title="事件委派"></a>事件委派</h2><p>将事件绑定给元素共同的 <code>祖先元素</code>, 这样当后代元素的事件触发时, 会一直冒泡到祖先元素<br>从而通过祖先元素的响应函数来处理事件</p>
+<ol>
+<li>只绑定一次事件, 即可应用到多个元素上; <font color=#c00><strong>即使元素是后添加的</strong></font></li>
+<li>可以减少事件绑定次数, 提高性能</li>
+</ol>
+<ul>
+<li><strong>event.target</strong><ul>
+<li>返回触发事件的对象<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ul.onclick = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 判断触发事件的对象</span></span><br><span class="line">    <span class="keyword">if</span>(event.target.className === <span class="string">&#x27;link&#x27;</span>) &#123;</span><br><span class="line">        alert(<span class="string">&#x27;111&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="事件的绑定"><a href="#事件的绑定" class="headerlink" title="事件的绑定"></a>事件的绑定</h2><p>使用 <code>对象.事件 = 响应函数</code> 的形式只能为一个元素的同一个事件绑定 <strong>一个</strong> 响应函数</p>
+<ul>
+<li><p>如何同时绑定多个?</p>
+<ul>
+<li><p><strong>addEventListener()</strong>  (IE8 不支持)</p>
+<ul>
+<li>第一个参数 —— 事件字符串(不带 on)</li>
+<li>第二个参数 —— 事件处理函数</li>
+<li>第三个参数 —— false (控制事件阶段)</li>
+<li>当事件被触发时, 会按绑定顺序执行</li>
+<li>回调函数中的 this 是绑定事件的对象<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">btn.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">&#x27;1&#x27;</span>)    </span><br><span class="line">&#125;, <span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line">btn.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">&#x27;2&#x27;</span>)    </span><br><span class="line">&#125;, <span class="literal">false</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>attachEvent() (IE8)</p>
+<ul>
+<li>第一个参数 —— 事件字符串(带 on)</li>
+<li>第二个参数 —— 事件处理函数</li>
+<li>当事件被触发时, 会按后绑定的先执行</li>
+<li>回调函数中的 this 是 window<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">btn.attachEvent(<span class="string">&#x27;onclick&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">btn.attachEvent(<span class="string">&#x27;onclick&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">&#x27;2&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>兼容方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ele —— 要绑定事件的对象</span></span><br><span class="line"><span class="comment">// eventStr —— 事件字符串(不带 on)</span></span><br><span class="line"><span class="comment">// callback —— 回调函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bind</span>(<span class="params">ele, eventStr, callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (ele.addEventListener) &#123;</span><br><span class="line">        <span class="comment">// 大多数浏览器</span></span><br><span class="line">        ele.addEventListener(eventStr, callback, <span class="literal">false</span>)    </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// IE8</span></span><br><span class="line">        ele.attachEvent(<span class="string">&#x27;on&#x27;</span> + eventStr, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            callback.call(ele)</span><br><span class="line">        &#125;)    </span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bind(btn, <span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">bind(btn, <span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">&#x27;2&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="事件的解绑"><a href="#事件的解绑" class="headerlink" title="事件的解绑"></a>事件的解绑</h2><p>dom 0 方式绑定的事件的解绑</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">btn.onclick = <span class="literal">null</span></span><br></pre></td></tr></table></figure>
+
+<p>dom 2 方式绑定的事件的解绑 —— removeEventListener()</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.removeEventListener(<span class="string">&#x27;transitionend&#x27;</span>, fn)</span><br></pre></td></tr></table></figure>
+
+<h2 id="事件的传播"><a href="#事件的传播" class="headerlink" title="事件的传播"></a>事件的传播</h2><ol>
+<li>捕获阶段 —— 从外向里</li>
+<li>目标阶段 —— 最开始选择的那个元素</li>
+<li>冒泡阶段 —— 从里向外</li>
+</ol>
+<h2 id="加载事件-onload"><a href="#加载事件-onload" class="headerlink" title="加载事件 onload"></a>加载事件 onload</h2><ul>
+<li>onload <ul>
+<li>页面/图片加载事件</li>
+<li>在页面/图片元素完全 <code>渲染完毕</code> 才会执行</li>
+</ul>
+</li>
+</ul>
+<h2 id="鼠标事件-onmouse"><a href="#鼠标事件-onmouse" class="headerlink" title="鼠标事件 onmouse**"></a>鼠标事件 onmouse**</h2><ul>
+<li>onmousemove </li>
+<li>onmousedown</li>
+<li>onmouseup</li>
+<li>onmouseenter/onmouseleave</li>
+</ul>
+<h2 id="鼠标滚轮事件-onwheel"><a href="#鼠标滚轮事件-onwheel" class="headerlink" title="鼠标滚轮事件 onwheel"></a>鼠标滚轮事件 onwheel</h2><p><code>onwheel</code> 通常用于处理滑轮的滚动事件</p>
+<p>触发条件 —— 鼠标滚轮、触摸板</p>
+<ul>
+<li>onwheel <ul>
+<li>event.deltaX —— 横向滚动量</li>
+<li>event.deltaY —— 纵向滚动量<ul>
+<li>向下滚 &gt; 0</li>
+<li>向上滚 &lt; 0</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="滚动事件-onscroll"><a href="#滚动事件-onscroll" class="headerlink" title="滚动事件 onscroll"></a>滚动事件 onscroll</h2><p><code>onscroll</code> 用于处理某个对象内容的滚动</p>
+<p>触发条件 —— 鼠标滚轮、上下键、拖动滚动条、触摸板</p>
+<p>⚠️ 注意点</p>
+<ol>
+<li><p>不要给 body 添加 onscroll 事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.onscroll = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>) <span class="comment">// window, 而不是 body, 且 body.scrollTop 的值永远为 0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>获取页面滚动距离时，最好加给 document</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.onscroll = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;scroll&#x27;</span>, <span class="built_in">document</span>.documentElement.scrollTop)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>给其他元素添加 onscroll 事件需要指定高度</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">500px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#000</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">1000px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.box&#x27;</span>)</span><br><span class="line"></span><br><span class="line">box.onscroll = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;scroll&#x27;</span>, <span class="built_in">this</span>.scrollTop)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="拖拽事件"><a href="#拖拽事件" class="headerlink" title="拖拽事件"></a>拖拽事件</h2><ul>
+<li><p>拖拽流程</p>
+<ul>
+<li>1.鼠标在被拖拽元素上 <strong><code>按下</code></strong> 开始拖拽</li>
+<li>2.鼠标 **<code>移动</code>**时, 被拖拽元素跟随鼠标移动</li>
+<li>3.鼠标 **<code>松开</code>**时, 被拖拽元素固定在当前位置<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 鼠标按下时</span></span><br><span class="line">box.onmousedown = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 设置 box 捕获所有按下事件</span></span><br><span class="line">    box.setCapture &amp;&amp; box.setCapture() <span class="comment">// 兼容 IE8</span></span><br><span class="line">    <span class="keyword">var</span> distanceX = e.clientX - <span class="built_in">this</span>.offsetLeft</span><br><span class="line">    <span class="keyword">var</span> distanceY = e.clientY - <span class="built_in">this</span>.offsetTop</span><br><span class="line">    <span class="comment">// 鼠标拖动时</span></span><br><span class="line">    <span class="built_in">document</span>.onmousemove = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">        e = e || <span class="built_in">window</span>.event</span><br><span class="line">        <span class="keyword">var</span> left = e.clientX</span><br><span class="line">        <span class="keyword">var</span> top = e.clientY</span><br><span class="line">        box.style.left = left - distanceX + <span class="string">&#x27;px&#x27;</span></span><br><span class="line">        box.style.top = top - distanceY + <span class="string">&#x27;px&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 鼠标松开时</span></span><br><span class="line">    <span class="built_in">document</span>.onmouseup = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 取消鼠标拖动事件</span></span><br><span class="line">        <span class="built_in">document</span>.onmousemove = <span class="literal">null</span></span><br><span class="line">        <span class="comment">// 取消鼠标松开事件</span></span><br><span class="line">        <span class="built_in">document</span>.onmouseup = <span class="literal">null</span></span><br><span class="line">        <span class="comment">// 取消对事件的捕获</span></span><br><span class="line">        box.releaseCapture &amp;&amp; box.releaseCapture() <span class="comment">// 兼容 IE8</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>当我们拖拽网页中的内容时, 浏览器会默认去搜索引擎中搜索内容, 此时导致拖拽功能异常, 这是浏览器的默认行为; 如果不希望发生这个行为, 可以通过 return false 来取消默认行为 (IE8 无效)</p>
+</li>
+</ul>
+<h2 id="键盘事件-onkey"><a href="#键盘事件-onkey" class="headerlink" title="键盘事件 onkey**"></a>键盘事件 onkey**</h2><p>键盘事件 <font color=#c00><strong>一般会绑定给可以获取到焦点的对象(表单)或者 document</strong></font></p>
+<ul>
+<li><p>可以通过 keyCode 获取按键 Unicode 编码</p>
+</li>
+<li><p>onkeydown</p>
+<ul>
+<li>键盘按下</li>
+<li>如果一直按着不松手, 则事件会一直触发 (<em>但是第一次会有卡顿,可用定时器解决</em>) <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--定时器解决移动卡顿的例子--&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;ie=edge&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-id">#box</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: pink;</span></span><br><span class="line"><span class="css">      <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 获取 box 元素</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> box = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;box&#x27;</span>)</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 定义方向变量</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> dir = <span class="number">0</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 速度</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> speed = <span class="number">10</span></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 为 document 绑定键盘按下事件</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.onkeydown = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      e = e || <span class="built_in">window</span>.event</span></span><br><span class="line"><span class="javascript">      <span class="comment">// 判断是否按下 ctrl</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">if</span> (e.ctrlKey) &#123;</span></span><br><span class="line"><span class="javascript">        speed = <span class="number">200</span></span></span><br><span class="line"><span class="javascript">      &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">        speed = <span class="number">10</span></span></span><br><span class="line"><span class="javascript">      &#125;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// 判断方向</span></span></span><br><span class="line"><span class="javascript">      dir = e.keyCode</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 为 document 绑定键盘松开事件</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.onkeyup = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      dir = <span class="number">0</span></span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="built_in">setInterval</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">switch</span> (dir) &#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">case</span> <span class="number">37</span>:</span></span><br><span class="line"><span class="javascript">          <span class="comment">// alert(&#x27;左&#x27;)</span></span></span><br><span class="line"><span class="javascript">          box.style.left = box.offsetLeft - speed + <span class="string">&#x27;px&#x27;</span></span></span><br><span class="line"><span class="javascript">          <span class="keyword">break</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">case</span> <span class="number">38</span>:</span></span><br><span class="line"><span class="javascript">          <span class="comment">// alert(&#x27;上&#x27;)</span></span></span><br><span class="line"><span class="javascript">          box.style.top = box.offsetTop - speed + <span class="string">&#x27;px&#x27;</span></span></span><br><span class="line"><span class="javascript">          <span class="keyword">break</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">case</span> <span class="number">39</span>:</span></span><br><span class="line"><span class="javascript">          <span class="comment">// alert(&#x27;右&#x27;)</span></span></span><br><span class="line"><span class="javascript">          box.style.left = box.offsetLeft + speed + <span class="string">&#x27;px&#x27;</span></span></span><br><span class="line"><span class="javascript">          <span class="keyword">break</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">case</span> <span class="number">40</span>:</span></span><br><span class="line"><span class="javascript">          <span class="comment">// alert(&#x27;下&#x27;)</span></span></span><br><span class="line"><span class="javascript">          box.style.top = box.offsetTop + speed + <span class="string">&#x27;px&#x27;</span></span></span><br><span class="line"><span class="javascript">          <span class="keyword">break</span></span></span><br><span class="line"><span class="javascript">      &#125;</span></span><br><span class="line"><span class="javascript">    &#125;, <span class="number">20</span>)</span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>onkeyup</p>
+<ul>
+<li>键盘松开<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.onkeydown = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    e = e || <span class="built_in">window</span>.event</span><br><span class="line">   <span class="comment">// console.log(e.keyCode)</span></span><br><span class="line">    <span class="keyword">if</span> (e.keyCode === <span class="number">89</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log (<span class="string">&#x27;y 被按下了&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">document</span>.onkeyup = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">input.onkeydown = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    e = e || <span class="built_in">window</span>.event </span><br><span class="line">    <span class="comment">// 不让输入数字</span></span><br><span class="line">    <span class="keyword">if</span> (e.keyCode &gt;=<span class="number">48</span> &amp;&amp; e.keyCode &lt;=<span class="number">57</span>) &#123;</span><br><span class="line">        <span class="comment">// 在 input 中输入内容, 属于 onkeydown 的默认行为; </span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>   <span class="comment">// 如果取消了 onkeydown 的默认行为, 则无法在文本框中输入内容</span></span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>keyCode</p>
+<ul>
+<li>按键编码</li>
+</ul>
+</li>
+<li><p>altKey</p>
+<ul>
+<li>alt 是否被按下, 返回 true/false<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(event.altKey &amp;&amp; event.keyCode === <span class="number">89</span>) &#123;</span><br><span class="line">    alert(<span class="string">&#x27;alt 和 y 都被按下了&#x27;</span>) </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>ctrlKey</p>
+<ul>
+<li>ctrl 是否被按下, 返回 true/false</li>
+</ul>
+</li>
+<li><p>shiftKey</p>
+<ul>
+<li>shift 是否被按下, 返回 true/false</li>
+</ul>
+</li>
+</ul>
+<h2 id="右键菜单-oncontextmenu"><a href="#右键菜单-oncontextmenu" class="headerlink" title="右键菜单 oncontextmenu"></a>右键菜单 oncontextmenu</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.oncontextmenu = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 自定义右键菜单</span></span><br><span class="line">  <span class="comment">// 1.获取鼠标点的坐标</span></span><br><span class="line">  。。。</span><br><span class="line">  <span class="comment">// 2.设置给自定义菜单元素的 left/top</span></span><br><span class="line">  ...</span><br><span class="line">  <span class="comment">// 3.阻止默认的右键菜单</span></span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="浏览器的默认行为"><a href="#浏览器的默认行为" class="headerlink" title="浏览器的默认行为"></a>浏览器的默认行为</h1><ol>
+<li>a 链接的跳转</li>
+<li>右键出现菜单</li>
+<li>鼠标复制后搜索</li>
+</ol>
+<h1 id="阻止浏览器默认行为"><a href="#阻止浏览器默认行为" class="headerlink" title="阻止浏览器默认行为"></a>阻止浏览器默认行为</h1><p>阻止 dom0 的默认行为</p>
+<ul>
+<li><p><strong>return false</strong> 或 e.preventDefault() 都可以<br>阻止 dom2(通过 addEventListener 方式绑定的事件) 的默认行为</p>
+</li>
+<li><p><strong>只能使用 e.preventDefault()</strong></p>
+<ul>
+<li>IE8 不支持 e.preventDefault</li>
+<li><font color=#c40>兼容写法</font><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">e.preventDefault &amp;&amp; e.preventDefault()</span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h1 id="弹出框"><a href="#弹出框" class="headerlink" title="弹出框"></a>弹出框</h1><p><a target="_blank" rel="noopener" href="http://www.w3school.com.cn/jsref/dom_obj_window.asp">参考手册</a></p>
+<ul>
+<li>confirm(‘确认删除吗?’)<ul>
+<li>带有确认和取消按钮</li>
+<li>点击确认, 返回 true</li>
+<li>点击取消, 返回 false<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (confirm(<span class="string">&#x27;确认删除吗?&#x27;</span>)) &#123;</span><br><span class="line">    </span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h1 id="html-格式字符串转-js-字符串"><a href="#html-格式字符串转-js-字符串" class="headerlink" title="html 格式字符串转 js 字符串"></a>html 格式字符串转 js 字符串</h1><p><a target="_blank" rel="noopener" href="https://www.html.cn/tool/html2js/">html2js</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JS-%E5%9F%BA%E7%A1%80/" rel="tag"># JS 基础</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/07/06/11-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" rel="prev" title="对象的常用方法">
+      <i class="fa fa-chevron-left"></i> 对象的常用方法
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">DOM介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E7%9A%84%E5%8A%A0%E8%BD%BD"><span class="nav-number">1.1.</span> <span class="nav-text">文档的加载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8A%82%E7%82%B9-Node"><span class="nav-number">2.</span> <span class="nav-text">节点 (Node)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E8%8A%82%E7%82%B9API"><span class="nav-number">2.1.</span> <span class="nav-text">获取元素节点API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87-document-%E5%AF%B9%E8%B1%A1%E8%8E%B7%E5%8F%96"><span class="nav-number">2.1.1.</span> <span class="nav-text">通过 document 对象获取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E5%85%B7%E4%BD%93%E7%9A%84%E5%85%83%E7%B4%A0%E8%8A%82%E7%82%B9%E8%8E%B7%E5%8F%96"><span class="nav-number">2.1.2.</span> <span class="nav-text">通过具体的元素节点获取</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A2%9E%E5%88%A0%E6%94%B9%E8%8A%82%E7%82%B9%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">增删改节点方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-innerHTML-%E4%B9%9F%E5%8F%AF%E4%BB%A5%E5%AE%8C%E6%88%90%E5%A2%9E%E5%88%A0%E6%94%B9%E8%8A%82%E7%82%B9%E6%93%8D%E4%BD%9C"><span class="nav-number">2.2.1.</span> <span class="nav-text">使用 innerHTML 也可以完成增删改节点操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96-%E8%AE%BE%E7%BD%AE%E5%85%83%E7%B4%A0%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="nav-number">2.3.</span> <span class="nav-text">获取&#x2F;设置元素的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-number">2.3.1.</span> <span class="nav-text">类的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0-%E5%88%A0%E9%99%A4%E7%B1%BB"><span class="nav-number">2.3.2.</span> <span class="nav-text">添加&#x2F;删除类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E8%8A%82%E7%82%B9%E7%9A%84%E5%86%85%E9%83%A8%E5%86%85%E5%AE%B9"><span class="nav-number">2.4.</span> <span class="nav-text">获取元素节点的内部内容</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C-%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E6%A0%B7%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">操作&#x2F;获取元素样式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96-DOM-%E5%85%83%E7%B4%A0%E7%9A%84%E5%B0%BA%E5%AF%B8-amp-%E4%BD%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">获取 DOM 元素的尺寸&amp;位置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#client-%E7%B3%BB%E5%88%97-padding-box"><span class="nav-number">4.1.</span> <span class="nav-text">client 系列 (padding-box)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#offset-%E7%B3%BB%E5%88%97-border-box"><span class="nav-number">4.2.</span> <span class="nav-text">offset 系列 (border-box)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scroll-%E7%B3%BB%E5%88%97"><span class="nav-number">4.3.</span> <span class="nav-text">scroll 系列</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">事件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1"><span class="nav-number">5.1.</span> <span class="nav-text">事件对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#event-%E5%AF%B9%E8%B1%A1%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7"><span class="nav-number">5.1.1.</span> <span class="nav-text">event 对象常用属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1-Bubble"><span class="nav-number">5.2.</span> <span class="nav-text">事件冒泡(Bubble)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%B4%BE"><span class="nav-number">5.3.</span> <span class="nav-text">事件委派</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%9A%84%E7%BB%91%E5%AE%9A"><span class="nav-number">5.4.</span> <span class="nav-text">事件的绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%9A%84%E8%A7%A3%E7%BB%91"><span class="nav-number">5.5.</span> <span class="nav-text">事件的解绑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%BC%A0%E6%92%AD"><span class="nav-number">5.6.</span> <span class="nav-text">事件的传播</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E8%BD%BD%E4%BA%8B%E4%BB%B6-onload"><span class="nav-number">5.7.</span> <span class="nav-text">加载事件 onload</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6-onmouse"><span class="nav-number">5.8.</span> <span class="nav-text">鼠标事件 onmouse**</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BC%A0%E6%A0%87%E6%BB%9A%E8%BD%AE%E4%BA%8B%E4%BB%B6-onwheel"><span class="nav-number">5.9.</span> <span class="nav-text">鼠标滚轮事件 onwheel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BB%9A%E5%8A%A8%E4%BA%8B%E4%BB%B6-onscroll"><span class="nav-number">5.10.</span> <span class="nav-text">滚动事件 onscroll</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%96%E6%8B%BD%E4%BA%8B%E4%BB%B6"><span class="nav-number">5.11.</span> <span class="nav-text">拖拽事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6-onkey"><span class="nav-number">5.12.</span> <span class="nav-text">键盘事件 onkey**</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95-oncontextmenu"><span class="nav-number">5.13.</span> <span class="nav-text">右键菜单 oncontextmenu</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E9%BB%98%E8%AE%A4%E8%A1%8C%E4%B8%BA"><span class="nav-number">6.</span> <span class="nav-text">浏览器的默认行为</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%98%BB%E6%AD%A2%E6%B5%8F%E8%A7%88%E5%99%A8%E9%BB%98%E8%AE%A4%E8%A1%8C%E4%B8%BA"><span class="nav-number">7.</span> <span class="nav-text">阻止浏览器默认行为</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%B9%E5%87%BA%E6%A1%86"><span class="nav-number">8.</span> <span class="nav-text">弹出框</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#html-%E6%A0%BC%E5%BC%8F%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC-js-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">9.</span> <span class="nav-text">html 格式字符串转 js 字符串</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">JeasonDeng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JeasonDeng</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
