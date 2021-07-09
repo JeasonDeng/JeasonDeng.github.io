@@ -951,6 +951,123 @@
       </tags>
   </entry>
   <entry>
+    <title>DOM位置尺寸API</title>
+    <url>/2016/07/09/13-%E4%BD%8D%E7%BD%AE%E5%B0%BA%E5%AF%B8API/</url>
+    <content><![CDATA[<h1 id="获取元素大小"><a href="#获取元素大小" class="headerlink" title="获取元素大小"></a>获取元素大小</h1><h2 id="元素属性获取"><a href="#元素属性获取" class="headerlink" title="元素属性获取"></a>元素属性获取</h2><table>
+<thead>
+<tr>
+<th>属性/API</th>
+<th>返回值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>clientWidth</td>
+<td>css 宽 + padding</td>
+<td>只读，不带单位</td>
+</tr>
+<tr>
+<td>offsetWidth</td>
+<td>css 宽 + padding + border</td>
+<td>只读，不带单位</td>
+</tr>
+<tr>
+<td>scrollWidth</td>
+<td>如果其子元素大小没有超出，返回值 —— 自身 clientWidth ；如果其子元素大小超出，返回值 —— 其子元素的 offsetWidth</td>
+<td>只读，不带单位</td>
+</tr>
+<tr>
+<td>getBoundingClientRect()</td>
+<td>返回包含元素 width / height / left / top / right / bottom 的<strong>对象</strong>；包含 padding, 也包含 border；</td>
+<td>只读，不带单位</td>
+</tr>
+</tbody></table>
+<span id="more"></span>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect">使用方法</a></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">element.getBoundingClientRect().width</span><br><span class="line"></span><br><span class="line"><span class="comment">// left / top / right / bottom 都是相对于视口的</span></span><br><span class="line">element.getBoundingClientRect().left</span><br></pre></td></tr></table></figure>
+
+<h1 id="获取视口大小"><a href="#获取视口大小" class="headerlink" title="获取视口大小"></a>获取视口大小</h1><p>获取视口大小</p>
+<ul>
+<li><strong>document.documentElement.clientWidth</strong></li>
+<li><strong>document.documentElement.clientHeight</strong></li>
+</ul>
+<h1 id="位置相关-API"><a href="#位置相关-API" class="headerlink" title="位置相关 API"></a>位置相关 API</h1><h2 id="offsetLeft-offsetTop"><a href="#offsetLeft-offsetTop" class="headerlink" title="offsetLeft / offsetTop"></a>offsetLeft / offsetTop</h2><p>元素相对于其 offsetParent <code>内边距</code> 的偏移量 </p>
+<ul>
+<li><em>如果 offsetParent 有 border, border 不算在内</em></li>
+<li>如果元素自身有 translate, translate 的值也不算在内</li>
+</ul>
+<blockquote>
+<p>所有元素都有 offsetLeft / offsetTop, 并不是只有定位的元素才有</p>
+</blockquote>
+<h3 id="offsetParent"><a href="#offsetParent" class="headerlink" title="offsetParent"></a>offsetParent</h3><table>
+<thead>
+<tr>
+<th>情形</th>
+<th>offsetParent</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>有定位的祖先元素</td>
+<td>距离自身<strong>最近的拥有定位属性</strong>的祖先元素</td>
+<td>offsetLeft 计算基于 offsetParent</td>
+</tr>
+<tr>
+<td>没有定位的祖先元素</td>
+<td>body</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>自身为 fixed 元素</td>
+<td>null(Chrome);  body (FireFox)</td>
+<td>offsetLeft 计算基于 <strong>视口</strong></td>
+</tr>
+</tbody></table>
+<h2 id="scrollLeft-scrollTop"><a href="#scrollLeft-scrollTop" class="headerlink" title="scrollLeft / scrollTop"></a>scrollLeft / scrollTop</h2><p>这两个属性是 <strong>加给带滚动条的父元素</strong> 的 —— 获取当前元素的内容滚动出去的距离</p>
+<ul>
+<li>当一个元素的内容没有产生垂直方向的滚动条，那么它的 <code>scrollTop</code> 值为 <code>0</code></li>
+<li><font color=#c00>当满足 ele.scrollHeight - ele.scrollTop = ele.clientHeight 时, 表示垂直滚动条已经到底了</font></li>
+</ul>
+<h3 id="scrollTop-注意点"><a href="#scrollTop-注意点" class="headerlink" title="scrollTop 注意点"></a>scrollTop 注意点</h3><ol>
+<li>document.body.scrollTop 永远是 0，要想获取页面滚动出去的距离，使用 <strong>document.documentElement.scrollTop</strong></li>
+<li>window 没有 scrollTop 属性 (<em>jQuery 中有scrollTop 方法：$(window).scrollTop()</em>)</li>
+</ol>
+<h3 id="网页向上卷曲出去的高度问题"><a href="#网页向上卷曲出去的高度问题" class="headerlink" title="网页向上卷曲出去的高度问题"></a>网页向上卷曲出去的高度问题</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> st = <span class="built_in">document</span>.documentElement.scrollTop</span><br></pre></td></tr></table></figure>
+
+<h2 id="scrollTo"><a href="#scrollTo" class="headerlink" title="scrollTo()"></a>scrollTo()</h2><p><strong>滚动条滚动到哪里(只对文档流起作用)</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 滚动到页面底部</span></span><br><span class="line"><span class="comment">// 参数1 —— 水平滚动条位置</span></span><br><span class="line"><span class="comment">// 参数2 —— 垂直滚动条位置</span></span><br><span class="line"><span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="built_in">document</span>.body.scrollHeight)</span><br><span class="line"><span class="comment">/* - document.documentElement.clientHeight 可有可无 */</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="scrollX-scrollY"><a href="#scrollX-scrollY" class="headerlink" title="scrollX/scrollY"></a>scrollX/scrollY</h2><p>window 的属性，返回文档在垂直方向已滚动的像素值</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.onscroll = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">window</span>.scrollY)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="相对视口的位置"><a href="#相对视口的位置" class="headerlink" title="相对视口的位置"></a>相对视口的位置</h1><p>getBoundingClientRect()</p>
+<ul>
+<li>获取元素的大小 <em>及相对视口位置</em></li>
+<li>返回值 —— 包含元素 width / height / left / top / right / bottom 的对象<ul>
+<li>left / top / right / bottom 都是相对于<strong>视口</strong>的<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">element.getBoundingClientRect().left</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="如何获取绝对位置（相对于页面的位置）？"><a href="#如何获取绝对位置（相对于页面的位置）？" class="headerlink" title="如何获取绝对位置（相对于页面的位置）？"></a>如何获取绝对位置（相对于页面的位置）？</h2><p>获取相对于页面的位置分两种情况</p>
+<ol>
+<li><p>页面没有滚动<br>此时，相对于页面的位置和相对于视口的位置是一样的，就是 getBoundingClientRect() 的 left 和 top 值</p>
+</li>
+<li><p>页面发生了滚动<br>此时，<code>相对于页面的位置 = getBoundingClientRect() 的 top 值 + 页面滚动出去的距离</code></p>
+</li>
+</ol>
+<p>⚠️ 对于 offsetParent 是 body 的元素而言，ele.offsetTop 就是绝对位置</p>
+<h1 id="获取鼠标点的坐标（都是-e-的属性）"><a href="#获取鼠标点的坐标（都是-e-的属性）" class="headerlink" title="获取鼠标点的坐标（都是 e 的属性）"></a>获取鼠标点的坐标（都是 e 的属性）</h1><h2 id="clientX-clientY"><a href="#clientX-clientY" class="headerlink" title="clientX/clientY"></a>clientX/clientY</h2><p>鼠标相对于 <strong>视口左上角</strong> 的水平/垂直坐标值</p>
+<h2 id="pageX-pageY"><a href="#pageX-pageY" class="headerlink" title="pageX/pageY"></a>pageX/pageY</h2><p>鼠标相对于 <strong>页面左上角</strong> 的水平/垂直坐标值</p>
+<h2 id="offsetX-offsetY"><a href="#offsetX-offsetY" class="headerlink" title="offsetX/offsetY"></a>offsetX/offsetY</h2><p>鼠标相对于 <strong>触发事件元素左上角</strong> 的水平/垂直坐标值</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">e.offsetX</span><br></pre></td></tr></table></figure>
+
+<h2 id="screenX-screenY"><a href="#screenX-screenY" class="headerlink" title="screenX/screenY"></a>screenX/screenY</h2><p>鼠标相对于 <strong>当前设备屏幕</strong> 的水平/垂直坐标值<br><img src="/images/x:y.png"></p>
+]]></content>
+      <tags>
+        <tag>JS 之 DOM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>HTML</title>
     <url>/2016/06/05/01-HTML/</url>
     <content><![CDATA[<h1 id="网站是什么"><a href="#网站是什么" class="headerlink" title="网站是什么"></a>网站是什么</h1><p><a href="http://c.biancheng.net/view/7410.html">参考资料</a></p>
@@ -3131,7 +3248,7 @@
 <h1 id="html-格式字符串转-js-字符串"><a href="#html-格式字符串转-js-字符串" class="headerlink" title="html 格式字符串转 js 字符串"></a>html 格式字符串转 js 字符串</h1><p><a href="https://www.html.cn/tool/html2js/">html2js</a></p>
 ]]></content>
       <tags>
-        <tag>JS 基础</tag>
+        <tag>JS 之 DOM</tag>
       </tags>
   </entry>
   <entry>
