@@ -952,7 +952,7 @@
   </entry>
   <entry>
     <title>DOM位置尺寸API</title>
-    <url>/2016/07/09/13-%E4%BD%8D%E7%BD%AE%E5%B0%BA%E5%AF%B8API/</url>
+    <url>/2016/07/09/13-DOM%E4%BD%8D%E7%BD%AE%E5%B0%BA%E5%AF%B8API/</url>
     <content><![CDATA[<h1 id="获取元素大小"><a href="#获取元素大小" class="headerlink" title="获取元素大小"></a>获取元素大小</h1><h2 id="元素属性获取"><a href="#元素属性获取" class="headerlink" title="元素属性获取"></a>元素属性获取</h2><table>
 <thead>
 <tr>
@@ -1065,6 +1065,108 @@
 ]]></content>
       <tags>
         <tag>JS 之 DOM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS基础之BOM</title>
+    <url>/2016/07/12/JS%E5%9F%BA%E7%A1%80%E4%B9%8BBOM/</url>
+    <content><![CDATA[<h1 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h1><p>浏览器对象模型</p>
+<ul>
+<li>BOM 使我们可以 <code>通过 JS 操作浏览器</code></li>
+<li>在 BOM 中为我们提供了一组对象, 用来完成对浏览器的操作<ul>
+<li>这些对象在浏览器中 <em>都是作为 window 对象的属性</em> 保存的</li>
+<li>可以通过 window 点出来, 也可以直接使用</li>
+</ul>
+</li>
+</ul>
+<p><a href="http://www.w3school.com.cn/jsref/dom_obj_window.asp">参考手册</a></p>
+<span id="more"></span>
+
+<h1 id="window-对象"><a href="#window-对象" class="headerlink" title="window 对象"></a>window 对象</h1><p>代表的是整个浏览器的窗口, 同时 window 也是网页中的全局对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="navigator-对象"><a href="#navigator-对象" class="headerlink" title="navigator 对象"></a>navigator 对象</h1><p>代表当前浏览器的信息, 通过该对象可以识别不同的浏览器</p>
+<ul>
+<li><p>userAgent 属性</p>
+<ul>
+<li>判断浏览器信息</li>
+<li>返回一个 <code>字符串</code></li>
+</ul>
+</li>
+<li><p>如果通过 userAgent 不能判断, 还可以通过一些浏览器中特意的对象来判断</p>
+<ul>
+<li>eg:  ActiveXObject<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 判断浏览器</span></span><br><span class="line"><span class="keyword">var</span> ua = navigator.userAgent</span><br><span class="line"><span class="keyword">if</span> (<span class="regexp">/firefox/i</span>.test(ua)) &#123;</span><br><span class="line">    alert(<span class="string">&#x27;火狐&#x27;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/chrome/i</span>.test(ua)) &#123;</span><br><span class="line">    alert(<span class="string">&#x27;谷歌&#x27;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&#x27;ActiveXObject&#x27;</span> <span class="keyword">in</span> <span class="built_in">window</span>) &#123;</span><br><span class="line">    alert (<span class="string">&#x27;IE&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断 window 对象上是否有 ActiveXObject 属性</span></span><br><span class="line"><span class="keyword">if</span> (<span class="string">&#x27;ActiveXObject&#x27;</span> <span class="keyword">in</span> <span class="built_in">window</span>) &#123;</span><br><span class="line">    alert(<span class="string">&#x27;你是 IE&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h1 id="location-对象"><a href="#location-对象" class="headerlink" title="location 对象"></a>location 对象</h1><p>代表 <code>当前浏览器的地址栏信息</code></p>
+<ul>
+<li><p>通过 location 可以 <font color=#c40>获取地址栏信息</font>, 或者操作浏览器跳转页面</p>
+</li>
+<li><p>该对象中封装了浏览器的地址栏信息, 直接打印 loaction , 可以获取到当前页面的完整路径</p>
+<ul>
+<li><code>location.search</code> 可以 <strong>获取查询字符串信息</strong></li>
+</ul>
+</li>
+<li><p>如果直接将 location 修改为一个绝对路径或相对路径, 页面会自动跳转到该页面</p>
+</li>
+<li><p>assign()</p>
+<ul>
+<li>跳转到其他页面, 作用和直接修改 location 一样</li>
+<li>会生成历史记录, 能回退<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">location = <span class="string">&#x27;http://www.baidu.com&#x27;</span></span><br><span class="line"><span class="comment">// or</span></span><br><span class="line">location.assign(<span class="string">&#x27;http://www.baidu.com&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>reload()</p>
+<ul>
+<li>重新加载当前文档 <strong>(刷新)</strong><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">location.reload()     <span class="comment">// 刷新当前页面</span></span><br><span class="line"></span><br><span class="line">location.reload(<span class="literal">true</span>) <span class="comment">// 强制清空缓存刷新</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>replace()</p>
+<ul>
+<li>使用新的页面替换当前页面</li>
+<li>不会生成历史记录, 不能回退<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">location.replace() </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h1 id="history-对象"><a href="#history-对象" class="headerlink" title="history 对象"></a>history 对象</h1><p>代表 <code>浏览器的历史记录</code></p>
+<ul>
+<li><p>可以通过该对象来操作浏览器的历史记录</p>
+</li>
+<li><p>只能操作浏览器向前 / 后翻页, 而且该操作只在当次访问时有次</p>
+</li>
+<li><p>length 属性</p>
+<ul>
+<li>返回当次访问的链接的数量<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">history.length</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>back()</p>
+<ul>
+<li>回退到上一个页面<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">history.back()</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>forward()</p>
+<ul>
+<li>跳转到下一个页面<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">history.forward()</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><font color=#c00>go()</font></p>
+<ul>
+<li>可以用来跳转到 <code>指定页面</code></li>
+<li>需要一个整数作为参数<ul>
+<li>1 —— 向前跳转 1 个页面;     2 —— 向前跳转 2 个页面; </li>
+<li>-1 —— 向后跳转 1 个页面;    -2 —— 向后跳转 2 个页面;<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">history.go(-<span class="number">1</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="screen-对象"><a href="#screen-对象" class="headerlink" title="screen 对象"></a>screen 对象</h1><p>代表用户的屏幕信息</p>
+<ul>
+<li>通过该对象可以获取到用户显示器的相关信息</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>JS 之 BOM</tag>
       </tags>
   </entry>
   <entry>
