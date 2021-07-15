@@ -705,6 +705,39 @@
       </tags>
   </entry>
   <entry>
+    <title>对象的常用方法</title>
+    <url>/2016/07/06/11-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="对象的常用方法"><a href="#对象的常用方法" class="headerlink" title="对象的常用方法"></a>对象的常用方法</h1><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object">MDN Object</a></p>
+<span id="more"></span>
+
+<h1 id="Object-对象的方法"><a href="#Object-对象的方法" class="headerlink" title="Object 对象的方法"></a>Object 对象的方法</h1><h2 id="Object-assign-target-source"><a href="#Object-assign-target-source" class="headerlink" title="Object.assign(target, source)"></a>Object.assign(target, source)</h2><ul>
+<li>用于将一个对象(source)上的所有属性驾到另一个对象(target)中</li>
+<li>如果有相同属性，则覆盖之</li>
+<li>返回值 —— 新的融合了所有源对象属性的对象<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> target = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;</span><br><span class="line"><span class="keyword">let</span> source = &#123; <span class="attr">b</span>: <span class="number">4</span>, <span class="attr">c</span>: <span class="number">5</span> &#125;</span><br><span class="line"></span><br><span class="line">target = <span class="built_in">Object</span>.assign(target, source)</span><br><span class="line"><span class="built_in">console</span>.log(target) <span class="comment">// &#123; a: 1, b: 4, c: 5 &#125;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Object-keys"><a href="#Object-keys" class="headerlink" title="Object.keys()"></a>Object.keys()</h2><ul>
+<li>返回值 —— 由给定对象的自身可枚举<strong>属性组成的数组</strong><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;张三&#x27;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">17</span>,</span><br><span class="line">  <span class="attr">action</span>: &#123;</span><br><span class="line">    <span class="number">123</span>: <span class="string">&#x27;123&#x27;</span>,</span><br><span class="line">    <span class="number">456</span>: <span class="string">&#x27;456&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(obj))  <span class="comment">// [&#x27;name&#x27;, &#x27;age&#x27;, &#x27;action&#x27;]</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Object-values"><a href="#Object-values" class="headerlink" title="Object.values()"></a>Object.values()</h2><p>返回值 —— 由给定对象的<strong>属性值组成的数组</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;张三&#x27;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">17</span>,</span><br><span class="line">  <span class="attr">action</span>: &#123;</span><br><span class="line">    <span class="number">123</span>: <span class="string">&#x27;123&#x27;</span>,</span><br><span class="line">    <span class="number">456</span>: <span class="string">&#x27;456&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.values(obj)) <span class="comment">// [&#x27;张三&#x27;, 17, &#123; 123: &#x27;123&#x27;, 456: &#x27;456&#x27;&#125;]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Object-实例的方法"><a href="#Object-实例的方法" class="headerlink" title="Object 实例的方法"></a>Object 实例的方法</h1><h2 id="Object-prototype-toString"><a href="#Object-prototype-toString" class="headerlink" title="Object.prototype.toString()"></a>Object.prototype.toString()</h2><ul>
+<li>返回值 —— 返回一个表示该对象的字符串<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</span><br><span class="line">obj.toString() <span class="comment">// &#x27;[object Object]&#x27;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="使用-toString-检测数据类型"><a href="#使用-toString-检测数据类型" class="headerlink" title="使用 toString() 检测数据类型"></a>使用 <code>toString()</code> 检测数据类型</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> toString = <span class="built_in">Object</span>.prototype.toString</span><br><span class="line"></span><br><span class="line">toString.call(<span class="string">&#x27;abcd&#x27;</span>)        <span class="comment">// &#x27;[object String]&#x27;</span></span><br><span class="line">toString.call(<span class="number">12</span>)            <span class="comment">// &#x27;[object Number]&#x27;</span></span><br><span class="line">toString.call(<span class="literal">true</span>)          <span class="comment">// &#x27;[object Boolean]&#x27;</span></span><br><span class="line">toString.call(<span class="literal">null</span>)          <span class="comment">// &#x27;[object Null]&#x27;</span></span><br><span class="line">toString.call(<span class="literal">undefined</span>)     <span class="comment">// &#x27;[object Undefined]&#x27;</span></span><br><span class="line"></span><br><span class="line">toString.call([<span class="number">1</span>, <span class="number">2</span>])        <span class="comment">// &#x27;[object Array]&#x27;</span></span><br><span class="line">toString.call(<span class="keyword">new</span> <span class="built_in">Function</span>)  <span class="comment">// &#x27;[object Function]&#x27;</span></span><br><span class="line">toString.call(<span class="keyword">new</span> <span class="built_in">Object</span>)    <span class="comment">// &#x27;[object Object]&#x27;</span></span><br><span class="line"></span><br><span class="line">toString.call(<span class="keyword">new</span> <span class="built_in">Date</span>)      <span class="comment">// &#x27;[object Date]&#x27;</span></span><br><span class="line">toString.call(<span class="built_in">Math</span>)          <span class="comment">// &#x27;[object Math]&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="判断一个对象是否为空对象"><a href="#判断一个对象是否为空对象" class="headerlink" title="判断一个对象是否为空对象"></a>判断一个对象是否为空对象</h1><ol>
+<li><p>JSON.stringify()</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">JSON</span>.stringify(obj) === <span class="string">&#x27;&#123;&#125;&#x27;</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;是空对象&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>Object.keys()</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">Object</span>.keys(obj).length === <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;空对象&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>JS 基础</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数组的常用方法</title>
     <url>/2016/07/05/10-%E6%95%B0%E7%BB%84%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<h1 id="数组常用方法"><a href="#数组常用方法" class="headerlink" title="数组常用方法"></a>数组常用方法</h1><p>​<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array">MDN Array</a></p>
@@ -912,39 +945,6 @@
 
 <h2 id="多条件过滤"><a href="#多条件过滤" class="headerlink" title="多条件过滤"></a>多条件过滤</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 数组 ratings 存的是评论数据</span></span><br><span class="line"><span class="comment">// 每条评论有属性 rateType 0-满意 1-不满意；text-评论内容</span></span><br><span class="line"><span class="comment">// 需要根据 ‘全部’‘满意’‘不满意’ 以及 ‘只看有内容的评论’ 对数组进行过滤</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> selectType = <span class="number">2</span> <span class="comment">// 自定义变量表示选中的类型，可根据选择重新设置 0-满意 1-不满意 2-全部</span></span><br><span class="line"><span class="keyword">let</span> onlyText = <span class="literal">false</span> <span class="comment">// 自定义变量表示是否只看有内容的评论</span></span><br><span class="line"><span class="keyword">const</span> filterArr = ratings.filter(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (selectType === <span class="number">2</span> || item.rateType === selectType) &amp;&amp; </span><br><span class="line">         (!onlyText || text.length &gt;<span class="number">0</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <tags>
-        <tag>JS 基础</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>对象的常用方法</title>
-    <url>/2016/07/06/11-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="对象的常用方法"><a href="#对象的常用方法" class="headerlink" title="对象的常用方法"></a>对象的常用方法</h1><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object">MDN Object</a></p>
-<span id="more"></span>
-
-<h1 id="Object-对象的方法"><a href="#Object-对象的方法" class="headerlink" title="Object 对象的方法"></a>Object 对象的方法</h1><h2 id="Object-assign-target-source"><a href="#Object-assign-target-source" class="headerlink" title="Object.assign(target, source)"></a>Object.assign(target, source)</h2><ul>
-<li>用于将一个对象(source)上的所有属性驾到另一个对象(target)中</li>
-<li>如果有相同属性，则覆盖之</li>
-<li>返回值 —— 新的融合了所有源对象属性的对象<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> target = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;</span><br><span class="line"><span class="keyword">let</span> source = &#123; <span class="attr">b</span>: <span class="number">4</span>, <span class="attr">c</span>: <span class="number">5</span> &#125;</span><br><span class="line"></span><br><span class="line">target = <span class="built_in">Object</span>.assign(target, source)</span><br><span class="line"><span class="built_in">console</span>.log(target) <span class="comment">// &#123; a: 1, b: 4, c: 5 &#125;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="Object-keys"><a href="#Object-keys" class="headerlink" title="Object.keys()"></a>Object.keys()</h2><ul>
-<li>返回值 —— 由给定对象的自身可枚举<strong>属性组成的数组</strong><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;张三&#x27;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">17</span>,</span><br><span class="line">  <span class="attr">action</span>: &#123;</span><br><span class="line">    <span class="number">123</span>: <span class="string">&#x27;123&#x27;</span>,</span><br><span class="line">    <span class="number">456</span>: <span class="string">&#x27;456&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(obj))  <span class="comment">// [&#x27;name&#x27;, &#x27;age&#x27;, &#x27;action&#x27;]</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="Object-values"><a href="#Object-values" class="headerlink" title="Object.values()"></a>Object.values()</h2><p>返回值 —— 由给定对象的<strong>属性值组成的数组</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;张三&#x27;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">17</span>,</span><br><span class="line">  <span class="attr">action</span>: &#123;</span><br><span class="line">    <span class="number">123</span>: <span class="string">&#x27;123&#x27;</span>,</span><br><span class="line">    <span class="number">456</span>: <span class="string">&#x27;456&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.values(obj)) <span class="comment">// [&#x27;张三&#x27;, 17, &#123; 123: &#x27;123&#x27;, 456: &#x27;456&#x27;&#125;]</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="Object-实例的方法"><a href="#Object-实例的方法" class="headerlink" title="Object 实例的方法"></a>Object 实例的方法</h1><h2 id="Object-prototype-toString"><a href="#Object-prototype-toString" class="headerlink" title="Object.prototype.toString()"></a>Object.prototype.toString()</h2><ul>
-<li>返回值 —— 返回一个表示该对象的字符串<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</span><br><span class="line">obj.toString() <span class="comment">// &#x27;[object Object]&#x27;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="使用-toString-检测数据类型"><a href="#使用-toString-检测数据类型" class="headerlink" title="使用 toString() 检测数据类型"></a>使用 <code>toString()</code> 检测数据类型</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> toString = <span class="built_in">Object</span>.prototype.toString</span><br><span class="line"></span><br><span class="line">toString.call(<span class="string">&#x27;abcd&#x27;</span>)        <span class="comment">// &#x27;[object String]&#x27;</span></span><br><span class="line">toString.call(<span class="number">12</span>)            <span class="comment">// &#x27;[object Number]&#x27;</span></span><br><span class="line">toString.call(<span class="literal">true</span>)          <span class="comment">// &#x27;[object Boolean]&#x27;</span></span><br><span class="line">toString.call(<span class="literal">null</span>)          <span class="comment">// &#x27;[object Null]&#x27;</span></span><br><span class="line">toString.call(<span class="literal">undefined</span>)     <span class="comment">// &#x27;[object Undefined]&#x27;</span></span><br><span class="line"></span><br><span class="line">toString.call([<span class="number">1</span>, <span class="number">2</span>])        <span class="comment">// &#x27;[object Array]&#x27;</span></span><br><span class="line">toString.call(<span class="keyword">new</span> <span class="built_in">Function</span>)  <span class="comment">// &#x27;[object Function]&#x27;</span></span><br><span class="line">toString.call(<span class="keyword">new</span> <span class="built_in">Object</span>)    <span class="comment">// &#x27;[object Object]&#x27;</span></span><br><span class="line"></span><br><span class="line">toString.call(<span class="keyword">new</span> <span class="built_in">Date</span>)      <span class="comment">// &#x27;[object Date]&#x27;</span></span><br><span class="line">toString.call(<span class="built_in">Math</span>)          <span class="comment">// &#x27;[object Math]&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="判断一个对象是否为空对象"><a href="#判断一个对象是否为空对象" class="headerlink" title="判断一个对象是否为空对象"></a>判断一个对象是否为空对象</h1><ol>
-<li><p>JSON.stringify()</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">JSON</span>.stringify(obj) === <span class="string">&#x27;&#123;&#125;&#x27;</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;是空对象&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>Object.keys()</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">Object</span>.keys(obj).length === <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;空对象&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
 ]]></content>
       <tags>
         <tag>JS 基础</tag>
@@ -1195,6 +1195,870 @@
 <h2 id="如何实现深拷贝"><a href="#如何实现深拷贝" class="headerlink" title="如何实现深拷贝?"></a><font color=#c40>如何实现深拷贝?</font></h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 检测数据类型 返回 Array、Object、String...</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call() 方法返回的是 &#x27;[object Object/Array/String/Number]&#x27;</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call(&#x27;33&#x27;) =&gt; &#x27;[object String]&#x27;</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call(22) =&gt; &#x27;[object Number]&#x27;</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call([]) =&gt; &#x27;[object Array]&#x27;</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call(&#123;&#125;) =&gt; &#x27;[object Object]&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkType</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(target).slice(<span class="number">8</span>, -<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 深拷贝函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">let</span> targetType = checkType(target)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 1.判断数据类型</span></span><br><span class="line">    <span class="keyword">if</span> (targetType === <span class="string">&#x27;Array&#x27;</span>) &#123; <span class="comment">// 是数组</span></span><br><span class="line">        result = []</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (targetType === <span class="string">&#x27;Object&#x27;</span>) &#123; <span class="comment">// 是对象</span></span><br><span class="line">        result = &#123;&#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">// 是基本数据类型</span></span><br><span class="line">        <span class="keyword">return</span> target   </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2.一个一个拷贝</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> target) &#123;</span><br><span class="line">        <span class="keyword">let</span> value = target[i]</span><br><span class="line">        result[i] = clone(value) <span class="comment">// 递归克隆每一项值</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>JS 基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AJAX</title>
+    <url>/2016/07/15/17-AJAX/</url>
+    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Web 程序最初的目的就是将信息(数据)放到公共的服务器，让所有网络用户都可以通过浏览器访问</p>
+<ul>
+<li>在此之前, 我们可以通过以下几种方式让 <code>浏览器发出对服务端的请求</code>，获得服务端的数据<ul>
+<li>地址栏输入地址，回车，刷新</li>
+<li>特定元素的 href 或 src 属性</li>
+<li>表单提交</li>
+</ul>
+</li>
+<li>XMLHttpRequest 是 js 原生提供的 <font color=#c40>用来与服务器交互的核心对象类型</font>, <em><strong>使用 xhr 对象可以在不影响用户操作的情况下更新页面局部内容</strong></em></li>
+<li>A JAX(Asynchronous JavaScript and XML)，最早出现在 2005 年的 Google Suggest，是在浏览器端进行网络编程(发送请求、接收响应)的技术方案，它使我们 <code>可以通过 JavaScript 直接获取服务端最新的内容而不必重新加载页面</code>。让 Web 更能接近桌面应用的用户体验</li>
+<li>说白了，<font color=#c40)>A JAX 就是浏览器提供的一套 API，可以通过 JavaScript 调用，从而实现通过代码控制请求与响应</font>。实现网络编程</li>
+<li>涉及 AJAX 请求的页面 ‘’不能 ‘’以 <code>文件协议方式</code> 访问<ul>
+<li>因为 AJAX 默认不能发送不同源请求</li>
+<li>但是, 如果服务端设置了允许跨域请求 (<strong>Access-Control-Allow-Origin</strong>), 则可以以文件协议方式访问<span id="more"></span></li>
+</ul>
+</li>
+</ul>
+<h1 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a>快速上手</h1><p>使用 A JAX 的过程可以类比平常我们访问网页过程</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建一个 XMLHttpRequest 类型的对象 ———— 相当于打开了一个浏览器 </span></span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打开与一个网址之间的连接 ———— 相当于在地址栏输入访问地址 </span></span><br><span class="line">xhr.open(<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;./time.php&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过连接发送一次请求 ———— 相当于回车或者点击访问发送请求 </span></span><br><span class="line">xhr.send(<span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 指定 xhr 状态变化事件处理函数 ———— 相当于处理网页请求后的操作 </span></span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="comment">// 通过 xhr 的 readyState 判断此次请求的响应是否接收完成 </span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="comment">// 通过 xhr 的 responseText 获取到响应的响应体内容</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.responseText)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line">xhr.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">// html5 提供的事件, 响应完成时调用</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.readyState) <span class="comment">// 4</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.responseText)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="readyState"><a href="#readyState" class="headerlink" title="readyState"></a>readyState</h2><p>由于 readystatechange 事件是 <font color=#c40><strong>在 xhr 对象状态变化时触发</strong> (不单是在得到响应时)</font></p>
+<ul>
+<li><p>也就意味着 <em><strong>这个事件会被触发多次</strong></em>，所以我们有必要了解每一个状态值代表的含义:</p>
+<table>
+<thead>
+<tr>
+<th>readyState</th>
+<th>状态描述</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>UNSENT</td>
+<td>代理 XHR 被创建，但尚未调用 open() 方法</td>
+</tr>
+<tr>
+<td>1</td>
+<td>OPENED</td>
+<td>open() 方法已经被调用，建立了连接</td>
+</tr>
+<tr>
+<td>2</td>
+<td>HEADERS_RECEIVED</td>
+<td>send() 方法已经被调用结束，已经可以获取状态行和 <strong>响应头</strong></td>
+</tr>
+<tr>
+<td>3</td>
+<td>LOADING</td>
+<td>响应体下载中， responseText 属性可能已经包含部分数据</td>
+</tr>
+<tr>
+<td>4</td>
+<td>DONE</td>
+<td>响应体下载完成，可以直接使用 responseText</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>通过理解每一个状态值的含义得出一个结论: <font color=#c40>一般我们都是在 readyState 值为 4 时，执行响应的后续逻辑</font></p>
+</li>
+</ul>
+<h2 id="遵循-HTTP"><a href="#遵循-HTTP" class="headerlink" title="遵循 HTTP"></a>遵循 HTTP</h2><p><strong>本质上 XMLHttpRequest 就是 JavaScript 在 Web 平台中发送 HTTP 请求的手段</strong>，所以我们发送出去的请求任然是 HTTP 请求，同样符合 HTTP 约定的格式: </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 设置请求报文的请求行</span></span><br><span class="line">xhr.open(<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;./time.php&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置请求头</span></span><br><span class="line">xhr.setRequestHeader(<span class="string">&#x27;Accept&#x27;</span>, <span class="string">&#x27;text/plain&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置请求体</span></span><br><span class="line">xhr.send(<span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="comment">// 获取响应状态码</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.status)</span><br><span class="line">    <span class="comment">// 获取响应状态描述</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.statusText)</span><br><span class="line">        <span class="comment">// 获取响应头信息</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.getResponseHeader(<span class="string">&#x27;Content‐Type&#x27;</span>)) <span class="comment">// 响应头类型</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.getAllResponseHeader()) <span class="comment">// 全部响应头</span></span><br><span class="line">        <span class="comment">// 获取响应体</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.responseText) <span class="comment">// 文本形式</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.responseXML) <span class="comment">// XML 形式，了解即可不用了</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="数据接口"><a href="#数据接口" class="headerlink" title="数据接口"></a>数据接口</h1><p><strong>返回数据的地址</strong> 一般称作数据接口</p>
+<h1 id="具体用法"><a href="#具体用法" class="headerlink" title="具体用法"></a>具体用法</h1><h2 id="GET-请求"><a href="#GET-请求" class="headerlink" title="GET 请求"></a>GET 请求</h2><p>通常在一次 GET 请求过程中，<code>参数传递都是通过 URL 地址中的 ? 参数传递</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line"></span><br><span class="line"><span class="comment">// GET 请求传递参数通常使用的是问号传参</span></span><br><span class="line"><span class="comment">// 这里可以在请求地址后面加上参数，从而传递数据到服务端</span></span><br><span class="line">xhr.open(<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;./delete.php?id=1&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 一般在 GET 请求时无需设置响应体，可以传 null 或者干脆不传</span></span><br><span class="line">xhr.send(<span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.responseText)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 一般情况下 URL 传递的都是参数性质的数据，而 POST 一般都是业务数据</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="POST-请求"><a href="#POST-请求" class="headerlink" title="POST 请求"></a>POST 请求</h2><p>POST 请求过程中，<code>都是采用请求体承载需要提交的数据</code></p>
+<ul>
+<li><p><strong>请求头的设置 —— xhr.setRequestHeader()</strong> </p>
+<ul>
+<li><p>根据 <strong>请求体内容格式设置 Content-type 的值</strong>, 告诉服务器我们 <font color=#c40>发送的数据格式</font></p>
+<ul>
+<li><p>如果发送的是 <code>&#39;key1=value1&amp;key2=value2&#39;</code> </p>
+<blockquote>
+<p>xhr.setRequestHeader(‘Content‐Type’, ‘application/x‐www‐form‐urlencoded’)</p>
+</blockquote>
+<p>告诉服务器此次请求体格式为 <code>urlencoded</code> 以便于服务端接收数据</p>
+</li>
+<li><p>如果发送的是 json 字符串, <code>&#39;&#123;&quot;foo&quot;: &quot;bar&quot;&#125;&#39;</code></p>
+<blockquote>
+<p>xhr.setRequestHeader(‘Content‐Type’, ‘application/json’)</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>请求体内容 —— xhr.send(请求体内容)</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line"></span><br><span class="line"><span class="comment">// open 方法的第一个参数的作用就是设置请求的 method</span></span><br><span class="line">xhr.open(<span class="string">&#x27;POST&#x27;</span>, <span class="string">&#x27;./add.php&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置请求头中的 Content‐Type 为 application/x‐www‐form‐urlencoded</span></span><br><span class="line"><span class="comment">// 告诉服务器此次请求体格式为 urlencoded 以便于服务端接收数据</span></span><br><span class="line"><span class="comment">// 如果发送的是 json 字符串, 则 Content‐Type 为设为 application/json</span></span><br><span class="line"><span class="comment">//        xhr.send(&#x27;&#123;&quot;foo&quot;: &quot;bar&quot;&#125;&#x27;)</span></span><br><span class="line">xhr.setRequestHeader(<span class="string">&#x27;Content‐Type&#x27;</span>, <span class="string">&#x27;application/x‐www‐form‐urlencoded&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 需要提交到服务端的数据可以通过 send 方法的参数传递</span></span><br><span class="line"><span class="comment">// 格式:key1=value1&amp;key2=value2</span></span><br><span class="line">xhr.send(<span class="string">&#x27;key1=value1&amp;key2=value2&#x27;</span>)</span><br><span class="line"></span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">this</span>.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="built_in">this</span>.responseText)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="同步与异步-同步-AJAX-已被废弃"><a href="#同步与异步-同步-AJAX-已被废弃" class="headerlink" title="同步与异步 (同步 AJAX 已被废弃)"></a>同步与异步 (同步 AJAX 已被废弃)</h2><p>xhr.open() 方法第三个参数要求传入的是一个 bool 值</p>
+<ul>
+<li>其作用就是 <code>设置此次请求是否采用异步方式执行</code>，默认为 true; <ul>
+<li>如果需要同步执行可以通过传递 false 实现</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 异步</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;before ajax&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认第三个参数为 true 意味着采用异步方式执行 </span></span><br><span class="line">xhr.open(<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;./time.php&#x27;</span>, <span class="literal">true</span>) </span><br><span class="line"></span><br><span class="line">xhr.send(<span class="literal">null</span>)</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.readyState === <span class="number">4</span>) &#123; </span><br><span class="line">        <span class="comment">// 这里的代码最后执行 </span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;request done&#x27;</span>)</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;after ajax&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>如果采用同步方式执行，则代码会卡死在 xhr.send() 这一步</p>
+<ul>
+<li><p>等到代码完全执行完毕才接着执行</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 同步</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;before ajax&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 同步方式</span></span><br><span class="line">xhr.open(<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;./time.php&#x27;</span>, <span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等到请求的响应全部执行完才会执行之后的代码</span></span><br><span class="line">xhr.send(<span class="literal">null</span>) </span><br><span class="line"><span class="built_in">console</span>.log(xhr.readyState) <span class="comment">// 4, 之后一直是 4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// readystatechange 无法触发, 因为此时 readyState 不会有变化</span></span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.readyState === <span class="number">4</span>) &#123; </span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;request done&#x27;</span>)</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;after ajax&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+<li><p>了解同步模式即可，切记不要使用同步模式</p>
+</li>
+<li><p>⚠️ <strong>同步模式下, 绑定 readystatechange 事件要放在 send() 之前, 否则无法触发</strong></p>
+</li>
+</ul>
+<h1 id="响应数据格式"><a href="#响应数据格式" class="headerlink" title="响应数据格式"></a>响应数据格式</h1><p>服务端返回何种格式的数据，这种格式如何在客户端用 JavaScript 解析?</p>
+<ul>
+<li>服务端应该设置一个合理的 <code>Content-type</code><ul>
+<li>eg<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  header(<span class="string">&#x27;Content-Type: application/json&#x27;</span>)</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><p>一种数据描述手段，类似于 JavaScript 字面量方式<br>服务端采用 <code> JSON 格式</code> 返回数据，客户端按照 JSON 格式解析数据</p>
+<h1 id="处理响应数据渲染"><a href="#处理响应数据渲染" class="headerlink" title="处理响应数据渲染"></a>处理响应数据渲染</h1><p><a href="https://aui.github.io/art-template/zh-cn/docs/">模版引擎</a></p>
+<ul>
+<li>模板引擎实际上就是一个 API<ul>
+<li>模板引擎有很多种，使用方式大同小异，目的为了可以更容易的将数据渲染 HTML 中</li>
+</ul>
+</li>
+</ul>
+<h1 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h1><h2 id="AJAX-请求封装"><a href="#AJAX-请求封装" class="headerlink" title="AJAX 请求封装"></a>AJAX 请求封装</h2><p>函数就可以理解为一个想要做的事情，函数体中约定了这件事情做的过程，直到调用时才开始工作</p>
+<ul>
+<li>将函数作为参数传递就像是将一个事情交给别人，这就是委托的概念<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 发送一个 AJAX 请求</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param <span class="type">&#123;String&#125;</span> </span>method 请求方法</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param <span class="type">&#123;String&#125;</span> </span>url 请求地址</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param <span class="type">&#123;Object&#125;</span> </span>params 请求参数</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param <span class="type">&#123;Function&#125;</span> </span>done 请求完成过后需要做的事情(委托/回调) </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajax</span> (<span class="params">method, url, params, done</span>) </span>&#123; </span><br><span class="line">    <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 统一转换为大写便于后续判断</span></span><br><span class="line">      method = method.toUpperCase()</span><br><span class="line">    </span><br><span class="line">      <span class="comment">// 对象形式的参数转换为 urlencoded 格式 </span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span>(params) === <span class="string">&#x27;object&#x27;</span>) &#123;</span><br><span class="line">      <span class="keyword">var</span> arr = []</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> params) &#123;</span><br><span class="line">          arr.push(key + <span class="string">&#x27;=&#x27;</span> + params[key])</span><br><span class="line">          &#125; </span><br><span class="line">        params = arr.join(<span class="string">&#x27;&amp;&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 如果是 GET 请求就设置 URL 地址 问号参数 </span></span><br><span class="line">    <span class="keyword">if</span> (method === <span class="string">&#x27;GET&#x27;</span>) &#123;</span><br><span class="line">      url += <span class="string">&#x27;?&#x27;</span> + params</span><br><span class="line">      &#125;</span><br><span class="line">    </span><br><span class="line">    xhr.open(method, url)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> data = <span class="literal">null</span></span><br><span class="line">    </span><br><span class="line">      <span class="comment">// 如果是 POST 请求就设置请求体 </span></span><br><span class="line">      <span class="keyword">if</span> (method === <span class="string">&#x27;POST&#x27;</span>) &#123;</span><br><span class="line">          xhr.setRequestHeader(<span class="string">&#x27;Content‐Type&#x27;</span>, <span class="string">&#x27;application/x‐www‐form‐urlencoded&#x27;</span>)</span><br><span class="line">          data = params</span><br><span class="line">      &#125;</span><br><span class="line">    </span><br><span class="line">    xhr.send(data)</span><br><span class="line">    </span><br><span class="line">      xhr.addEventListener(<span class="string">&#x27;readystatechange&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">this</span>.readyState !== <span class="number">4</span>) <span class="keyword">return</span></span><br><span class="line">        </span><br><span class="line">          <span class="comment">// 尝试通过 JSON 格式解析响应体 </span></span><br><span class="line">      done &amp;&amp; done(<span class="built_in">JSON</span>.parse(<span class="built_in">this</span>.responseText))</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ajax(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;./get.php&#x27;</span>, &#123; <span class="attr">id</span>: <span class="number">123</span> &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br><span class="line">ajax(<span class="string">&#x27;post&#x27;</span>, <span class="string">&#x27;./post.php&#x27;</span>, &#123; <span class="attr">foo</span>: <span class="string">&#x27;posted data&#x27;</span> &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="jQuery-中的-AJAX"><a href="#jQuery-中的-AJAX" class="headerlink" title="jQuery 中的 AJAX"></a>jQuery 中的 AJAX</h1><p>jQuery 中有一套专门针对 A JAX 的封装，功能十分完善，经常使用，需要着重注意</p>
+<ul>
+<li><a href="http://www.lovean.com/doc/jquery1.12/jquery.ajax.html">参考</a></li>
+<li><a href="">官网参考</a></li>
+</ul>
+<h2 id="ajax-使用"><a href="#ajax-使用" class="headerlink" title="$.ajax() 使用"></a>$.ajax() 使用</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    <span class="attr">url</span>: <span class="string">&#x27;./get.php&#x27;</span>,</span><br><span class="line">    <span class="attr">type</span>: <span class="string">&#x27;get&#x27;</span>,</span><br><span class="line">    <span class="attr">dataType</span>: <span class="string">&#x27;json&#x27;</span>, </span><br><span class="line">    <span class="attr">data</span>: &#123; <span class="attr">id</span>: <span class="number">1</span> &#125;, </span><br><span class="line">    <span class="attr">beforeSend</span>: <span class="function"><span class="keyword">function</span> (<span class="params">xhr</span>) </span>&#123; <span class="comment">// open 之前</span></span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">&#x27;before send&#x27;</span>, xhr.readyState) <span class="comment">// 0</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// res 会自动根据服务端响应的 Content-type 自动转换为对象; 这是 jQuery 内部实现的</span></span><br><span class="line">        <span class="comment">// 如果服务端没有设置 Content-type, 可以设置配置选项 dataType: &#x27;json&#x27;</span></span><br><span class="line">       <span class="built_in">console</span>.log(res)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">error</span>: <span class="function"><span class="keyword">function</span> (<span class="params">xhr</span>) </span>&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">&#x27;error&#x27;</span>, xhr)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">complete</span>: <span class="function"><span class="keyword">function</span> (<span class="params">xhr</span>) </span>&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">&#x27;request completed&#x27;</span>, xhr)</span><br><span class="line">    &#125; </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>常用选项参数介绍<ul>
+<li>url —— 请求地址</li>
+<li>type —— 请求方法，默认为 get</li>
+<li>data —— 需要传递到服务端的数据，<font color=#c40>如果是 GET 请求则通过 URL 传递，如果 POST 则通过请求体传递  </font></li>
+<li>dataType —— 设置服务端 <code>响应数据类型</code><br>⚠️ <strong>data 和 dataType 没有关系</strong>,  <em>一个是发送给服务端的数据, 一个是服务端返回的响应数据的类型</em></li>
+<li>contentType —— 请求体内容类型，默认 application/x-www-form-urlencoded  </li>
+<li>timeout —— 请求超时时间</li>
+<li>beforeSend —— 请求发起之前触发 (在 open 之前, readyState 为 0)</li>
+<li>success —— 请求成功之后触发(响应状态码 200) <ul>
+<li><strong>设置了 dataType 选项, 就不再关心服务端响应数据的 Content-Type 了</strong></li>
+</ul>
+</li>
+<li>error —— 请求失败触发 </li>
+<li>complete —— 请求完成触发 (不管成功与否) </li>
+</ul>
+</li>
+</ul>
+<h3 id="get"><a href="#get" class="headerlink" title="$.get()"></a>$.get()</h3><p>GET 请求快捷方法</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.get(<span class="string">&#x27;json.php&#x27;</span>, &#123; <span class="attr">id</span>: <span class="number">1</span> &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="post"><a href="#post" class="headerlink" title="$.post()"></a>$.post()</h3><p>POST 请求快捷方法</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.post(<span class="string">&#x27;json.php&#x27;</span>, &#123; <span class="attr">id</span>: <span class="number">1</span> &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="getJSON"><a href="#getJSON" class="headerlink" title="$.getJSON()"></a>$.getJSON()</h3><p>如果服务端没有指定返回数据的类型</p>
+<ul>
+<li>可以这样将服务端返回的数据 <code>强制转为 json 格式对象</code><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.getJSON(<span class="string">&#x27;json.php&#x27;</span>, &#123; <span class="attr">id</span>: <span class="number">1</span> &#125;, <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="selector-load-url-data-callback"><a href="#selector-load-url-data-callback" class="headerlink" title="$(selector).load(url, [data,[callback]])"></a>$(selector).load(url, [data,[callback]])</h2><p>载入远程 HTML 文件代码并插入至 DOM 中 (<font color=#c40>实现局部加载</font>)</p>
+<ul>
+<li><p>默认使用 GET 方式</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container pt-4&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>会员中心<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">aside</span> <span class="attr">class</span>=<span class="string">&quot;col-md-3&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;list-group&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;list-group-item list-group-item-action&quot;</span> <span class="attr">href</span>=<span class="string">&quot;index.html&quot;</span>&gt;</span>我的资料<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;list-group-item list-group-item-action&quot;</span> <span class="attr">href</span>=<span class="string">&quot;cart.html&quot;</span>&gt;</span>我的购物车<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;list-group-item list-group-item-action&quot;</span> <span class="attr">href</span>=<span class="string">&quot;orders.html&quot;</span>&gt;</span>我的订单<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">aside</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">main</span> <span class="attr">id</span>=<span class="string">&quot;main&quot;</span> <span class="attr">class</span>=<span class="string">&quot;col-md-9&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>我的个人资料<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">main</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 有一个独立的作用域，顺便确保页面加载完成执行</span></span><br><span class="line">    $(<span class="string">&#x27;.list-group-item&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> url = $(<span class="built_in">this</span>).attr(<span class="string">&#x27;href&#x27;</span>)</span><br><span class="line">        $(<span class="string">&#x27;#main&#x27;</span>).load(url + <span class="string">&#x27; #main &gt; *&#x27;</span>) <span class="comment">// 加载指定页面上的具体标签的内容</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="ajax-全局处理函数"><a href="#ajax-全局处理函数" class="headerlink" title="ajax 全局处理函数"></a>ajax 全局处理函数</h2><p>$.ajaxStart(callback)</p>
+<ul>
+<li><strong>只要有 ajax 请求发生就会执行</strong></li>
+</ul>
+<p>$.ajaxStop(callback)</p>
+<ul>
+<li><strong>只要有 ajax 请求结束就会执行</strong><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">document</span>)</span><br><span class="line">    .ajaxStart(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        NProgress.start()</span><br><span class="line">    &#125;)</span><br><span class="line">    .ajaxStop(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        NProgress.done()</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="其他-AJAX-封装库"><a href="#其他-AJAX-封装库" class="headerlink" title="其他 AJAX 封装库"></a>其他 AJAX 封装库</h1><p><a href="http://www.axios-js.com/">Axios</a></p>
+<h1 id="同步请求和异步请求的区别"><a href="#同步请求和异步请求的区别" class="headerlink" title="同步请求和异步请求的区别"></a>同步请求和异步请求的区别</h1><ol>
+<li>通过 AJAX 发送的请求都是异步请求，其他都是同步请求</li>
+<li>异步请求页面不会刷新，同步请求页面会刷新转圈</li>
+<li><font color=#c40>异步请求服务端只返回客户端需要的数据部分，而同步请求返回的是页面模版 + 数据处理好后的结构</font></li>
+<li>不管同步请求还是异步请求，只要是 <code>get</code> 请求，服务端获取客户端参数都是通过 rēq.query; 只要是 <code>post</code> 请求，服务端获取客户端参数都是通过 rēq.body (需要配置 body-parse)</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>JS 请求</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSS3</title>
+    <url>/2016/06/15/04-CSS3/</url>
+    <content><![CDATA[<h1 id="CSS3-选择器"><a href="#CSS3-选择器" class="headerlink" title="CSS3 选择器"></a>CSS3 选择器</h1><p><a href="http://www.w3school.com.cn/cssref/css_selectors.asp">选择器汇总</a></p>
+<span id="more"></span>
+
+<h2 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a>基本选择器</h2><ol>
+<li>id 选择器 (#)</li>
+<li>类选择器 (.)</li>
+<li>标签选择器 (标签名)</li>
+<li>通配符选择器 (*)</li>
+<li>后代选择器 (空格)</li>
+<li>分组选择器 (,)</li>
+</ol>
+<h2 id="基本选择器扩展"><a href="#基本选择器扩展" class="headerlink" title="基本选择器扩展"></a>基本选择器扩展</h2><ol>
+<li><p>子元素选择器 (&gt;)</p>
+</li>
+<li><p>兄弟选择器</p>
+<ul>
+<li><p>相邻 (<strong>紧跟</strong>) 兄弟 (+)</p>
+</li>
+<li><p>通用 (<strong>后边的所有</strong>) 兄弟选择器 (~)</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="属性选择器-html-属性"><a href="#属性选择器-html-属性" class="headerlink" title="属性选择器(html 属性)"></a>属性选择器(html 属性)</h2><ul>
+<li><p>存在选择器</p>
+<ul>
+<li>div[name]</li>
+<li><em>属性名不要加引号</em></li>
+</ul>
+</li>
+<li><p>值选择器</p>
+<ul>
+<li><p>div[name=”hello”]</p>
+</li>
+<li><p>div[name~=”hello”]</p>
+<ul>
+<li><p>name 属性值中含有 hello, <em>以空格分隔其他属性值</em></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-attr">[name~=<span class="string">&#x27;hehe&#x27;</span>]</span> <span class="comment">/* &lt;div name=&quot;hehe hah&quot;&gt;&lt;/div&gt;*/</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>div[name|=”hello”]</p>
+<ul>
+<li><p>name 属性值是 hello 或者以 hello- 开头</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-attr">[name|=<span class="string">&#x27;hehe&#x27;</span>]</span> <span class="comment">/* &lt;div name=&quot;hehe&quot;&gt;&lt;/div&gt; or &lt;div name=&quot;hehe-hah&quot;&gt;&lt;/div&gt;*/</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>div[name^=”hello”]</p>
+<ul>
+<li>name 属性值以 hello 开头</li>
+</ul>
+</li>
+<li><p>div[name$=”hello”]</p>
+<ul>
+<li>name 属性值以 hello 结尾</li>
+</ul>
+</li>
+<li><p>div[name*=”hello”]</p>
+<ul>
+<li>name 属性值包含 hello </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="伪类与伪元素选择器"><a href="#伪类与伪元素选择器" class="headerlink" title="伪类与伪元素选择器"></a>伪类与伪元素选择器</h2><h3 id="伪类选择器-表示标签的某些特殊状态"><a href="#伪类选择器-表示标签的某些特殊状态" class="headerlink" title="伪类选择器 (表示标签的某些特殊状态)"></a>伪类选择器 (表示标签的某些特殊状态)</h3><ul>
+<li><p>链接伪类</p>
+<ul>
+<li><p>只作用于 a 元素</p>
+</li>
+<li><p>:link</p>
+</li>
+<li><p>:visited</p>
+<ul>
+<li>只有以下属性可以被应用到已访问过的链接<ul>
+<li>color</li>
+<li>background-color</li>
+<li>border-color</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>:target</strong> (使用 css 做选项卡)</p>
+<ul>
+<li><p>代表一个特殊的元素, 它的 id 是 URL 的片段标识符</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">  <span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: pink;</span></span><br><span class="line"><span class="css">    <span class="attribute">display</span>: none;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-pseudo">:target</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#div1&quot;</span>&gt;</span>div1<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#div2&quot;</span>&gt;</span>div2<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#div3&quot;</span>&gt;</span>div3<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;div1&quot;</span>&gt;</span>div1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;div2&quot;</span>&gt;</span>div2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;div3&quot;</span>&gt;</span>div3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>动态伪类</p>
+<ul>
+<li>:hover</li>
+<li>:active(点击按住时)</li>
+</ul>
+</li>
+<li><p>⚠️:link 和 :visited 可以覆盖了所有的 a 标签的状态</p>
+<ul>
+<li>所以当 :link、:visited、:hover、:active 同时设置时, :link 和 :visited <code>不能放在最后</code></li>
+</ul>
+</li>
+<li><p>表单伪类</p>
+<ul>
+<li>:enabled</li>
+<li>:disabled</li>
+<li>:checked</li>
+<li>:focus</li>
+</ul>
+</li>
+<li><p>结构性伪类</p>
+<ul>
+<li><p>:nth-child(index)   (index 从 1 开始)</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 查找规则 - 找 #warp 的第一个子元素是不是 ele 标签, 强调顺序， 在子元素中的顺序必须是 1*/</span></span><br><span class="line"><span class="selector-id">#wrap</span> ele<span class="selector-pseudo">:nth-child</span>(<span class="number">1</span>)&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>:first-child</p>
+</li>
+<li><p>:last-child</p>
+</li>
+<li><p>:nth-child(even) </p>
+</li>
+<li><p>:nth-child(odd) </p>
+</li>
+<li><p>:nth-last-child(index)</p>
+<ul>
+<li><code>从后往前 </code>数</li>
+</ul>
+</li>
+<li><p>:only-child</p>
+<ul>
+<li>唯一的一个子元素</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>:nth-of-type(index)</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 找到 #wrap 的子元素中的所有的 p,再在所有 p 中找第一个， p 的顺序可能不是第一位的*/</span></span><br><span class="line"><span class="selector-id">#wrap</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-of-type</span>(<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="attribute">background</span>: red;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>:first-of-type</p>
+</li>
+<li><p>:last-of-type</p>
+</li>
+<li><p>:only-of-type</p>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 子元素中只能有一个 p 标签(可以有多个其他标签) */</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:only-of-type</span> &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>⚠️: nth-of-type(index) 以 <strong>元素属性</strong> 为中心</li>
+</ul>
+</li>
+<li><p>:not</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &gt; <span class="selector-tag">a</span><span class="selector-pseudo">:not</span>(<span class="selector-pseudo">:last-of-type</span>) &#123;</span><br><span class="line">    <span class="attribute">border-right</span>: <span class="number">1px</span> solid pink;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>:empty</p>
+<ul>
+<li><p>没有内容(空格都不行)</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:empty</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: pink;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="区分-nth-child-和-nth-of-type"><a href="#区分-nth-child-和-nth-of-type" class="headerlink" title="区分 nth-child 和 nth-of-type"></a>区分 nth-child 和 nth-of-type</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child</span>(<span class="number">1</span>) &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>: red; <span class="comment">/* 不会选中任何内容， 因为第一个子元素不是 li 类型*/</span></span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  </span></span><br><span class="line"><span class="css">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-of-type</span>(<span class="number">1</span>) &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>: red; <span class="comment">/* 会选中 2 ， 因为 2 是第一个 type 为 li 的子元素*/</span></span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>1<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="自定义单选按钮"><a href="#自定义单选按钮" class="headerlink" title="自定义单选按钮"></a>自定义单选按钮</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-tag">input</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">display</span>: none;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">input</span> + <span class="selector-tag">span</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">display</span>: inline-block;</span></span><br><span class="line"><span class="css">      <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">input</span><span class="selector-pseudo">:checked</span> + <span class="selector-tag">span</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: pink;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">span</span><span class="selector-pseudo">::after</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">      <span class="attribute">left</span>: <span class="number">5px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">top</span>: <span class="number">5px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">label</span>&gt;</span> </span><br><span class="line"> <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">label</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h3><ul>
+<li><p><strong>伪元素不存在 DOM 树上</strong>, 伪元素选择器可以让我们选择到 DOM 以外的元素</p>
+</li>
+<li><p>伪元素选择器</p>
+<ul>
+<li>::before</li>
+<li>::after<ul>
+<li>::after 和 ::before <code>必须有 content 属性</code></li>
+</ul>
+</li>
+<li>::first-letter</li>
+<li>::first-line</li>
+<li><font color=#c00>::selection</font><ul>
+<li>选中字体时的状态</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="单冒号和双冒号的区别"><a href="#单冒号和双冒号的区别" class="headerlink" title="单冒号和双冒号的区别"></a>单冒号和双冒号的区别</h3><ul>
+<li>单冒号 <code>: </code> 用来表示伪类</li>
+<li>双冒号 <code>::</code> 用来表示伪元素</li>
+</ul>
+<h2 id="声明的优先级"><a href="#声明的优先级" class="headerlink" title="声明的优先级"></a>声明的优先级</h2><ul>
+<li>选择器的特殊属性由选择器本身的组件确定, 特殊性值表示为 4 个部分</li>
+<li>一个选择器的具体特殊性如下确定<ol>
+<li>id 选择器 —— 0, 1, 0, 0</li>
+<li>类选择器 —— 0, 0, 1, 0</li>
+<li><strong>属性选择器 —— 0, 0, 1, 0</strong></li>
+<li>伪类 —— 0, 0, 1, 0</li>
+<li>元素选择器 —— 0, 0, 0, 1</li>
+<li>伪元素 —— 0, 0, 0, 1</li>
+<li>通配符 —— 0, 0, 0, 0</li>
+<li>内联 —— 1, 0, 0, 0</li>
+<li>!important —— 放在分号的前面</li>
+</ol>
+</li>
+</ul>
+<h1 id="自定义字体"><a href="#自定义字体" class="headerlink" title="自定义字体"></a>自定义字体</h1><ul>
+<li><p>自定义</p>
+<ul>
+<li>需要去服务器取, 增大网络负担</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">&#x27;damu&#x27;</span>;</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">fonts/baohaus93.ttf</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">font</span>: <span class="number">12px</span> <span class="string">&quot;damu&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>FontLab Studio 生成字体工具</p>
+</li>
+<li><p><a href="https://icomoon.io/">IcoMoon</a></p>
+</li>
+<li><p><a href="https://www.iconfont.cn/">Iconfont</a></p>
+</li>
+</ul>
+<h1 id="新的-UI-方案"><a href="#新的-UI-方案" class="headerlink" title="新的 UI 方案"></a>新的 UI 方案</h1><h2 id="文本新增样式"><a href="#文本新增样式" class="headerlink" title="文本新增样式"></a>文本新增样式</h2><ul>
+<li>opacity</li>
+<li>rgba()</li>
+<li>文本阴影<ul>
+<li>可以加多层</li>
+<li>text-shadow: 颜色 水平偏移 垂直偏移 模糊度[, 颜色 水平偏移 垂直偏移 模糊度];</li>
+</ul>
+</li>
+<li>文字描边<ul>
+<li>只有 webkit 内核的浏览器才支持</li>
+<li>-webkit-text-stroke: 4px pink;</li>
+</ul>
+</li>
+<li>文字排版<ul>
+<li>direction: ltr/rtl;</li>
+<li>要配合 unicode-bidi: bidi-override; 使用</li>
+</ul>
+</li>
+<li>溢出显示省略号<ul>
+<li><strong>text-overflow: ellipsis;</strong></li>
+<li>要配合 <strong>overflow: hidden; white-wrap: nowrap;</strong> 使用</li>
+<li>出现省略号的条件 —— 盒子不能由内容撑开</li>
+</ul>
+</li>
+</ul>
+<h2 id="元素模糊"><a href="#元素模糊" class="headerlink" title="元素模糊"></a>元素模糊</h2><ul>
+<li><p><strong>filter: blur(10px); —— 让整个元素模糊</strong></p>
+<ul>
+<li><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/filter">使用参考</a></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width,initial-scale=1.0,user-scalable=no&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">            *&#123;</span></span><br><span class="line"><span class="css">                <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            &#125;</span></span><br><span class="line"><span class="css">            <span class="selector-id">#wrap</span>&#123;</span></span><br><span class="line"><span class="css">                <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,.<span class="number">5</span>);</span></span><br><span class="line"><span class="css">                <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="css">            &#125;</span></span><br><span class="line"><span class="css">            <span class="selector-id">#wrap</span> <span class="selector-id">#bg</span>&#123;</span></span><br><span class="line"><span class="css">                <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">                <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">right</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">top</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">bottom</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">img/avatar.jpg</span>) no-repeat;</span></span><br><span class="line"><span class="css">                <span class="attribute">background-size</span>:<span class="number">100%</span> <span class="number">100%</span> ;</span></span><br><span class="line"><span class="css">                <span class="attribute">z-index</span>: -<span class="number">1</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">filter</span>: <span class="built_in">blur</span>(<span class="number">10px</span>);</span></span><br><span class="line"><span class="css">            &#125;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">img</span>&#123;</span></span><br><span class="line"><span class="css">                <span class="attribute">margin</span>: <span class="number">24px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">24px</span>;</span></span><br><span class="line"><span class="css">            &#125;</span></span><br><span class="line"><span class="css">        </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;wrap&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;img/avatar.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;64px&quot;</span> <span class="attr">height</span>=<span class="string">&quot;64px&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;bg&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="盒模型新增样式"><a href="#盒模型新增样式" class="headerlink" title="盒模型新增样式"></a>盒模型新增样式</h2><h3 id="盒模型阴影"><a href="#盒模型阴影" class="headerlink" title="盒模型阴影"></a>盒模型阴影</h3><ul>
+<li>box-shadow:  水平偏移 垂直偏移 模糊度 [扩散大小] 颜色 [inset];</li>
+<li>阴影可叠加</li>
+</ul>
+<h3 id="倒影"><a href="#倒影" class="headerlink" title="倒影"></a>倒影</h3><ul>
+<li>-webkit-box-reflect: left / right / bottom / top [10px];</li>
+</ul>
+<h3 id="resize"><a href="#resize" class="headerlink" title="resize"></a>resize</h3><ul>
+<li>resize: both / horizatal / vertical;</li>
+<li>要配合 overflow: auto; 使用</li>
+</ul>
+<h3 id="box-sizing"><a href="#box-sizing" class="headerlink" title="box-sizing"></a>box-sizing</h3><ul>
+<li>box-sizing: border-box;<ul>
+<li>width 和 height 包含内容区、内边距和边框</li>
+</ul>
+</li>
+</ul>
+<h2 id="新增-UI-样式"><a href="#新增-UI-样式" class="headerlink" title="新增 UI 样式"></a>新增 UI 样式</h2><h3 id="圆角"><a href="#圆角" class="headerlink" title="圆角"></a>圆角</h3><ul>
+<li>border-radius: 50%/50px[, 50px, 50px, 50px];</li>
+<li><strong>border-radius: 100px/150px;  椭圆</strong></li>
+</ul>
+<h3 id="边框图片"><a href="#边框图片" class="headerlink" title="边框图片"></a>边框图片</h3><ul>
+<li><p>border-image-source</p>
+<ul>
+<li><p>使用一张图片来代替边框样式</p>
+</li>
+<li><p>值为 url()</p>
+</li>
+<li><p>要和 border 搭配使用</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">border</span>: <span class="number">30px</span> solid;</span><br><span class="line"><span class="attribute">border-image-source</span>: <span class="built_in">url</span>(<span class="string">border.png</span>);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>border-image-slice</p>
+<ul>
+<li>默认会将图片分割为 9 个区域 - 四个角、四边以及中心区域</li>
+<li>值为百分数(基于图片)</li>
+<li>border-image-slice: 33.33333333% [fill];</li>
+</ul>
+</li>
+<li><p>border-image-repeat</p>
+<ul>
+<li>平铺</li>
+<li>border-image-repeat: stretch / round / repeat;</li>
+</ul>
+</li>
+<li><p>border-image-width</p>
+<ul>
+<li>定义图像边框宽度</li>
+</ul>
+</li>
+<li><p>border-image-outset</p>
+<ul>
+<li>只能是正值</li>
+<li>边框图片外扩距离</li>
+</ul>
+</li>
+</ul>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><ul>
+<li>background-image<ul>
+<li>可以指定多背景, 前面的图片会覆盖后面的</li>
+<li>background-image: url(img1.jpg), url(img2.jpg);</li>
+</ul>
+</li>
+<li><font color=#c40>background-position</font><ul>
+<li>值可以是 具体的值 / 百分比(<font color=#c40><strong>参照于背景区域的大小减去背景图片的大小</strong></font>) / 方位关键词</li>
+</ul>
+</li>
+<li>background-attachment<ul>
+<li>值 fixed(相对于视口) / scroll</li>
+<li>⚠️值为 fixed 时, <strong>背景图在视口中固定定位, 但只在该元素范围内可见</strong></li>
+</ul>
+</li>
+<li>background-origin<ul>
+<li>背景图默认从 padding-box 开始渲染</li>
+<li>取值 border-box / padding-box / content-box</li>
+<li>⚠️ 可以和 background-clip 搭配做点击区域大于小图标区域的效果 (小图标来自雪碧图)</li>
+</ul>
+</li>
+<li>background-clip<ul>
+<li>从哪开始剪</li>
+<li>取值 border-box / padding-box / content-box</li>
+<li>⚠️: -webkit-background-clip: text;<ul>
+<li>背景图剪切到文字内(文字 color 要设置透明)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>background-size<ul>
+<li>取值<ul>
+<li>background-size: 100%;</li>
+<li>background-size: 100% 100%;(可能会变形)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h3><h4 id="线性渐变-默认从上到下"><a href="#线性渐变-默认从上到下" class="headerlink" title="线性渐变 (默认从上到下)"></a>线性渐变 (默认从上到下)</h4><ul>
+<li>渐变是背景图属性<ul>
+<li>background-image: linear-gradient(red, green);</li>
+<li>background-image: linear-gradient(to top, red, green);</li>
+<li>background-image: linear-gradient(45deg, red, green);</li>
+<li>background-image: linear-gradient(90deg, red 10%, green 20%);</li>
+</ul>
+</li>
+<li>重复渐变<ul>
+<li>background-image: repeating-linear-gradient(90deg, red 10%, green 20%);</li>
+</ul>
+</li>
+<li>⚠️角度问题<ul>
+<li>如果第一个参数是角度<ul>
+<li>0deg —— 代表从下到上</li>
+<li>90deg —— 代表从左到右</li>
+<li>……</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="径向渐变"><a href="#径向渐变" class="headerlink" title="径向渐变"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/radial-gradient">径向渐变</a></h4><ul>
+<li>background-image: radial-gradient(red, green);</li>
+<li>background-image: radial-gradient(red 10%, green 30%, pink 50%);</li>
+<li>background-image: radial-gradient(circle, red 10%, green 30%, pink 50%);</li>
+<li>background-image: radial-gradient(circle at 10px 10px, red 10%, green 30%, pink 50%);</li>
+</ul>
+<h1 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a>过渡</h1><ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_animated_properties">可做动画的 CSS 属性</a></li>
+<li>transition<ul>
+<li>tradition-duration<ul>
+<li>过渡时间, 以 s / ms 为单位</li>
+<li>0s 必须带单位</li>
+</ul>
+</li>
+<li>transition-property<ul>
+<li>默认是 all</li>
+</ul>
+</li>
+<li>transition-delay<ul>
+<li>延迟时间</li>
+</ul>
+</li>
+<li>transition-timing-function<ul>
+<li>ease / ease-in / ease-out / linear / ease-in-out / <a href="https://cubic-bezier.com/#.17,.67,.83,.67">cubic-bezier()</a> / steps(5[, start])</li>
+<li>steps()<ul>
+<li>第一个参数: 必须为整数, 指定步数</li>
+<li>第二个参数: 指定每一步的值发生的时间点(默认为 end)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>当属性值的列表长度不一致时<ul>
+<li>超出的情况下会被全部截掉</li>
+<li>不够的时候, 关于时间的会重复列表, transition-timing-function 的时候使用的是默认值 ease</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="检测过渡是否完成"><a href="#检测过渡是否完成" class="headerlink" title="检测过渡是否完成"></a>检测过渡是否完成</h2><ul>
+<li>当过渡完成时会触发一个事件, 这个事件是 transitionend<ul>
+<li>必须通过 dom2 的方式绑定</li>
+</ul>
+</li>
+<li>每一个拥有过渡的属性在其完成过渡时都会触发一次 transitionend 事件<ul>
+<li>有几个过渡属性, transitionend 就会触发几次</li>
+</ul>
+</li>
+<li>在过渡完成前设置元素的 display: none, transitionend 事件不会触发</li>
+</ul>
+<h2 id="过渡注意点"><a href="#过渡注意点" class="headerlink" title="过渡注意点"></a>过渡注意点</h2><ol>
+<li><p>transitionend 在元素首次渲染还没有结束的情况下, 是不会触发的</p>
+</li>
+<li><p>过渡只关心元素的起始状态和结束状态, 没有办法获取元素在过渡中的每一帧</p>
+</li>
+<li><p>在绝大部分变换样式的切换时, 变换组合的个数或者位置不一样时, 是没有办法过渡的</p>
+</li>
+</ol>
+<h2 id="过渡简写"><a href="#过渡简写" class="headerlink" title="过渡简写"></a>过渡简写</h2><ul>
+<li>transition: 过渡样式 过渡时间 [过渡曲线 延迟];<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">transition</span>: width <span class="number">2s</span> <span class="number">3s</span>, height <span class="number">3s</span>;</span><br><span class="line"><span class="comment">/* height 用 3s 过渡完成后, width 才开始动画 */</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="2d-3d-变形"><a href="#2d-3d-变形" class="headerlink" title="2d/3d 变形"></a>2d/3d 变形</h1><h2 id="2D-变形"><a href="#2D-变形" class="headerlink" title="2D 变形"></a>2D 变形</h2><ul>
+<li><p>旋转 (rotate)</p>
+<ul>
+<li>单位 deg</li>
+<li>正值按顺时针方向</li>
+</ul>
+</li>
+<li><p>平移 (translate)</p>
+<ul>
+<li>单位 px / %</li>
+<li>translate 括号内若只有一个值表示的是 X 轴的位移</li>
+</ul>
+</li>
+<li><p>倾斜 (skew)</p>
+<ul>
+<li>单位 deg</li>
+</ul>
+</li>
+<li><p>缩放 (scale)</p>
+<ul>
+<li>不带单位</li>
+</ul>
+</li>
+<li><p>元素基点 (transform-origin)</p>
+<ul>
+<li>transform-origin: left top;</li>
+<li>transform-origin: 50px 50px;</li>
+<li>transform-origin: 100% 100%;<ul>
+<li>基于自身大小的百分比</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>⚠️ transform-origin 的原点是基于元素自身的左上角的</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="2d变换组合"><a href="#2d变换组合" class="headerlink" title="2d变换组合"></a>2d变换组合</h2><ul>
+<li><p>变换的顺序 <strong>影响最终结果</strong></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.test</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateX</span>(<span class="number">100px</span>) <span class="built_in">scale</span>(<span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 结果不同 */</span></span><br><span class="line"><span class="selector-class">.test</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">2</span>) <span class="built_in">translateX</span>(<span class="number">100px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>⚠️: 在绝大部分变换样式切换时, <font color=#c40>如果变换函数的位置或个数不一致也不会触发过渡</font></p>
+</li>
+</ul>
+<h2 id="3d-变形"><a href="#3d-变形" class="headerlink" title="3d 变形"></a>3d 变形</h2><h3 id="景深"><a href="#景深" class="headerlink" title="景深"></a>景深</h3><ul>
+<li><p><strong>眼睛到显示器的距离</strong>, 让 3d 场景有近大远小的效果; </p>
+<ul>
+<li>景深越大, 元素离我们越远, 灭点越远, 元素变形越小</li>
+</ul>
+</li>
+<li><p>加给做变换的元素的 <code>祖先元素</code>, 作用于后代元素</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">perspective</span>: <span class="number">100px</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>景深函数</p>
+<ul>
+<li><code>加给自身</code>, 且 <strong>必须放在首位</strong><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#inner</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">perspective</span>(<span class="number">100px</span>) <span class="built_in">rotate</span>(<span class="number">0deg</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#wrap</span><span class="selector-pseudo">:hover</span> <span class="selector-id">#inner</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">perspective</span>(<span class="number">100px</span>) <span class="built_in">rotate</span>(<span class="number">360deg</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>景深基点 (视线角度)</p>
+<ul>
+<li><p>加给做变换的元素的 <code>祖先元素</code>, 作用于后代元素</p>
+</li>
+<li><p>用来控制眼睛位置</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">perspective-origin</span>: left top;</span><br></pre></td></tr></table></figure></li>
+<li><p>默认值 50% 50%</p>
+</li>
+</ul>
+</li>
+<li><p>⚠️ 要避免景深叠加</p>
+</li>
+</ul>
+<h3 id="transform-style"><a href="#transform-style" class="headerlink" title="transform-style"></a>transform-style</h3><ul>
+<li>营造有层次的 3d 舞台 <ul>
+<li>取值 <code>preserve-3d</code></li>
+</ul>
+</li>
+<li>加给做变换的元素的 <code>父元素</code>, 作用于子元素</li>
+</ul>
+<h3 id="transform-origin"><a href="#transform-origin" class="headerlink" title="transform-origin"></a>transform-origin</h3><ul>
+<li>设置元素基点</li>
+<li>transform-origin: center center -50px;<ul>
+<li>默认值: center center 0;</li>
+</ul>
+</li>
+</ul>
+<h3 id="隐藏背面"><a href="#隐藏背面" class="headerlink" title="隐藏背面"></a>隐藏背面</h3><ul>
+<li>backface-visibility<ul>
+<li>hidden  /visible</li>
+</ul>
+</li>
+</ul>
+<h3 id="3d-旋转"><a href="#3d-旋转" class="headerlink" title="3d 旋转"></a>3d 旋转</h3><ul>
+<li>transform: rotate3d(1, 1, 1,  360deg);</li>
+</ul>
+<h3 id="3d-平移"><a href="#3d-平移" class="headerlink" title="3d 平移"></a>3d 平移</h3><ul>
+<li>transform:translate3d(100px, 100px, 100px);</li>
+<li>第三个参数(translateZ) <code>不能写百分数</code></li>
+<li><strong>translateZ 需要配合景深才有作用</strong></li>
+</ul>
+<h3 id="3d-缩放"><a href="#3d-缩放" class="headerlink" title="3d 缩放"></a>3d 缩放</h3><ul>
+<li>transform:scale3d(1, 1, 2);</li>
+</ul>
+<h1 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h1><p>css3 动画指的是 <code>元素从一种样式逐渐过渡到另一种样式</code></p>
+<ul>
+<li><p>animation-name</p>
+<ul>
+<li>动画名称</li>
+</ul>
+</li>
+<li><p>animation-duration</p>
+<ul>
+<li>动画时间</li>
+</ul>
+</li>
+<li><p>animation-timing-function</p>
+<ul>
+<li>动画曲线 - 作用于一个关键帧周期, 而非整个动画周期</li>
+<li>linear / ease / ease-in / ease-out / ease-in-out / steps(12[, start / end])</li>
+<li><em>steps(12, start) - 看不到第一帧</em></li>
+<li><em>steps(12, end) - 看不到最后一帧</em></li>
+</ul>
+</li>
+<li><p>animation-delay</p>
+<ul>
+<li>延迟时间</li>
+</ul>
+</li>
+<li><p>animation-iteration-count</p>
+<ul>
+<li>动画重复次数 (<em>动画延迟不会被循环</em>)</li>
+<li>重复的是 <code>关键帧</code></li>
+<li>具体数值 / infinite (无限次)</li>
+</ul>
+</li>
+<li><p>animation-direction</p>
+<ul>
+<li>动画方向</li>
+<li>normal / reverse (反转的是 <code>关键帧</code> 和 <code>动画曲线</code>)</li>
+<li>alternate (往返运动) / alternate-reverse (<strong>必须和 infinite 一起使用才有效</strong>)</li>
+</ul>
+</li>
+<li><p>animation-fill-mode</p>
+<ul>
+<li><strong>元素的开始位置和结束位置</strong></li>
+<li>backfords (元素<strong>开始位置在 from 处</strong>) / forwards (元素结束后<strong>在 to 位置</strong>)</li>
+<li>both (<strong>开始位置在 from 处, 结束位置在 to 处</strong>)</li>
+</ul>
+</li>
+<li><p>animation-play-state</p>
+<ul>
+<li><p>开启 / 暂停动画</p>
+</li>
+<li><p>running (默认值) / paused</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#wrap</span><span class="selector-pseudo">:hover</span> <span class="selector-id">#inner</span> &#123;</span><br><span class="line">  <span class="attribute">animation-play-state</span>: paused;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>@keyframes </p>
+<ul>
+<li>关键帧</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> move &#123;</span><br><span class="line">    <span class="selector-tag">from</span> &#123;</span><br><span class="line">        <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">0deg</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">to</span> &#123;</span><br><span class="line">        <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">360deg</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 百分数分的是时间 */</span></span><br><span class="line"><span class="keyword">@keyframes</span> move &#123;</span><br><span class="line">    <span class="number">0%</span> &#123;</span><br><span class="line">        <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-<span class="number">100px</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="number">50%</span> &#123;</span><br><span class="line">        <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-<span class="number">50px</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="number">100%</span> &#123;</span><br><span class="line">        <span class="attribute">transform</span>: <span class="built_in">translateY</span>(<span class="number">100px</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>简写</p>
+<ul>
+<li>animation: 动画名称 动画时间 动画曲线 动画延迟 循环次数 动画方向 状态保持 启动暂停;</li>
+<li>animation: move 3s ease 1s infinite alternate forwards;</li>
+</ul>
+</li>
+</ul>
+<h2 id="运用-steps-来做小动画"><a href="#运用-steps-来做小动画" class="headerlink" title="运用 steps() 来做小动画"></a>运用 steps() 来做小动画</h2><ol>
+<li>数小图片有几帧 —— n</li>
+<li>看图片的尺寸 —— w</li>
+<li><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> move &#123;</span><br><span class="line">     <span class="selector-tag">from</span> &#123;</span><br><span class="line">       <span class="attribute">background-position</span>: <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="selector-tag">to</span> &#123;</span><br><span class="line">       <span class="attribute">background-position</span>: -w <span class="number">0</span>; <span class="comment">/* 这里就是图片尺寸, 不需要减去一帧的宽度; 动画实际有 n+1 帧*/</span></span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>4.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.icon &#123;</span><br><span class="line">    background: url(img.png) no-repeat;</span><br><span class="line">     background-position: 0 0;</span><br><span class="line">     animation: move 1s steps(n) infinite;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h1><p><font color=#c40>响应式布局的核心</font></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen &#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 规则 - 在某些条件下才起作用 */</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>媒体查询一般 <code>写在 css 最下面</code></p>
+</li>
+<li><p>媒体类型</p>
+<ul>
+<li>all</li>
+<li>screen</li>
+<li>print</li>
+</ul>
+</li>
+</ul>
+<h2 id="媒体属性"><a href="#媒体属性" class="headerlink" title="媒体属性"></a>媒体属性</h2><ul>
+<li><p>width /  height / device-width / -webkit-device-pixel-ratio / orientation(横/竖屏)</p>
+<ul>
+<li><p>width /  height / device-width / -webkit-device-pixel-ratio 都可加前缀 (min- / max-)</p>
+</li>
+<li><p>orientation: portrait / landscape;</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* :后的值不要加引号 */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">orientation</span>: portrait) &#123;</span><br><span class="line">    <span class="selector-id">#wrap</span> &#123;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">10px</span> solid;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">1000px</span>) &#123;</span><br><span class="line">    <span class="selector-id">#wrap</span> &#123;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">10px</span> solid;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><ul>
+<li><p>and </p>
+<ul>
+<li>与, and 用来连接媒体类型和媒体属性<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 设备像素比为2 且 为竖屏*/</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">-webkit-device-pixel-ratio</span>: <span class="number">2</span>) <span class="keyword">and</span> (<span class="attribute">orientation</span>: portrait) &#123;</span><br><span class="line">    <span class="selector-id">#wrap</span> &#123;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">10px</span> solid;</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>only</p>
+<ul>
+<li>老版本使用, 让老版本浏览器不响应</li>
+</ul>
+</li>
+<li><p>,</p>
+<ul>
+<li>或<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 设备像素比为2 或者 为竖屏*/</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">-webkit-device-pixel-ratio</span>: <span class="number">2</span>), (<span class="attribute">orientation</span>: portrait) &#123;</span><br><span class="line">    <span class="selector-id">#wrap</span> &#123;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">10px</span> solid;</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>not</p>
+<ul>
+<li>取反<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 不是像素比为2的设备 或者 为竖屏*/</span></span><br><span class="line"><span class="keyword">@media</span> <span class="keyword">not</span> (<span class="attribute">-webkit-device-pixel-ratio</span>: <span class="number">2</span>) , (<span class="attribute">orientation</span>: portrait) &#123;</span><br><span class="line">    <span class="selector-id">#wrap</span> &#123;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">10px</span> solid;</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h1 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h1><ol>
+<li>HTML 规范</li>
+<li>JS 规范<ul>
+<li><a href="http://www.ecma-international.org/publications/standards/Ecma-262-arch.htm">ECMA 规范</a></li>
+<li><a href="https://www.w3.org/DOM/">DOM 规范</a><ul>
+<li>DOM 是独立于平台和语言的借口, 该借口为程序和脚本提供了对文档的内容、结构和样式的动态获取和更新的功能</li>
+<li>BOM 没有规范</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://www.w3.org/Style/CSS/">CSS 规范</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>CSS</tag>
       </tags>
   </entry>
   <entry>
@@ -1888,676 +2752,6 @@
 ]]></content>
       <tags>
         <tag>HTML</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CSS3</title>
-    <url>/2016/06/15/04-CSS3/</url>
-    <content><![CDATA[<h1 id="CSS3-选择器"><a href="#CSS3-选择器" class="headerlink" title="CSS3 选择器"></a>CSS3 选择器</h1><p><a href="http://www.w3school.com.cn/cssref/css_selectors.asp">选择器汇总</a></p>
-<span id="more"></span>
-
-<h2 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a>基本选择器</h2><ol>
-<li>id 选择器 (#)</li>
-<li>类选择器 (.)</li>
-<li>标签选择器 (标签名)</li>
-<li>通配符选择器 (*)</li>
-<li>后代选择器 (空格)</li>
-<li>分组选择器 (,)</li>
-</ol>
-<h2 id="基本选择器扩展"><a href="#基本选择器扩展" class="headerlink" title="基本选择器扩展"></a>基本选择器扩展</h2><ol>
-<li><p>子元素选择器 (&gt;)</p>
-</li>
-<li><p>兄弟选择器</p>
-<ul>
-<li><p>相邻 (<strong>紧跟</strong>) 兄弟 (+)</p>
-</li>
-<li><p>通用 (<strong>后边的所有</strong>) 兄弟选择器 (~)</p>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="属性选择器-html-属性"><a href="#属性选择器-html-属性" class="headerlink" title="属性选择器(html 属性)"></a>属性选择器(html 属性)</h2><ul>
-<li><p>存在选择器</p>
-<ul>
-<li>div[name]</li>
-<li><em>属性名不要加引号</em></li>
-</ul>
-</li>
-<li><p>值选择器</p>
-<ul>
-<li><p>div[name=”hello”]</p>
-</li>
-<li><p>div[name~=”hello”]</p>
-<ul>
-<li><p>name 属性值中含有 hello, <em>以空格分隔其他属性值</em></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-attr">[name~=<span class="string">&#x27;hehe&#x27;</span>]</span> <span class="comment">/* &lt;div name=&quot;hehe hah&quot;&gt;&lt;/div&gt;*/</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>div[name|=”hello”]</p>
-<ul>
-<li><p>name 属性值是 hello 或者以 hello- 开头</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-attr">[name|=<span class="string">&#x27;hehe&#x27;</span>]</span> <span class="comment">/* &lt;div name=&quot;hehe&quot;&gt;&lt;/div&gt; or &lt;div name=&quot;hehe-hah&quot;&gt;&lt;/div&gt;*/</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>div[name^=”hello”]</p>
-<ul>
-<li>name 属性值以 hello 开头</li>
-</ul>
-</li>
-<li><p>div[name$=”hello”]</p>
-<ul>
-<li>name 属性值以 hello 结尾</li>
-</ul>
-</li>
-<li><p>div[name*=”hello”]</p>
-<ul>
-<li>name 属性值包含 hello </li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="伪类与伪元素选择器"><a href="#伪类与伪元素选择器" class="headerlink" title="伪类与伪元素选择器"></a>伪类与伪元素选择器</h2><h3 id="伪类选择器-表示标签的某些特殊状态"><a href="#伪类选择器-表示标签的某些特殊状态" class="headerlink" title="伪类选择器 (表示标签的某些特殊状态)"></a>伪类选择器 (表示标签的某些特殊状态)</h3><ul>
-<li><p>链接伪类</p>
-<ul>
-<li><p>只作用于 a 元素</p>
-</li>
-<li><p>:link</p>
-</li>
-<li><p>:visited</p>
-<ul>
-<li>只有以下属性可以被应用到已访问过的链接<ul>
-<li>color</li>
-<li>background-color</li>
-<li>border-color</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>:target</strong> (使用 css 做选项卡)</p>
-<ul>
-<li><p>代表一个特殊的元素, 它的 id 是 URL 的片段标识符</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">  <span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: pink;</span></span><br><span class="line"><span class="css">    <span class="attribute">display</span>: none;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-pseudo">:target</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#div1&quot;</span>&gt;</span>div1<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#div2&quot;</span>&gt;</span>div2<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#div3&quot;</span>&gt;</span>div3<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;div1&quot;</span>&gt;</span>div1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;div2&quot;</span>&gt;</span>div2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;div3&quot;</span>&gt;</span>div3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>动态伪类</p>
-<ul>
-<li>:hover</li>
-<li>:active(点击按住时)</li>
-</ul>
-</li>
-<li><p>⚠️:link 和 :visited 可以覆盖了所有的 a 标签的状态</p>
-<ul>
-<li>所以当 :link、:visited、:hover、:active 同时设置时, :link 和 :visited <code>不能放在最后</code></li>
-</ul>
-</li>
-<li><p>表单伪类</p>
-<ul>
-<li>:enabled</li>
-<li>:disabled</li>
-<li>:checked</li>
-<li>:focus</li>
-</ul>
-</li>
-<li><p>结构性伪类</p>
-<ul>
-<li><p>:nth-child(index)   (index 从 1 开始)</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 查找规则 - 找 #warp 的第一个子元素是不是 ele 标签, 强调顺序， 在子元素中的顺序必须是 1*/</span></span><br><span class="line"><span class="selector-id">#wrap</span> ele<span class="selector-pseudo">:nth-child</span>(<span class="number">1</span>)&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>:first-child</p>
-</li>
-<li><p>:last-child</p>
-</li>
-<li><p>:nth-child(even) </p>
-</li>
-<li><p>:nth-child(odd) </p>
-</li>
-<li><p>:nth-last-child(index)</p>
-<ul>
-<li><code>从后往前 </code>数</li>
-</ul>
-</li>
-<li><p>:only-child</p>
-<ul>
-<li>唯一的一个子元素</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>:nth-of-type(index)</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 找到 #wrap 的子元素中的所有的 p,再在所有 p 中找第一个， p 的顺序可能不是第一位的*/</span></span><br><span class="line"><span class="selector-id">#wrap</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-of-type</span>(<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="attribute">background</span>: red;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>:first-of-type</p>
-</li>
-<li><p>:last-of-type</p>
-</li>
-<li><p>:only-of-type</p>
-</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 子元素中只能有一个 p 标签(可以有多个其他标签) */</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:only-of-type</span> &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>⚠️: nth-of-type(index) 以 <strong>元素属性</strong> 为中心</li>
-</ul>
-</li>
-<li><p>:not</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &gt; <span class="selector-tag">a</span><span class="selector-pseudo">:not</span>(<span class="selector-pseudo">:last-of-type</span>) &#123;</span><br><span class="line">    <span class="attribute">border-right</span>: <span class="number">1px</span> solid pink;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>:empty</p>
-<ul>
-<li><p>没有内容(空格都不行)</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:empty</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: pink;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="区分-nth-child-和-nth-of-type"><a href="#区分-nth-child-和-nth-of-type" class="headerlink" title="区分 nth-child 和 nth-of-type"></a>区分 nth-child 和 nth-of-type</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child</span>(<span class="number">1</span>) &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>: red; <span class="comment">/* 不会选中任何内容， 因为第一个子元素不是 li 类型*/</span></span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  </span></span><br><span class="line"><span class="css">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-of-type</span>(<span class="number">1</span>) &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>: red; <span class="comment">/* 会选中 2 ， 因为 2 是第一个 type 为 li 的子元素*/</span></span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>1<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="自定义单选按钮"><a href="#自定义单选按钮" class="headerlink" title="自定义单选按钮"></a>自定义单选按钮</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-tag">input</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">display</span>: none;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">input</span> + <span class="selector-tag">span</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">display</span>: inline-block;</span></span><br><span class="line"><span class="css">      <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">input</span><span class="selector-pseudo">:checked</span> + <span class="selector-tag">span</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: pink;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">span</span><span class="selector-pseudo">::after</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">      <span class="attribute">left</span>: <span class="number">5px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">top</span>: <span class="number">5px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">label</span>&gt;</span> </span><br><span class="line"> <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">label</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h3><ul>
-<li><p><strong>伪元素不存在 DOM 树上</strong>, 伪元素选择器可以让我们选择到 DOM 以外的元素</p>
-</li>
-<li><p>伪元素选择器</p>
-<ul>
-<li>::before</li>
-<li>::after<ul>
-<li>::after 和 ::before <code>必须有 content 属性</code></li>
-</ul>
-</li>
-<li>::first-letter</li>
-<li>::first-line</li>
-<li><font color=#c00>::selection</font><ul>
-<li>选中字体时的状态</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="单冒号和双冒号的区别"><a href="#单冒号和双冒号的区别" class="headerlink" title="单冒号和双冒号的区别"></a>单冒号和双冒号的区别</h3><ul>
-<li>单冒号 <code>: </code> 用来表示伪类</li>
-<li>双冒号 <code>::</code> 用来表示伪元素</li>
-</ul>
-<h2 id="声明的优先级"><a href="#声明的优先级" class="headerlink" title="声明的优先级"></a>声明的优先级</h2><ul>
-<li>选择器的特殊属性由选择器本身的组件确定, 特殊性值表示为 4 个部分</li>
-<li>一个选择器的具体特殊性如下确定<ol>
-<li>id 选择器 —— 0, 1, 0, 0</li>
-<li>类选择器 —— 0, 0, 1, 0</li>
-<li><strong>属性选择器 —— 0, 0, 1, 0</strong></li>
-<li>伪类 —— 0, 0, 1, 0</li>
-<li>元素选择器 —— 0, 0, 0, 1</li>
-<li>伪元素 —— 0, 0, 0, 1</li>
-<li>通配符 —— 0, 0, 0, 0</li>
-<li>内联 —— 1, 0, 0, 0</li>
-<li>!important —— 放在分号的前面</li>
-</ol>
-</li>
-</ul>
-<h1 id="自定义字体"><a href="#自定义字体" class="headerlink" title="自定义字体"></a>自定义字体</h1><ul>
-<li><p>自定义</p>
-<ul>
-<li>需要去服务器取, 增大网络负担</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">&#x27;damu&#x27;</span>;</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">fonts/baohaus93.ttf</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">font</span>: <span class="number">12px</span> <span class="string">&quot;damu&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>FontLab Studio 生成字体工具</p>
-</li>
-<li><p><a href="https://icomoon.io/">IcoMoon</a></p>
-</li>
-<li><p><a href="https://www.iconfont.cn/">Iconfont</a></p>
-</li>
-</ul>
-<h1 id="新的-UI-方案"><a href="#新的-UI-方案" class="headerlink" title="新的 UI 方案"></a>新的 UI 方案</h1><h2 id="文本新增样式"><a href="#文本新增样式" class="headerlink" title="文本新增样式"></a>文本新增样式</h2><ul>
-<li>opacity</li>
-<li>rgba()</li>
-<li>文本阴影<ul>
-<li>可以加多层</li>
-<li>text-shadow: 颜色 水平偏移 垂直偏移 模糊度[, 颜色 水平偏移 垂直偏移 模糊度];</li>
-</ul>
-</li>
-<li>文字描边<ul>
-<li>只有 webkit 内核的浏览器才支持</li>
-<li>-webkit-text-stroke: 4px pink;</li>
-</ul>
-</li>
-<li>文字排版<ul>
-<li>direction: ltr/rtl;</li>
-<li>要配合 unicode-bidi: bidi-override; 使用</li>
-</ul>
-</li>
-<li>溢出显示省略号<ul>
-<li><strong>text-overflow: ellipsis;</strong></li>
-<li>要配合 <strong>overflow: hidden; white-wrap: nowrap;</strong> 使用</li>
-<li>出现省略号的条件 —— 盒子不能由内容撑开</li>
-</ul>
-</li>
-</ul>
-<h2 id="元素模糊"><a href="#元素模糊" class="headerlink" title="元素模糊"></a>元素模糊</h2><ul>
-<li><p><strong>filter: blur(10px); —— 让整个元素模糊</strong></p>
-<ul>
-<li><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/filter">使用参考</a></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width,initial-scale=1.0,user-scalable=no&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">            *&#123;</span></span><br><span class="line"><span class="css">                <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            &#125;</span></span><br><span class="line"><span class="css">            <span class="selector-id">#wrap</span>&#123;</span></span><br><span class="line"><span class="css">                <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,.<span class="number">5</span>);</span></span><br><span class="line"><span class="css">                <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="css">            &#125;</span></span><br><span class="line"><span class="css">            <span class="selector-id">#wrap</span> <span class="selector-id">#bg</span>&#123;</span></span><br><span class="line"><span class="css">                <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">                <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">right</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">top</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">bottom</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">img/avatar.jpg</span>) no-repeat;</span></span><br><span class="line"><span class="css">                <span class="attribute">background-size</span>:<span class="number">100%</span> <span class="number">100%</span> ;</span></span><br><span class="line"><span class="css">                <span class="attribute">z-index</span>: -<span class="number">1</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">filter</span>: <span class="built_in">blur</span>(<span class="number">10px</span>);</span></span><br><span class="line"><span class="css">            &#125;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">img</span>&#123;</span></span><br><span class="line"><span class="css">                <span class="attribute">margin</span>: <span class="number">24px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">24px</span>;</span></span><br><span class="line"><span class="css">            &#125;</span></span><br><span class="line"><span class="css">        </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;wrap&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;img/avatar.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;64px&quot;</span> <span class="attr">height</span>=<span class="string">&quot;64px&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;bg&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h2 id="盒模型新增样式"><a href="#盒模型新增样式" class="headerlink" title="盒模型新增样式"></a>盒模型新增样式</h2><h3 id="盒模型阴影"><a href="#盒模型阴影" class="headerlink" title="盒模型阴影"></a>盒模型阴影</h3><ul>
-<li>box-shadow:  水平偏移 垂直偏移 模糊度 [扩散大小] 颜色 [inset];</li>
-<li>阴影可叠加</li>
-</ul>
-<h3 id="倒影"><a href="#倒影" class="headerlink" title="倒影"></a>倒影</h3><ul>
-<li>-webkit-box-reflect: left / right / bottom / top [10px];</li>
-</ul>
-<h3 id="resize"><a href="#resize" class="headerlink" title="resize"></a>resize</h3><ul>
-<li>resize: both / horizatal / vertical;</li>
-<li>要配合 overflow: auto; 使用</li>
-</ul>
-<h3 id="box-sizing"><a href="#box-sizing" class="headerlink" title="box-sizing"></a>box-sizing</h3><ul>
-<li>box-sizing: border-box;<ul>
-<li>width 和 height 包含内容区、内边距和边框</li>
-</ul>
-</li>
-</ul>
-<h2 id="新增-UI-样式"><a href="#新增-UI-样式" class="headerlink" title="新增 UI 样式"></a>新增 UI 样式</h2><h3 id="圆角"><a href="#圆角" class="headerlink" title="圆角"></a>圆角</h3><ul>
-<li>border-radius: 50%/50px[, 50px, 50px, 50px];</li>
-<li><strong>border-radius: 100px/150px;  椭圆</strong></li>
-</ul>
-<h3 id="边框图片"><a href="#边框图片" class="headerlink" title="边框图片"></a>边框图片</h3><ul>
-<li><p>border-image-source</p>
-<ul>
-<li><p>使用一张图片来代替边框样式</p>
-</li>
-<li><p>值为 url()</p>
-</li>
-<li><p>要和 border 搭配使用</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">border</span>: <span class="number">30px</span> solid;</span><br><span class="line"><span class="attribute">border-image-source</span>: <span class="built_in">url</span>(<span class="string">border.png</span>);</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>border-image-slice</p>
-<ul>
-<li>默认会将图片分割为 9 个区域 - 四个角、四边以及中心区域</li>
-<li>值为百分数(基于图片)</li>
-<li>border-image-slice: 33.33333333% [fill];</li>
-</ul>
-</li>
-<li><p>border-image-repeat</p>
-<ul>
-<li>平铺</li>
-<li>border-image-repeat: stretch / round / repeat;</li>
-</ul>
-</li>
-<li><p>border-image-width</p>
-<ul>
-<li>定义图像边框宽度</li>
-</ul>
-</li>
-<li><p>border-image-outset</p>
-<ul>
-<li>只能是正值</li>
-<li>边框图片外扩距离</li>
-</ul>
-</li>
-</ul>
-<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><ul>
-<li>background-image<ul>
-<li>可以指定多背景, 前面的图片会覆盖后面的</li>
-<li>background-image: url(img1.jpg), url(img2.jpg);</li>
-</ul>
-</li>
-<li><font color=#c40>background-position</font><ul>
-<li>值可以是 具体的值 / 百分比(<font color=#c40><strong>参照于背景区域的大小减去背景图片的大小</strong></font>) / 方位关键词</li>
-</ul>
-</li>
-<li>background-attachment<ul>
-<li>值 fixed(相对于视口) / scroll</li>
-<li>⚠️值为 fixed 时, <strong>背景图在视口中固定定位, 但只在该元素范围内可见</strong></li>
-</ul>
-</li>
-<li>background-origin<ul>
-<li>背景图默认从 padding-box 开始渲染</li>
-<li>取值 border-box / padding-box / content-box</li>
-<li>⚠️ 可以和 background-clip 搭配做点击区域大于小图标区域的效果 (小图标来自雪碧图)</li>
-</ul>
-</li>
-<li>background-clip<ul>
-<li>从哪开始剪</li>
-<li>取值 border-box / padding-box / content-box</li>
-<li>⚠️: -webkit-background-clip: text;<ul>
-<li>背景图剪切到文字内(文字 color 要设置透明)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>background-size<ul>
-<li>取值<ul>
-<li>background-size: 100%;</li>
-<li>background-size: 100% 100%;(可能会变形)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h3><h4 id="线性渐变-默认从上到下"><a href="#线性渐变-默认从上到下" class="headerlink" title="线性渐变 (默认从上到下)"></a>线性渐变 (默认从上到下)</h4><ul>
-<li>渐变是背景图属性<ul>
-<li>background-image: linear-gradient(red, green);</li>
-<li>background-image: linear-gradient(to top, red, green);</li>
-<li>background-image: linear-gradient(45deg, red, green);</li>
-<li>background-image: linear-gradient(90deg, red 10%, green 20%);</li>
-</ul>
-</li>
-<li>重复渐变<ul>
-<li>background-image: repeating-linear-gradient(90deg, red 10%, green 20%);</li>
-</ul>
-</li>
-<li>⚠️角度问题<ul>
-<li>如果第一个参数是角度<ul>
-<li>0deg —— 代表从下到上</li>
-<li>90deg —— 代表从左到右</li>
-<li>……</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="径向渐变"><a href="#径向渐变" class="headerlink" title="径向渐变"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/radial-gradient">径向渐变</a></h4><ul>
-<li>background-image: radial-gradient(red, green);</li>
-<li>background-image: radial-gradient(red 10%, green 30%, pink 50%);</li>
-<li>background-image: radial-gradient(circle, red 10%, green 30%, pink 50%);</li>
-<li>background-image: radial-gradient(circle at 10px 10px, red 10%, green 30%, pink 50%);</li>
-</ul>
-<h1 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a>过渡</h1><ul>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_animated_properties">可做动画的 CSS 属性</a></li>
-<li>transition<ul>
-<li>tradition-duration<ul>
-<li>过渡时间, 以 s / ms 为单位</li>
-<li>0s 必须带单位</li>
-</ul>
-</li>
-<li>transition-property<ul>
-<li>默认是 all</li>
-</ul>
-</li>
-<li>transition-delay<ul>
-<li>延迟时间</li>
-</ul>
-</li>
-<li>transition-timing-function<ul>
-<li>ease / ease-in / ease-out / linear / ease-in-out / <a href="https://cubic-bezier.com/#.17,.67,.83,.67">cubic-bezier()</a> / steps(5[, start])</li>
-<li>steps()<ul>
-<li>第一个参数: 必须为整数, 指定步数</li>
-<li>第二个参数: 指定每一步的值发生的时间点(默认为 end)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>当属性值的列表长度不一致时<ul>
-<li>超出的情况下会被全部截掉</li>
-<li>不够的时候, 关于时间的会重复列表, transition-timing-function 的时候使用的是默认值 ease</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="检测过渡是否完成"><a href="#检测过渡是否完成" class="headerlink" title="检测过渡是否完成"></a>检测过渡是否完成</h2><ul>
-<li>当过渡完成时会触发一个事件, 这个事件是 transitionend<ul>
-<li>必须通过 dom2 的方式绑定</li>
-</ul>
-</li>
-<li>每一个拥有过渡的属性在其完成过渡时都会触发一次 transitionend 事件<ul>
-<li>有几个过渡属性, transitionend 就会触发几次</li>
-</ul>
-</li>
-<li>在过渡完成前设置元素的 display: none, transitionend 事件不会触发</li>
-</ul>
-<h2 id="过渡注意点"><a href="#过渡注意点" class="headerlink" title="过渡注意点"></a>过渡注意点</h2><ol>
-<li><p>transitionend 在元素首次渲染还没有结束的情况下, 是不会触发的</p>
-</li>
-<li><p>过渡只关心元素的起始状态和结束状态, 没有办法获取元素在过渡中的每一帧</p>
-</li>
-<li><p>在绝大部分变换样式的切换时, 变换组合的个数或者位置不一样时, 是没有办法过渡的</p>
-</li>
-</ol>
-<h2 id="过渡简写"><a href="#过渡简写" class="headerlink" title="过渡简写"></a>过渡简写</h2><ul>
-<li>transition: 过渡样式 过渡时间 [过渡曲线 延迟];<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">transition</span>: width <span class="number">2s</span> <span class="number">3s</span>, height <span class="number">3s</span>;</span><br><span class="line"><span class="comment">/* height 用 3s 过渡完成后, width 才开始动画 */</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="2d-3d-变形"><a href="#2d-3d-变形" class="headerlink" title="2d/3d 变形"></a>2d/3d 变形</h1><h2 id="2D-变形"><a href="#2D-变形" class="headerlink" title="2D 变形"></a>2D 变形</h2><ul>
-<li><p>旋转 (rotate)</p>
-<ul>
-<li>单位 deg</li>
-<li>正值按顺时针方向</li>
-</ul>
-</li>
-<li><p>平移 (translate)</p>
-<ul>
-<li>单位 px / %</li>
-<li>translate 括号内若只有一个值表示的是 X 轴的位移</li>
-</ul>
-</li>
-<li><p>倾斜 (skew)</p>
-<ul>
-<li>单位 deg</li>
-</ul>
-</li>
-<li><p>缩放 (scale)</p>
-<ul>
-<li>不带单位</li>
-</ul>
-</li>
-<li><p>元素基点 (transform-origin)</p>
-<ul>
-<li>transform-origin: left top;</li>
-<li>transform-origin: 50px 50px;</li>
-<li>transform-origin: 100% 100%;<ul>
-<li>基于自身大小的百分比</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>⚠️ transform-origin 的原点是基于元素自身的左上角的</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="2d变换组合"><a href="#2d变换组合" class="headerlink" title="2d变换组合"></a>2d变换组合</h2><ul>
-<li><p>变换的顺序 <strong>影响最终结果</strong></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.test</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateX</span>(<span class="number">100px</span>) <span class="built_in">scale</span>(<span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 结果不同 */</span></span><br><span class="line"><span class="selector-class">.test</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">2</span>) <span class="built_in">translateX</span>(<span class="number">100px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>⚠️: 在绝大部分变换样式切换时, <font color=#c40>如果变换函数的位置或个数不一致也不会触发过渡</font></p>
-</li>
-</ul>
-<h2 id="3d-变形"><a href="#3d-变形" class="headerlink" title="3d 变形"></a>3d 变形</h2><h3 id="景深"><a href="#景深" class="headerlink" title="景深"></a>景深</h3><ul>
-<li><p><strong>眼睛到显示器的距离</strong>, 让 3d 场景有近大远小的效果; </p>
-<ul>
-<li>景深越大, 元素离我们越远, 灭点越远, 元素变形越小</li>
-</ul>
-</li>
-<li><p>加给做变换的元素的 <code>祖先元素</code>, 作用于后代元素</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">perspective</span>: <span class="number">100px</span>;</span><br></pre></td></tr></table></figure></li>
-<li><p>景深函数</p>
-<ul>
-<li><code>加给自身</code>, 且 <strong>必须放在首位</strong><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#inner</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">perspective</span>(<span class="number">100px</span>) <span class="built_in">rotate</span>(<span class="number">0deg</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#wrap</span><span class="selector-pseudo">:hover</span> <span class="selector-id">#inner</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">perspective</span>(<span class="number">100px</span>) <span class="built_in">rotate</span>(<span class="number">360deg</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>景深基点 (视线角度)</p>
-<ul>
-<li><p>加给做变换的元素的 <code>祖先元素</code>, 作用于后代元素</p>
-</li>
-<li><p>用来控制眼睛位置</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">perspective-origin</span>: left top;</span><br></pre></td></tr></table></figure></li>
-<li><p>默认值 50% 50%</p>
-</li>
-</ul>
-</li>
-<li><p>⚠️ 要避免景深叠加</p>
-</li>
-</ul>
-<h3 id="transform-style"><a href="#transform-style" class="headerlink" title="transform-style"></a>transform-style</h3><ul>
-<li>营造有层次的 3d 舞台 <ul>
-<li>取值 <code>preserve-3d</code></li>
-</ul>
-</li>
-<li>加给做变换的元素的 <code>父元素</code>, 作用于子元素</li>
-</ul>
-<h3 id="transform-origin"><a href="#transform-origin" class="headerlink" title="transform-origin"></a>transform-origin</h3><ul>
-<li>设置元素基点</li>
-<li>transform-origin: center center -50px;<ul>
-<li>默认值: center center 0;</li>
-</ul>
-</li>
-</ul>
-<h3 id="隐藏背面"><a href="#隐藏背面" class="headerlink" title="隐藏背面"></a>隐藏背面</h3><ul>
-<li>backface-visibility<ul>
-<li>hidden  /visible</li>
-</ul>
-</li>
-</ul>
-<h3 id="3d-旋转"><a href="#3d-旋转" class="headerlink" title="3d 旋转"></a>3d 旋转</h3><ul>
-<li>transform: rotate3d(1, 1, 1,  360deg);</li>
-</ul>
-<h3 id="3d-平移"><a href="#3d-平移" class="headerlink" title="3d 平移"></a>3d 平移</h3><ul>
-<li>transform:translate3d(100px, 100px, 100px);</li>
-<li>第三个参数(translateZ) <code>不能写百分数</code></li>
-<li><strong>translateZ 需要配合景深才有作用</strong></li>
-</ul>
-<h3 id="3d-缩放"><a href="#3d-缩放" class="headerlink" title="3d 缩放"></a>3d 缩放</h3><ul>
-<li>transform:scale3d(1, 1, 2);</li>
-</ul>
-<h1 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h1><p>css3 动画指的是 <code>元素从一种样式逐渐过渡到另一种样式</code></p>
-<ul>
-<li><p>animation-name</p>
-<ul>
-<li>动画名称</li>
-</ul>
-</li>
-<li><p>animation-duration</p>
-<ul>
-<li>动画时间</li>
-</ul>
-</li>
-<li><p>animation-timing-function</p>
-<ul>
-<li>动画曲线 - 作用于一个关键帧周期, 而非整个动画周期</li>
-<li>linear / ease / ease-in / ease-out / ease-in-out / steps(12[, start / end])</li>
-<li><em>steps(12, start) - 看不到第一帧</em></li>
-<li><em>steps(12, end) - 看不到最后一帧</em></li>
-</ul>
-</li>
-<li><p>animation-delay</p>
-<ul>
-<li>延迟时间</li>
-</ul>
-</li>
-<li><p>animation-iteration-count</p>
-<ul>
-<li>动画重复次数 (<em>动画延迟不会被循环</em>)</li>
-<li>重复的是 <code>关键帧</code></li>
-<li>具体数值 / infinite (无限次)</li>
-</ul>
-</li>
-<li><p>animation-direction</p>
-<ul>
-<li>动画方向</li>
-<li>normal / reverse (反转的是 <code>关键帧</code> 和 <code>动画曲线</code>)</li>
-<li>alternate (往返运动) / alternate-reverse (<strong>必须和 infinite 一起使用才有效</strong>)</li>
-</ul>
-</li>
-<li><p>animation-fill-mode</p>
-<ul>
-<li><strong>元素的开始位置和结束位置</strong></li>
-<li>backfords (元素<strong>开始位置在 from 处</strong>) / forwards (元素结束后<strong>在 to 位置</strong>)</li>
-<li>both (<strong>开始位置在 from 处, 结束位置在 to 处</strong>)</li>
-</ul>
-</li>
-<li><p>animation-play-state</p>
-<ul>
-<li><p>开启 / 暂停动画</p>
-</li>
-<li><p>running (默认值) / paused</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#wrap</span><span class="selector-pseudo">:hover</span> <span class="selector-id">#inner</span> &#123;</span><br><span class="line">  <span class="attribute">animation-play-state</span>: paused;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>@keyframes </p>
-<ul>
-<li>关键帧</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> move &#123;</span><br><span class="line">    <span class="selector-tag">from</span> &#123;</span><br><span class="line">        <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">0deg</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">to</span> &#123;</span><br><span class="line">        <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">360deg</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 百分数分的是时间 */</span></span><br><span class="line"><span class="keyword">@keyframes</span> move &#123;</span><br><span class="line">    <span class="number">0%</span> &#123;</span><br><span class="line">        <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-<span class="number">100px</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="number">50%</span> &#123;</span><br><span class="line">        <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-<span class="number">50px</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="number">100%</span> &#123;</span><br><span class="line">        <span class="attribute">transform</span>: <span class="built_in">translateY</span>(<span class="number">100px</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>简写</p>
-<ul>
-<li>animation: 动画名称 动画时间 动画曲线 动画延迟 循环次数 动画方向 状态保持 启动暂停;</li>
-<li>animation: move 3s ease 1s infinite alternate forwards;</li>
-</ul>
-</li>
-</ul>
-<h2 id="运用-steps-来做小动画"><a href="#运用-steps-来做小动画" class="headerlink" title="运用 steps() 来做小动画"></a>运用 steps() 来做小动画</h2><ol>
-<li>数小图片有几帧 —— n</li>
-<li>看图片的尺寸 —— w</li>
-<li><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> move &#123;</span><br><span class="line">     <span class="selector-tag">from</span> &#123;</span><br><span class="line">       <span class="attribute">background-position</span>: <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="selector-tag">to</span> &#123;</span><br><span class="line">       <span class="attribute">background-position</span>: -w <span class="number">0</span>; <span class="comment">/* 这里就是图片尺寸, 不需要减去一帧的宽度; 动画实际有 n+1 帧*/</span></span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>4.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.icon &#123;</span><br><span class="line">    background: url(img.png) no-repeat;</span><br><span class="line">     background-position: 0 0;</span><br><span class="line">     animation: move 1s steps(n) infinite;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h1><p><font color=#c40>响应式布局的核心</font></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen &#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 规则 - 在某些条件下才起作用 */</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>媒体查询一般 <code>写在 css 最下面</code></p>
-</li>
-<li><p>媒体类型</p>
-<ul>
-<li>all</li>
-<li>screen</li>
-<li>print</li>
-</ul>
-</li>
-</ul>
-<h2 id="媒体属性"><a href="#媒体属性" class="headerlink" title="媒体属性"></a>媒体属性</h2><ul>
-<li><p>width /  height / device-width / -webkit-device-pixel-ratio / orientation(横/竖屏)</p>
-<ul>
-<li><p>width /  height / device-width / -webkit-device-pixel-ratio 都可加前缀 (min- / max-)</p>
-</li>
-<li><p>orientation: portrait / landscape;</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* :后的值不要加引号 */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">orientation</span>: portrait) &#123;</span><br><span class="line">    <span class="selector-id">#wrap</span> &#123;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">10px</span> solid;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">1000px</span>) &#123;</span><br><span class="line">    <span class="selector-id">#wrap</span> &#123;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">10px</span> solid;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><ul>
-<li><p>and </p>
-<ul>
-<li>与, and 用来连接媒体类型和媒体属性<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 设备像素比为2 且 为竖屏*/</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">-webkit-device-pixel-ratio</span>: <span class="number">2</span>) <span class="keyword">and</span> (<span class="attribute">orientation</span>: portrait) &#123;</span><br><span class="line">    <span class="selector-id">#wrap</span> &#123;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">10px</span> solid;</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>only</p>
-<ul>
-<li>老版本使用, 让老版本浏览器不响应</li>
-</ul>
-</li>
-<li><p>,</p>
-<ul>
-<li>或<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 设备像素比为2 或者 为竖屏*/</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">-webkit-device-pixel-ratio</span>: <span class="number">2</span>), (<span class="attribute">orientation</span>: portrait) &#123;</span><br><span class="line">    <span class="selector-id">#wrap</span> &#123;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">10px</span> solid;</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>not</p>
-<ul>
-<li>取反<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 不是像素比为2的设备 或者 为竖屏*/</span></span><br><span class="line"><span class="keyword">@media</span> <span class="keyword">not</span> (<span class="attribute">-webkit-device-pixel-ratio</span>: <span class="number">2</span>) , (<span class="attribute">orientation</span>: portrait) &#123;</span><br><span class="line">    <span class="selector-id">#wrap</span> &#123;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">10px</span> solid;</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h1 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h1><ol>
-<li>HTML 规范</li>
-<li>JS 规范<ul>
-<li><a href="http://www.ecma-international.org/publications/standards/Ecma-262-arch.htm">ECMA 规范</a></li>
-<li><a href="https://www.w3.org/DOM/">DOM 规范</a><ul>
-<li>DOM 是独立于平台和语言的借口, 该借口为程序和脚本提供了对文档的内容、结构和样式的动态获取和更新的功能</li>
-<li>BOM 没有规范</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="https://www.w3.org/Style/CSS/">CSS 规范</a></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>CSS</tag>
       </tags>
   </entry>
   <entry>
