@@ -1,6 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>前端发展</title>
+    <url>/2016/06/03/00-%E5%89%8D%E7%AB%AF%E5%8F%91%E5%B1%95/</url>
+    <content><![CDATA[<h1 id="前端到底是个啥？"><a href="#前端到底是个啥？" class="headerlink" title="前端到底是个啥？"></a>前端到底是个啥？</h1><p>针对 web 开发的前端而言</p>
+<ul>
+<li>针对浏览器的开发，浏览器呈现出来的页面就是前端</li>
+<li>它的实质是前端代码在浏览器端被编译、运行、渲染</li>
+<li>前端代码主要由三个部分构成：HTML + CSS + JavaScript<span id="more"></span></li>
+</ul>
+<h1 id="前后端分工"><a href="#前后端分工" class="headerlink" title="前后端分工"></a>前后端分工</h1><p><img src="https://segmentfault.com/img/bVbxgak?w=1534&h=862"></p>
+<h1 id="前端开发发展史"><a href="#前端开发发展史" class="headerlink" title="前端开发发展史"></a>前端开发发展史</h1><ol>
+<li><p>多页面项目</p>
+<ul>
+<li><p>一个页面对应一个 html 页面，html 页面内显式地引入 js、css 文件</p>
+</li>
+<li><p>通过模版引擎将 js 数据动态地渲染到页面上</p>
+</li>
+<li><p>各页面的切换由 a 链接或 location.href 实现</p>
+</li>
+<li><p>切换页面时，会刷新界面，重新发起请求</p>
+<blockquote>
+<p>src</p>
+<p>|—— images</p>
+<p>|—— js</p>
+<p>|—— css</p>
+<p>|—— index.html</p>
+<p>|—— about.html</p>
+<p>|—— list.html</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>SPA</p>
+<ul>
+<li>利用 Vue、 React 框架生成的项目</li>
+<li>只有一个主界面，各个页面由组件实现，页面间的切换由路由实现</li>
+<li>路由切换时，不会刷新界面，用户体验好</li>
+</ul>
+</li>
+</ol>
+<h1 id="前端项目的产出"><a href="#前端项目的产出" class="headerlink" title="前端项目的产出"></a>前端项目的产出</h1><p>前端项目<strong>最终</strong>打包上线的都是 html+CSS + JS 的静态资源包</p>
+<ul>
+<li>因为前端项目依赖于浏览器运行</li>
+<li>而浏览器只认识 html、css、js 代码</li>
+</ul>
+<p>也就是说前端开发中用到的各种技术都是对 html、css、js 的一些预处理操作，是对程序员友好的一些技术手段</p>
+<h1 id="处理技术"><a href="#处理技术" class="headerlink" title="处理技术"></a>处理技术</h1><table>
+<thead>
+<tr>
+<th></th>
+<th align="left">技术名词</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HTML</td>
+<td align="left">模版引擎                                       (art-template、EJS)</td>
+<td>把 js 数据传到 html 中展示出来，<strong>动态生成 html 结构</strong></td>
+</tr>
+<tr>
+<td>CSS</td>
+<td align="left">less、stylus</td>
+<td>扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展</td>
+</tr>
+<tr>
+<td>JS</td>
+<td align="left">ES6+</td>
+<td>是 JavaScript 的下一个版本标准，扩展了 ES5 的语法</td>
+</tr>
+<tr>
+<td>HTML + JS</td>
+<td align="left">React</td>
+<td>前端框架，混合了 HTML 和 JS 语法，实现虚拟 DOM 来构建用户界面</td>
+</tr>
+<tr>
+<td>HTML + JS + CSS</td>
+<td align="left">Vue</td>
+<td>前端框架，混合了 HTML、CSS 和 JS 语法，实现虚拟 DOM 来构建用户界面</td>
+</tr>
+</tbody></table>
+]]></content>
+      <tags>
+        <tag>前端基础</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Less</title>
     <url>/2016/06/11/03-Less/</url>
     <content><![CDATA[<h1 id="什么是-less"><a href="#什么是-less" class="headerlink" title="什么是 less?"></a>什么是 less?</h1><p><a href="http://lesscss.cn/">官网</a></p>
@@ -125,271 +210,6 @@
 </ul>
 <h2 id="less-避免编译"><a href="#less-避免编译" class="headerlink" title="less 避免编译"></a>less 避免编译</h2><p>使用 ~ “属性值” 避免被编译</p>
 <figure class="highlight less"><table><tr><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="string">~&quot;cacl(100 + 100px)&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>CSS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端发展</title>
-    <url>/2016/06/03/00-%E5%89%8D%E7%AB%AF%E5%8F%91%E5%B1%95/</url>
-    <content><![CDATA[<h1 id="前端到底是个啥？"><a href="#前端到底是个啥？" class="headerlink" title="前端到底是个啥？"></a>前端到底是个啥？</h1><p>针对 web 开发的前端而言</p>
-<ul>
-<li>针对浏览器的开发，浏览器呈现出来的页面就是前端</li>
-<li>它的实质是前端代码在浏览器端被编译、运行、渲染</li>
-<li>前端代码主要由三个部分构成：HTML + CSS + JavaScript<span id="more"></span></li>
-</ul>
-<h1 id="前后端分工"><a href="#前后端分工" class="headerlink" title="前后端分工"></a>前后端分工</h1><p><img src="https://segmentfault.com/img/bVbxgak?w=1534&h=862"></p>
-<h1 id="前端开发发展史"><a href="#前端开发发展史" class="headerlink" title="前端开发发展史"></a>前端开发发展史</h1><ol>
-<li><p>多页面项目</p>
-<ul>
-<li><p>一个页面对应一个 html 页面，html 页面内显式地引入 js、css 文件</p>
-</li>
-<li><p>通过模版引擎将 js 数据动态地渲染到页面上</p>
-</li>
-<li><p>各页面的切换由 a 链接或 location.href 实现</p>
-</li>
-<li><p>切换页面时，会刷新界面，重新发起请求</p>
-<blockquote>
-<p>src</p>
-<p>|—— images</p>
-<p>|—— js</p>
-<p>|—— css</p>
-<p>|—— index.html</p>
-<p>|—— about.html</p>
-<p>|—— list.html</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>SPA</p>
-<ul>
-<li>利用 Vue、 React 框架生成的项目</li>
-<li>只有一个主界面，各个页面由组件实现，页面间的切换由路由实现</li>
-<li>路由切换时，不会刷新界面，用户体验好</li>
-</ul>
-</li>
-</ol>
-<h1 id="前端项目的产出"><a href="#前端项目的产出" class="headerlink" title="前端项目的产出"></a>前端项目的产出</h1><p>前端项目<strong>最终</strong>打包上线的都是 html+CSS + JS 的静态资源包</p>
-<ul>
-<li>因为前端项目依赖于浏览器运行</li>
-<li>而浏览器只认识 html、css、js 代码</li>
-</ul>
-<p>也就是说前端开发中用到的各种技术都是对 html、css、js 的一些预处理操作，是对程序员友好的一些技术手段</p>
-<h1 id="处理技术"><a href="#处理技术" class="headerlink" title="处理技术"></a>处理技术</h1><table>
-<thead>
-<tr>
-<th></th>
-<th align="left">技术名词</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>HTML</td>
-<td align="left">模版引擎                                       (art-template、EJS)</td>
-<td>把 js 数据传到 html 中展示出来，<strong>动态生成 html 结构</strong></td>
-</tr>
-<tr>
-<td>CSS</td>
-<td align="left">less、stylus</td>
-<td>扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展</td>
-</tr>
-<tr>
-<td>JS</td>
-<td align="left">ES6+</td>
-<td>是 JavaScript 的下一个版本标准，扩展了 ES5 的语法</td>
-</tr>
-<tr>
-<td>HTML + JS</td>
-<td align="left">React</td>
-<td>前端框架，混合了 HTML 和 JS 语法，实现虚拟 DOM 来构建用户界面</td>
-</tr>
-<tr>
-<td>HTML + JS + CSS</td>
-<td align="left">Vue</td>
-<td>前端框架，混合了 HTML、CSS 和 JS 语法，实现虚拟 DOM 来构建用户界面</td>
-</tr>
-</tbody></table>
-]]></content>
-      <tags>
-        <tag>前端基础</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Flex布局</title>
-    <url>/2016/06/21/06-Flex%E5%B8%83%E5%B1%80/</url>
-    <content><![CDATA[<h1 id="flex-布局是什么"><a href="#flex-布局是什么" class="headerlink" title="flex 布局是什么?"></a>flex 布局是什么?</h1><p>Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性</p>
-<blockquote>
-<p>布局的传统解决方案，基于<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box_model">盒状模型</a>，依赖 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"><code>display</code></a> 属性 + <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"><code>position</code></a>属性 + <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float"><code>float</code></a>属性。它对于那些特殊布局非常不方便，比如，<a href="https://css-tricks.com/centering-css-complete-guide/">垂直居中</a>就不容易实现</p>
-</blockquote>
-<span id="more"></span>
-<p>任何一个容器都可以指定为 Flex 布局</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>行内元素也可以使用 flex 布局</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>⚠️ <strong>设为 flex 布局后, 子元素的 float、clear、vertical-align 属性将失效</strong></p>
-<h1 id="教程参考"><a href="#教程参考" class="headerlink" title="教程参考"></a>教程参考</h1><p><a href="https://www.runoob.com/w3cnote/flex-grammar.html">菜鸟教程</a></p>
-<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>采用 Flex 布局的元素，称为 Flex 容器（flex container）, 简称”<strong>容器</strong>“。它的所有子元素自动成为容器成员，称为 Flex 项目（flex item），简称”<strong>项目</strong>“</p>
-<p><img src="/images/flex.png"></p>
-<ul>
-<li>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）<ul>
-<li>主轴的开始位置（与边框的交叉点）叫做<code>main start</code>，结束位置叫做<code>main end</code></li>
-<li>交叉轴的开始位置叫做<code>cross start</code>，结束位置叫做<code>cross end</code></li>
-</ul>
-</li>
-<li><strong>项目默认沿主轴排列</strong></li>
-<li>单个项目占据的主轴空间叫做<code>main size</code>，占据的交叉轴空间叫做<code>cross size</code></li>
-</ul>
-<h1 id="容器的属性"><a href="#容器的属性" class="headerlink" title="容器的属性"></a>容器的属性</h1><p>以下 6 个属性设置在 <code>容器</code> 上</p>
-<ul>
-<li>flex-firection</li>
-<li>flex-wrap</li>
-<li>flex-flow</li>
-<li>justify-content</li>
-<li>align-items</li>
-<li>align-content</li>
-</ul>
-<h2 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h2><p><code>flex-direction</code> 属性决定主轴的方向（即项目的排列方向）</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">flex-direction</span>: row | row-reverse | column | column-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>取值</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>row (<strong>默认值</strong>)</td>
-<td>主轴为水平方向, 起点在左端</td>
-</tr>
-<tr>
-<td>row-reverse</td>
-<td>主轴为水平方向, 起点在右端</td>
-</tr>
-<tr>
-<td>column</td>
-<td>主轴为垂直方向, 起点在顶部</td>
-</tr>
-<tr>
-<td>column-reverse</td>
-<td>主轴为垂直方向, 起点在底部</td>
-</tr>
-</tbody></table>
-<h2 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h2><p>默认情况下, 项目都排列在一条线上</p>
-<blockquote>
-<p>flex-wrap 属性定义如果在一条线上排不下,  如何换行</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">flex-wrap</span>: nowrap | wrap | wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>nowrap(默认)</p>
-<ul>
-<li><p>不换行</p>
-<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/9da1f23965756568b4c6ea7124db7b9a.png"></p>
-</li>
-</ul>
-</li>
-<li><p>wrap</p>
-<ul>
-<li><p>换行, 第一行在上方</p>
-<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/3c6b3c8b8fe5e26bca6fb57538cf72d9.jpg"></p>
-</li>
-</ul>
-</li>
-<li><p>wrap-reverse</p>
-<ul>
-<li><p>换行, 第一行在下方</p>
-<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/fb4cf2bab8b6b744b64f6d7a99cd577c.jpg"></p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h2><p>flex-flow 属性是 flex-direction 属性和 flex-wrap 属性的简写形式，默认值为 <code>row nowrap</code></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">flex-flow</span>: row nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h2><p>justify-content 属性定义了<strong>项目在主轴上的对齐方式</strong></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">justify-content</span>: flex-start | flex-end | center | space-between | space-around;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/c55dfe8e3422458b50e985552ef13ba5.png"></p>
-<h2 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h2><p>align-items 属性定义<strong>项目在交叉轴上如何对齐</strong></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">align-items</span>: flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/2b0c39c7e7a80d5a784c8c2ca63cde17.png"></p>
-<h2 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h2><p>align-content 属性定义了多根轴线(<em>就是<strong>要换行</strong></em>)的对齐方式。<em>如果项目只有一根轴线，该属性不起作用</em></p>
-<ul>
-<li><font color=#c40>把所有 items 当作一个整体来看待， 就是看这个整体在交叉轴上的对齐方式</font></li>
-</ul>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">align-content</span>: flex-start | flex-end | center | space-between | space-around | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/f10918ccb8a13247c9d47715a2bd2c33.png"></p>
-<h1 id="项目的属性"><a href="#项目的属性" class="headerlink" title="项目的属性"></a>项目的属性</h1><p>以下 6 个属性设置在 <code>项目</code> 上</p>
-<ul>
-<li>order</li>
-<li>flex-grow</li>
-<li>flex-shrink</li>
-<li>flex-basis</li>
-<li>flex</li>
-<li>align-self</li>
-</ul>
-<h2 id="order"><a href="#order" class="headerlink" title="order"></a>order</h2><p>order 属性定义项目的排列顺序。<strong>数值越小，排列越靠前</strong>，默认为 0</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">order</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h2><p>flex-grow 属性定义项目的<font color=#c40><strong>放大比例</strong></font>，默认为 0，即如果 <em>存在剩余空间</em>，也不放大</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">flex-grow</span>: <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>如果所有项目的 flex-grow 属性都为 1，则它们将<strong>等分剩余空间</strong>（如果有的话）</p>
-<ul>
-<li>如果一个项目的 flex-grow 属性为 2，其他项目都为 1，则前者占据的剩余空间将比其他项多一倍</li>
-</ul>
-<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/f41c08bb35962ed79e7686f735d6cd78.png"></p>
-</li>
-</ul>
-<h2 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h2><p>flex-shrink 属性定义了项目的<font color=#c40><strong>缩小比例</strong></font>，默认为1，即如果 <em>空间不足</em>，该项目将缩小</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">flex-shrink</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>如果所有项目的 flex-shrink 属性都为 1，当空间不足时，都将等比例缩小</p>
-<ul>
-<li>先计算总共超出多少，再分别按比例缩小超出部分</li>
-</ul>
-</li>
-<li><p>如果一个项目的 flex-shrink 属性为 0，其他项目都为 1，则空间不足时，前者不缩小</p>
-</li>
-<li><p>负值对该属性无效</p>
-</li>
-</ul>
-<h2 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h2><p>flex-basis 属性定义了在分配多余空间之前，项目占据的主轴空间（main size）</p>
-<p>浏览器根据这个属性，计算主轴是否有多余空间</p>
-<p>它的默认值为auto，即项目的本来大小</p>
-<h2 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h2><p>flex 属性是 flex-grow, flex-shrink 和 flex-basis 的简写，默认值为 0 1 auto。<strong>后两个属性可选</strong></p>
-<ul>
-<li><p>该属性有三个常用值</p>
-<ul>
-<li><p>auto —— 相当于 1 1 auto</p>
-</li>
-<li><p>none —— 相当于 0 0 auto</p>
-</li>
-<li><p><strong>1 —— 相当于 1 1 0%</strong></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">flex</span>: <span class="number">1</span>; <span class="comment">/* 可以实现等分布局, 相当于将所有项目的 flex-basis 置为 0, 再等分 */</span></span><br><span class="line">    <span class="comment">/* 等价于</span></span><br><span class="line"><span class="comment">        flex-grow: 1;</span></span><br><span class="line"><span class="comment">        flex-shrink: 1;</span></span><br><span class="line"><span class="comment">        flex-basis: 0%;</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<p>⚠️ <code>flex: 1; </code><strong>只能用于单行等分</strong>的情况；如果有换行就不起作用</p>
-<h1 id="flex-不要和定位混用"><a href="#flex-不要和定位混用" class="headerlink" title="flex 不要和定位混用"></a>flex 不要和定位混用</h1><p><strong>有定位属性的元素就不再具有 flex 布局的特性了</strong></p>
-<h1 id="flex-布局元素的高度问题"><a href="#flex-布局元素的高度问题" class="headerlink" title="flex 布局元素的高度问题"></a>flex 布局元素的高度问题</h1><p>flex 布局的元素的高度问题</p>
-<ul>
-<li>如果本身设置了 height, 则按设置的来；</li>
-<li>如果本身没有设置 height, height 跟父元素一致；</li>
-<li>如果父元素也没有设置 height, 则跟同一行的元素的最大高度一致</li>
-</ul>
-<h1 id="flex-实现栅格布局"><a href="#flex-实现栅格布局" class="headerlink" title="flex 实现栅格布局"></a>flex 实现栅格布局</h1><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-12&quot;</span>&gt;</span>占满一行<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-6&quot;</span>&gt;</span>两列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-6&quot;</span>&gt;</span>两列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-4&quot;</span>&gt;</span>三列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-4&quot;</span>&gt;</span>三列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-4&quot;</span>&gt;</span>三列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-3&quot;</span>&gt;</span>四列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-3&quot;</span>&gt;</span>四列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-3&quot;</span>&gt;</span>四列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-3&quot;</span>&gt;</span>四列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col&quot;</span>&gt;</span>任意均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span>......<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col&quot;</span>&gt;</span>任意均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.row</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.col-12</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.col-6</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.col-4</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">33.3333%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.col-3</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">25%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.col</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <tags>
@@ -582,6 +402,186 @@
 ]]></content>
       <tags>
         <tag>移动端开发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Flex布局</title>
+    <url>/2016/06/21/06-Flex%E5%B8%83%E5%B1%80/</url>
+    <content><![CDATA[<h1 id="flex-布局是什么"><a href="#flex-布局是什么" class="headerlink" title="flex 布局是什么?"></a>flex 布局是什么?</h1><p>Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性</p>
+<blockquote>
+<p>布局的传统解决方案，基于<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box_model">盒状模型</a>，依赖 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"><code>display</code></a> 属性 + <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"><code>position</code></a>属性 + <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float"><code>float</code></a>属性。它对于那些特殊布局非常不方便，比如，<a href="https://css-tricks.com/centering-css-complete-guide/">垂直居中</a>就不容易实现</p>
+</blockquote>
+<span id="more"></span>
+<p>任何一个容器都可以指定为 Flex 布局</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>行内元素也可以使用 flex 布局</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>⚠️ <strong>设为 flex 布局后, 子元素的 float、clear、vertical-align 属性将失效</strong></p>
+<h1 id="教程参考"><a href="#教程参考" class="headerlink" title="教程参考"></a>教程参考</h1><p><a href="https://www.runoob.com/w3cnote/flex-grammar.html">菜鸟教程</a></p>
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>采用 Flex 布局的元素，称为 Flex 容器（flex container）, 简称”<strong>容器</strong>“。它的所有子元素自动成为容器成员，称为 Flex 项目（flex item），简称”<strong>项目</strong>“</p>
+<p><img src="/images/flex.png"></p>
+<ul>
+<li>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）<ul>
+<li>主轴的开始位置（与边框的交叉点）叫做<code>main start</code>，结束位置叫做<code>main end</code></li>
+<li>交叉轴的开始位置叫做<code>cross start</code>，结束位置叫做<code>cross end</code></li>
+</ul>
+</li>
+<li><strong>项目默认沿主轴排列</strong></li>
+<li>单个项目占据的主轴空间叫做<code>main size</code>，占据的交叉轴空间叫做<code>cross size</code></li>
+</ul>
+<h1 id="容器的属性"><a href="#容器的属性" class="headerlink" title="容器的属性"></a>容器的属性</h1><p>以下 6 个属性设置在 <code>容器</code> 上</p>
+<ul>
+<li>flex-firection</li>
+<li>flex-wrap</li>
+<li>flex-flow</li>
+<li>justify-content</li>
+<li>align-items</li>
+<li>align-content</li>
+</ul>
+<h2 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h2><p><code>flex-direction</code> 属性决定主轴的方向（即项目的排列方向）</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">flex-direction</span>: row | row-reverse | column | column-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>取值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>row (<strong>默认值</strong>)</td>
+<td>主轴为水平方向, 起点在左端</td>
+</tr>
+<tr>
+<td>row-reverse</td>
+<td>主轴为水平方向, 起点在右端</td>
+</tr>
+<tr>
+<td>column</td>
+<td>主轴为垂直方向, 起点在顶部</td>
+</tr>
+<tr>
+<td>column-reverse</td>
+<td>主轴为垂直方向, 起点在底部</td>
+</tr>
+</tbody></table>
+<h2 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h2><p>默认情况下, 项目都排列在一条线上</p>
+<blockquote>
+<p>flex-wrap 属性定义如果在一条线上排不下,  如何换行</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">flex-wrap</span>: nowrap | wrap | wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>nowrap(默认)</p>
+<ul>
+<li><p>不换行</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/9da1f23965756568b4c6ea7124db7b9a.png"></p>
+</li>
+</ul>
+</li>
+<li><p>wrap</p>
+<ul>
+<li><p>换行, 第一行在上方</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/3c6b3c8b8fe5e26bca6fb57538cf72d9.jpg"></p>
+</li>
+</ul>
+</li>
+<li><p>wrap-reverse</p>
+<ul>
+<li><p>换行, 第一行在下方</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/fb4cf2bab8b6b744b64f6d7a99cd577c.jpg"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h2><p>flex-flow 属性是 flex-direction 属性和 flex-wrap 属性的简写形式，默认值为 <code>row nowrap</code></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">flex-flow</span>: row nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h2><p>justify-content 属性定义了<strong>项目在主轴上的对齐方式</strong></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">justify-content</span>: flex-start | flex-end | center | space-between | space-around;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/c55dfe8e3422458b50e985552ef13ba5.png"></p>
+<h2 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h2><p>align-items 属性定义<strong>项目在交叉轴上如何对齐</strong></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">align-items</span>: flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/2b0c39c7e7a80d5a784c8c2ca63cde17.png"></p>
+<h2 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h2><p>align-content 属性定义了多根轴线(<em>就是<strong>要换行</strong></em>)的对齐方式。<em>如果项目只有一根轴线，该属性不起作用</em></p>
+<ul>
+<li><font color=#c40>把所有 items 当作一个整体来看待， 就是看这个整体在交叉轴上的对齐方式</font></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">align-content</span>: flex-start | flex-end | center | space-between | space-around | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/f10918ccb8a13247c9d47715a2bd2c33.png"></p>
+<h1 id="项目的属性"><a href="#项目的属性" class="headerlink" title="项目的属性"></a>项目的属性</h1><p>以下 6 个属性设置在 <code>项目</code> 上</p>
+<ul>
+<li>order</li>
+<li>flex-grow</li>
+<li>flex-shrink</li>
+<li>flex-basis</li>
+<li>flex</li>
+<li>align-self</li>
+</ul>
+<h2 id="order"><a href="#order" class="headerlink" title="order"></a>order</h2><p>order 属性定义项目的排列顺序。<strong>数值越小，排列越靠前</strong>，默认为 0</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">order</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h2><p>flex-grow 属性定义项目的<font color=#c40><strong>放大比例</strong></font>，默认为 0，即如果 <em>存在剩余空间</em>，也不放大</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">flex-grow</span>: <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>如果所有项目的 flex-grow 属性都为 1，则它们将<strong>等分剩余空间</strong>（如果有的话）</p>
+<ul>
+<li>如果一个项目的 flex-grow 属性为 2，其他项目都为 1，则前者占据的剩余空间将比其他项多一倍</li>
+</ul>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/f41c08bb35962ed79e7686f735d6cd78.png"></p>
+</li>
+</ul>
+<h2 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h2><p>flex-shrink 属性定义了项目的<font color=#c40><strong>缩小比例</strong></font>，默认为1，即如果 <em>空间不足</em>，该项目将缩小</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">flex-shrink</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>如果所有项目的 flex-shrink 属性都为 1，当空间不足时，都将等比例缩小</p>
+<ul>
+<li>先计算总共超出多少，再分别按比例缩小超出部分</li>
+</ul>
+</li>
+<li><p>如果一个项目的 flex-shrink 属性为 0，其他项目都为 1，则空间不足时，前者不缩小</p>
+</li>
+<li><p>负值对该属性无效</p>
+</li>
+</ul>
+<h2 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h2><p>flex-basis 属性定义了在分配多余空间之前，项目占据的主轴空间（main size）</p>
+<p>浏览器根据这个属性，计算主轴是否有多余空间</p>
+<p>它的默认值为auto，即项目的本来大小</p>
+<h2 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h2><p>flex 属性是 flex-grow, flex-shrink 和 flex-basis 的简写，默认值为 0 1 auto。<strong>后两个属性可选</strong></p>
+<ul>
+<li><p>该属性有三个常用值</p>
+<ul>
+<li><p>auto —— 相当于 1 1 auto</p>
+</li>
+<li><p>none —— 相当于 0 0 auto</p>
+</li>
+<li><p><strong>1 —— 相当于 1 1 0%</strong></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">flex</span>: <span class="number">1</span>; <span class="comment">/* 可以实现等分布局, 相当于将所有项目的 flex-basis 置为 0, 再等分 */</span></span><br><span class="line">    <span class="comment">/* 等价于</span></span><br><span class="line"><span class="comment">        flex-grow: 1;</span></span><br><span class="line"><span class="comment">        flex-shrink: 1;</span></span><br><span class="line"><span class="comment">        flex-basis: 0%;</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<p>⚠️ <code>flex: 1; </code><strong>只能用于单行等分</strong>的情况；如果有换行就不起作用</p>
+<h1 id="flex-不要和定位混用"><a href="#flex-不要和定位混用" class="headerlink" title="flex 不要和定位混用"></a>flex 不要和定位混用</h1><p><strong>有定位属性的元素就不再具有 flex 布局的特性了</strong></p>
+<h1 id="flex-布局元素的高度问题"><a href="#flex-布局元素的高度问题" class="headerlink" title="flex 布局元素的高度问题"></a>flex 布局元素的高度问题</h1><p>flex 布局的元素的高度问题</p>
+<ul>
+<li>如果本身设置了 height, 则按设置的来；</li>
+<li>如果本身没有设置 height, height 跟父元素一致；</li>
+<li>如果父元素也没有设置 height, 则跟同一行的元素的最大高度一致</li>
+</ul>
+<h1 id="flex-实现栅格布局"><a href="#flex-实现栅格布局" class="headerlink" title="flex 实现栅格布局"></a>flex 实现栅格布局</h1><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-12&quot;</span>&gt;</span>占满一行<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-6&quot;</span>&gt;</span>两列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-6&quot;</span>&gt;</span>两列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-4&quot;</span>&gt;</span>三列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-4&quot;</span>&gt;</span>三列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-4&quot;</span>&gt;</span>三列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-3&quot;</span>&gt;</span>四列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-3&quot;</span>&gt;</span>四列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-3&quot;</span>&gt;</span>四列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-3&quot;</span>&gt;</span>四列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col&quot;</span>&gt;</span>任意均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span>......<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col&quot;</span>&gt;</span>任意均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.row</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.col-12</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.col-6</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.col-4</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">33.3333%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.col-3</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">25%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.col</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>CSS</tag>
       </tags>
   </entry>
   <entry>
@@ -1198,130 +1198,6 @@
       </tags>
   </entry>
   <entry>
-    <title>表单提交</title>
-    <url>/2016/07/16/18-%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4/</url>
-    <content><![CDATA[<h1 id="form-表单基本属性"><a href="#form-表单基本属性" class="headerlink" title="form 表单基本属性"></a>form 表单基本属性</h1><p><a href="https://www.w3school.com.cn/html/html_forms.asp">form 属性列表</a></p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>action</td>
-<td>表单提交地址</td>
-</tr>
-<tr>
-<td>method</td>
-<td>表单提交方式, 常用的有 get / post</td>
-</tr>
-<tr>
-<td>autocomplete</td>
-<td>表单自动补全</td>
-</tr>
-<tr>
-<td>novalidate</td>
-<td>不验证表单</td>
-</tr>
-<tr>
-<td>enctype</td>
-<td>规定被提交数据的编码(默认：url-encoded); 当提交的表单中有文件域时, 应设置为 <code>multipart/form-data</code></td>
-</tr>
-</tbody></table>
-<span id="more"></span>
-<h1 id="表单的同步提交和异步提交"><a href="#表单的同步提交和异步提交" class="headerlink" title="表单的同步提交和异步提交"></a>表单的同步提交和异步提交</h1><p>常见的表单提交方式有 get / post, 通过 method 属性来设置</p>
-<ul>
-<li><font color=#c40>form 内的所有要提交的表单元素都必须具有 name 属性</font></li>
-</ul>
-<h2 id="表单的同步提交"><a href="#表单的同步提交" class="headerlink" title="表单的同步提交"></a>表单的同步提交</h2><blockquote>
-<p>form 表单默认的提交行为是同步提交， 且默认提交方式为 get</p>
-</blockquote>
-<ul>
-<li>意思是, 当 form 具有 <code>submit</code> 类型的表单元素时, 不设置 method, 点击提交按钮或者调用 form 元素的 submit() 方法表单也会提交<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span> <span class="attr">action</span>=<span class="string">&quot;/register&quot;</span> <span class="attr">id</span>=<span class="string">&quot;register-form&quot;</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<ol>
-<li><em>同步提交方式页面会转圈锁死</em></li>
-<li><font color=#c40>同步提交服务端会将响应数据直接渲染到浏览器页面上覆盖掉原来的页面</font></li>
-<li><em>同步提交在服务端没法操作 dom 元素， 不能给 dom 元素添加样式</em></li>
-</ol>
-<h2 id="表单的异步提交"><a href="#表单的异步提交" class="headerlink" title="表单的异步提交"></a>表单的异步提交</h2><blockquote>
-<p>使用 AJAX 方式提交表单就是异步提交</p>
-</blockquote>
-<ul>
-<li>⚠️ 异步提交需要先阻止表单的同步提交行为<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;form&#x27;</span>).submit(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  e.preventDefault()</span><br><span class="line">  $.ajax(&#123;</span><br><span class="line">    ......</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<ol>
-<li><em>异步提交页面不会刷新</em></li>
-<li><font color=#c40>异步提交服务端会将响应数据传递给 AJAX 响应处理函数</font></li>
-</ol>
-<h1 id="阻止表单的默认提交"><a href="#阻止表单的默认提交" class="headerlink" title="阻止表单的默认提交"></a>阻止表单的默认提交</h1><p><code>event.preventDefault()</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">form.onsubmit = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    e.preventDefault()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="get-提交表单"><a href="#get-提交表单" class="headerlink" title="get 提交表单"></a>get 提交表单</h1><p>提交的数据会以 <code>?key=value&amp;key1=value1</code> 的形式出现在 url 地址中</p>
-<h1 id="post-提交表单"><a href="#post-提交表单" class="headerlink" title="post 提交表单"></a>post 提交表单</h1><p>提交的数据可以在 控制面板 =&gt; NetWork =&gt; 请求地址 =&gt; Request =&gt; Form Data 中查看</p>
-<h1 id="有文件域的表单提交"><a href="#有文件域的表单提交" class="headerlink" title="有文件域的表单提交"></a>有文件域的表单提交</h1><p>⚠️ 带有文件域的表单提交</p>
-<ul>
-<li>类型必须是 <code>post</code></li>
-<li>必须将表单的 <code>enctype</code> 设置为 <code>multipart/form-data</code><ul>
-<li>否则， 文件不传输<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span> /&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;avatar&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;提交&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h2 id="带文件域的表单同步提交"><a href="#带文件域的表单同步提交" class="headerlink" title="带文件域的表单同步提交"></a>带文件域的表单同步提交</h2><p><font color=#c40>服务端</font> 接收具有文件域的表单请求需要使用第三方包 <a href="https://www.npmjs.com/package/formidable">formidable</a></p>
-<ul>
-<li><p>使用</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> yarn add formidable</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> formidable = <span class="built_in">require</span>(<span class="string">&#x27;formidable&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"> </span><br><span class="line">app.get(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.send(<span class="string">&#x27;form.html&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line">app.post(<span class="string">&#x27;/api/upload&#x27;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">const</span> form = formidable(&#123; <span class="attr">multiples</span>: <span class="literal">true</span> &#125;) <span class="comment">// options</span></span><br><span class="line"> </span><br><span class="line">  form.parse(req, <span class="function">(<span class="params">err, fields, files</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// err —— 可能发生的错误对象</span></span><br><span class="line">    <span class="comment">// fileds —— 普通的表单字段，是对象形式</span></span><br><span class="line">    <span class="comment">// files —— 文件内容数据信息，是对象形式</span></span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">      <span class="keyword">return</span> next(err)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// res.json(&#123; fields, files &#125;)</span></span><br><span class="line">    <span class="keyword">const</span> body = fileds</span><br><span class="line">    body.image = <span class="string">&#x27;/uploads/&#x27;</span> + path.basename(files.avatar.path)</span><br><span class="line">    res.json(body)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line">app.listen(<span class="number">3000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Server is running......&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-<li><p><a href="https://www.npmjs.com/package/formidable">options </a></p>
-  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> form = formidable(&#123; </span><br><span class="line">  <span class="attr">multiples</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">uploadDir</span>: <span class="string">&#x27;/uploads&#x27;</span>,   <span class="comment">// 指定文件上传目录</span></span><br><span class="line">  <span class="attr">keepExtensions</span>: <span class="literal">true</span>     <span class="comment">// 是否保留文件后缀名</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="带文件域的表单异步提交"><a href="#带文件域的表单异步提交" class="headerlink" title="带文件域的表单异步提交"></a>带文件域的表单异步提交</h2><p>⚠️ $ajax 默认提交的数据 data: $(this).serialize() 中是 <font color=#c40>不带文件域内容</font> 的，就是说默认不能提交文件内容</p>
-<ul>
-<li><p>如何解决？</p>
-<ol>
-<li><p>用插件 <a href="https://blog.csdn.net/lucky_ly/article/details/94869746?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param">ajaxFileUpload()</a></p>
-<ul>
-<li>先通过图片提交接口提交图片 </li>
-<li>再通过 ajax 提交普通表单数据</li>
-<li><em>可以实现图片预览</em></li>
-</ul>
-</li>
-<li><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/FormData/Using_FormData_Objects">formData 对象</a></p>
-<ul>
-<li>文件域和普通表单数据组成 formData 对象一起提交</li>
-<li><em>可以通过 <a href="https://www.cnblogs.com/ys15/p/10706576.html">FileReader</a> 实例对象实现图片预览</em><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> formData = <span class="keyword">new</span> FormData([可以传递 htmlFormElement 元素])</span><br><span class="line"><span class="comment">// 把 file 追加到 formData 里</span></span><br><span class="line">formData.append(<span class="string">&#x27;avatar&#x27;</span>, $(<span class="string">&#x27;[type=file]&#x27;</span>)[<span class="number">0</span>].files[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> formData = <span class="keyword">new</span> FormData(<span class="built_in">document</span>.querySelector(<span class="string">&quot;form&quot;</span>));</span><br><span class="line"></span><br><span class="line">$.ajax(&#123;</span><br><span class="line">  <span class="attr">url</span>: <span class="string">&quot;/ads/add&quot;</span>,</span><br><span class="line">  <span class="attr">type</span>: <span class="string">&quot;POST&quot;</span>,</span><br><span class="line">  <span class="attr">data</span>: formData, <span class="comment">// 带文件域的数据</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 不处理数据, 当 data 的值为 formData 对象的时候， 一定要设置， 否则还是走同步提交</span></span><br><span class="line">  <span class="attr">processData</span>: <span class="literal">false</span>,  </span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 不设置内容类型，当提交一个 formdata 对象的时候，一定要设置，否则 jQuery 会默认把 content-type 设置为 x-www-urlencoded ,无法提交文件</span></span><br><span class="line">  <span class="attr">contentType</span>: <span class="literal">false</span>,   </span><br><span class="line">  </span><br><span class="line">  <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--实现图片的实时预览  onchange改变元素后触发方法--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">from</span>&gt;</span></span><br><span class="line">    文件: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;myFile&quot;</span> <span class="attr">id</span>=<span class="string">&quot;myFile&quot;</span> <span class="attr">multiple</span> <span class="attr">onchange</span>=<span class="string">&quot;getFileContext()&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">&quot;img&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">from</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">getFileContext</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> reader=<span class="keyword">new</span> FileReader();</span></span><br><span class="line"><span class="javascript">  <span class="comment">//需要的参数是图片</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> file=<span class="built_in">document</span>.querySelector(<span class="string">&quot;#myFile&quot;</span>).files;</span></span><br><span class="line"><span class="javascript">  <span class="comment">// 没有返回值，将其结果储存在result中，无法判断文件是否读完</span></span></span><br><span class="line"><span class="javascript">  reader.readAsDataURL(file[<span class="number">0</span>]);</span></span><br><span class="line"><span class="javascript">  reader.onload=<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="comment">//    展示出来：得到的reader.result为二进制文件base64  data:image/jpeg;base64...</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(reader.result);</span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.querySelector(<span class="string">&quot;#img&quot;</span>).src=reader.result;</span></span><br><span class="line"><span class="javascript">  &#125;</span></span><br><span class="line"><span class="javascript">&#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<h1 id="form-在-jQuery-中的方法"><a href="#form-在-jQuery-中的方法" class="headerlink" title="form 在 jQuery 中的方法"></a>form 在 jQuery 中的方法</h1><ul>
-<li><p>serialize()</p>
-<ul>
-<li>在 ajax <font color=#c40>post 请求</font>中将用作提交的表单元素的值编译成 <code>name=value&amp;name1=value1</code> 字符串<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> ret = $(<span class="string">&#x27;form&#x27;</span>).serialize()</span><br><span class="line"><span class="built_in">console</span>.log(ret)</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>serializeArray() (<font color=#c40>不好用</font>)</p>
-<ul>
-<li>将用作提交的表单元素的值编译成拥有 name 和 value 对象组成的数组</li>
-</ul>
-</li>
-<li><p>submit()</p>
-<ul>
-<li>为 submit 事件绑定一个处理函数, 或触发元素上的 submit 事件</li>
-<li>当参数 function 没有给出时, 触发当前表单的 submit 事件, 并且执行默认的表单提交行为, 除非阻止表单默认行为<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;form&#x27;</span>).submit(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 阻止表单默认同步提交行为</span></span><br><span class="line">    e.preventDefault()</span><br><span class="line">    <span class="comment">// 异步提交</span></span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">      ......</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>请求与相应</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>AJAX</title>
     <url>/2016/07/15/17-AJAX/</url>
     <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Web 程序最初的目的就是将信息(数据)放到公共的服务器，让所有网络用户都可以通过浏览器访问</p>
@@ -1510,6 +1386,206 @@
 <li><font color=#c40>异步请求服务端只返回客户端需要的数据部分，而同步请求返回的是页面模版 + 数据处理好后的结构</font></li>
 <li>不管同步请求还是异步请求，只要是 <code>get</code> 请求，服务端获取客户端参数都是通过 rēq.query; 只要是 <code>post</code> 请求，服务端获取客户端参数都是通过 rēq.body (需要配置 body-parse)</li>
 </ol>
+]]></content>
+      <tags>
+        <tag>请求与响应</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>表单提交</title>
+    <url>/2016/07/16/18-%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4/</url>
+    <content><![CDATA[<h1 id="form-表单基本属性"><a href="#form-表单基本属性" class="headerlink" title="form 表单基本属性"></a>form 表单基本属性</h1><p><a href="https://www.w3school.com.cn/html/html_forms.asp">form 属性列表</a></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>action</td>
+<td>表单提交地址</td>
+</tr>
+<tr>
+<td>method</td>
+<td>表单提交方式, 常用的有 get / post</td>
+</tr>
+<tr>
+<td>autocomplete</td>
+<td>表单自动补全</td>
+</tr>
+<tr>
+<td>novalidate</td>
+<td>不验证表单</td>
+</tr>
+<tr>
+<td>enctype</td>
+<td>规定被提交数据的编码(默认：url-encoded); 当提交的表单中有文件域时, 应设置为 <code>multipart/form-data</code></td>
+</tr>
+</tbody></table>
+<span id="more"></span>
+<h1 id="表单的同步提交和异步提交"><a href="#表单的同步提交和异步提交" class="headerlink" title="表单的同步提交和异步提交"></a>表单的同步提交和异步提交</h1><p>常见的表单提交方式有 get / post, 通过 method 属性来设置</p>
+<ul>
+<li><font color=#c40>form 内的所有要提交的表单元素都必须具有 name 属性</font></li>
+</ul>
+<h2 id="表单的同步提交"><a href="#表单的同步提交" class="headerlink" title="表单的同步提交"></a>表单的同步提交</h2><blockquote>
+<p>form 表单默认的提交行为是同步提交， 且默认提交方式为 get</p>
+</blockquote>
+<ul>
+<li>意思是, 当 form 具有 <code>submit</code> 类型的表单元素时, 不设置 method, 点击提交按钮或者调用 form 元素的 submit() 方法表单也会提交<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span> <span class="attr">action</span>=<span class="string">&quot;/register&quot;</span> <span class="attr">id</span>=<span class="string">&quot;register-form&quot;</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol>
+<li><em>同步提交方式页面会转圈锁死</em></li>
+<li><font color=#c40>同步提交服务端会将响应数据直接渲染到浏览器页面上覆盖掉原来的页面</font></li>
+<li><em>同步提交在服务端没法操作 dom 元素， 不能给 dom 元素添加样式</em></li>
+</ol>
+<h2 id="表单的异步提交"><a href="#表单的异步提交" class="headerlink" title="表单的异步提交"></a>表单的异步提交</h2><blockquote>
+<p>使用 AJAX 方式提交表单就是异步提交</p>
+</blockquote>
+<ul>
+<li>⚠️ 异步提交需要先阻止表单的同步提交行为<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;form&#x27;</span>).submit(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  e.preventDefault()</span><br><span class="line">  $.ajax(&#123;</span><br><span class="line">    ......</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol>
+<li><em>异步提交页面不会刷新</em></li>
+<li><font color=#c40>异步提交服务端会将响应数据传递给 AJAX 响应处理函数</font></li>
+</ol>
+<h1 id="阻止表单的默认提交"><a href="#阻止表单的默认提交" class="headerlink" title="阻止表单的默认提交"></a>阻止表单的默认提交</h1><p><code>event.preventDefault()</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">form.onsubmit = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    e.preventDefault()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="get-提交表单"><a href="#get-提交表单" class="headerlink" title="get 提交表单"></a>get 提交表单</h1><p>提交的数据会以 <code>?key=value&amp;key1=value1</code> 的形式出现在 url 地址中</p>
+<h1 id="post-提交表单"><a href="#post-提交表单" class="headerlink" title="post 提交表单"></a>post 提交表单</h1><p>提交的数据可以在 控制面板 =&gt; NetWork =&gt; 请求地址 =&gt; Request =&gt; Form Data 中查看</p>
+<h1 id="有文件域的表单提交"><a href="#有文件域的表单提交" class="headerlink" title="有文件域的表单提交"></a>有文件域的表单提交</h1><p>⚠️ 带有文件域的表单提交</p>
+<ul>
+<li>类型必须是 <code>post</code></li>
+<li>必须将表单的 <code>enctype</code> 设置为 <code>multipart/form-data</code><ul>
+<li>否则， 文件不传输<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span> /&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;avatar&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;提交&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="带文件域的表单同步提交"><a href="#带文件域的表单同步提交" class="headerlink" title="带文件域的表单同步提交"></a>带文件域的表单同步提交</h2><p><font color=#c40>服务端</font> 接收具有文件域的表单请求需要使用第三方包 <a href="https://www.npmjs.com/package/formidable">formidable</a></p>
+<ul>
+<li><p>使用</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> yarn add formidable</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> formidable = <span class="built_in">require</span>(<span class="string">&#x27;formidable&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"> </span><br><span class="line">app.get(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.send(<span class="string">&#x27;form.html&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line">app.post(<span class="string">&#x27;/api/upload&#x27;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">const</span> form = formidable(&#123; <span class="attr">multiples</span>: <span class="literal">true</span> &#125;) <span class="comment">// options</span></span><br><span class="line"> </span><br><span class="line">  form.parse(req, <span class="function">(<span class="params">err, fields, files</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// err —— 可能发生的错误对象</span></span><br><span class="line">    <span class="comment">// fileds —— 普通的表单字段，是对象形式</span></span><br><span class="line">    <span class="comment">// files —— 文件内容数据信息，是对象形式</span></span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">      <span class="keyword">return</span> next(err)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// res.json(&#123; fields, files &#125;)</span></span><br><span class="line">    <span class="keyword">const</span> body = fileds</span><br><span class="line">    body.image = <span class="string">&#x27;/uploads/&#x27;</span> + path.basename(files.avatar.path)</span><br><span class="line">    res.json(body)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line">app.listen(<span class="number">3000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Server is running......&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p><a href="https://www.npmjs.com/package/formidable">options </a></p>
+  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> form = formidable(&#123; </span><br><span class="line">  <span class="attr">multiples</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">uploadDir</span>: <span class="string">&#x27;/uploads&#x27;</span>,   <span class="comment">// 指定文件上传目录</span></span><br><span class="line">  <span class="attr">keepExtensions</span>: <span class="literal">true</span>     <span class="comment">// 是否保留文件后缀名</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="带文件域的表单异步提交"><a href="#带文件域的表单异步提交" class="headerlink" title="带文件域的表单异步提交"></a>带文件域的表单异步提交</h2><p>⚠️ $ajax 默认提交的数据 data: $(this).serialize() 中是 <font color=#c40>不带文件域内容</font> 的，就是说默认不能提交文件内容</p>
+<ul>
+<li><p>如何解决？</p>
+<ol>
+<li><p>用插件 <a href="https://blog.csdn.net/lucky_ly/article/details/94869746?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param">ajaxFileUpload()</a></p>
+<ul>
+<li>先通过图片提交接口提交图片 </li>
+<li>再通过 ajax 提交普通表单数据</li>
+<li><em>可以实现图片预览</em></li>
+</ul>
+</li>
+<li><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/FormData/Using_FormData_Objects">formData 对象</a></p>
+<ul>
+<li>文件域和普通表单数据组成 formData 对象一起提交</li>
+<li><em>可以通过 <a href="https://www.cnblogs.com/ys15/p/10706576.html">FileReader</a> 实例对象实现图片预览</em><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> formData = <span class="keyword">new</span> FormData([可以传递 htmlFormElement 元素])</span><br><span class="line"><span class="comment">// 把 file 追加到 formData 里</span></span><br><span class="line">formData.append(<span class="string">&#x27;avatar&#x27;</span>, $(<span class="string">&#x27;[type=file]&#x27;</span>)[<span class="number">0</span>].files[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> formData = <span class="keyword">new</span> FormData(<span class="built_in">document</span>.querySelector(<span class="string">&quot;form&quot;</span>));</span><br><span class="line"></span><br><span class="line">$.ajax(&#123;</span><br><span class="line">  <span class="attr">url</span>: <span class="string">&quot;/ads/add&quot;</span>,</span><br><span class="line">  <span class="attr">type</span>: <span class="string">&quot;POST&quot;</span>,</span><br><span class="line">  <span class="attr">data</span>: formData, <span class="comment">// 带文件域的数据</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 不处理数据, 当 data 的值为 formData 对象的时候， 一定要设置， 否则还是走同步提交</span></span><br><span class="line">  <span class="attr">processData</span>: <span class="literal">false</span>,  </span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 不设置内容类型，当提交一个 formdata 对象的时候，一定要设置，否则 jQuery 会默认把 content-type 设置为 x-www-urlencoded ,无法提交文件</span></span><br><span class="line">  <span class="attr">contentType</span>: <span class="literal">false</span>,   </span><br><span class="line">  </span><br><span class="line">  <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--实现图片的实时预览  onchange改变元素后触发方法--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">from</span>&gt;</span></span><br><span class="line">    文件: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;myFile&quot;</span> <span class="attr">id</span>=<span class="string">&quot;myFile&quot;</span> <span class="attr">multiple</span> <span class="attr">onchange</span>=<span class="string">&quot;getFileContext()&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">&quot;img&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">from</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">getFileContext</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> reader=<span class="keyword">new</span> FileReader();</span></span><br><span class="line"><span class="javascript">  <span class="comment">//需要的参数是图片</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> file=<span class="built_in">document</span>.querySelector(<span class="string">&quot;#myFile&quot;</span>).files;</span></span><br><span class="line"><span class="javascript">  <span class="comment">// 没有返回值，将其结果储存在result中，无法判断文件是否读完</span></span></span><br><span class="line"><span class="javascript">  reader.readAsDataURL(file[<span class="number">0</span>]);</span></span><br><span class="line"><span class="javascript">  reader.onload=<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="comment">//    展示出来：得到的reader.result为二进制文件base64  data:image/jpeg;base64...</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(reader.result);</span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.querySelector(<span class="string">&quot;#img&quot;</span>).src=reader.result;</span></span><br><span class="line"><span class="javascript">  &#125;</span></span><br><span class="line"><span class="javascript">&#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h1 id="form-在-jQuery-中的方法"><a href="#form-在-jQuery-中的方法" class="headerlink" title="form 在 jQuery 中的方法"></a>form 在 jQuery 中的方法</h1><ul>
+<li><p>serialize()</p>
+<ul>
+<li>在 ajax <font color=#c40>post 请求</font>中将用作提交的表单元素的值编译成 <code>name=value&amp;name1=value1</code> 字符串<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> ret = $(<span class="string">&#x27;form&#x27;</span>).serialize()</span><br><span class="line"><span class="built_in">console</span>.log(ret)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>serializeArray() (<font color=#c40>不好用</font>)</p>
+<ul>
+<li>将用作提交的表单元素的值编译成拥有 name 和 value 对象组成的数组</li>
+</ul>
+</li>
+<li><p>submit()</p>
+<ul>
+<li>为 submit 事件绑定一个处理函数, 或触发元素上的 submit 事件</li>
+<li>当参数 function 没有给出时, 触发当前表单的 submit 事件, 并且执行默认的表单提交行为, 除非阻止表单默认行为<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;form&#x27;</span>).submit(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 阻止表单默认同步提交行为</span></span><br><span class="line">    e.preventDefault()</span><br><span class="line">    <span class="comment">// 异步提交</span></span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">      ......</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>请求与相应</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>跨域</title>
+    <url>/2016/07/16/19-%E8%B7%A8%E5%9F%9F/</url>
+    <content><![CDATA[<h1 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h1><p>默认不同源地址之间不能发送请求, 只有同源的地址才可以相互通过 A JAX 的方式请求</p>
+<ul>
+<li><p>什么是不同源</p>
+<ul>
+<li><code>协议不同</code> 或 <code>端口号不同</code> 或 <code>域名不同</code>, 都叫不同源</li>
+</ul>
+</li>
+<li><p><font color="#f40">跨域和 AJAX 没有关系</font></p>
+<ul>
+<li>跨域是通过 script 标签发送请求</li>
+<li>AJAX 是通过 xhr 对象来发送请求</li>
+</ul>
+</li>
+<li><p>解决方案</p>
+<ul>
+<li>现代化的 Web 应用中肯定会有不同源的现象，所以必然要解决这个问题，从而实现跨域请求</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+<h1 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h1><p>Cross Origin Resource Share 跨域资源共享</p>
+<ul>
+<li><p>跨域资源共享(<a href="https://developer.mozilla.org/en-US/docs/Glossary/CORS">CORS</a>) 是一种机制，它使用额外的 <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTTP">HTTP</a> 头来告诉浏览器让运行在一个 origin (domain) 上的Web 应用被准许访问来自不同源服务器上的指定的资源。当一个资源从与该资源本身所在的服务器<strong>不同的域、协议或端口</strong>请求一个资源时，资源会发起一个<strong>跨域 HTTP 请求</strong>。</p>
+</li>
+<li><p>跨域资源共享（ <a href="https://developer.mozilla.org/en-US/docs/Glossary/CORS">CORS</a> ）机制允许 Web 应用服务器进行跨域访问控制，从而使跨域数据传输得以安全进行。现代浏览器支持在 API 容器中（例如 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest"><code>XMLHttpRequest</code></a> 或 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch</a> ）使用 CORS，以降低跨域 HTTP 请求所带来的风险</p>
+</li>
+<li><p>跨域资源共享标准新增了一组 HTTP 首部字段，允许服务器声明哪些源站通过浏览器有权限访问哪些资源</p>
+</li>
+<li><p>只需要在后台中 <font color=#c40><strong>设置响应头来允许跨域请求</strong></font>, 客户端无需作出变化 (<em><strong>依然通过 ajax 处理请求</strong></em>)</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Node.js 作服务端</span></span><br><span class="line">res.header(<span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span>, <span class="string">&#x27;*&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// php 作服务端</span></span><br><span class="line"><span class="meta">&lt;?</span> php</span><br><span class="line">  header(<span class="string">&#x27;Access-Control-Allow-Origin: *&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 客户端</span></span><br><span class="line">$.get(<span class="string">&#x27;http://locolhost/cors.php&#x27;</span>, &#123;&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h1><p>JSON with Padding，是一种 <code>借助于 script 标签发送跨域请求</code> 的技巧</p>
+<ul>
+<li><p>原理</p>
+<ul>
+<li><font color=#c40>在客户端借助 script 标签请求服务端的一个地址，服务端返回一段带有函数调用的 JavaScript 函数调用的脚本，将原本需要返回给客户端的数据传递进去, 返回给客户端</font></li>
+</ul>
+</li>
+<li><p>为什么不用 img / a / link?</p>
+<ul>
+<li>img —— 可以发送请求， 但不能返回响应结果</li>
+<li>link —— 可以返回响应结果， 但是无法处理相应结果</li>
+</ul>
+</li>
+<li><p>以后绝大多数情况都是采用 JSONP 的手段完成不同源地址之间的跨域请求</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 客户端 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;http://api.zce.me/users.php?callback=foo&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 服务端返回</span></span><br><span class="line">foo([<span class="string">&#x27;我&#x27;</span>, <span class="string">&#x27;是&#x27;</span>, <span class="string">&#x27;你&#x27;</span>, <span class="string">&#x27;原&#x27;</span>, <span class="string">&#x27;本&#x27;</span>, <span class="string">&#x27;需&#x27;</span>, <span class="string">&#x27;要&#x27;</span>, <span class="string">&#x27;的&#x27;</span>, <span class="string">&#x27;数&#x27;</span>, <span class="string">&#x27;据&#x27;</span>])</span><br></pre></td></tr></table></figure></li>
+<li><p>总结</p>
+<ul>
+<li>由于 XMLHttpRequest 无法发送不同源地址之间的跨域请求，所以我们必须要另寻他法，script 这种方<br>案就是我们最终选择的方式，我们把这种方式称之为 JSONP</li>
+</ul>
+</li>
+</ul>
+<h2 id="JSONP-的封装"><a href="#JSONP-的封装" class="headerlink" title="JSONP 的封装"></a>JSONP 的封装</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">jsonp</span>(<span class="params">option</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// 要通过 query 传参给服务端的函数名</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> callbackName = <span class="string">&#x27;getData_&#x27;</span> + <span class="built_in">Date</span>.now() + <span class="built_in">Math</span>.random().toString().substr(<span class="number">2</span>, <span class="number">5</span>) </span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="comment">// 处理 url</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">if</span> (<span class="keyword">typeof</span> (option.data) === <span class="string">&#x27;object&#x27;</span>) &#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> arr = []</span></span><br><span class="line"><span class="javascript">        <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> option.data) &#123;</span></span><br><span class="line"><span class="javascript">          arr.push(key + <span class="string">&#x27;=&#x27;</span> + option.data[key])</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">        option.data = arr.join(<span class="string">&#x27;&amp;&#x27;</span>)</span></span><br><span class="line"><span class="javascript">      &#125;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">&#x27;script&#x27;</span>)</span></span><br><span class="line"><span class="javascript">      <span class="comment">// jsonp 只能发送 get 请求</span></span></span><br><span class="line"><span class="javascript">      script.src = option.url + <span class="string">&#x27;?&#x27;</span> + option.data + <span class="string">&#x27;&amp;callback=&#x27;</span> + callbackName</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="comment">// script 只有挂载到页面中才会发送请求</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">document</span>.body.appendChild(script)</span></span><br><span class="line"><span class="javascript">      </span></span><br><span class="line"><span class="javascript">      <span class="comment">// 声明处理响应结果的全局函数</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">window</span>[callbackName] = <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        option.success(res) </span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 拿到数据后, 去掉页面上生成的 script</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.body.removeChild(script)</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 拿到数据后, 去掉 window 上挂载的回调函数</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">delete</span> <span class="built_in">window</span>[callbackName]</span></span><br><span class="line"><span class="javascript">      &#125;</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 函数调用</span></span></span><br><span class="line"><span class="javascript">    jsonp(&#123;</span></span><br><span class="line"><span class="javascript">      <span class="attr">url</span>: <span class="string">&#x27;http://localhost:80/cate&#x27;</span>,</span></span><br><span class="line"><span class="javascript">      <span class="attr">data</span>: &#123; <span class="attr">id</span>: <span class="number">1</span> &#125;,</span></span><br><span class="line"><span class="javascript">      <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(data)</span></span><br><span class="line"><span class="javascript">      &#125;</span></span><br><span class="line"><span class="javascript">    &#125;)</span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="JSONP-的问题"><a href="#JSONP-的问题" class="headerlink" title="JSONP 的问题"></a>JSONP 的问题</h2><p><font color=#c40>JSONP 需要服务端配合</font>，服务端按照客户端的要求返回一段 JavaScript 调用客户端的函数的字符串</p>
+<ul>
+<li><font color=#c40>只能发送 GET 请求</font></li>
+<li>⚠️ <strong>JSONP 用的是 script 标签，跟 A JAX 提供的 XMLHttpRequest 没有任何关系!!!</strong></li>
+</ul>
+<h2 id="jQuery-中使用-JSONP"><a href="#jQuery-中使用-JSONP" class="headerlink" title="jQuery 中使用 JSONP"></a>jQuery 中使用 JSONP</h2><p><font color=#c40>jQuery 中使用 JSONP 就是将 dataType 设置为 jsonp</font></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  <span class="attr">url</span>: <span class="string">&#x27;http://localhost/jsonp/server.php&#x27;</span>,</span><br><span class="line">  <span class="attr">dataType</span>: <span class="string">&#x27;jsonp&#x27;</span>,</span><br><span class="line">  <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="相关库"><a href="#相关库" class="headerlink" title="相关库"></a>相关库</h1><p><a href="https://github.com/webmodules/jsonp">jsonp</a></p>
 ]]></content>
       <tags>
         <tag>请求与响应</tag>
@@ -2209,6 +2285,320 @@
       </tags>
   </entry>
   <entry>
+    <title>Bootstrap</title>
+    <url>/2016/06/17/05-Bootstrap/</url>
+    <content><![CDATA[<h1 id="响应式-UI-框架"><a href="#响应式-UI-框架" class="headerlink" title="响应式 UI 框架"></a>响应式 UI 框架</h1><p><a href="https://v3.bootcss.com/">官网</a></p>
+<ul>
+<li>一套比较完整的用于前端页面构建的库</li>
+<li>可以叫它 <code>前端 UI 框架</code>, 不能说它是前端框架</li>
+<li><strong>Bootstrap 是最受欢迎的 HTML、CSS 和 JS 框架，用于开发响应式布局、移动设备优先的 WEB 项目</strong></li>
+</ul>
+<span id="more"></span>
+
+<h2 id="为什么使用它-优点"><a href="#为什么使用它-优点" class="headerlink" title="为什么使用它?优点?"></a>为什么使用它?优点?</h2><ol>
+<li><p>有自己的生态圈, 不断地更新迭代</p>
+</li>
+<li><p>提供了一套简洁、直观、强悍的组件</p>
+</li>
+<li><p>标准化的 html + css 编码规范</p>
+</li>
+<li><p>让开发更简单, 提高了开发效率 (<font color=#c40>只要加几个类就可以实现效果</font>)</p>
+</li>
+<li><p><strong>可扩展, 可自定义样式或修改默认样式</strong></p>
+</li>
+</ol>
+<h2 id="normalize-css-和-cssret-css-的区别"><a href="#normalize-css-和-cssret-css-的区别" class="headerlink" title="normalize.css 和 cssret.css 的区别?"></a>normalize.css 和 cssret.css 的区别?</h2><ul>
+<li>共同点<ul>
+<li>都是重置样式库, 增强浏览器表现的一致性</li>
+</ul>
+</li>
+<li>不同点<ul>
+<li>normalize.css 不会重置本身已经在每个浏览器表现一致的元素<ul>
+<li>eg. ul 在每个浏览器中都默认有黑点, 不会被重置 </li>
+</ul>
+</li>
+<li>reset.css 可以根据需求去设置严肃的样式<ul>
+<li>可以根据需求设置 ul 的 list-style: none;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>bootstrap.css 默认已经引用了 normalize.css</strong>, 不需要我们再额外引入</p>
+<h2 id="bootstrap-的使用"><a href="#bootstrap-的使用" class="headerlink" title="bootstrap 的使用"></a>bootstrap 的使用</h2><p>官方推荐在基本模版上进行修改</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 基本模版 --&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span> <span class="comment">&lt;!-- 文档申明 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh-CN&quot;</span>&gt;</span> <span class="comment">&lt;!-- 文档语言声明(中文简体) --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span> <span class="comment">&lt;!-- 字符编码声明 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 要求当前网页使用对应浏览器最高版本的内核来渲染 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 视口设置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 目的: 优先加载解析 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Bootstrap 101 Template<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Bootstrap 样式 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">      &lt;script src=&quot;https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">      &lt;script src=&quot;https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">    &lt;![endif]--&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>你好，世界！<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><a href="https://v3.bootcss.com/getting-started/#examples">实例模版</a><ul>
+<li>我们一般可以直接下载实例进行修改<ul>
+<li>方式一 <ul>
+<li>打开选好的例子 —— 右键查看源代码 —— 保存</li>
+</ul>
+</li>
+<li>方式二<ul>
+<li>Get the source code for every example below by <a href="https://github.com/twbs/bootstrap/archive/v3.3.7.zip">downloading the Bootstrap repository</a>. Examples can be found in the <code>docs/examples/</code> directory.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h1><p>Bootstrap 需要为页面内容和栅格系统包裹一个 <code>.container</code> 容器</p>
+<ul>
+<li>我们提供了两个作此用处的类 <code>.container</code> 和<code>.container-fluid</code><ul>
+<li>注意，由于 padding 等属性的原因，<strong>这两种容器类不能互相嵌套</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="固定容器"><a href="#固定容器" class="headerlink" title="固定容器"></a>固定容器</h2><p><code>.container</code> 类用于固定宽度并支持响应式布局的容器</p>
+<ul>
+<li><strong>.container 容器左右默认有 15px 的 padding</strong> </li>
+<li>宽度 1170px / 970px / 750px / auto (由<code>阈值</code>决定)</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>阈值<ul>
+<li>小于 768px            —— xs - 手机</li>
+<li>大于等于 768px    —— sm - 平板</li>
+<li>大于等于 992px    —— md - 中屏 PC</li>
+<li>大于等于 1200px  —— lg - 大屏 PC</li>
+</ul>
+</li>
+</ul>
+<h2 id="流体容器"><a href="#流体容器" class="headerlink" title="流体容器"></a>流体容器</h2><p><code>.container-fluid</code> 类用于 100% 宽度，占据全部视口（viewport）的容器</p>
+<ul>
+<li>宽度 100%</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container-fluid&quot;</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="栅格系统"><a href="#栅格系统" class="headerlink" title="栅格系统"></a>栅格系统</h1><p>Bootstrap 提供了一套响应式、移动设备优先的 <code>流式栅格系统</code>，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。它包含了易于使用的<a href="https://v3.bootcss.com/css/#grid-example-basic">预定义类</a>，还有强大的<a href="https://v3.bootcss.com/css/#grid-less">mixin 用于生成更具语义的布局</a>。</p>
+<ul>
+<li>bootstrap 通过一系列的行（row）与列（column）的组合来创建页面布局, 网页内容就可以放入这些创建好的布局中 —— 其实就是行和列布局<ul>
+<li>默认一行分 12 列</li>
+<li>container 容器默认有 15px 的 padding (水平方向)</li>
+<li>row 容器默认有 -15px 的 margin (水平方向)</li>
+<li>col 容器默认有 15px 的 padding (水平方向)</li>
+</ul>
+</li>
+<li>@grid-gutter-width<ul>
+<li>槽宽默认是 30px</li>
+</ul>
+</li>
+</ul>
+<h2 id="Bootstrap-栅格系统的工作原理"><a href="#Bootstrap-栅格系统的工作原理" class="headerlink" title="Bootstrap 栅格系统的工作原理"></a>Bootstrap 栅格系统的工作原理</h2><blockquote>
+<ol>
+<li><p>“行（row）”必须包含在 <code>.container</code> （固定宽度）或 <code>.container-fluid</code> （100% 宽度）中;</p>
+<p><strong>.row 默认有 -15px 的左右 margin</strong> (填充了 .container 左右的 15px 的 padding)</p>
+</li>
+<li><p>通过“行（row）”在水平方向创建一组“列（column）”</p>
+</li>
+<li><p>内容应当放置于“列（column）”内，并且，只有“列（column）”可以作为行（row）”的直接子元素;</p>
+<p><strong>.col 默认有 15px 的左右 padding</strong></p>
+<ul>
+<li><p><code>.col-*-*</code></p>
+<ul>
+<li><p>第一个 * : 设备种类 (lg、md、sm、xs)</p>
+<ul>
+<li>lg    —— 大屏设备及以上生效</li>
+<li>md —— 中屏设备及以上生效</li>
+<li>sm  —— 小屏设备及以上生效</li>
+<li>xs   —— 超小屏设备及以上生效</li>
+</ul>
+</li>
+<li><p>第二个 * : 占 12 的几份​  </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-4&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-4&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-4&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> <span class="comment">&lt;!-- 在小屏及以上设备都生效, 都是均分 3 份 --&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>类似 <code>.row</code> 和 <code>.col-xs-4</code> 这种预定义的类，可以用来快速创建栅格布局</p>
+</li>
+<li><p>通过为“列（column）”设置 <code>padding</code> 属性，从而创建列与列之间的间隔（gutter）。通过为 <code>.row</code> 元素设置负值 <code>margin</code> 从而抵消掉为 <code>.container</code> 元素设置的 <code>padding</code>，也就间接为“行（row）”所包含的“列（column）”抵消掉了<code>padding</code>。</p>
+</li>
+<li><p>栅格系统中的列是通过指定1到12的值来表示其跨越的范围。例如，三个等宽的列可以使用三个 <code>.col-xs-4</code> 来创建</p>
+</li>
+<li><p>如果一“行（row）”中包含了的“列（column）”大于 12，多余的“列（column）”所在的元素将被作为一个整体另起一行排列</p>
+</li>
+<li><p>col 里面可以嵌套 row</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="栅格系统基本使用"><a href="#栅格系统基本使用" class="headerlink" title="栅格系统基本使用"></a>栅格系统基本使用</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    大屏设备: 每行 6 等份(1行6列)</span></span><br><span class="line"><span class="comment">    中屏设备: 每行 4 等份(2行2列)</span></span><br><span class="line"><span class="comment">    小屏设备: 每行 3 等份(2行2列)</span></span><br><span class="line"><span class="comment">    超小屏设备: 每行 2 等份(3行2列)</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-lg-2 col-md-3 col-sm-4 col-xs-6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-lg-2 col-md-3 col-sm-4 col-xs-6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-lg-2 col-md-3 col-sm-4 col-xs-6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-lg-2 col-md-3 col-sm-4 col-xs-6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-lg-2 col-md-3 col-sm-4 col-xs-6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-lg-2 col-md-3 col-sm-4 col-xs-6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="行-amp-列"><a href="#行-amp-列" class="headerlink" title="行 &amp; 列"></a>行 &amp; 列</h2><ul>
+<li>行<ul>
+<li>默认样式<ul>
+<li>margin-left: -15px</li>
+<li>margin-right: -15px</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>列<ul>
+<li>默认样式<ul>
+<li>position: relative</li>
+<li>min-height: 1px</li>
+<li>padding-left: -15px</li>
+<li>padding-right: -15px</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="列嵌套"><a href="#列嵌套" class="headerlink" title="列嵌套"></a>列嵌套</h3><p>可以在 col 里前套 row</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-9&quot;</span>&gt;</span></span><br><span class="line">    Level 1: .col-sm-9</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-xs-8 col-sm-6&quot;</span>&gt;</span></span><br><span class="line">        Level 2: .col-xs-8 .col-sm-6</span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-xs-4 col-sm-6&quot;</span>&gt;</span></span><br><span class="line">        Level 2: .col-xs-4 .col-sm-6</span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="列偏移-col-md-offset-3"><a href="#列偏移-col-md-offset-3" class="headerlink" title="列偏移(.col-md-offset-3)"></a>列偏移(.col-md-offset-3)</h3><p>使用 <code>.col-md-offset-*</code> 类可以将列向右侧偏移。这些类实际是通过使用 <code>*</code> 选择器为当前元素增加了左侧的边距（margin）。例如，<code>.col-md-offset-4</code> 类将 <code>.col-md-4</code> 元素向右侧偏移了 4 个列（column）的宽度</p>
+<ul>
+<li><p>最终的实现相当于 <code>margin-left</code></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-md-4&quot;</span>&gt;</span>.col-md-4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-md-4 col-md-offset-4&quot;</span>&gt;</span>.col-md-4 .col-md-offset-4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-md-3 col-md-offset-3&quot;</span>&gt;</span>.col-md-3 .col-md-offset-3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-md-3 col-md-offset-3&quot;</span>&gt;</span>.col-md-3 .col-md-offset-3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-md-6 col-md-offset-3&quot;</span>&gt;</span>.col-md-6 .col-md-offset-3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/%E5%88%97%E5%81%8F%E7%A7%BB.png"></p>
+</li>
+</ul>
+<h3 id="列排序-col-md-push-pull-3"><a href="#列排序-col-md-push-pull-3" class="headerlink" title="列排序(.col-md-push/pull-3)"></a>列排序(.col-md-push/pull-3)</h3><p>通过使用 <code>.col-md-push-*</code> 和 <code>.col-md-pull-*</code> 类就可以很容易的改变列（column）的顺序</p>
+<ul>
+<li><p>最终的实现相当于 <code>定位</code></p>
+</li>
+<li><p>push —— 往后推     pull —— 往前拉</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-md-9 col-md-push-3&quot;</span>&gt;</span>.col-md-9 .col-md-push-3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-md-3 col-md-pull-9&quot;</span>&gt;</span>.col-md-3 .col-md-pull-9<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/%E5%88%97%E6%8E%92%E5%BA%8F.png"></p>
+</li>
+</ul>
+<h2 id="栅格盒模型"><a href="#栅格盒模型" class="headerlink" title="栅格盒模型"></a>栅格盒模型</h2><ul>
+<li>容器两边有 15px 的 padding<ul>
+<li>为了让容器可以包裹住行</li>
+</ul>
+</li>
+<li>行两边有 -15px 的 margin<ul>
+<li>为了能使列嵌套行</li>
+</ul>
+</li>
+<li>列两边有 15px 的 padding<ul>
+<li>为了维护槽宽的规则</li>
+</ul>
+</li>
+</ul>
+<h2 id="自定义栅格系统"><a href="#自定义栅格系统" class="headerlink" title="自定义栅格系统"></a>自定义栅格系统</h2><ol>
+<li><p>拷贝 bootstrap dist 目录中跟栅格有关的 less 文件</p>
+<p><code>mixin/clearfix.less  mixin/grid.less   mixin/grid-framework.less  grid.less   variables.less</code></p>
+</li>
+<li><p>把 <code>mixin/grid-framework.less</code> 中的 <code>col-</code> 换成 <code>damu-col-</code></p>
+</li>
+<li><p>新建自己的 <code>damu.less</code></p>
+</li>
+<li><p>在 <code>damu.less</code> 中引入相关文件</p>
+<p>⚠️ 先引入混入</p>
+</li>
+<li><p>编译 <code>damu.less</code> 生成 <code>damu.css</code> 文件即可</p>
+</li>
+<li><p>直接使用 <code>damu.css</code> 文件</p>
+</li>
+</ol>
+<p><img src="/images/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%85%E6%A0%BC.png"></p>
+<h1 id="响应式工具"><a href="#响应式工具" class="headerlink" title="响应式工具"></a>响应式工具</h1><p>为了加快对移动设备友好的页面开发工作，利用媒体查询功能并使用这些工具类可以方便的 <code>针对不同设备展示或隐藏页面内容</code></p>
+<ul>
+<li><p>有针对性的使用这类工具类，从而避免为同一个网站创建完全不同的版本</p>
+</li>
+<li><p>可用的类</p>
+<ul>
+<li>.visible-xs-*<ul>
+<li><code>*</code>  的取值可能是 inline、inline-block、block, 每个针对 CSS 中不同的 <code>display</code> 属性</li>
+</ul>
+</li>
+<li>.hidden-xs-*</li>
+</ul>
+<p><img src="/images/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B7%A5%E5%85%B7%E5%8F%AF%E7%94%A8%E7%9A%84%E7%B1%BB.png"></p>
+</li>
+</ul>
+<h1 id="Bootstrap-常用类"><a href="#Bootstrap-常用类" class="headerlink" title="Bootstrap 常用类"></a>Bootstrap 常用类</h1><p><a href="https://v3.bootcss.com/css/#helper-classes">常用类</a></p>
+<ul>
+<li>浮动相关<ul>
+<li>pull-left</li>
+<li>pull-right</li>
+</ul>
+</li>
+<li>文本对齐<ul>
+<li>text-left</li>
+<li>text-right</li>
+<li>text-center</li>
+</ul>
+</li>
+<li>显示隐藏<ul>
+<li>hidden-xs/sm/md/lg</li>
+</ul>
+</li>
+</ul>
+<h1 id="Bootstrap-常用组件"><a href="#Bootstrap-常用组件" class="headerlink" title="Bootstrap 常用组件"></a>Bootstrap 常用组件</h1><ul>
+<li><p><a href="https://v3.bootcss.com/components/">常用组件</a></p>
+<ul>
+<li>由 html + css  组成的特定结构和样式的静态结构</li>
+<li>js 插件<ul>
+<li><a href="https://v3.bootcss.com/javascript/">怎么在组件中使用 js 功能</a></li>
+<li>就是 <code>有交互功能</code> 的组件</li>
+<li>建议使用压缩版的 js 文件</li>
+<li><code>bootstrap.js</code> 和 <code>bootstrap.min.js</code> 都包含了所有插件，你在使用时，只需选择一个引入页面就可以了</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>无数可复用的组件，包括字体图标、下拉菜单、导航、警告框、弹出框等更多功能</p>
+</li>
+<li><p>按钮(组)、导航、下拉菜单、分页、弹出框、标签、徽章、巨幕、进度条、警告框、面板…ect</p>
+</li>
+<li><p>导航条和 collapsed 组件</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">  类名 collapsed 折叠样式</span></span><br><span class="line"><span class="comment">  属性 data-toggle=&quot;collapse&quot; 声明是折叠组件</span></span><br><span class="line"><span class="comment">      data-target=&quot;.box&quot; 声明控制的目标元素</span></span><br><span class="line"><span class="comment">  其他</span></span><br><span class="line"><span class="comment">      aria-expanded=&quot;false&quot;  提供给屏幕阅读器使用的(特俗人群使用)</span></span><br><span class="line"><span class="comment">      class=&quot;sr-only&quot; 也是给屏幕阅读器使用的</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">&quot;navbar navbar-default&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Brand and toggle get grouped for better mobile display --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;navbar-header&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">class</span>=<span class="string">&quot;navbar-toggle collapsed&quot;</span> <span class="attr">data-toggle</span>=<span class="string">&quot;collapse&quot;</span> <span class="attr">data-target</span>=<span class="string">&quot;#bs-example-navbar-collapse-1&quot;</span> <span class="attr">aria-expanded</span>=<span class="string">&quot;false&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;sr-only&quot;</span>&gt;</span>Toggle navigation<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;icon-bar&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;icon-bar&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;icon-bar&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;navbar-brand&quot;</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Brand<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Collect the nav links, forms, and other content for toggling --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;collapse navbar-collapse&quot;</span> <span class="attr">id</span>=<span class="string">&quot;bs-example-navbar-collapse-1&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;nav navbar-nav&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;active&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Link <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;sr-only&quot;</span>&gt;</span>(current)<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Link<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;dropdown&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">class</span>=<span class="string">&quot;dropdown-toggle&quot;</span> <span class="attr">data-toggle</span>=<span class="string">&quot;dropdown&quot;</span> <span class="attr">role</span>=<span class="string">&quot;button&quot;</span> <span class="attr">aria-haspopup</span>=<span class="string">&quot;true&quot;</span> <span class="attr">aria-expanded</span>=<span class="string">&quot;false&quot;</span>&gt;</span>Dropdown <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;caret&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;dropdown-menu&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Action<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Another action<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Something else here<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">role</span>=<span class="string">&quot;separator&quot;</span> <span class="attr">class</span>=<span class="string">&quot;divider&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Separated link<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">role</span>=<span class="string">&quot;separator&quot;</span> <span class="attr">class</span>=<span class="string">&quot;divider&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>One more separated link<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">&quot;navbar-form navbar-left&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;form-group&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">class</span>=<span class="string">&quot;form-control&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;Search&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">class</span>=<span class="string">&quot;btn btn-default&quot;</span>&gt;</span>Submit<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;nav navbar-nav navbar-right&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Link<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;dropdown&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">class</span>=<span class="string">&quot;dropdown-toggle&quot;</span> <span class="attr">data-toggle</span>=<span class="string">&quot;dropdown&quot;</span> <span class="attr">role</span>=<span class="string">&quot;button&quot;</span> <span class="attr">aria-haspopup</span>=<span class="string">&quot;true&quot;</span> <span class="attr">aria-expanded</span>=<span class="string">&quot;false&quot;</span>&gt;</span>Dropdown <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;caret&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;dropdown-menu&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Action<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Another action<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Something else here<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">role</span>=<span class="string">&quot;separator&quot;</span> <span class="attr">class</span>=<span class="string">&quot;divider&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Separated link<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="comment">&lt;!-- /.navbar-collapse --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="comment">&lt;!-- /.container-fluid --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><a href="https://v3.bootcss.com/javascript/#collapse">collapsed 组件</a></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">  属性 data-toggle=&quot;collapse&quot; 声明是折叠组件</span></span><br><span class="line"><span class="comment">      data-target=&quot;.box&quot;     声明控制的目标元素</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">data-toggle</span>=<span class="string">&quot;collapse&quot;</span> <span class="attr">data-target</span>=<span class="string">&quot;.box&quot;</span>&gt;</span>menu<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 如果是 a 标签, 控制的目标元素可以写在 href 里 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">data-toggle</span>=<span class="string">&quot;collapse&quot;</span> <span class="attr">href</span>=<span class="string">&quot;.box&quot;</span>&gt;</span>menu<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">    内容<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    内容<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    内容<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><a href="https://v3.bootcss.com/javascript/#carousel">轮播图组件</a></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">  slide 是否加上滑动效果</span></span><br><span class="line"><span class="comment">  data-ride=&quot;carousel&quot; 初始化轮播图</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;carousel-example-generic&quot;</span> <span class="attr">class</span>=<span class="string">&quot;carousel slide&quot;</span> <span class="attr">data-ride</span>=<span class="string">&quot;carousel&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- Indicators --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ol</span> <span class="attr">class</span>=<span class="string">&quot;carousel-indicators&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-target</span>=<span class="string">&quot;#carousel-example-generic&quot;</span> <span class="attr">data-slide-to</span>=<span class="string">&quot;0&quot;</span> <span class="attr">class</span>=<span class="string">&quot;active&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-target</span>=<span class="string">&quot;#carousel-example-generic&quot;</span> <span class="attr">data-slide-to</span>=<span class="string">&quot;1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-target</span>=<span class="string">&quot;#carousel-example-generic&quot;</span> <span class="attr">data-slide-to</span>=<span class="string">&quot;2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- Wrapper for slides --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-inner&quot;</span> <span class="attr">role</span>=<span class="string">&quot;listbox&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item active&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;...&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;...&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-caption&quot;</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;...&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;...&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-caption&quot;</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- Controls --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;left carousel-control&quot;</span> <span class="attr">href</span>=<span class="string">&quot;#carousel-example-generic&quot;</span> <span class="attr">role</span>=<span class="string">&quot;button&quot;</span> <span class="attr">data-slide</span>=<span class="string">&quot;prev&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;glyphicon glyphicon-chevron-left&quot;</span> <span class="attr">aria-hidden</span>=<span class="string">&quot;true&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;right carousel-control&quot;</span> <span class="attr">href</span>=<span class="string">&quot;#carousel-example-generic&quot;</span> <span class="attr">role</span>=<span class="string">&quot;button&quot;</span> <span class="attr">data-slide</span>=<span class="string">&quot;next&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;glyphicon glyphicon-chevron-right&quot;</span> <span class="attr">aria-hidden</span>=<span class="string">&quot;true&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><a href="https://v3.bootcss.com/javascript/#affix">Affix 组件</a></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">  距离顶部 60 的时候导航条固定在顶部, 或距离底部距离 200 的时候固定在顶部</span></span><br><span class="line"><span class="comment">  data-offset-top=&quot;60&quot; </span></span><br><span class="line"><span class="comment">  data-offset-bottom=&quot;200&quot;</span></span><br><span class="line"><span class="comment">  这 2 个写一个就可以</span></span><br><span class="line"><span class="comment">  如果该组件初始位置不在顶部, 还应该在 css 里加上 top: 0;</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">data-spy</span>=<span class="string">&quot;affix&quot;</span> <span class="attr">data-offset-top</span>=<span class="string">&quot;60&quot;</span> <span class="attr">data-offset-bottom</span>=<span class="string">&quot;200&quot;</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="覆盖-bootstrap-css-原有样式"><a href="#覆盖-bootstrap-css-原有样式" class="headerlink" title="覆盖 bootstrap.css 原有样式"></a>覆盖 bootstrap.css 原有样式</h1><ul>
+<li>如果不确定能否盖过其优先级, 可以拷贝源码的相关区块的整片代码到自己的样式文件中, 再修改成想要的样式</li>
+<li>如果想要针对功能覆盖(不影响本页面其他同组件样式)<ul>
+<li>可以更改拷贝过来的模块名 (eg: .navbar-default =&gt; .wjs_nav)</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>会出现代码冗余</li>
+</ul>
+</li>
+<li>如果 bootstrap 不能满足我们的需求, 需要自己使用媒体查询来设置宽度</li>
+</ul>
+<h1 id="Bootstrap-定制"><a href="#Bootstrap-定制" class="headerlink" title="Bootstrap 定制"></a>Bootstrap 定制</h1><ol>
+<li><p><a href="https://v3.bootcss.com/customize/">线上定制</a></p>
+</li>
+<li><p>线下定制</p>
+<ul>
+<li>下载 bootstrap 源文件, 打开其 <code>less 文件夹</code> 进行修改<ul>
+<li>新建自己的 <code>damu.less</code></li>
+<li>引入 <code>bootsratp.less</code></li>
+<li>重新声明自己想要的变量</li>
+<li>编译 <code>damu.less</code></li>
+<li>项目中引入 <code>damu.css</code> 即可</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><img src="/images/%E5%AE%9A%E5%88%B6.png"></p>
+<h1 id="应用-bootstrap-步骤"><a href="#应用-bootstrap-步骤" class="headerlink" title="应用 bootstrap 步骤"></a>应用 bootstrap 步骤</h1><ol>
+<li>起步 —— 基本模版 —— 拷贝并粘贴到自己的 html 中</li>
+<li>找相似组件 —— 拷贝 —— 修改</li>
+</ol>
+<h1 id="Bootstrap-模版"><a href="#Bootstrap-模版" class="headerlink" title="Bootstrap 模版"></a>Bootstrap 模版</h1><p><a href="%5Bhttps://www.17sucai.com/search/bootstrap%E6%A8%A1%E6%9D%BF?%5D(https://www.17sucai.com/search/bootstrap%E6%A8%A1%E6%9D%BF?)">17素材网</a></p>
+]]></content>
+      <tags>
+        <tag>UI 框架</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CSS3</title>
     <url>/2016/06/15/04-CSS3/</url>
     <content><![CDATA[<h1 id="CSS3-选择器"><a href="#CSS3-选择器" class="headerlink" title="CSS3 选择器"></a>CSS3 选择器</h1><p><a href="http://www.w3school.com.cn/cssref/css_selectors.asp">选择器汇总</a></p>
@@ -2876,320 +3266,6 @@
 ]]></content>
       <tags>
         <tag>CSS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Bootstrap</title>
-    <url>/2016/06/17/05-Bootstrap/</url>
-    <content><![CDATA[<h1 id="响应式-UI-框架"><a href="#响应式-UI-框架" class="headerlink" title="响应式 UI 框架"></a>响应式 UI 框架</h1><p><a href="https://v3.bootcss.com/">官网</a></p>
-<ul>
-<li>一套比较完整的用于前端页面构建的库</li>
-<li>可以叫它 <code>前端 UI 框架</code>, 不能说它是前端框架</li>
-<li><strong>Bootstrap 是最受欢迎的 HTML、CSS 和 JS 框架，用于开发响应式布局、移动设备优先的 WEB 项目</strong></li>
-</ul>
-<span id="more"></span>
-
-<h2 id="为什么使用它-优点"><a href="#为什么使用它-优点" class="headerlink" title="为什么使用它?优点?"></a>为什么使用它?优点?</h2><ol>
-<li><p>有自己的生态圈, 不断地更新迭代</p>
-</li>
-<li><p>提供了一套简洁、直观、强悍的组件</p>
-</li>
-<li><p>标准化的 html + css 编码规范</p>
-</li>
-<li><p>让开发更简单, 提高了开发效率 (<font color=#c40>只要加几个类就可以实现效果</font>)</p>
-</li>
-<li><p><strong>可扩展, 可自定义样式或修改默认样式</strong></p>
-</li>
-</ol>
-<h2 id="normalize-css-和-cssret-css-的区别"><a href="#normalize-css-和-cssret-css-的区别" class="headerlink" title="normalize.css 和 cssret.css 的区别?"></a>normalize.css 和 cssret.css 的区别?</h2><ul>
-<li>共同点<ul>
-<li>都是重置样式库, 增强浏览器表现的一致性</li>
-</ul>
-</li>
-<li>不同点<ul>
-<li>normalize.css 不会重置本身已经在每个浏览器表现一致的元素<ul>
-<li>eg. ul 在每个浏览器中都默认有黑点, 不会被重置 </li>
-</ul>
-</li>
-<li>reset.css 可以根据需求去设置严肃的样式<ul>
-<li>可以根据需求设置 ul 的 list-style: none;</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><strong>bootstrap.css 默认已经引用了 normalize.css</strong>, 不需要我们再额外引入</p>
-<h2 id="bootstrap-的使用"><a href="#bootstrap-的使用" class="headerlink" title="bootstrap 的使用"></a>bootstrap 的使用</h2><p>官方推荐在基本模版上进行修改</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 基本模版 --&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span> <span class="comment">&lt;!-- 文档申明 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh-CN&quot;</span>&gt;</span> <span class="comment">&lt;!-- 文档语言声明(中文简体) --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span> <span class="comment">&lt;!-- 字符编码声明 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 要求当前网页使用对应浏览器最高版本的内核来渲染 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 视口设置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 目的: 优先加载解析 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Bootstrap 101 Template<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Bootstrap 样式 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">      &lt;script src=&quot;https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">      &lt;script src=&quot;https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">    &lt;![endif]--&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>你好，世界！<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-<ul>
-<li><a href="https://v3.bootcss.com/getting-started/#examples">实例模版</a><ul>
-<li>我们一般可以直接下载实例进行修改<ul>
-<li>方式一 <ul>
-<li>打开选好的例子 —— 右键查看源代码 —— 保存</li>
-</ul>
-</li>
-<li>方式二<ul>
-<li>Get the source code for every example below by <a href="https://github.com/twbs/bootstrap/archive/v3.3.7.zip">downloading the Bootstrap repository</a>. Examples can be found in the <code>docs/examples/</code> directory.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h1><p>Bootstrap 需要为页面内容和栅格系统包裹一个 <code>.container</code> 容器</p>
-<ul>
-<li>我们提供了两个作此用处的类 <code>.container</code> 和<code>.container-fluid</code><ul>
-<li>注意，由于 padding 等属性的原因，<strong>这两种容器类不能互相嵌套</strong></li>
-</ul>
-</li>
-</ul>
-<h2 id="固定容器"><a href="#固定容器" class="headerlink" title="固定容器"></a>固定容器</h2><p><code>.container</code> 类用于固定宽度并支持响应式布局的容器</p>
-<ul>
-<li><strong>.container 容器左右默认有 15px 的 padding</strong> </li>
-<li>宽度 1170px / 970px / 750px / auto (由<code>阈值</code>决定)</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>阈值<ul>
-<li>小于 768px            —— xs - 手机</li>
-<li>大于等于 768px    —— sm - 平板</li>
-<li>大于等于 992px    —— md - 中屏 PC</li>
-<li>大于等于 1200px  —— lg - 大屏 PC</li>
-</ul>
-</li>
-</ul>
-<h2 id="流体容器"><a href="#流体容器" class="headerlink" title="流体容器"></a>流体容器</h2><p><code>.container-fluid</code> 类用于 100% 宽度，占据全部视口（viewport）的容器</p>
-<ul>
-<li>宽度 100%</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container-fluid&quot;</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="栅格系统"><a href="#栅格系统" class="headerlink" title="栅格系统"></a>栅格系统</h1><p>Bootstrap 提供了一套响应式、移动设备优先的 <code>流式栅格系统</code>，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。它包含了易于使用的<a href="https://v3.bootcss.com/css/#grid-example-basic">预定义类</a>，还有强大的<a href="https://v3.bootcss.com/css/#grid-less">mixin 用于生成更具语义的布局</a>。</p>
-<ul>
-<li>bootstrap 通过一系列的行（row）与列（column）的组合来创建页面布局, 网页内容就可以放入这些创建好的布局中 —— 其实就是行和列布局<ul>
-<li>默认一行分 12 列</li>
-<li>container 容器默认有 15px 的 padding (水平方向)</li>
-<li>row 容器默认有 -15px 的 margin (水平方向)</li>
-<li>col 容器默认有 15px 的 padding (水平方向)</li>
-</ul>
-</li>
-<li>@grid-gutter-width<ul>
-<li>槽宽默认是 30px</li>
-</ul>
-</li>
-</ul>
-<h2 id="Bootstrap-栅格系统的工作原理"><a href="#Bootstrap-栅格系统的工作原理" class="headerlink" title="Bootstrap 栅格系统的工作原理"></a>Bootstrap 栅格系统的工作原理</h2><blockquote>
-<ol>
-<li><p>“行（row）”必须包含在 <code>.container</code> （固定宽度）或 <code>.container-fluid</code> （100% 宽度）中;</p>
-<p><strong>.row 默认有 -15px 的左右 margin</strong> (填充了 .container 左右的 15px 的 padding)</p>
-</li>
-<li><p>通过“行（row）”在水平方向创建一组“列（column）”</p>
-</li>
-<li><p>内容应当放置于“列（column）”内，并且，只有“列（column）”可以作为行（row）”的直接子元素;</p>
-<p><strong>.col 默认有 15px 的左右 padding</strong></p>
-<ul>
-<li><p><code>.col-*-*</code></p>
-<ul>
-<li><p>第一个 * : 设备种类 (lg、md、sm、xs)</p>
-<ul>
-<li>lg    —— 大屏设备及以上生效</li>
-<li>md —— 中屏设备及以上生效</li>
-<li>sm  —— 小屏设备及以上生效</li>
-<li>xs   —— 超小屏设备及以上生效</li>
-</ul>
-</li>
-<li><p>第二个 * : 占 12 的几份​  </p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-4&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-4&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-4&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> <span class="comment">&lt;!-- 在小屏及以上设备都生效, 都是均分 3 份 --&gt;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>类似 <code>.row</code> 和 <code>.col-xs-4</code> 这种预定义的类，可以用来快速创建栅格布局</p>
-</li>
-<li><p>通过为“列（column）”设置 <code>padding</code> 属性，从而创建列与列之间的间隔（gutter）。通过为 <code>.row</code> 元素设置负值 <code>margin</code> 从而抵消掉为 <code>.container</code> 元素设置的 <code>padding</code>，也就间接为“行（row）”所包含的“列（column）”抵消掉了<code>padding</code>。</p>
-</li>
-<li><p>栅格系统中的列是通过指定1到12的值来表示其跨越的范围。例如，三个等宽的列可以使用三个 <code>.col-xs-4</code> 来创建</p>
-</li>
-<li><p>如果一“行（row）”中包含了的“列（column）”大于 12，多余的“列（column）”所在的元素将被作为一个整体另起一行排列</p>
-</li>
-<li><p>col 里面可以嵌套 row</p>
-</li>
-</ol>
-</blockquote>
-<h2 id="栅格系统基本使用"><a href="#栅格系统基本使用" class="headerlink" title="栅格系统基本使用"></a>栅格系统基本使用</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    大屏设备: 每行 6 等份(1行6列)</span></span><br><span class="line"><span class="comment">    中屏设备: 每行 4 等份(2行2列)</span></span><br><span class="line"><span class="comment">    小屏设备: 每行 3 等份(2行2列)</span></span><br><span class="line"><span class="comment">    超小屏设备: 每行 2 等份(3行2列)</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-lg-2 col-md-3 col-sm-4 col-xs-6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-lg-2 col-md-3 col-sm-4 col-xs-6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-lg-2 col-md-3 col-sm-4 col-xs-6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-lg-2 col-md-3 col-sm-4 col-xs-6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-lg-2 col-md-3 col-sm-4 col-xs-6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-lg-2 col-md-3 col-sm-4 col-xs-6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="行-amp-列"><a href="#行-amp-列" class="headerlink" title="行 &amp; 列"></a>行 &amp; 列</h2><ul>
-<li>行<ul>
-<li>默认样式<ul>
-<li>margin-left: -15px</li>
-<li>margin-right: -15px</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>列<ul>
-<li>默认样式<ul>
-<li>position: relative</li>
-<li>min-height: 1px</li>
-<li>padding-left: -15px</li>
-<li>padding-right: -15px</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="列嵌套"><a href="#列嵌套" class="headerlink" title="列嵌套"></a>列嵌套</h3><p>可以在 col 里前套 row</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-9&quot;</span>&gt;</span></span><br><span class="line">    Level 1: .col-sm-9</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-xs-8 col-sm-6&quot;</span>&gt;</span></span><br><span class="line">        Level 2: .col-xs-8 .col-sm-6</span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-xs-4 col-sm-6&quot;</span>&gt;</span></span><br><span class="line">        Level 2: .col-xs-4 .col-sm-6</span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="列偏移-col-md-offset-3"><a href="#列偏移-col-md-offset-3" class="headerlink" title="列偏移(.col-md-offset-3)"></a>列偏移(.col-md-offset-3)</h3><p>使用 <code>.col-md-offset-*</code> 类可以将列向右侧偏移。这些类实际是通过使用 <code>*</code> 选择器为当前元素增加了左侧的边距（margin）。例如，<code>.col-md-offset-4</code> 类将 <code>.col-md-4</code> 元素向右侧偏移了 4 个列（column）的宽度</p>
-<ul>
-<li><p>最终的实现相当于 <code>margin-left</code></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-md-4&quot;</span>&gt;</span>.col-md-4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-md-4 col-md-offset-4&quot;</span>&gt;</span>.col-md-4 .col-md-offset-4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-md-3 col-md-offset-3&quot;</span>&gt;</span>.col-md-3 .col-md-offset-3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-md-3 col-md-offset-3&quot;</span>&gt;</span>.col-md-3 .col-md-offset-3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-md-6 col-md-offset-3&quot;</span>&gt;</span>.col-md-6 .col-md-offset-3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/%E5%88%97%E5%81%8F%E7%A7%BB.png"></p>
-</li>
-</ul>
-<h3 id="列排序-col-md-push-pull-3"><a href="#列排序-col-md-push-pull-3" class="headerlink" title="列排序(.col-md-push/pull-3)"></a>列排序(.col-md-push/pull-3)</h3><p>通过使用 <code>.col-md-push-*</code> 和 <code>.col-md-pull-*</code> 类就可以很容易的改变列（column）的顺序</p>
-<ul>
-<li><p>最终的实现相当于 <code>定位</code></p>
-</li>
-<li><p>push —— 往后推     pull —— 往前拉</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-md-9 col-md-push-3&quot;</span>&gt;</span>.col-md-9 .col-md-push-3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-md-3 col-md-pull-9&quot;</span>&gt;</span>.col-md-3 .col-md-pull-9<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/%E5%88%97%E6%8E%92%E5%BA%8F.png"></p>
-</li>
-</ul>
-<h2 id="栅格盒模型"><a href="#栅格盒模型" class="headerlink" title="栅格盒模型"></a>栅格盒模型</h2><ul>
-<li>容器两边有 15px 的 padding<ul>
-<li>为了让容器可以包裹住行</li>
-</ul>
-</li>
-<li>行两边有 -15px 的 margin<ul>
-<li>为了能使列嵌套行</li>
-</ul>
-</li>
-<li>列两边有 15px 的 padding<ul>
-<li>为了维护槽宽的规则</li>
-</ul>
-</li>
-</ul>
-<h2 id="自定义栅格系统"><a href="#自定义栅格系统" class="headerlink" title="自定义栅格系统"></a>自定义栅格系统</h2><ol>
-<li><p>拷贝 bootstrap dist 目录中跟栅格有关的 less 文件</p>
-<p><code>mixin/clearfix.less  mixin/grid.less   mixin/grid-framework.less  grid.less   variables.less</code></p>
-</li>
-<li><p>把 <code>mixin/grid-framework.less</code> 中的 <code>col-</code> 换成 <code>damu-col-</code></p>
-</li>
-<li><p>新建自己的 <code>damu.less</code></p>
-</li>
-<li><p>在 <code>damu.less</code> 中引入相关文件</p>
-<p>⚠️ 先引入混入</p>
-</li>
-<li><p>编译 <code>damu.less</code> 生成 <code>damu.css</code> 文件即可</p>
-</li>
-<li><p>直接使用 <code>damu.css</code> 文件</p>
-</li>
-</ol>
-<p><img src="/images/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%85%E6%A0%BC.png"></p>
-<h1 id="响应式工具"><a href="#响应式工具" class="headerlink" title="响应式工具"></a>响应式工具</h1><p>为了加快对移动设备友好的页面开发工作，利用媒体查询功能并使用这些工具类可以方便的 <code>针对不同设备展示或隐藏页面内容</code></p>
-<ul>
-<li><p>有针对性的使用这类工具类，从而避免为同一个网站创建完全不同的版本</p>
-</li>
-<li><p>可用的类</p>
-<ul>
-<li>.visible-xs-*<ul>
-<li><code>*</code>  的取值可能是 inline、inline-block、block, 每个针对 CSS 中不同的 <code>display</code> 属性</li>
-</ul>
-</li>
-<li>.hidden-xs-*</li>
-</ul>
-<p><img src="/images/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B7%A5%E5%85%B7%E5%8F%AF%E7%94%A8%E7%9A%84%E7%B1%BB.png"></p>
-</li>
-</ul>
-<h1 id="Bootstrap-常用类"><a href="#Bootstrap-常用类" class="headerlink" title="Bootstrap 常用类"></a>Bootstrap 常用类</h1><p><a href="https://v3.bootcss.com/css/#helper-classes">常用类</a></p>
-<ul>
-<li>浮动相关<ul>
-<li>pull-left</li>
-<li>pull-right</li>
-</ul>
-</li>
-<li>文本对齐<ul>
-<li>text-left</li>
-<li>text-right</li>
-<li>text-center</li>
-</ul>
-</li>
-<li>显示隐藏<ul>
-<li>hidden-xs/sm/md/lg</li>
-</ul>
-</li>
-</ul>
-<h1 id="Bootstrap-常用组件"><a href="#Bootstrap-常用组件" class="headerlink" title="Bootstrap 常用组件"></a>Bootstrap 常用组件</h1><ul>
-<li><p><a href="https://v3.bootcss.com/components/">常用组件</a></p>
-<ul>
-<li>由 html + css  组成的特定结构和样式的静态结构</li>
-<li>js 插件<ul>
-<li><a href="https://v3.bootcss.com/javascript/">怎么在组件中使用 js 功能</a></li>
-<li>就是 <code>有交互功能</code> 的组件</li>
-<li>建议使用压缩版的 js 文件</li>
-<li><code>bootstrap.js</code> 和 <code>bootstrap.min.js</code> 都包含了所有插件，你在使用时，只需选择一个引入页面就可以了</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>无数可复用的组件，包括字体图标、下拉菜单、导航、警告框、弹出框等更多功能</p>
-</li>
-<li><p>按钮(组)、导航、下拉菜单、分页、弹出框、标签、徽章、巨幕、进度条、警告框、面板…ect</p>
-</li>
-<li><p>导航条和 collapsed 组件</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">  类名 collapsed 折叠样式</span></span><br><span class="line"><span class="comment">  属性 data-toggle=&quot;collapse&quot; 声明是折叠组件</span></span><br><span class="line"><span class="comment">      data-target=&quot;.box&quot; 声明控制的目标元素</span></span><br><span class="line"><span class="comment">  其他</span></span><br><span class="line"><span class="comment">      aria-expanded=&quot;false&quot;  提供给屏幕阅读器使用的(特俗人群使用)</span></span><br><span class="line"><span class="comment">      class=&quot;sr-only&quot; 也是给屏幕阅读器使用的</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">&quot;navbar navbar-default&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Brand and toggle get grouped for better mobile display --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;navbar-header&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">class</span>=<span class="string">&quot;navbar-toggle collapsed&quot;</span> <span class="attr">data-toggle</span>=<span class="string">&quot;collapse&quot;</span> <span class="attr">data-target</span>=<span class="string">&quot;#bs-example-navbar-collapse-1&quot;</span> <span class="attr">aria-expanded</span>=<span class="string">&quot;false&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;sr-only&quot;</span>&gt;</span>Toggle navigation<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;icon-bar&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;icon-bar&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;icon-bar&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;navbar-brand&quot;</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Brand<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Collect the nav links, forms, and other content for toggling --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;collapse navbar-collapse&quot;</span> <span class="attr">id</span>=<span class="string">&quot;bs-example-navbar-collapse-1&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;nav navbar-nav&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;active&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Link <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;sr-only&quot;</span>&gt;</span>(current)<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Link<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;dropdown&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">class</span>=<span class="string">&quot;dropdown-toggle&quot;</span> <span class="attr">data-toggle</span>=<span class="string">&quot;dropdown&quot;</span> <span class="attr">role</span>=<span class="string">&quot;button&quot;</span> <span class="attr">aria-haspopup</span>=<span class="string">&quot;true&quot;</span> <span class="attr">aria-expanded</span>=<span class="string">&quot;false&quot;</span>&gt;</span>Dropdown <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;caret&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;dropdown-menu&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Action<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Another action<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Something else here<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">role</span>=<span class="string">&quot;separator&quot;</span> <span class="attr">class</span>=<span class="string">&quot;divider&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Separated link<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">role</span>=<span class="string">&quot;separator&quot;</span> <span class="attr">class</span>=<span class="string">&quot;divider&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>One more separated link<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">&quot;navbar-form navbar-left&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;form-group&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">class</span>=<span class="string">&quot;form-control&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;Search&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">class</span>=<span class="string">&quot;btn btn-default&quot;</span>&gt;</span>Submit<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;nav navbar-nav navbar-right&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Link<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;dropdown&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">class</span>=<span class="string">&quot;dropdown-toggle&quot;</span> <span class="attr">data-toggle</span>=<span class="string">&quot;dropdown&quot;</span> <span class="attr">role</span>=<span class="string">&quot;button&quot;</span> <span class="attr">aria-haspopup</span>=<span class="string">&quot;true&quot;</span> <span class="attr">aria-expanded</span>=<span class="string">&quot;false&quot;</span>&gt;</span>Dropdown <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;caret&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;dropdown-menu&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Action<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Another action<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Something else here<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">role</span>=<span class="string">&quot;separator&quot;</span> <span class="attr">class</span>=<span class="string">&quot;divider&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Separated link<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="comment">&lt;!-- /.navbar-collapse --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="comment">&lt;!-- /.container-fluid --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p><a href="https://v3.bootcss.com/javascript/#collapse">collapsed 组件</a></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">  属性 data-toggle=&quot;collapse&quot; 声明是折叠组件</span></span><br><span class="line"><span class="comment">      data-target=&quot;.box&quot;     声明控制的目标元素</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">data-toggle</span>=<span class="string">&quot;collapse&quot;</span> <span class="attr">data-target</span>=<span class="string">&quot;.box&quot;</span>&gt;</span>menu<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 如果是 a 标签, 控制的目标元素可以写在 href 里 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">data-toggle</span>=<span class="string">&quot;collapse&quot;</span> <span class="attr">href</span>=<span class="string">&quot;.box&quot;</span>&gt;</span>menu<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">    内容<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    内容<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    内容<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p><a href="https://v3.bootcss.com/javascript/#carousel">轮播图组件</a></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">  slide 是否加上滑动效果</span></span><br><span class="line"><span class="comment">  data-ride=&quot;carousel&quot; 初始化轮播图</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;carousel-example-generic&quot;</span> <span class="attr">class</span>=<span class="string">&quot;carousel slide&quot;</span> <span class="attr">data-ride</span>=<span class="string">&quot;carousel&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- Indicators --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ol</span> <span class="attr">class</span>=<span class="string">&quot;carousel-indicators&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-target</span>=<span class="string">&quot;#carousel-example-generic&quot;</span> <span class="attr">data-slide-to</span>=<span class="string">&quot;0&quot;</span> <span class="attr">class</span>=<span class="string">&quot;active&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-target</span>=<span class="string">&quot;#carousel-example-generic&quot;</span> <span class="attr">data-slide-to</span>=<span class="string">&quot;1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-target</span>=<span class="string">&quot;#carousel-example-generic&quot;</span> <span class="attr">data-slide-to</span>=<span class="string">&quot;2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- Wrapper for slides --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-inner&quot;</span> <span class="attr">role</span>=<span class="string">&quot;listbox&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item active&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;...&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;...&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-caption&quot;</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;...&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;...&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-caption&quot;</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- Controls --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;left carousel-control&quot;</span> <span class="attr">href</span>=<span class="string">&quot;#carousel-example-generic&quot;</span> <span class="attr">role</span>=<span class="string">&quot;button&quot;</span> <span class="attr">data-slide</span>=<span class="string">&quot;prev&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;glyphicon glyphicon-chevron-left&quot;</span> <span class="attr">aria-hidden</span>=<span class="string">&quot;true&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;right carousel-control&quot;</span> <span class="attr">href</span>=<span class="string">&quot;#carousel-example-generic&quot;</span> <span class="attr">role</span>=<span class="string">&quot;button&quot;</span> <span class="attr">data-slide</span>=<span class="string">&quot;next&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;glyphicon glyphicon-chevron-right&quot;</span> <span class="attr">aria-hidden</span>=<span class="string">&quot;true&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p><a href="https://v3.bootcss.com/javascript/#affix">Affix 组件</a></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">  距离顶部 60 的时候导航条固定在顶部, 或距离底部距离 200 的时候固定在顶部</span></span><br><span class="line"><span class="comment">  data-offset-top=&quot;60&quot; </span></span><br><span class="line"><span class="comment">  data-offset-bottom=&quot;200&quot;</span></span><br><span class="line"><span class="comment">  这 2 个写一个就可以</span></span><br><span class="line"><span class="comment">  如果该组件初始位置不在顶部, 还应该在 css 里加上 top: 0;</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">data-spy</span>=<span class="string">&quot;affix&quot;</span> <span class="attr">data-offset-top</span>=<span class="string">&quot;60&quot;</span> <span class="attr">data-offset-bottom</span>=<span class="string">&quot;200&quot;</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="覆盖-bootstrap-css-原有样式"><a href="#覆盖-bootstrap-css-原有样式" class="headerlink" title="覆盖 bootstrap.css 原有样式"></a>覆盖 bootstrap.css 原有样式</h1><ul>
-<li>如果不确定能否盖过其优先级, 可以拷贝源码的相关区块的整片代码到自己的样式文件中, 再修改成想要的样式</li>
-<li>如果想要针对功能覆盖(不影响本页面其他同组件样式)<ul>
-<li>可以更改拷贝过来的模块名 (eg: .navbar-default =&gt; .wjs_nav)</li>
-</ul>
-</li>
-<li>缺点<ul>
-<li>会出现代码冗余</li>
-</ul>
-</li>
-<li>如果 bootstrap 不能满足我们的需求, 需要自己使用媒体查询来设置宽度</li>
-</ul>
-<h1 id="Bootstrap-定制"><a href="#Bootstrap-定制" class="headerlink" title="Bootstrap 定制"></a>Bootstrap 定制</h1><ol>
-<li><p><a href="https://v3.bootcss.com/customize/">线上定制</a></p>
-</li>
-<li><p>线下定制</p>
-<ul>
-<li>下载 bootstrap 源文件, 打开其 <code>less 文件夹</code> 进行修改<ul>
-<li>新建自己的 <code>damu.less</code></li>
-<li>引入 <code>bootsratp.less</code></li>
-<li>重新声明自己想要的变量</li>
-<li>编译 <code>damu.less</code></li>
-<li>项目中引入 <code>damu.css</code> 即可</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<p><img src="/images/%E5%AE%9A%E5%88%B6.png"></p>
-<h1 id="应用-bootstrap-步骤"><a href="#应用-bootstrap-步骤" class="headerlink" title="应用 bootstrap 步骤"></a>应用 bootstrap 步骤</h1><ol>
-<li>起步 —— 基本模版 —— 拷贝并粘贴到自己的 html 中</li>
-<li>找相似组件 —— 拷贝 —— 修改</li>
-</ol>
-<h1 id="Bootstrap-模版"><a href="#Bootstrap-模版" class="headerlink" title="Bootstrap 模版"></a>Bootstrap 模版</h1><p><a href="%5Bhttps://www.17sucai.com/search/bootstrap%E6%A8%A1%E6%9D%BF?%5D(https://www.17sucai.com/search/bootstrap%E6%A8%A1%E6%9D%BF?)">17素材网</a></p>
-]]></content>
-      <tags>
-        <tag>UI 框架</tag>
       </tags>
   </entry>
   <entry>
@@ -6292,82 +6368,6 @@
 ]]></content>
       <tags>
         <tag>JS 基础</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>跨域</title>
-    <url>/2016/07/16/19-%E8%B7%A8%E5%9F%9F/</url>
-    <content><![CDATA[<h1 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h1><p>默认不同源地址之间不能发送请求, 只有同源的地址才可以相互通过 A JAX 的方式请求</p>
-<ul>
-<li><p>什么是不同源</p>
-<ul>
-<li><code>协议不同</code> 或 <code>端口号不同</code> 或 <code>域名不同</code>, 都叫不同源</li>
-</ul>
-</li>
-<li><p>⚠️ 跨域于 AJAX 没有关系</p>
-<ul>
-<li>跨域是通过 script 标签发送请求</li>
-<li>AJAX 是通过 xhr 对象来发送请求</li>
-</ul>
-</li>
-<li><p>解决方案</p>
-<ul>
-<li>现代化的 Web 应用中肯定会有不同源的现象，所以必然要解决这个问题，从而实现跨域请求</li>
-</ul>
-</li>
-</ul>
-<span id="more"></span>
-<h1 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h1><p>Cross Origin Resource Share 跨域资源共享</p>
-<ul>
-<li><p>跨域资源共享(<a href="https://developer.mozilla.org/en-US/docs/Glossary/CORS">CORS</a>) 是一种机制，它使用额外的 <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTTP">HTTP</a> 头来告诉浏览器让运行在一个 origin (domain) 上的Web 应用被准许访问来自不同源服务器上的指定的资源。当一个资源从与该资源本身所在的服务器<strong>不同的域、协议或端口</strong>请求一个资源时，资源会发起一个<strong>跨域 HTTP 请求</strong>。</p>
-</li>
-<li><p>跨域资源共享（ <a href="https://developer.mozilla.org/en-US/docs/Glossary/CORS">CORS</a> ）机制允许 Web 应用服务器进行跨域访问控制，从而使跨域数据传输得以安全进行。现代浏览器支持在 API 容器中（例如 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest"><code>XMLHttpRequest</code></a> 或 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch</a> ）使用 CORS，以降低跨域 HTTP 请求所带来的风险</p>
-</li>
-<li><p>跨域资源共享标准新增了一组 HTTP 首部字段，允许服务器声明哪些源站通过浏览器有权限访问哪些资源</p>
-</li>
-<li><p>只需要在后台中 <font color=#c40><strong>设置响应头来允许跨域请求</strong></font>, 客户端无需作出变化 (<em><strong>依然通过 ajax 处理请求</strong></em>)</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Node.js 作服务端</span></span><br><span class="line">res.header(<span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span>, <span class="string">&#x27;*&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// php 作服务端</span></span><br><span class="line"><span class="meta">&lt;?</span> php</span><br><span class="line">  header(<span class="string">&#x27;Access-Control-Allow-Origin: *&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 客户端</span></span><br><span class="line">$.get(<span class="string">&#x27;http://locolhost/cors.php&#x27;</span>, &#123;&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h1><p>JSON with Padding，是一种 <code>借助于 script 标签发送跨域请求</code> 的技巧</p>
-<ul>
-<li><p>原理</p>
-<ul>
-<li><font color=#c40>在客户端借助 script 标签请求服务端的一个地址，服务端返回一段带有函数调用的 JavaScript 函数调用的脚本，将原本需要返回给客户端的数据传递进去, 返回给客户端</font></li>
-</ul>
-</li>
-<li><p>为什么不用 img / a / link?</p>
-<ul>
-<li>img —— 可以发送请求， 但不能返回响应结果</li>
-<li>link —— 可以返回响应结果， 但是无法处理相应结果</li>
-</ul>
-</li>
-<li><p>以后绝大多数情况都是采用 JSONP 的手段完成不同源地址之间的跨域请求</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 客户端 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;http://api.zce.me/users.php?callback=foo&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 服务端返回</span></span><br><span class="line">foo([<span class="string">&#x27;我&#x27;</span>, <span class="string">&#x27;是&#x27;</span>, <span class="string">&#x27;你&#x27;</span>, <span class="string">&#x27;原&#x27;</span>, <span class="string">&#x27;本&#x27;</span>, <span class="string">&#x27;需&#x27;</span>, <span class="string">&#x27;要&#x27;</span>, <span class="string">&#x27;的&#x27;</span>, <span class="string">&#x27;数&#x27;</span>, <span class="string">&#x27;据&#x27;</span>])</span><br></pre></td></tr></table></figure></li>
-<li><p>总结</p>
-<ul>
-<li>由于 XMLHttpRequest 无法发送不同源地址之间的跨域请求，所以我们必须要另寻他法，script 这种方<br>案就是我们最终选择的方式，我们把这种方式称之为 JSONP</li>
-</ul>
-</li>
-</ul>
-<h2 id="JSONP-的封装"><a href="#JSONP-的封装" class="headerlink" title="JSONP 的封装"></a>JSONP 的封装</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">jsonp</span>(<span class="params">option</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// 要通过 query 传参给服务端的函数名</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> callbackName = <span class="string">&#x27;getData_&#x27;</span> + <span class="built_in">Date</span>.now() + <span class="built_in">Math</span>.random().toString().substr(<span class="number">2</span>, <span class="number">5</span>) </span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="comment">// 处理 url</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">if</span> (<span class="keyword">typeof</span> (option.data) === <span class="string">&#x27;object&#x27;</span>) &#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> arr = []</span></span><br><span class="line"><span class="javascript">        <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> option.data) &#123;</span></span><br><span class="line"><span class="javascript">          arr.push(key + <span class="string">&#x27;=&#x27;</span> + option.data[key])</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">        option.data = arr.join(<span class="string">&#x27;&amp;&#x27;</span>)</span></span><br><span class="line"><span class="javascript">      &#125;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">&#x27;script&#x27;</span>)</span></span><br><span class="line"><span class="javascript">      <span class="comment">// jsonp 只能发送 get 请求</span></span></span><br><span class="line"><span class="javascript">      script.src = option.url + <span class="string">&#x27;?&#x27;</span> + option.data + <span class="string">&#x27;&amp;callback=&#x27;</span> + callbackName</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="comment">// script 只有挂载到页面中才会发送请求</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">document</span>.body.appendChild(script)</span></span><br><span class="line"><span class="javascript">      </span></span><br><span class="line"><span class="javascript">      <span class="comment">// 声明处理响应结果的全局函数</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">window</span>[callbackName] = <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        option.success(res) </span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 拿到数据后, 去掉页面上生成的 script</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.body.removeChild(script)</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 拿到数据后, 去掉 window 上挂载的回调函数</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">delete</span> <span class="built_in">window</span>[callbackName]</span></span><br><span class="line"><span class="javascript">      &#125;</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 函数调用</span></span></span><br><span class="line"><span class="javascript">    jsonp(&#123;</span></span><br><span class="line"><span class="javascript">      <span class="attr">url</span>: <span class="string">&#x27;http://localhost:80/cate&#x27;</span>,</span></span><br><span class="line"><span class="javascript">      <span class="attr">data</span>: &#123; <span class="attr">id</span>: <span class="number">1</span> &#125;,</span></span><br><span class="line"><span class="javascript">      <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(data)</span></span><br><span class="line"><span class="javascript">      &#125;</span></span><br><span class="line"><span class="javascript">    &#125;)</span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="JSONP-的问题"><a href="#JSONP-的问题" class="headerlink" title="JSONP 的问题"></a>JSONP 的问题</h2><p><font color=#c40>JSONP 需要服务端配合</font>，服务端按照客户端的要求返回一段 JavaScript 调用客户端的函数的字符串</p>
-<ul>
-<li><font color=#c40>只能发送 GET 请求</font></li>
-<li>⚠️ <strong>JSONP 用的是 script 标签，跟 A JAX 提供的 XMLHttpRequest 没有任何关系!!!</strong></li>
-</ul>
-<h2 id="jQuery-中使用-JSONP"><a href="#jQuery-中使用-JSONP" class="headerlink" title="jQuery 中使用 JSONP"></a>jQuery 中使用 JSONP</h2><p><font color=#c40>jQuery 中使用 JSONP 就是将 dataType 设置为 jsonp</font></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  <span class="attr">url</span>: <span class="string">&#x27;http://localhost/jsonp/server.php&#x27;</span>,</span><br><span class="line">  <span class="attr">dataType</span>: <span class="string">&#x27;jsonp&#x27;</span>,</span><br><span class="line">  <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h1 id="相关库"><a href="#相关库" class="headerlink" title="相关库"></a>相关库</h1><p><a href="https://github.com/webmodules/jsonp">jsonp</a></p>
-]]></content>
-      <tags>
-        <tag>请求与响应</tag>
       </tags>
   </entry>
 </search>
