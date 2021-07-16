@@ -1,91 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>前端发展</title>
-    <url>/2016/06/03/00-%E5%89%8D%E7%AB%AF%E5%8F%91%E5%B1%95/</url>
-    <content><![CDATA[<h1 id="前端到底是个啥？"><a href="#前端到底是个啥？" class="headerlink" title="前端到底是个啥？"></a>前端到底是个啥？</h1><p>针对 web 开发的前端而言</p>
-<ul>
-<li>针对浏览器的开发，浏览器呈现出来的页面就是前端</li>
-<li>它的实质是前端代码在浏览器端被编译、运行、渲染</li>
-<li>前端代码主要由三个部分构成：HTML + CSS + JavaScript<span id="more"></span></li>
-</ul>
-<h1 id="前后端分工"><a href="#前后端分工" class="headerlink" title="前后端分工"></a>前后端分工</h1><p><img src="https://segmentfault.com/img/bVbxgak?w=1534&h=862"></p>
-<h1 id="前端开发发展史"><a href="#前端开发发展史" class="headerlink" title="前端开发发展史"></a>前端开发发展史</h1><ol>
-<li><p>多页面项目</p>
-<ul>
-<li><p>一个页面对应一个 html 页面，html 页面内显式地引入 js、css 文件</p>
-</li>
-<li><p>通过模版引擎将 js 数据动态地渲染到页面上</p>
-</li>
-<li><p>各页面的切换由 a 链接或 location.href 实现</p>
-</li>
-<li><p>切换页面时，会刷新界面，重新发起请求</p>
-<blockquote>
-<p>src</p>
-<p>|—— images</p>
-<p>|—— js</p>
-<p>|—— css</p>
-<p>|—— index.html</p>
-<p>|—— about.html</p>
-<p>|—— list.html</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>SPA</p>
-<ul>
-<li>利用 Vue、 React 框架生成的项目</li>
-<li>只有一个主界面，各个页面由组件实现，页面间的切换由路由实现</li>
-<li>路由切换时，不会刷新界面，用户体验好</li>
-</ul>
-</li>
-</ol>
-<h1 id="前端项目的产出"><a href="#前端项目的产出" class="headerlink" title="前端项目的产出"></a>前端项目的产出</h1><p>前端项目<strong>最终</strong>打包上线的都是 html+CSS + JS 的静态资源包</p>
-<ul>
-<li>因为前端项目依赖于浏览器运行</li>
-<li>而浏览器只认识 html、css、js 代码</li>
-</ul>
-<p>也就是说前端开发中用到的各种技术都是对 html、css、js 的一些预处理操作，是对程序员友好的一些技术手段</p>
-<h1 id="处理技术"><a href="#处理技术" class="headerlink" title="处理技术"></a>处理技术</h1><table>
-<thead>
-<tr>
-<th></th>
-<th align="left">技术名词</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>HTML</td>
-<td align="left">模版引擎                                       (art-template、EJS)</td>
-<td>把 js 数据传到 html 中展示出来，<strong>动态生成 html 结构</strong></td>
-</tr>
-<tr>
-<td>CSS</td>
-<td align="left">less、stylus</td>
-<td>扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展</td>
-</tr>
-<tr>
-<td>JS</td>
-<td align="left">ES6+</td>
-<td>是 JavaScript 的下一个版本标准，扩展了 ES5 的语法</td>
-</tr>
-<tr>
-<td>HTML + JS</td>
-<td align="left">React</td>
-<td>前端框架，混合了 HTML 和 JS 语法，实现虚拟 DOM 来构建用户界面</td>
-</tr>
-<tr>
-<td>HTML + JS + CSS</td>
-<td align="left">Vue</td>
-<td>前端框架，混合了 HTML、CSS 和 JS 语法，实现虚拟 DOM 来构建用户界面</td>
-</tr>
-</tbody></table>
-]]></content>
-      <tags>
-        <tag>前端基础</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Less</title>
     <url>/2016/06/11/03-Less/</url>
     <content><![CDATA[<h1 id="什么是-less"><a href="#什么是-less" class="headerlink" title="什么是 less?"></a>什么是 less?</h1><p><a href="http://lesscss.cn/">官网</a></p>
@@ -214,6 +129,91 @@
 ]]></content>
       <tags>
         <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端发展</title>
+    <url>/2016/06/03/00-%E5%89%8D%E7%AB%AF%E5%8F%91%E5%B1%95/</url>
+    <content><![CDATA[<h1 id="前端到底是个啥？"><a href="#前端到底是个啥？" class="headerlink" title="前端到底是个啥？"></a>前端到底是个啥？</h1><p>针对 web 开发的前端而言</p>
+<ul>
+<li>针对浏览器的开发，浏览器呈现出来的页面就是前端</li>
+<li>它的实质是前端代码在浏览器端被编译、运行、渲染</li>
+<li>前端代码主要由三个部分构成：HTML + CSS + JavaScript<span id="more"></span></li>
+</ul>
+<h1 id="前后端分工"><a href="#前后端分工" class="headerlink" title="前后端分工"></a>前后端分工</h1><p><img src="https://segmentfault.com/img/bVbxgak?w=1534&h=862"></p>
+<h1 id="前端开发发展史"><a href="#前端开发发展史" class="headerlink" title="前端开发发展史"></a>前端开发发展史</h1><ol>
+<li><p>多页面项目</p>
+<ul>
+<li><p>一个页面对应一个 html 页面，html 页面内显式地引入 js、css 文件</p>
+</li>
+<li><p>通过模版引擎将 js 数据动态地渲染到页面上</p>
+</li>
+<li><p>各页面的切换由 a 链接或 location.href 实现</p>
+</li>
+<li><p>切换页面时，会刷新界面，重新发起请求</p>
+<blockquote>
+<p>src</p>
+<p>|—— images</p>
+<p>|—— js</p>
+<p>|—— css</p>
+<p>|—— index.html</p>
+<p>|—— about.html</p>
+<p>|—— list.html</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>SPA</p>
+<ul>
+<li>利用 Vue、 React 框架生成的项目</li>
+<li>只有一个主界面，各个页面由组件实现，页面间的切换由路由实现</li>
+<li>路由切换时，不会刷新界面，用户体验好</li>
+</ul>
+</li>
+</ol>
+<h1 id="前端项目的产出"><a href="#前端项目的产出" class="headerlink" title="前端项目的产出"></a>前端项目的产出</h1><p>前端项目<strong>最终</strong>打包上线的都是 html+CSS + JS 的静态资源包</p>
+<ul>
+<li>因为前端项目依赖于浏览器运行</li>
+<li>而浏览器只认识 html、css、js 代码</li>
+</ul>
+<p>也就是说前端开发中用到的各种技术都是对 html、css、js 的一些预处理操作，是对程序员友好的一些技术手段</p>
+<h1 id="处理技术"><a href="#处理技术" class="headerlink" title="处理技术"></a>处理技术</h1><table>
+<thead>
+<tr>
+<th></th>
+<th align="left">技术名词</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HTML</td>
+<td align="left">模版引擎                                       (art-template、EJS)</td>
+<td>把 js 数据传到 html 中展示出来，<strong>动态生成 html 结构</strong></td>
+</tr>
+<tr>
+<td>CSS</td>
+<td align="left">less、stylus</td>
+<td>扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展</td>
+</tr>
+<tr>
+<td>JS</td>
+<td align="left">ES6+</td>
+<td>是 JavaScript 的下一个版本标准，扩展了 ES5 的语法</td>
+</tr>
+<tr>
+<td>HTML + JS</td>
+<td align="left">React</td>
+<td>前端框架，混合了 HTML 和 JS 语法，实现虚拟 DOM 来构建用户界面</td>
+</tr>
+<tr>
+<td>HTML + JS + CSS</td>
+<td align="left">Vue</td>
+<td>前端框架，混合了 HTML、CSS 和 JS 语法，实现虚拟 DOM 来构建用户界面</td>
+</tr>
+</tbody></table>
+]]></content>
+      <tags>
+        <tag>前端基础</tag>
       </tags>
   </entry>
   <entry>
@@ -1068,34 +1068,6 @@
       </tags>
   </entry>
   <entry>
-    <title>深拷贝</title>
-    <url>/2016/07/14/16-%E6%B7%B1%E6%8B%B7%E8%B4%9D/</url>
-    <content><![CDATA[<h1 id="深度克隆-深拷贝"><a href="#深度克隆-深拷贝" class="headerlink" title="深度克隆 (深拷贝)"></a>深度克隆 (深拷贝)</h1><h2 id="拷贝数据的方法"><a href="#拷贝数据的方法" class="headerlink" title="拷贝数据的方法"></a>拷贝数据的方法</h2><p>1 —— 直接赋值 =<br>2 —— Object.assign()<br>3 —— Array.prototype.concat()<br>4 —— Array.prototype.slice()<br>5 —— JSON.parse(JSON.stringify()), 拷贝的数据里 <code>不能有函数</code></p>
-<ul>
-<li><font color=#f40>因为 JSON.stringify / JSON.parse 没法处理函数</font></li>
-</ul>
-<span id="more"></span>
-<p>以上只有 5 是深拷贝</p>
-  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, &#123; <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span> &#125;]</span><br><span class="line"><span class="keyword">var</span> arr2 = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(arr))</span><br><span class="line">arr2[<span class="number">2</span>].name = <span class="string">&#x27;ls&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(arr) <span class="comment">// [1, 2, &#123; name: &#x27;zs&#x27; &#125;]</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>拷贝后 (针对对象/数组) 修改新变量会改变源变量的方式称为 <code>浅拷贝</code></p>
-<ul>
-<li>浅拷贝特点<ul>
-<li><strong>拷贝后生成的新数据的修改会影响原数据, 使得原数据不安全</strong></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>拷贝后 (针对对象/数组) 修改新变量不会改变源变量的方式称为 <code>深拷贝</code></p>
-</li>
-</ul>
-<h2 id="如何实现深拷贝"><a href="#如何实现深拷贝" class="headerlink" title="如何实现深拷贝?"></a><font color=#c40>如何实现深拷贝?</font></h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 检测数据类型 返回 Array、Object、String...</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call() 方法返回的是 &#x27;[object Object/Array/String/Number]&#x27;</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call(&#x27;33&#x27;) =&gt; &#x27;[object String]&#x27;</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call(22) =&gt; &#x27;[object Number]&#x27;</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call([]) =&gt; &#x27;[object Array]&#x27;</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call(&#123;&#125;) =&gt; &#x27;[object Object]&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkType</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(target).slice(<span class="number">8</span>, -<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 深拷贝函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">let</span> targetType = checkType(target)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 1.判断数据类型</span></span><br><span class="line">    <span class="keyword">if</span> (targetType === <span class="string">&#x27;Array&#x27;</span>) &#123; <span class="comment">// 是数组</span></span><br><span class="line">        result = []</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (targetType === <span class="string">&#x27;Object&#x27;</span>) &#123; <span class="comment">// 是对象</span></span><br><span class="line">        result = &#123;&#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">// 是基本数据类型</span></span><br><span class="line">        <span class="keyword">return</span> target   </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2.一个一个拷贝</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> target) &#123;</span><br><span class="line">        <span class="keyword">let</span> value = target[i]</span><br><span class="line">        result[i] = clone(value) <span class="comment">// 递归克隆每一项值</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>JS 基础</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JS基础之BOM</title>
     <url>/2016/07/12/14-JS%E5%9F%BA%E7%A1%80%E4%B9%8BBOM/</url>
     <content><![CDATA[<h1 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h1><p>浏览器对象模型</p>
@@ -1195,6 +1167,34 @@
 ]]></content>
       <tags>
         <tag>JS 之 BOM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>深拷贝</title>
+    <url>/2016/07/14/16-%E6%B7%B1%E6%8B%B7%E8%B4%9D/</url>
+    <content><![CDATA[<h1 id="深度克隆-深拷贝"><a href="#深度克隆-深拷贝" class="headerlink" title="深度克隆 (深拷贝)"></a>深度克隆 (深拷贝)</h1><h2 id="拷贝数据的方法"><a href="#拷贝数据的方法" class="headerlink" title="拷贝数据的方法"></a>拷贝数据的方法</h2><p>1 —— 直接赋值 =<br>2 —— Object.assign()<br>3 —— Array.prototype.concat()<br>4 —— Array.prototype.slice()<br>5 —— JSON.parse(JSON.stringify()), 拷贝的数据里 <code>不能有函数</code></p>
+<ul>
+<li><font color=#f40>因为 JSON.stringify / JSON.parse 没法处理函数</font></li>
+</ul>
+<span id="more"></span>
+<p>以上只有 5 是深拷贝</p>
+  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, &#123; <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span> &#125;]</span><br><span class="line"><span class="keyword">var</span> arr2 = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(arr))</span><br><span class="line">arr2[<span class="number">2</span>].name = <span class="string">&#x27;ls&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(arr) <span class="comment">// [1, 2, &#123; name: &#x27;zs&#x27; &#125;]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>拷贝后 (针对对象/数组) 修改新变量会改变源变量的方式称为 <code>浅拷贝</code></p>
+<ul>
+<li>浅拷贝特点<ul>
+<li><strong>拷贝后生成的新数据的修改会影响原数据, 使得原数据不安全</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>拷贝后 (针对对象/数组) 修改新变量不会改变源变量的方式称为 <code>深拷贝</code></p>
+</li>
+</ul>
+<h2 id="如何实现深拷贝"><a href="#如何实现深拷贝" class="headerlink" title="如何实现深拷贝?"></a><font color=#c40>如何实现深拷贝?</font></h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 检测数据类型 返回 Array、Object、String...</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call() 方法返回的是 &#x27;[object Object/Array/String/Number]&#x27;</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call(&#x27;33&#x27;) =&gt; &#x27;[object String]&#x27;</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call(22) =&gt; &#x27;[object Number]&#x27;</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call([]) =&gt; &#x27;[object Array]&#x27;</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call(&#123;&#125;) =&gt; &#x27;[object Object]&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkType</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(target).slice(<span class="number">8</span>, -<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 深拷贝函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">let</span> targetType = checkType(target)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 1.判断数据类型</span></span><br><span class="line">    <span class="keyword">if</span> (targetType === <span class="string">&#x27;Array&#x27;</span>) &#123; <span class="comment">// 是数组</span></span><br><span class="line">        result = []</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (targetType === <span class="string">&#x27;Object&#x27;</span>) &#123; <span class="comment">// 是对象</span></span><br><span class="line">        result = &#123;&#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">// 是基本数据类型</span></span><br><span class="line">        <span class="keyword">return</span> target   </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2.一个一个拷贝</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> target) &#123;</span><br><span class="line">        <span class="keyword">let</span> value = target[i]</span><br><span class="line">        result[i] = clone(value) <span class="comment">// 递归克隆每一项值</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>JS 基础</tag>
       </tags>
   </entry>
   <entry>
@@ -1392,82 +1392,6 @@
       </tags>
   </entry>
   <entry>
-    <title>跨域</title>
-    <url>/2016/07/16/19-%E8%B7%A8%E5%9F%9F/</url>
-    <content><![CDATA[<h1 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h1><p>默认不同源地址之间不能发送请求, 只有同源的地址才可以相互通过 A JAX 的方式请求</p>
-<ul>
-<li><p>什么是不同源</p>
-<ul>
-<li><code>协议不同</code> 或 <code>端口号不同</code> 或 <code>域名不同</code>, 都叫不同源</li>
-</ul>
-</li>
-<li><p><font color="#f40">跨域和 AJAX 没有关系</font></p>
-<ul>
-<li>跨域是通过 script 标签发送请求</li>
-<li>AJAX 是通过 xhr 对象来发送请求</li>
-</ul>
-</li>
-<li><p>解决方案</p>
-<ul>
-<li>现代化的 Web 应用中肯定会有不同源的现象，所以必然要解决这个问题，从而实现跨域请求</li>
-</ul>
-</li>
-</ul>
-<span id="more"></span>
-<h1 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h1><p>Cross Origin Resource Share 跨域资源共享</p>
-<ul>
-<li><p>跨域资源共享(<a href="https://developer.mozilla.org/en-US/docs/Glossary/CORS">CORS</a>) 是一种机制，它使用额外的 <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTTP">HTTP</a> 头来告诉浏览器让运行在一个 origin (domain) 上的Web 应用被准许访问来自不同源服务器上的指定的资源。当一个资源从与该资源本身所在的服务器<strong>不同的域、协议或端口</strong>请求一个资源时，资源会发起一个<strong>跨域 HTTP 请求</strong>。</p>
-</li>
-<li><p>跨域资源共享（ <a href="https://developer.mozilla.org/en-US/docs/Glossary/CORS">CORS</a> ）机制允许 Web 应用服务器进行跨域访问控制，从而使跨域数据传输得以安全进行。现代浏览器支持在 API 容器中（例如 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest"><code>XMLHttpRequest</code></a> 或 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch</a> ）使用 CORS，以降低跨域 HTTP 请求所带来的风险</p>
-</li>
-<li><p>跨域资源共享标准新增了一组 HTTP 首部字段，允许服务器声明哪些源站通过浏览器有权限访问哪些资源</p>
-</li>
-<li><p>只需要在后台中 <font color=#c40><strong>设置响应头来允许跨域请求</strong></font>, 客户端无需作出变化 (<em><strong>依然通过 ajax 处理请求</strong></em>)</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Node.js 作服务端</span></span><br><span class="line">res.header(<span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span>, <span class="string">&#x27;*&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// php 作服务端</span></span><br><span class="line"><span class="meta">&lt;?</span> php</span><br><span class="line">  header(<span class="string">&#x27;Access-Control-Allow-Origin: *&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 客户端</span></span><br><span class="line">$.get(<span class="string">&#x27;http://locolhost/cors.php&#x27;</span>, &#123;&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h1><p>JSON with Padding，是一种 <code>借助于 script 标签发送跨域请求</code> 的技巧</p>
-<ul>
-<li><p>原理</p>
-<ul>
-<li><font color=#c40>在客户端借助 script 标签请求服务端的一个地址，服务端返回一段带有函数调用的 JavaScript 函数调用的脚本，将原本需要返回给客户端的数据传递进去, 返回给客户端</font></li>
-</ul>
-</li>
-<li><p>为什么不用 img / a / link?</p>
-<ul>
-<li>img —— 可以发送请求， 但不能返回响应结果</li>
-<li>link —— 可以返回响应结果， 但是无法处理相应结果</li>
-</ul>
-</li>
-<li><p>以后绝大多数情况都是采用 JSONP 的手段完成不同源地址之间的跨域请求</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 客户端 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;http://api.zce.me/users.php?callback=foo&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 服务端返回</span></span><br><span class="line">foo([<span class="string">&#x27;我&#x27;</span>, <span class="string">&#x27;是&#x27;</span>, <span class="string">&#x27;你&#x27;</span>, <span class="string">&#x27;原&#x27;</span>, <span class="string">&#x27;本&#x27;</span>, <span class="string">&#x27;需&#x27;</span>, <span class="string">&#x27;要&#x27;</span>, <span class="string">&#x27;的&#x27;</span>, <span class="string">&#x27;数&#x27;</span>, <span class="string">&#x27;据&#x27;</span>])</span><br></pre></td></tr></table></figure></li>
-<li><p>总结</p>
-<ul>
-<li>由于 XMLHttpRequest 无法发送不同源地址之间的跨域请求，所以我们必须要另寻他法，script 这种方案就是我们最终选择的方式，我们把这种方式称之为 JSONP</li>
-</ul>
-</li>
-</ul>
-<h2 id="JSONP-的封装"><a href="#JSONP-的封装" class="headerlink" title="JSONP 的封装"></a>JSONP 的封装</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">jsonp</span>(<span class="params">option</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// 要通过 query 传参给服务端的函数名</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> callbackName = <span class="string">&#x27;getData_&#x27;</span> + <span class="built_in">Date</span>.now() + <span class="built_in">Math</span>.random().toString().substr(<span class="number">2</span>, <span class="number">5</span>) </span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="comment">// 处理 url</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">if</span> (<span class="keyword">typeof</span> (option.data) === <span class="string">&#x27;object&#x27;</span>) &#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> arr = []</span></span><br><span class="line"><span class="javascript">        <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> option.data) &#123;</span></span><br><span class="line"><span class="javascript">          arr.push(key + <span class="string">&#x27;=&#x27;</span> + option.data[key])</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">        option.data = arr.join(<span class="string">&#x27;&amp;&#x27;</span>)</span></span><br><span class="line"><span class="javascript">      &#125;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">&#x27;script&#x27;</span>)</span></span><br><span class="line"><span class="javascript">      <span class="comment">// jsonp 只能发送 get 请求</span></span></span><br><span class="line"><span class="javascript">      script.src = option.url + <span class="string">&#x27;?&#x27;</span> + option.data + <span class="string">&#x27;&amp;callback=&#x27;</span> + callbackName</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="comment">// script 只有挂载到页面中才会发送请求</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">document</span>.body.appendChild(script)</span></span><br><span class="line"><span class="javascript">      </span></span><br><span class="line"><span class="javascript">      <span class="comment">// 声明处理响应结果的全局函数</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">window</span>[callbackName] = <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        option.success(res) </span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 拿到数据后, 去掉页面上生成的 script</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.body.removeChild(script)</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 拿到数据后, 去掉 window 上挂载的回调函数</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">delete</span> <span class="built_in">window</span>[callbackName]</span></span><br><span class="line"><span class="javascript">      &#125;</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 函数调用</span></span></span><br><span class="line"><span class="javascript">    jsonp(&#123;</span></span><br><span class="line"><span class="javascript">      <span class="attr">url</span>: <span class="string">&#x27;http://localhost:80/cate&#x27;</span>,</span></span><br><span class="line"><span class="javascript">      <span class="attr">data</span>: &#123; <span class="attr">id</span>: <span class="number">1</span> &#125;,</span></span><br><span class="line"><span class="javascript">      <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(data)</span></span><br><span class="line"><span class="javascript">      &#125;</span></span><br><span class="line"><span class="javascript">    &#125;)</span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="JSONP-的问题"><a href="#JSONP-的问题" class="headerlink" title="JSONP 的问题"></a>JSONP 的问题</h2><p><font color=#c40>JSONP 需要服务端配合</font>，服务端按照客户端的要求返回一段 JavaScript 调用客户端的函数的字符串</p>
-<ul>
-<li><font color=#c40>只能发送 GET 请求</font></li>
-<li>⚠️ <strong>JSONP 用的是 script 标签，跟 AJAX 提供的 XMLHttpRequest 没有任何关系!!!</strong></li>
-</ul>
-<h2 id="jQuery-中使用-JSONP"><a href="#jQuery-中使用-JSONP" class="headerlink" title="jQuery 中使用 JSONP"></a>jQuery 中使用 JSONP</h2><p><font color=#c40>jQuery 中使用 JSONP 就是将 dataType 设置为 jsonp</font></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  <span class="attr">url</span>: <span class="string">&#x27;http://localhost/jsonp/server.php&#x27;</span>,</span><br><span class="line">  <span class="attr">dataType</span>: <span class="string">&#x27;jsonp&#x27;</span>,</span><br><span class="line">  <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h1 id="相关库"><a href="#相关库" class="headerlink" title="相关库"></a>相关库</h1><p><a href="https://github.com/webmodules/jsonp">jsonp</a></p>
-]]></content>
-      <tags>
-        <tag>请求与响应</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>表单提交</title>
     <url>/2016/07/16/18-%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4/</url>
     <content><![CDATA[<h1 id="form-表单基本属性"><a href="#form-表单基本属性" class="headerlink" title="form 表单基本属性"></a>form 表单基本属性</h1><p><a href="https://www.w3school.com.cn/html/html_forms.asp">form 属性列表</a></p>
@@ -1589,6 +1513,82 @@
 ]]></content>
       <tags>
         <tag>请求与相应</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>跨域</title>
+    <url>/2016/07/16/19-%E8%B7%A8%E5%9F%9F/</url>
+    <content><![CDATA[<h1 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h1><p>默认不同源地址之间不能发送请求, 只有同源的地址才可以相互通过 AJAX 的方式请求</p>
+<ul>
+<li><p>什么是不同源</p>
+<ul>
+<li><code>协议不同</code> 或 <code>端口号不同</code> 或 <code>域名不同</code>, 都叫不同源</li>
+</ul>
+</li>
+<li><p><font color="#f40">跨域和 AJAX 没有关系</font></p>
+<ul>
+<li>跨域是通过 script 标签发送请求</li>
+<li>AJAX 是通过 xhr 对象来发送请求</li>
+</ul>
+</li>
+<li><p>解决方案</p>
+<ul>
+<li>现代化的 Web 应用中肯定会有不同源的现象，所以必然要解决这个问题，从而实现跨域请求</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+<h1 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h1><p>Cross Origin Resource Share 跨域资源共享</p>
+<ul>
+<li><p>跨域资源共享(<a href="https://developer.mozilla.org/en-US/docs/Glossary/CORS">CORS</a>) 是一种机制，它使用额外的 <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTTP">HTTP</a> 头来告诉浏览器让运行在一个 origin (domain) 上的Web 应用被准许访问来自不同源服务器上的指定的资源。当一个资源从与该资源本身所在的服务器<strong>不同的域、协议或端口</strong>请求一个资源时，资源会发起一个<strong>跨域 HTTP 请求</strong>。</p>
+</li>
+<li><p>跨域资源共享（ <a href="https://developer.mozilla.org/en-US/docs/Glossary/CORS">CORS</a> ）机制允许 Web 应用服务器进行跨域访问控制，从而使跨域数据传输得以安全进行。现代浏览器支持在 API 容器中（例如 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest"><code>XMLHttpRequest</code></a> 或 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch</a> ）使用 CORS，以降低跨域 HTTP 请求所带来的风险</p>
+</li>
+<li><p>跨域资源共享标准新增了一组 HTTP 首部字段，允许服务器声明哪些源站通过浏览器有权限访问哪些资源</p>
+</li>
+<li><p>只需要在后台中 <font color=#c40><strong>设置响应头来允许跨域请求</strong></font>, 客户端无需作出变化 (<em><strong>依然通过 ajax 处理请求</strong></em>)</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Node.js 作服务端</span></span><br><span class="line">res.header(<span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span>, <span class="string">&#x27;*&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// php 作服务端</span></span><br><span class="line"><span class="meta">&lt;?</span> php</span><br><span class="line">  header(<span class="string">&#x27;Access-Control-Allow-Origin: *&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 客户端</span></span><br><span class="line">$.get(<span class="string">&#x27;http://locolhost/cors.php&#x27;</span>, &#123;&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h1><p>JSON with Padding，是一种 <code>借助于 script 标签发送跨域请求</code> 的技巧</p>
+<ul>
+<li><p>原理</p>
+<ul>
+<li><font color=#c40>在客户端借助 script 标签请求服务端的一个地址，服务端返回一段带有函数调用的 JavaScript 函数调用的脚本，将原本需要返回给客户端的数据传递进去, 返回给客户端</font></li>
+</ul>
+</li>
+<li><p>为什么不用 img / a / link?</p>
+<ul>
+<li>img —— 可以发送请求， 但不能返回响应结果</li>
+<li>link —— 可以返回响应结果， 但是无法处理相应结果</li>
+</ul>
+</li>
+<li><p>以后绝大多数情况都是采用 JSONP 的手段完成不同源地址之间的跨域请求</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 客户端 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;http://api.zce.me/users.php?callback=foo&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 服务端返回</span></span><br><span class="line">foo([<span class="string">&#x27;我&#x27;</span>, <span class="string">&#x27;是&#x27;</span>, <span class="string">&#x27;你&#x27;</span>, <span class="string">&#x27;原&#x27;</span>, <span class="string">&#x27;本&#x27;</span>, <span class="string">&#x27;需&#x27;</span>, <span class="string">&#x27;要&#x27;</span>, <span class="string">&#x27;的&#x27;</span>, <span class="string">&#x27;数&#x27;</span>, <span class="string">&#x27;据&#x27;</span>])</span><br></pre></td></tr></table></figure></li>
+<li><p>总结</p>
+<ul>
+<li>由于 XMLHttpRequest 无法发送不同源地址之间的跨域请求，所以我们必须要另寻他法，script 这种方案就是我们最终选择的方式，我们把这种方式称之为 JSONP</li>
+</ul>
+</li>
+</ul>
+<h2 id="JSONP-的封装"><a href="#JSONP-的封装" class="headerlink" title="JSONP 的封装"></a>JSONP 的封装</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">jsonp</span>(<span class="params">option</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// 要通过 query 传参给服务端的函数名</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> callbackName = <span class="string">&#x27;getData_&#x27;</span> + <span class="built_in">Date</span>.now() + <span class="built_in">Math</span>.random().toString().substr(<span class="number">2</span>, <span class="number">5</span>) </span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="comment">// 处理 url</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">if</span> (<span class="keyword">typeof</span> (option.data) === <span class="string">&#x27;object&#x27;</span>) &#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> arr = []</span></span><br><span class="line"><span class="javascript">        <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> option.data) &#123;</span></span><br><span class="line"><span class="javascript">          arr.push(key + <span class="string">&#x27;=&#x27;</span> + option.data[key])</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">        option.data = arr.join(<span class="string">&#x27;&amp;&#x27;</span>)</span></span><br><span class="line"><span class="javascript">      &#125;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">&#x27;script&#x27;</span>)</span></span><br><span class="line"><span class="javascript">      <span class="comment">// jsonp 只能发送 get 请求</span></span></span><br><span class="line"><span class="javascript">      script.src = option.url + <span class="string">&#x27;?&#x27;</span> + option.data + <span class="string">&#x27;&amp;callback=&#x27;</span> + callbackName</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="comment">// script 只有挂载到页面中才会发送请求</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">document</span>.body.appendChild(script)</span></span><br><span class="line"><span class="javascript">      </span></span><br><span class="line"><span class="javascript">      <span class="comment">// 声明处理响应结果的全局函数</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">window</span>[callbackName] = <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        option.success(res) </span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 拿到数据后, 去掉页面上生成的 script</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.body.removeChild(script)</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 拿到数据后, 去掉 window 上挂载的回调函数</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">delete</span> <span class="built_in">window</span>[callbackName]</span></span><br><span class="line"><span class="javascript">      &#125;</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 函数调用</span></span></span><br><span class="line"><span class="javascript">    jsonp(&#123;</span></span><br><span class="line"><span class="javascript">      <span class="attr">url</span>: <span class="string">&#x27;http://localhost:80/cate&#x27;</span>,</span></span><br><span class="line"><span class="javascript">      <span class="attr">data</span>: &#123; <span class="attr">id</span>: <span class="number">1</span> &#125;,</span></span><br><span class="line"><span class="javascript">      <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(data)</span></span><br><span class="line"><span class="javascript">      &#125;</span></span><br><span class="line"><span class="javascript">    &#125;)</span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="JSONP-的问题"><a href="#JSONP-的问题" class="headerlink" title="JSONP 的问题"></a>JSONP 的问题</h2><p><font color=#c40>JSONP 需要服务端配合</font>，服务端按照客户端的要求返回一段 JavaScript 调用客户端的函数的字符串</p>
+<ul>
+<li><font color=#c40>只能发送 GET 请求</font></li>
+<li>⚠️ <strong>JSONP 用的是 script 标签，跟 AJAX 提供的 XMLHttpRequest 没有任何关系!!!</strong></li>
+</ul>
+<h2 id="jQuery-中使用-JSONP"><a href="#jQuery-中使用-JSONP" class="headerlink" title="jQuery 中使用 JSONP"></a>jQuery 中使用 JSONP</h2><p><font color=#c40>jQuery 中使用 JSONP 就是将 dataType 设置为 jsonp</font></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  <span class="attr">url</span>: <span class="string">&#x27;http://localhost/jsonp/server.php&#x27;</span>,</span><br><span class="line">  <span class="attr">dataType</span>: <span class="string">&#x27;jsonp&#x27;</span>,</span><br><span class="line">  <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="相关库"><a href="#相关库" class="headerlink" title="相关库"></a>相关库</h1><p><a href="https://github.com/webmodules/jsonp">jsonp</a></p>
+]]></content>
+      <tags>
+        <tag>请求与响应</tag>
       </tags>
   </entry>
   <entry>
