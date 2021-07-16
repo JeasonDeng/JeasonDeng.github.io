@@ -270,7 +270,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 服务端返回</span></span><br><span class="line">foo([<span class="string">&#x27;我&#x27;</span>, <span class="string">&#x27;是&#x27;</span>, <span class="string">&#x27;你&#x27;</span>, <span class="string">&#x27;原&#x27;</span>, <span class="string">&#x27;本&#x27;</span>, <span class="string">&#x27;需&#x27;</span>, <span class="string">&#x27;要&#x27;</span>, <span class="string">&#x27;的&#x27;</span>, <span class="string">&#x27;数&#x27;</span>, <span class="string">&#x27;据&#x27;</span>])</span><br></pre></td></tr></table></figure></li>
 <li><p>总结</p>
 <ul>
-<li>由于 XMLHttpRequest 无法发送不同源地址之间的跨域请求，所以我们必须要另寻他法，script 这种方<br>案就是我们最终选择的方式，我们把这种方式称之为 JSONP</li>
+<li>由于 XMLHttpRequest 无法发送不同源地址之间的跨域请求，所以我们必须要另寻他法，script 这种方案就是我们最终选择的方式，我们把这种方式称之为 JSONP</li>
 </ul>
 </li>
 </ul>
@@ -279,7 +279,7 @@
 <h2 id="JSONP-的问题"><a href="#JSONP-的问题" class="headerlink" title="JSONP 的问题"></a>JSONP 的问题</h2><p><font color=#c40>JSONP 需要服务端配合</font>，服务端按照客户端的要求返回一段 JavaScript 调用客户端的函数的字符串</p>
 <ul>
 <li><font color=#c40>只能发送 GET 请求</font></li>
-<li>⚠️ <strong>JSONP 用的是 script 标签，跟 A JAX 提供的 XMLHttpRequest 没有任何关系!!!</strong></li>
+<li>⚠️ <strong>JSONP 用的是 script 标签，跟 AJAX 提供的 XMLHttpRequest 没有任何关系!!!</strong></li>
 </ul>
 <h2 id="jQuery-中使用-JSONP"><a href="#jQuery-中使用-JSONP" class="headerlink" title="jQuery 中使用 JSONP"></a>jQuery 中使用 JSONP</h2><p><font color=#c40>jQuery 中使用 JSONP 就是将 dataType 设置为 jsonp</font></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  <span class="attr">url</span>: <span class="string">&#x27;http://localhost/jsonp/server.php&#x27;</span>,</span><br><span class="line">  <span class="attr">dataType</span>: <span class="string">&#x27;jsonp&#x27;</span>,</span><br><span class="line">  <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
