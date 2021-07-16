@@ -6294,4 +6294,80 @@
         <tag>JS 基础</tag>
       </tags>
   </entry>
+  <entry>
+    <title>跨域</title>
+    <url>/2016/07/16/19-%E8%B7%A8%E5%9F%9F/</url>
+    <content><![CDATA[<h1 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h1><p>默认不同源地址之间不能发送请求, 只有同源的地址才可以相互通过 A JAX 的方式请求</p>
+<ul>
+<li><p>什么是不同源</p>
+<ul>
+<li><code>协议不同</code> 或 <code>端口号不同</code> 或 <code>域名不同</code>, 都叫不同源</li>
+</ul>
+</li>
+<li><p>⚠️ 跨域于 AJAX 没有关系</p>
+<ul>
+<li>跨域是通过 script 标签发送请求</li>
+<li>AJAX 是通过 xhr 对象来发送请求</li>
+</ul>
+</li>
+<li><p>解决方案</p>
+<ul>
+<li>现代化的 Web 应用中肯定会有不同源的现象，所以必然要解决这个问题，从而实现跨域请求</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+<h1 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h1><p>Cross Origin Resource Share 跨域资源共享</p>
+<ul>
+<li><p>跨域资源共享(<a href="https://developer.mozilla.org/en-US/docs/Glossary/CORS">CORS</a>) 是一种机制，它使用额外的 <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTTP">HTTP</a> 头来告诉浏览器让运行在一个 origin (domain) 上的Web 应用被准许访问来自不同源服务器上的指定的资源。当一个资源从与该资源本身所在的服务器<strong>不同的域、协议或端口</strong>请求一个资源时，资源会发起一个<strong>跨域 HTTP 请求</strong>。</p>
+</li>
+<li><p>跨域资源共享（ <a href="https://developer.mozilla.org/en-US/docs/Glossary/CORS">CORS</a> ）机制允许 Web 应用服务器进行跨域访问控制，从而使跨域数据传输得以安全进行。现代浏览器支持在 API 容器中（例如 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest"><code>XMLHttpRequest</code></a> 或 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch</a> ）使用 CORS，以降低跨域 HTTP 请求所带来的风险</p>
+</li>
+<li><p>跨域资源共享标准新增了一组 HTTP 首部字段，允许服务器声明哪些源站通过浏览器有权限访问哪些资源</p>
+</li>
+<li><p>只需要在后台中 <font color=#c40><strong>设置响应头来允许跨域请求</strong></font>, 客户端无需作出变化 (<em><strong>依然通过 ajax 处理请求</strong></em>)</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Node.js 作服务端</span></span><br><span class="line">res.header(<span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span>, <span class="string">&#x27;*&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// php 作服务端</span></span><br><span class="line"><span class="meta">&lt;?</span> php</span><br><span class="line">  header(<span class="string">&#x27;Access-Control-Allow-Origin: *&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 客户端</span></span><br><span class="line">$.get(<span class="string">&#x27;http://locolhost/cors.php&#x27;</span>, &#123;&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h1><p>JSON with Padding，是一种 <code>借助于 script 标签发送跨域请求</code> 的技巧</p>
+<ul>
+<li><p>原理</p>
+<ul>
+<li><font color=#c40>在客户端借助 script 标签请求服务端的一个地址，服务端返回一段带有函数调用的 JavaScript 函数调用的脚本，将原本需要返回给客户端的数据传递进去, 返回给客户端</font></li>
+</ul>
+</li>
+<li><p>为什么不用 img / a / link?</p>
+<ul>
+<li>img —— 可以发送请求， 但不能返回响应结果</li>
+<li>link —— 可以返回响应结果， 但是无法处理相应结果</li>
+</ul>
+</li>
+<li><p>以后绝大多数情况都是采用 JSONP 的手段完成不同源地址之间的跨域请求</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 客户端 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;http://api.zce.me/users.php?callback=foo&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 服务端返回</span></span><br><span class="line">foo([<span class="string">&#x27;我&#x27;</span>, <span class="string">&#x27;是&#x27;</span>, <span class="string">&#x27;你&#x27;</span>, <span class="string">&#x27;原&#x27;</span>, <span class="string">&#x27;本&#x27;</span>, <span class="string">&#x27;需&#x27;</span>, <span class="string">&#x27;要&#x27;</span>, <span class="string">&#x27;的&#x27;</span>, <span class="string">&#x27;数&#x27;</span>, <span class="string">&#x27;据&#x27;</span>])</span><br></pre></td></tr></table></figure></li>
+<li><p>总结</p>
+<ul>
+<li>由于 XMLHttpRequest 无法发送不同源地址之间的跨域请求，所以我们必须要另寻他法，script 这种方<br>案就是我们最终选择的方式，我们把这种方式称之为 JSONP</li>
+</ul>
+</li>
+</ul>
+<h2 id="JSONP-的封装"><a href="#JSONP-的封装" class="headerlink" title="JSONP 的封装"></a>JSONP 的封装</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">jsonp</span>(<span class="params">option</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// 要通过 query 传参给服务端的函数名</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> callbackName = <span class="string">&#x27;getData_&#x27;</span> + <span class="built_in">Date</span>.now() + <span class="built_in">Math</span>.random().toString().substr(<span class="number">2</span>, <span class="number">5</span>) </span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="comment">// 处理 url</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">if</span> (<span class="keyword">typeof</span> (option.data) === <span class="string">&#x27;object&#x27;</span>) &#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> arr = []</span></span><br><span class="line"><span class="javascript">        <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> option.data) &#123;</span></span><br><span class="line"><span class="javascript">          arr.push(key + <span class="string">&#x27;=&#x27;</span> + option.data[key])</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">        option.data = arr.join(<span class="string">&#x27;&amp;&#x27;</span>)</span></span><br><span class="line"><span class="javascript">      &#125;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">&#x27;script&#x27;</span>)</span></span><br><span class="line"><span class="javascript">      <span class="comment">// jsonp 只能发送 get 请求</span></span></span><br><span class="line"><span class="javascript">      script.src = option.url + <span class="string">&#x27;?&#x27;</span> + option.data + <span class="string">&#x27;&amp;callback=&#x27;</span> + callbackName</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="comment">// script 只有挂载到页面中才会发送请求</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">document</span>.body.appendChild(script)</span></span><br><span class="line"><span class="javascript">      </span></span><br><span class="line"><span class="javascript">      <span class="comment">// 声明处理响应结果的全局函数</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">window</span>[callbackName] = <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        option.success(res) </span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 拿到数据后, 去掉页面上生成的 script</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.body.removeChild(script)</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 拿到数据后, 去掉 window 上挂载的回调函数</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">delete</span> <span class="built_in">window</span>[callbackName]</span></span><br><span class="line"><span class="javascript">      &#125;</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 函数调用</span></span></span><br><span class="line"><span class="javascript">    jsonp(&#123;</span></span><br><span class="line"><span class="javascript">      <span class="attr">url</span>: <span class="string">&#x27;http://localhost:80/cate&#x27;</span>,</span></span><br><span class="line"><span class="javascript">      <span class="attr">data</span>: &#123; <span class="attr">id</span>: <span class="number">1</span> &#125;,</span></span><br><span class="line"><span class="javascript">      <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(data)</span></span><br><span class="line"><span class="javascript">      &#125;</span></span><br><span class="line"><span class="javascript">    &#125;)</span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="JSONP-的问题"><a href="#JSONP-的问题" class="headerlink" title="JSONP 的问题"></a>JSONP 的问题</h2><p><font color=#c40>JSONP 需要服务端配合</font>，服务端按照客户端的要求返回一段 JavaScript 调用客户端的函数的字符串</p>
+<ul>
+<li><font color=#c40>只能发送 GET 请求</font></li>
+<li>⚠️ <strong>JSONP 用的是 script 标签，跟 A JAX 提供的 XMLHttpRequest 没有任何关系!!!</strong></li>
+</ul>
+<h2 id="jQuery-中使用-JSONP"><a href="#jQuery-中使用-JSONP" class="headerlink" title="jQuery 中使用 JSONP"></a>jQuery 中使用 JSONP</h2><p><font color=#c40>jQuery 中使用 JSONP 就是将 dataType 设置为 jsonp</font></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  <span class="attr">url</span>: <span class="string">&#x27;http://localhost/jsonp/server.php&#x27;</span>,</span><br><span class="line">  <span class="attr">dataType</span>: <span class="string">&#x27;jsonp&#x27;</span>,</span><br><span class="line">  <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="相关库"><a href="#相关库" class="headerlink" title="相关库"></a>相关库</h1><p><a href="https://github.com/webmodules/jsonp">jsonp</a></p>
+]]></content>
+      <tags>
+        <tag>请求与响应</tag>
+      </tags>
+  </entry>
 </search>
