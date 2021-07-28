@@ -217,6 +217,186 @@
       </tags>
   </entry>
   <entry>
+    <title>Flex布局</title>
+    <url>/2016/06/21/06-Flex%E5%B8%83%E5%B1%80/</url>
+    <content><![CDATA[<h1 id="flex-布局是什么"><a href="#flex-布局是什么" class="headerlink" title="flex 布局是什么?"></a>flex 布局是什么?</h1><p>Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性</p>
+<blockquote>
+<p>布局的传统解决方案，基于<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box_model">盒状模型</a>，依赖 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"><code>display</code></a> 属性 + <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"><code>position</code></a>属性 + <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float"><code>float</code></a>属性。它对于那些特殊布局非常不方便，比如，<a href="https://css-tricks.com/centering-css-complete-guide/">垂直居中</a>就不容易实现</p>
+</blockquote>
+<span id="more"></span>
+<p>任何一个容器都可以指定为 Flex 布局</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>行内元素也可以使用 flex 布局</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>⚠️ <strong>设为 flex 布局后, 子元素的 float、clear、vertical-align 属性将失效</strong></p>
+<h1 id="教程参考"><a href="#教程参考" class="headerlink" title="教程参考"></a>教程参考</h1><p><a href="https://www.runoob.com/w3cnote/flex-grammar.html">菜鸟教程</a></p>
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>采用 Flex 布局的元素，称为 Flex 容器（flex container）, 简称”<strong>容器</strong>“。它的所有子元素自动成为容器成员，称为 Flex 项目（flex item），简称”<strong>项目</strong>“</p>
+<p><img src="/images/flex.png"></p>
+<ul>
+<li>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）<ul>
+<li>主轴的开始位置（与边框的交叉点）叫做<code>main start</code>，结束位置叫做<code>main end</code></li>
+<li>交叉轴的开始位置叫做<code>cross start</code>，结束位置叫做<code>cross end</code></li>
+</ul>
+</li>
+<li><strong>项目默认沿主轴排列</strong></li>
+<li>单个项目占据的主轴空间叫做<code>main size</code>，占据的交叉轴空间叫做<code>cross size</code></li>
+</ul>
+<h1 id="容器的属性"><a href="#容器的属性" class="headerlink" title="容器的属性"></a>容器的属性</h1><p>以下 6 个属性设置在 <code>容器</code> 上</p>
+<ul>
+<li>flex-firection</li>
+<li>flex-wrap</li>
+<li>flex-flow</li>
+<li>justify-content</li>
+<li>align-items</li>
+<li>align-content</li>
+</ul>
+<h2 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h2><p><code>flex-direction</code> 属性决定主轴的方向（即项目的排列方向）</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">flex-direction</span>: row | row-reverse | column | column-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>取值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>row (<strong>默认值</strong>)</td>
+<td>主轴为水平方向, 起点在左端</td>
+</tr>
+<tr>
+<td>row-reverse</td>
+<td>主轴为水平方向, 起点在右端</td>
+</tr>
+<tr>
+<td>column</td>
+<td>主轴为垂直方向, 起点在顶部</td>
+</tr>
+<tr>
+<td>column-reverse</td>
+<td>主轴为垂直方向, 起点在底部</td>
+</tr>
+</tbody></table>
+<h2 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h2><p>默认情况下, 项目都排列在一条线上</p>
+<blockquote>
+<p>flex-wrap 属性定义如果在一条线上排不下,  如何换行</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">flex-wrap</span>: nowrap | wrap | wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>nowrap(默认)</p>
+<ul>
+<li><p>不换行</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/9da1f23965756568b4c6ea7124db7b9a.png"></p>
+</li>
+</ul>
+</li>
+<li><p>wrap</p>
+<ul>
+<li><p>换行, 第一行在上方</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/3c6b3c8b8fe5e26bca6fb57538cf72d9.jpg"></p>
+</li>
+</ul>
+</li>
+<li><p>wrap-reverse</p>
+<ul>
+<li><p>换行, 第一行在下方</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/fb4cf2bab8b6b744b64f6d7a99cd577c.jpg"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h2><p>flex-flow 属性是 flex-direction 属性和 flex-wrap 属性的简写形式，默认值为 <code>row nowrap</code></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">flex-flow</span>: row nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h2><p>justify-content 属性定义了<strong>项目在主轴上的对齐方式</strong></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">justify-content</span>: flex-start | flex-end | center | space-between | space-around;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/c55dfe8e3422458b50e985552ef13ba5.png"></p>
+<h2 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h2><p>align-items 属性定义<strong>项目在交叉轴上如何对齐</strong></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">align-items</span>: flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/2b0c39c7e7a80d5a784c8c2ca63cde17.png"></p>
+<h2 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h2><p>align-content 属性定义了多根轴线(<em>就是<strong>要换行</strong></em>)的对齐方式。<em>如果项目只有一根轴线，该属性不起作用</em></p>
+<ul>
+<li><font color=#c40>把所有 items 当作一个整体来看待， 就是看这个整体在交叉轴上的对齐方式</font></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">align-content</span>: flex-start | flex-end | center | space-between | space-around | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/f10918ccb8a13247c9d47715a2bd2c33.png"></p>
+<h1 id="项目的属性"><a href="#项目的属性" class="headerlink" title="项目的属性"></a>项目的属性</h1><p>以下 6 个属性设置在 <code>项目</code> 上</p>
+<ul>
+<li>order</li>
+<li>flex-grow</li>
+<li>flex-shrink</li>
+<li>flex-basis</li>
+<li>flex</li>
+<li>align-self</li>
+</ul>
+<h2 id="order"><a href="#order" class="headerlink" title="order"></a>order</h2><p>order 属性定义项目的排列顺序。<strong>数值越小，排列越靠前</strong>，默认为 0</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">order</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h2><p>flex-grow 属性定义项目的<font color=#c40><strong>放大比例</strong></font>，默认为 0，即如果 <em>存在剩余空间</em>，也不放大</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">flex-grow</span>: <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>如果所有项目的 flex-grow 属性都为 1，则它们将<strong>等分剩余空间</strong>（如果有的话）</p>
+<ul>
+<li>如果一个项目的 flex-grow 属性为 2，其他项目都为 1，则前者占据的剩余空间将比其他项多一倍</li>
+</ul>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/f41c08bb35962ed79e7686f735d6cd78.png"></p>
+</li>
+</ul>
+<h2 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h2><p>flex-shrink 属性定义了项目的<font color=#c40><strong>缩小比例</strong></font>，默认为1，即如果 <em>空间不足</em>，该项目将缩小</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">flex-shrink</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>如果所有项目的 flex-shrink 属性都为 1，当空间不足时，都将等比例缩小</p>
+<ul>
+<li>先计算总共超出多少，再分别按比例缩小超出部分</li>
+</ul>
+</li>
+<li><p>如果一个项目的 flex-shrink 属性为 0，其他项目都为 1，则空间不足时，前者不缩小</p>
+</li>
+<li><p>负值对该属性无效</p>
+</li>
+</ul>
+<h2 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h2><p>flex-basis 属性定义了在分配多余空间之前，项目占据的主轴空间（main size）</p>
+<p>浏览器根据这个属性，计算主轴是否有多余空间</p>
+<p>它的默认值为auto，即项目的本来大小</p>
+<h2 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h2><p>flex 属性是 flex-grow, flex-shrink 和 flex-basis 的简写，默认值为 0 1 auto。<strong>后两个属性可选</strong></p>
+<ul>
+<li><p>该属性有三个常用值</p>
+<ul>
+<li><p>auto —— 相当于 1 1 auto</p>
+</li>
+<li><p>none —— 相当于 0 0 auto</p>
+</li>
+<li><p><strong>1 —— 相当于 1 1 0%</strong></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">flex</span>: <span class="number">1</span>; <span class="comment">/* 可以实现等分布局, 相当于将所有项目的 flex-basis 置为 0, 再等分 */</span></span><br><span class="line">    <span class="comment">/* 等价于</span></span><br><span class="line"><span class="comment">        flex-grow: 1;</span></span><br><span class="line"><span class="comment">        flex-shrink: 1;</span></span><br><span class="line"><span class="comment">        flex-basis: 0%;</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<p>⚠️ <code>flex: 1; </code><strong>只能用于单行等分</strong>的情况；如果有换行就不起作用</p>
+<h1 id="flex-不要和定位混用"><a href="#flex-不要和定位混用" class="headerlink" title="flex 不要和定位混用"></a>flex 不要和定位混用</h1><p><strong>有定位属性的元素就不再具有 flex 布局的特性了</strong></p>
+<h1 id="flex-布局元素的高度问题"><a href="#flex-布局元素的高度问题" class="headerlink" title="flex 布局元素的高度问题"></a>flex 布局元素的高度问题</h1><p>flex 布局的元素的高度问题</p>
+<ul>
+<li>如果本身设置了 height, 则按设置的来；</li>
+<li>如果本身没有设置 height, height 跟父元素一致；</li>
+<li>如果父元素也没有设置 height, 则跟同一行的元素的最大高度一致</li>
+</ul>
+<h1 id="flex-实现栅格布局"><a href="#flex-实现栅格布局" class="headerlink" title="flex 实现栅格布局"></a>flex 实现栅格布局</h1><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-12&quot;</span>&gt;</span>占满一行<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-6&quot;</span>&gt;</span>两列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-6&quot;</span>&gt;</span>两列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-4&quot;</span>&gt;</span>三列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-4&quot;</span>&gt;</span>三列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-4&quot;</span>&gt;</span>三列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-3&quot;</span>&gt;</span>四列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-3&quot;</span>&gt;</span>四列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-3&quot;</span>&gt;</span>四列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-3&quot;</span>&gt;</span>四列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col&quot;</span>&gt;</span>任意均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span>......<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col&quot;</span>&gt;</span>任意均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.row</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.col-12</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.col-6</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.col-4</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">33.3333%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.col-3</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">25%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.col</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>移动端适配</title>
     <url>/2016/06/22/07-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D/</url>
     <content><![CDATA[<h1 id="移动端适配基本概念"><a href="#移动端适配基本概念" class="headerlink" title="移动端适配基本概念"></a>移动端适配基本概念</h1><p><a href="https://blog.csdn.net/qq_34629352/article/details/104959500">参考</a></p>
@@ -402,306 +582,6 @@
 ]]></content>
       <tags>
         <tag>移动端开发</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>字符串的常用方法</title>
-    <url>/2016/06/25/09-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="字符串API"><a href="#字符串API" class="headerlink" title="字符串API"></a>字符串API</h1><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String">MDN String</a></p>
-<span id="more"></span>
-
-<h1 id="字符串的属性"><a href="#字符串的属性" class="headerlink" title="字符串的属性"></a>字符串的属性</h1><h2 id="length"><a href="#length" class="headerlink" title="length"></a>length</h2><p>字符串的长度</p>
-<h1 id="字符串常用方法"><a href="#字符串常用方法" class="headerlink" title="字符串常用方法"></a>字符串常用方法</h1><p><font color="#f20">都不会影响原字符串</font></p>
-<h2 id="charAt-num"><a href="#charAt-num" class="headerlink" title="charAt(num)"></a>charAt(num)</h2><p>获取指定位置的字符</p>
-<ul>
-<li>返回值 —— 指定索引位置的字符<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="keyword">var</span> ret = str.charAt(<span class="number">0</span>)</span><br><span class="line"><span class="built_in">console</span>.log(ret) <span class="comment">// &#x27;h&#x27;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="concat"><a href="#concat" class="headerlink" title="concat()"></a>concat()</h2><p>连接字符串, <font color="#f20">作用和 + 一样</font></p>
-<ul>
-<li>可以有一个或多个参数</li>
-<li>返回值 —— 新字符串<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str1 = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="keyword">var</span> str2 = <span class="string">&#x27; world&#x27;</span></span><br><span class="line"><span class="keyword">var</span> str3 = str1.concat(str2, <span class="string">&#x27;hehe&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(str3) <span class="comment">// &#x27;hello worldhehe&#x27;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf()"></a><strong>indexOf()</strong></h2><p>检查一个字符串中是否含有指定字符串</p>
-<ul>
-<li>可以指定第二个参数, 指定开始查找的位置</li>
-<li>返回值 —— 指定字符串的起始索引<ul>
-<li>如果不含有, 则返回 -1<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;world&#x27;</span></span><br><span class="line"><span class="keyword">var</span> index = str.indexOf(<span class="string">&#x27;wo&#x27;</span>) <span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line">str.indexOf(<span class="string">&#x27;w&#x27;</span>, <span class="number">5</span>) <span class="comment">// -1，没找到</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h2 id="includes"><a href="#includes" class="headerlink" title="includes()"></a>includes()</h2><p>判断一个字符串是否包含另一个字符</p>
-<ul>
-<li><font color="#f20">区分大小写</font></li>
-<li>返回值 —— true / false<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line">str.includes(<span class="string">&#x27;he&#x27;</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="slice"><a href="#slice" class="headerlink" title="slice()"></a>slice()</h2><p>截取字符串</p>
-<ul>
-<li>包含开始索引, 不包含结束索引<ul>
-<li>如果省略第二个参数, 则截取到结尾</li>
-<li>负数表示从后开始计算</li>
-</ul>
-</li>
-<li>返回值 —— 截取的字符串<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;world&#x27;</span></span><br><span class="line"><span class="keyword">var</span> str2 = str.slice(<span class="number">1</span>, <span class="number">4</span>) <span class="comment">// &#x27;orl&#x27;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="substring"><a href="#substring" class="headerlink" title="substring()"></a>substring()</h2><p>截取字符串</p>
-<ul>
-<li>包含开始索引, 不包含结束索引<ul>
-<li>不能接收负值做参数, </li>
-<li>如果传递了负数, 默认使用 0, 还会调整参数的位置（ <em>如果第二个参数比第一个小,则自动交换位置</em> ）</li>
-</ul>
-</li>
-<li>返回值 —— 截取的字符串<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str  = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line">str.substring(<span class="number">1</span>, <span class="number">4</span>) <span class="comment">// ell</span></span><br><span class="line"></span><br><span class="line">str.substring(<span class="number">1</span>, -<span class="number">1</span>) <span class="comment">// 相当于 str.substring(0, 1) // h</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="substr"><a href="#substr" class="headerlink" title="substr()"></a>substr()</h2><p>截取字符串</p>
-<ul>
-<li>第一个参数表示开始索引，第二个参数表示截取个数</li>
-<li>返回值 —— 截取的字符串<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">str.substr(<span class="number">0</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="toUpperCase"><a href="#toUpperCase" class="headerlink" title="toUpperCase()"></a>toUpperCase()</h2><p>转大写</p>
-<ul>
-<li>返回值 —— 新的字符串</li>
-</ul>
-<h2 id="toLowerCase"><a href="#toLowerCase" class="headerlink" title="toLowerCase()"></a>toLowerCase()</h2><p>转小写</p>
-<ul>
-<li>返回值 —— 新的字符串</li>
-</ul>
-<h2 id="endsWith"><a href="#endsWith" class="headerlink" title="endsWith()"></a>endsWith()</h2><p>判断当前字符串是否是以另外一个给定的子字符串“结尾”</p>
-<ul>
-<li>返回值 —— true / false<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> str1 = <span class="string">&#x27;Cats are the best!&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(str1.endsWith(<span class="string">&#x27;!&#x27;</span>)) <span class="comment">// true</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="startsWith"><a href="#startsWith" class="headerlink" title="startsWith()"></a>startsWith()</h2><p>判断当前字符串是否是以另外一个给定的子字符串“开头”</p>
-<ul>
-<li>返回值 —— true / false</li>
-</ul>
-<h2 id="trim"><a href="#trim" class="headerlink" title="trim()"></a>trim()</h2><p>删除一个字符串的两端空白</p>
-<ul>
-<li>返回值 —— 新字符串<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> greeting = <span class="string">&#x27;   Hello world!   &#x27;</span></span><br><span class="line">greeting.trim()</span><br><span class="line"><span class="built_in">console</span>.log(greeting);</span><br><span class="line"><span class="comment">// expected output: &quot;   Hello world!   &quot;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="padStart"><a href="#padStart" class="headerlink" title="padStart()"></a>padStart()</h2><p>用给定的字符串填充当前字符串，以便达到给定的长度</p>
-<ul>
-<li><em>原字符串前边填充</em></li>
-<li>返回值 —— 新的字符串<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> str1 = <span class="string">&#x27;5&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(str1.padStart(<span class="number">2</span>, <span class="string">&#x27;0&#x27;</span>)) <span class="comment">//  &quot;05&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> m = dt.getMinutes().toString().padStart(<span class="number">2</span>, <span class="string">&#x27;0&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="padEnd"><a href="#padEnd" class="headerlink" title="padEnd()"></a>padEnd()</h2><p>用给定的字符串填充当前字符串，以便达到给定的长度</p>
-<ul>
-<li><em>原字符串后边填充</em></li>
-<li>返回值 —— 新的字符串</li>
-</ul>
-<h2 id="可以传递正则表达式作为参数的方法"><a href="#可以传递正则表达式作为参数的方法" class="headerlink" title="可以传递正则表达式作为参数的方法"></a>可以传递正则表达式作为参数的方法</h2><h3 id="split"><a href="#split" class="headerlink" title="split()"></a>split()</h3><p>将字符串 <code>拆分为一个字符串数组</code></p>
-<ul>
-<li>需要一个字符串（或正则）作为参数<ul>
-<li>如果传递一个空串, 则将字符串的每一个字符作为数组的元素</li>
-<li>如果传递一个正则，<em>不需要指定全局模式</em></li>
-</ul>
-</li>
-<li>返回值 —— 字符串数组<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;hello,world&#x27;</span></span><br><span class="line"><span class="keyword">var</span> arr = str.split(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(arr) <span class="comment">// [&#x27;hello&#x27;, &#x27;world&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;1a2b3c4d5e6f7&#x27;</span></span><br><span class="line"><span class="keyword">var</span> result = str.split(<span class="regexp">/[A-z]/</span>) <span class="comment">// 按字母拆分 str</span></span><br><span class="line"><span class="built_in">console</span>.log(result) <span class="comment">// [1, 2, 3, 4, 5, 6, 7]</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="replace"><a href="#replace" class="headerlink" title="replace()"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace">replace()</a></h3><p>用新的字符串替换部分符合条件的字符</p>
-<ul>
-<li>第一个参数可以是字符串，也可以是正则表达式</li>
-<li>返回值 —— 新字符串<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;你好漂亮漂亮&#x27;</span></span><br><span class="line"><span class="keyword">var</span> str1 = str.replace(<span class="regexp">/漂亮/g</span>, <span class="string">&#x27;丑&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(str1) <span class="comment">// &#x27;你好丑丑&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str3 = <span class="string">&#x27;1a2b3c&#x27;</span></span><br><span class="line"><span class="keyword">var</span> str4 = str3.replace(<span class="regexp">/[A-z]/g</span>, <span class="string">&#x27;&#x27;</span>) <span class="comment">// 去掉字符串中的字母</span></span><br><span class="line"><span class="built_in">console</span>.log(str4) <span class="comment">// 123</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="replaceAll"><a href="#replaceAll" class="headerlink" title="replaceAll()"></a>replaceAll()</h3><p>替换所有</p>
-<ul>
-<li>如果参数为正则，必须指定全局模式</li>
-<li>返回值 —— 新字符串</li>
-</ul>
-<h3 id="search"><a href="#search" class="headerlink" title="search()"></a>search()</h3><p>查询符合正则的字符的索引</p>
-<ul>
-<li><font color="#f20">不能指定全局模式</font></li>
-<li>返回值 —— 第一个匹配的索引<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;abcdefg&#x27;</span></span><br><span class="line"><span class="keyword">var</span> ret = str.search(<span class="regexp">/a[bef]c/</span>) <span class="comment">// 搜索字符串中是否含有 abc 或者 aec 或 afc</span></span><br><span class="line"><span class="built_in">console</span>.log(ret) <span class="comment">// 0</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="match"><a href="#match" class="headerlink" title="match()"></a>match()</h3><p>根据正则表达式将字符串中符合条件的内容 <strong>提取</strong> 出来</p>
-<ul>
-<li>默认情况下, match 只会找到第一个符合要求的内容, 找到以后就停止检索</li>
-<li>返回值 —— 数组<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;1a2b3c&#x27;</span></span><br><span class="line"><span class="keyword">var</span> ret = str.match(<span class="regexp">/[A-z]/ig</span>)  <span class="comment">//(全局找字母, 忽略大小写)</span></span><br><span class="line"><span class="built_in">console</span>.log(ret) <span class="comment">// [a, b, c]</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="字符串常见算法"><a href="#字符串常见算法" class="headerlink" title="字符串常见算法"></a>字符串常见算法</h1><p>将 - 划线字符串转驼峰字符串</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toCamelStr</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> arr = str.split(<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; arr.length ; i++) &#123;</span><br><span class="line">    arr[i] = arr[i].charAt(<span class="number">0</span>).toUpperCase() + arr[i].slice(<span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> arr.join(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> result = toCamelStr(<span class="string">&#x27;get-element-by-id&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(result)</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>JS 基础</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Flex布局</title>
-    <url>/2016/06/21/06-Flex%E5%B8%83%E5%B1%80/</url>
-    <content><![CDATA[<h1 id="flex-布局是什么"><a href="#flex-布局是什么" class="headerlink" title="flex 布局是什么?"></a>flex 布局是什么?</h1><p>Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性</p>
-<blockquote>
-<p>布局的传统解决方案，基于<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box_model">盒状模型</a>，依赖 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"><code>display</code></a> 属性 + <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"><code>position</code></a>属性 + <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float"><code>float</code></a>属性。它对于那些特殊布局非常不方便，比如，<a href="https://css-tricks.com/centering-css-complete-guide/">垂直居中</a>就不容易实现</p>
-</blockquote>
-<span id="more"></span>
-<p>任何一个容器都可以指定为 Flex 布局</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>行内元素也可以使用 flex 布局</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>⚠️ <strong>设为 flex 布局后, 子元素的 float、clear、vertical-align 属性将失效</strong></p>
-<h1 id="教程参考"><a href="#教程参考" class="headerlink" title="教程参考"></a>教程参考</h1><p><a href="https://www.runoob.com/w3cnote/flex-grammar.html">菜鸟教程</a></p>
-<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>采用 Flex 布局的元素，称为 Flex 容器（flex container）, 简称”<strong>容器</strong>“。它的所有子元素自动成为容器成员，称为 Flex 项目（flex item），简称”<strong>项目</strong>“</p>
-<p><img src="/images/flex.png"></p>
-<ul>
-<li>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）<ul>
-<li>主轴的开始位置（与边框的交叉点）叫做<code>main start</code>，结束位置叫做<code>main end</code></li>
-<li>交叉轴的开始位置叫做<code>cross start</code>，结束位置叫做<code>cross end</code></li>
-</ul>
-</li>
-<li><strong>项目默认沿主轴排列</strong></li>
-<li>单个项目占据的主轴空间叫做<code>main size</code>，占据的交叉轴空间叫做<code>cross size</code></li>
-</ul>
-<h1 id="容器的属性"><a href="#容器的属性" class="headerlink" title="容器的属性"></a>容器的属性</h1><p>以下 6 个属性设置在 <code>容器</code> 上</p>
-<ul>
-<li>flex-firection</li>
-<li>flex-wrap</li>
-<li>flex-flow</li>
-<li>justify-content</li>
-<li>align-items</li>
-<li>align-content</li>
-</ul>
-<h2 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h2><p><code>flex-direction</code> 属性决定主轴的方向（即项目的排列方向）</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">flex-direction</span>: row | row-reverse | column | column-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>取值</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>row (<strong>默认值</strong>)</td>
-<td>主轴为水平方向, 起点在左端</td>
-</tr>
-<tr>
-<td>row-reverse</td>
-<td>主轴为水平方向, 起点在右端</td>
-</tr>
-<tr>
-<td>column</td>
-<td>主轴为垂直方向, 起点在顶部</td>
-</tr>
-<tr>
-<td>column-reverse</td>
-<td>主轴为垂直方向, 起点在底部</td>
-</tr>
-</tbody></table>
-<h2 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h2><p>默认情况下, 项目都排列在一条线上</p>
-<blockquote>
-<p>flex-wrap 属性定义如果在一条线上排不下,  如何换行</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">flex-wrap</span>: nowrap | wrap | wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>nowrap(默认)</p>
-<ul>
-<li><p>不换行</p>
-<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/9da1f23965756568b4c6ea7124db7b9a.png"></p>
-</li>
-</ul>
-</li>
-<li><p>wrap</p>
-<ul>
-<li><p>换行, 第一行在上方</p>
-<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/3c6b3c8b8fe5e26bca6fb57538cf72d9.jpg"></p>
-</li>
-</ul>
-</li>
-<li><p>wrap-reverse</p>
-<ul>
-<li><p>换行, 第一行在下方</p>
-<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/fb4cf2bab8b6b744b64f6d7a99cd577c.jpg"></p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h2><p>flex-flow 属性是 flex-direction 属性和 flex-wrap 属性的简写形式，默认值为 <code>row nowrap</code></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">flex-flow</span>: row nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h2><p>justify-content 属性定义了<strong>项目在主轴上的对齐方式</strong></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">justify-content</span>: flex-start | flex-end | center | space-between | space-around;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/c55dfe8e3422458b50e985552ef13ba5.png"></p>
-<h2 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h2><p>align-items 属性定义<strong>项目在交叉轴上如何对齐</strong></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">align-items</span>: flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/2b0c39c7e7a80d5a784c8c2ca63cde17.png"></p>
-<h2 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h2><p>align-content 属性定义了多根轴线(<em>就是<strong>要换行</strong></em>)的对齐方式。<em>如果项目只有一根轴线，该属性不起作用</em></p>
-<ul>
-<li><font color=#c40>把所有 items 当作一个整体来看待， 就是看这个整体在交叉轴上的对齐方式</font></li>
-</ul>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">align-content</span>: flex-start | flex-end | center | space-between | space-around | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/f10918ccb8a13247c9d47715a2bd2c33.png"></p>
-<h1 id="项目的属性"><a href="#项目的属性" class="headerlink" title="项目的属性"></a>项目的属性</h1><p>以下 6 个属性设置在 <code>项目</code> 上</p>
-<ul>
-<li>order</li>
-<li>flex-grow</li>
-<li>flex-shrink</li>
-<li>flex-basis</li>
-<li>flex</li>
-<li>align-self</li>
-</ul>
-<h2 id="order"><a href="#order" class="headerlink" title="order"></a>order</h2><p>order 属性定义项目的排列顺序。<strong>数值越小，排列越靠前</strong>，默认为 0</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">order</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h2><p>flex-grow 属性定义项目的<font color=#c40><strong>放大比例</strong></font>，默认为 0，即如果 <em>存在剩余空间</em>，也不放大</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">flex-grow</span>: <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>如果所有项目的 flex-grow 属性都为 1，则它们将<strong>等分剩余空间</strong>（如果有的话）</p>
-<ul>
-<li>如果一个项目的 flex-grow 属性为 2，其他项目都为 1，则前者占据的剩余空间将比其他项多一倍</li>
-</ul>
-<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/f41c08bb35962ed79e7686f735d6cd78.png"></p>
-</li>
-</ul>
-<h2 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h2><p>flex-shrink 属性定义了项目的<font color=#c40><strong>缩小比例</strong></font>，默认为1，即如果 <em>空间不足</em>，该项目将缩小</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">flex-shrink</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>如果所有项目的 flex-shrink 属性都为 1，当空间不足时，都将等比例缩小</p>
-<ul>
-<li>先计算总共超出多少，再分别按比例缩小超出部分</li>
-</ul>
-</li>
-<li><p>如果一个项目的 flex-shrink 属性为 0，其他项目都为 1，则空间不足时，前者不缩小</p>
-</li>
-<li><p>负值对该属性无效</p>
-</li>
-</ul>
-<h2 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h2><p>flex-basis 属性定义了在分配多余空间之前，项目占据的主轴空间（main size）</p>
-<p>浏览器根据这个属性，计算主轴是否有多余空间</p>
-<p>它的默认值为auto，即项目的本来大小</p>
-<h2 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h2><p>flex 属性是 flex-grow, flex-shrink 和 flex-basis 的简写，默认值为 0 1 auto。<strong>后两个属性可选</strong></p>
-<ul>
-<li><p>该属性有三个常用值</p>
-<ul>
-<li><p>auto —— 相当于 1 1 auto</p>
-</li>
-<li><p>none —— 相当于 0 0 auto</p>
-</li>
-<li><p><strong>1 —— 相当于 1 1 0%</strong></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">flex</span>: <span class="number">1</span>; <span class="comment">/* 可以实现等分布局, 相当于将所有项目的 flex-basis 置为 0, 再等分 */</span></span><br><span class="line">    <span class="comment">/* 等价于</span></span><br><span class="line"><span class="comment">        flex-grow: 1;</span></span><br><span class="line"><span class="comment">        flex-shrink: 1;</span></span><br><span class="line"><span class="comment">        flex-basis: 0%;</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<p>⚠️ <code>flex: 1; </code><strong>只能用于单行等分</strong>的情况；如果有换行就不起作用</p>
-<h1 id="flex-不要和定位混用"><a href="#flex-不要和定位混用" class="headerlink" title="flex 不要和定位混用"></a>flex 不要和定位混用</h1><p><strong>有定位属性的元素就不再具有 flex 布局的特性了</strong></p>
-<h1 id="flex-布局元素的高度问题"><a href="#flex-布局元素的高度问题" class="headerlink" title="flex 布局元素的高度问题"></a>flex 布局元素的高度问题</h1><p>flex 布局的元素的高度问题</p>
-<ul>
-<li>如果本身设置了 height, 则按设置的来；</li>
-<li>如果本身没有设置 height, height 跟父元素一致；</li>
-<li>如果父元素也没有设置 height, 则跟同一行的元素的最大高度一致</li>
-</ul>
-<h1 id="flex-实现栅格布局"><a href="#flex-实现栅格布局" class="headerlink" title="flex 实现栅格布局"></a>flex 实现栅格布局</h1><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-12&quot;</span>&gt;</span>占满一行<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-6&quot;</span>&gt;</span>两列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-6&quot;</span>&gt;</span>两列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-4&quot;</span>&gt;</span>三列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-4&quot;</span>&gt;</span>三列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-4&quot;</span>&gt;</span>三列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-3&quot;</span>&gt;</span>四列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-3&quot;</span>&gt;</span>四列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-3&quot;</span>&gt;</span>四列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-3&quot;</span>&gt;</span>四列均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col&quot;</span>&gt;</span>任意均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span>......<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col&quot;</span>&gt;</span>任意均分<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.row</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.col-12</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.col-6</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.col-4</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">33.3333%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.col-3</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">25%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.col</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>CSS</tag>
       </tags>
   </entry>
   <entry>
@@ -918,6 +798,126 @@
       </tags>
   </entry>
   <entry>
+    <title>字符串的常用方法</title>
+    <url>/2016/06/25/09-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="字符串API"><a href="#字符串API" class="headerlink" title="字符串API"></a>字符串API</h1><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String">MDN String</a></p>
+<span id="more"></span>
+
+<h1 id="字符串的属性"><a href="#字符串的属性" class="headerlink" title="字符串的属性"></a>字符串的属性</h1><h2 id="length"><a href="#length" class="headerlink" title="length"></a>length</h2><p>字符串的长度</p>
+<h1 id="字符串常用方法"><a href="#字符串常用方法" class="headerlink" title="字符串常用方法"></a>字符串常用方法</h1><p><font color="#f20">都不会影响原字符串</font></p>
+<h2 id="charAt-num"><a href="#charAt-num" class="headerlink" title="charAt(num)"></a>charAt(num)</h2><p>获取指定位置的字符</p>
+<ul>
+<li>返回值 —— 指定索引位置的字符<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="keyword">var</span> ret = str.charAt(<span class="number">0</span>)</span><br><span class="line"><span class="built_in">console</span>.log(ret) <span class="comment">// &#x27;h&#x27;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="concat"><a href="#concat" class="headerlink" title="concat()"></a>concat()</h2><p>连接字符串, <font color="#f20">作用和 + 一样</font></p>
+<ul>
+<li>可以有一个或多个参数</li>
+<li>返回值 —— 新字符串<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str1 = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="keyword">var</span> str2 = <span class="string">&#x27; world&#x27;</span></span><br><span class="line"><span class="keyword">var</span> str3 = str1.concat(str2, <span class="string">&#x27;hehe&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(str3) <span class="comment">// &#x27;hello worldhehe&#x27;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf()"></a><strong>indexOf()</strong></h2><p>检查一个字符串中是否含有指定字符串</p>
+<ul>
+<li>可以指定第二个参数, 指定开始查找的位置</li>
+<li>返回值 —— 指定字符串的起始索引<ul>
+<li>如果不含有, 则返回 -1<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;world&#x27;</span></span><br><span class="line"><span class="keyword">var</span> index = str.indexOf(<span class="string">&#x27;wo&#x27;</span>) <span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line">str.indexOf(<span class="string">&#x27;w&#x27;</span>, <span class="number">5</span>) <span class="comment">// -1，没找到</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="includes"><a href="#includes" class="headerlink" title="includes()"></a>includes()</h2><p>判断一个字符串是否包含另一个字符</p>
+<ul>
+<li><font color="#f20">区分大小写</font></li>
+<li>返回值 —— true / false<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line">str.includes(<span class="string">&#x27;he&#x27;</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="slice"><a href="#slice" class="headerlink" title="slice()"></a>slice()</h2><p>截取字符串</p>
+<ul>
+<li>包含开始索引, 不包含结束索引<ul>
+<li>如果省略第二个参数, 则截取到结尾</li>
+<li>负数表示从后开始计算</li>
+</ul>
+</li>
+<li>返回值 —— 截取的字符串<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;world&#x27;</span></span><br><span class="line"><span class="keyword">var</span> str2 = str.slice(<span class="number">1</span>, <span class="number">4</span>) <span class="comment">// &#x27;orl&#x27;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="substring"><a href="#substring" class="headerlink" title="substring()"></a>substring()</h2><p>截取字符串</p>
+<ul>
+<li>包含开始索引, 不包含结束索引<ul>
+<li>不能接收负值做参数, </li>
+<li>如果传递了负数, 默认使用 0, 还会调整参数的位置（ <em>如果第二个参数比第一个小,则自动交换位置</em> ）</li>
+</ul>
+</li>
+<li>返回值 —— 截取的字符串<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str  = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line">str.substring(<span class="number">1</span>, <span class="number">4</span>) <span class="comment">// ell</span></span><br><span class="line"></span><br><span class="line">str.substring(<span class="number">1</span>, -<span class="number">1</span>) <span class="comment">// 相当于 str.substring(0, 1) // h</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="substr"><a href="#substr" class="headerlink" title="substr()"></a>substr()</h2><p>截取字符串</p>
+<ul>
+<li>第一个参数表示开始索引，第二个参数表示截取个数</li>
+<li>返回值 —— 截取的字符串<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">str.substr(<span class="number">0</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="toUpperCase"><a href="#toUpperCase" class="headerlink" title="toUpperCase()"></a>toUpperCase()</h2><p>转大写</p>
+<ul>
+<li>返回值 —— 新的字符串</li>
+</ul>
+<h2 id="toLowerCase"><a href="#toLowerCase" class="headerlink" title="toLowerCase()"></a>toLowerCase()</h2><p>转小写</p>
+<ul>
+<li>返回值 —— 新的字符串</li>
+</ul>
+<h2 id="endsWith"><a href="#endsWith" class="headerlink" title="endsWith()"></a>endsWith()</h2><p>判断当前字符串是否是以另外一个给定的子字符串“结尾”</p>
+<ul>
+<li>返回值 —— true / false<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> str1 = <span class="string">&#x27;Cats are the best!&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(str1.endsWith(<span class="string">&#x27;!&#x27;</span>)) <span class="comment">// true</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="startsWith"><a href="#startsWith" class="headerlink" title="startsWith()"></a>startsWith()</h2><p>判断当前字符串是否是以另外一个给定的子字符串“开头”</p>
+<ul>
+<li>返回值 —— true / false</li>
+</ul>
+<h2 id="trim"><a href="#trim" class="headerlink" title="trim()"></a>trim()</h2><p>删除一个字符串的两端空白</p>
+<ul>
+<li>返回值 —— 新字符串<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> greeting = <span class="string">&#x27;   Hello world!   &#x27;</span></span><br><span class="line">greeting.trim()</span><br><span class="line"><span class="built_in">console</span>.log(greeting);</span><br><span class="line"><span class="comment">// expected output: &quot;   Hello world!   &quot;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="padStart"><a href="#padStart" class="headerlink" title="padStart()"></a>padStart()</h2><p>用给定的字符串填充当前字符串，以便达到给定的长度</p>
+<ul>
+<li><em>原字符串前边填充</em></li>
+<li>返回值 —— 新的字符串<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> str1 = <span class="string">&#x27;5&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(str1.padStart(<span class="number">2</span>, <span class="string">&#x27;0&#x27;</span>)) <span class="comment">//  &quot;05&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> m = dt.getMinutes().toString().padStart(<span class="number">2</span>, <span class="string">&#x27;0&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="padEnd"><a href="#padEnd" class="headerlink" title="padEnd()"></a>padEnd()</h2><p>用给定的字符串填充当前字符串，以便达到给定的长度</p>
+<ul>
+<li><em>原字符串后边填充</em></li>
+<li>返回值 —— 新的字符串</li>
+</ul>
+<h2 id="可以传递正则表达式作为参数的方法"><a href="#可以传递正则表达式作为参数的方法" class="headerlink" title="可以传递正则表达式作为参数的方法"></a>可以传递正则表达式作为参数的方法</h2><h3 id="split"><a href="#split" class="headerlink" title="split()"></a>split()</h3><p>将字符串 <code>拆分为一个字符串数组</code></p>
+<ul>
+<li>需要一个字符串（或正则）作为参数<ul>
+<li>如果传递一个空串, 则将字符串的每一个字符作为数组的元素</li>
+<li>如果传递一个正则，<em>不需要指定全局模式</em></li>
+</ul>
+</li>
+<li>返回值 —— 字符串数组<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;hello,world&#x27;</span></span><br><span class="line"><span class="keyword">var</span> arr = str.split(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(arr) <span class="comment">// [&#x27;hello&#x27;, &#x27;world&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;1a2b3c4d5e6f7&#x27;</span></span><br><span class="line"><span class="keyword">var</span> result = str.split(<span class="regexp">/[A-z]/</span>) <span class="comment">// 按字母拆分 str</span></span><br><span class="line"><span class="built_in">console</span>.log(result) <span class="comment">// [1, 2, 3, 4, 5, 6, 7]</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="replace"><a href="#replace" class="headerlink" title="replace()"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace">replace()</a></h3><p>用新的字符串替换部分符合条件的字符</p>
+<ul>
+<li>第一个参数可以是字符串，也可以是正则表达式</li>
+<li>返回值 —— 新字符串<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;你好漂亮漂亮&#x27;</span></span><br><span class="line"><span class="keyword">var</span> str1 = str.replace(<span class="regexp">/漂亮/g</span>, <span class="string">&#x27;丑&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(str1) <span class="comment">// &#x27;你好丑丑&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str3 = <span class="string">&#x27;1a2b3c&#x27;</span></span><br><span class="line"><span class="keyword">var</span> str4 = str3.replace(<span class="regexp">/[A-z]/g</span>, <span class="string">&#x27;&#x27;</span>) <span class="comment">// 去掉字符串中的字母</span></span><br><span class="line"><span class="built_in">console</span>.log(str4) <span class="comment">// 123</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="replaceAll"><a href="#replaceAll" class="headerlink" title="replaceAll()"></a>replaceAll()</h3><p>替换所有</p>
+<ul>
+<li>如果参数为正则，必须指定全局模式</li>
+<li>返回值 —— 新字符串</li>
+</ul>
+<h3 id="search"><a href="#search" class="headerlink" title="search()"></a>search()</h3><p>查询符合正则的字符的索引</p>
+<ul>
+<li><font color="#f20">不能指定全局模式</font></li>
+<li>返回值 —— 第一个匹配的索引<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;abcdefg&#x27;</span></span><br><span class="line"><span class="keyword">var</span> ret = str.search(<span class="regexp">/a[bef]c/</span>) <span class="comment">// 搜索字符串中是否含有 abc 或者 aec 或 afc</span></span><br><span class="line"><span class="built_in">console</span>.log(ret) <span class="comment">// 0</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="match"><a href="#match" class="headerlink" title="match()"></a>match()</h3><p>根据正则表达式将字符串中符合条件的内容 <strong>提取</strong> 出来</p>
+<ul>
+<li>默认情况下, match 只会找到第一个符合要求的内容, 找到以后就停止检索</li>
+<li>返回值 —— 数组<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;1a2b3c&#x27;</span></span><br><span class="line"><span class="keyword">var</span> ret = str.match(<span class="regexp">/[A-z]/ig</span>)  <span class="comment">//(全局找字母, 忽略大小写)</span></span><br><span class="line"><span class="built_in">console</span>.log(ret) <span class="comment">// [a, b, c]</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="字符串常见算法"><a href="#字符串常见算法" class="headerlink" title="字符串常见算法"></a>字符串常见算法</h1><p>将 - 划线字符串转驼峰字符串</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toCamelStr</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> arr = str.split(<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; arr.length ; i++) &#123;</span><br><span class="line">    arr[i] = arr[i].charAt(<span class="number">0</span>).toUpperCase() + arr[i].slice(<span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> arr.join(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> result = toCamelStr(<span class="string">&#x27;get-element-by-id&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(result)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>JS 基础</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>对象的常用方法</title>
     <url>/2016/07/06/11-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<h1 id="对象的常用方法"><a href="#对象的常用方法" class="headerlink" title="对象的常用方法"></a>对象的常用方法</h1><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object">MDN Object</a></p>
@@ -1068,34 +1068,6 @@
       </tags>
   </entry>
   <entry>
-    <title>深拷贝</title>
-    <url>/2016/07/14/16-%E6%B7%B1%E6%8B%B7%E8%B4%9D/</url>
-    <content><![CDATA[<h1 id="深度克隆-深拷贝"><a href="#深度克隆-深拷贝" class="headerlink" title="深度克隆 (深拷贝)"></a>深度克隆 (深拷贝)</h1><h2 id="拷贝数据的方法"><a href="#拷贝数据的方法" class="headerlink" title="拷贝数据的方法"></a>拷贝数据的方法</h2><p>1 —— 直接赋值 =<br>2 —— Object.assign()<br>3 —— Array.prototype.concat()<br>4 —— Array.prototype.slice()<br>5 —— JSON.parse(JSON.stringify()), 拷贝的数据里 <code>不能有函数</code></p>
-<ul>
-<li><font color=#f40>因为 JSON.stringify / JSON.parse 没法处理函数</font></li>
-</ul>
-<span id="more"></span>
-<p>以上只有 5 是深拷贝</p>
-  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, &#123; <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span> &#125;]</span><br><span class="line"><span class="keyword">var</span> arr2 = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(arr))</span><br><span class="line">arr2[<span class="number">2</span>].name = <span class="string">&#x27;ls&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(arr) <span class="comment">// [1, 2, &#123; name: &#x27;zs&#x27; &#125;]</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>拷贝后 (针对对象/数组) 修改新变量会改变源变量的方式称为 <code>浅拷贝</code></p>
-<ul>
-<li>浅拷贝特点<ul>
-<li><strong>拷贝后生成的新数据的修改会影响原数据, 使得原数据不安全</strong></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>拷贝后 (针对对象/数组) 修改新变量不会改变源变量的方式称为 <code>深拷贝</code></p>
-</li>
-</ul>
-<h2 id="如何实现深拷贝"><a href="#如何实现深拷贝" class="headerlink" title="如何实现深拷贝?"></a><font color=#c40>如何实现深拷贝?</font></h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 检测数据类型 返回 Array、Object、String...</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call() 方法返回的是 &#x27;[object Object/Array/String/Number]&#x27;</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call(&#x27;33&#x27;) =&gt; &#x27;[object String]&#x27;</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call(22) =&gt; &#x27;[object Number]&#x27;</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call([]) =&gt; &#x27;[object Array]&#x27;</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call(&#123;&#125;) =&gt; &#x27;[object Object]&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkType</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(target).slice(<span class="number">8</span>, -<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 深拷贝函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">let</span> targetType = checkType(target)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 1.判断数据类型</span></span><br><span class="line">    <span class="keyword">if</span> (targetType === <span class="string">&#x27;Array&#x27;</span>) &#123; <span class="comment">// 是数组</span></span><br><span class="line">        result = []</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (targetType === <span class="string">&#x27;Object&#x27;</span>) &#123; <span class="comment">// 是对象</span></span><br><span class="line">        result = &#123;&#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">// 是基本数据类型</span></span><br><span class="line">        <span class="keyword">return</span> target   </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2.一个一个拷贝</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> target) &#123;</span><br><span class="line">        <span class="keyword">let</span> value = target[i]</span><br><span class="line">        result[i] = clone(value) <span class="comment">// 递归克隆每一项值</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>JS 基础</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JS基础之BOM</title>
     <url>/2016/07/12/14-JS%E5%9F%BA%E7%A1%80%E4%B9%8BBOM/</url>
     <content><![CDATA[<h1 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h1><p>浏览器对象模型</p>
@@ -1195,6 +1167,34 @@
 ]]></content>
       <tags>
         <tag>JS 之 BOM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>深拷贝</title>
+    <url>/2016/07/14/16-%E6%B7%B1%E6%8B%B7%E8%B4%9D/</url>
+    <content><![CDATA[<h1 id="深度克隆-深拷贝"><a href="#深度克隆-深拷贝" class="headerlink" title="深度克隆 (深拷贝)"></a>深度克隆 (深拷贝)</h1><h2 id="拷贝数据的方法"><a href="#拷贝数据的方法" class="headerlink" title="拷贝数据的方法"></a>拷贝数据的方法</h2><p>1 —— 直接赋值 =<br>2 —— Object.assign()<br>3 —— Array.prototype.concat()<br>4 —— Array.prototype.slice()<br>5 —— JSON.parse(JSON.stringify()), 拷贝的数据里 <code>不能有函数</code></p>
+<ul>
+<li><font color=#f40>因为 JSON.stringify / JSON.parse 没法处理函数</font></li>
+</ul>
+<span id="more"></span>
+<p>以上只有 5 是深拷贝</p>
+  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, &#123; <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span> &#125;]</span><br><span class="line"><span class="keyword">var</span> arr2 = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(arr))</span><br><span class="line">arr2[<span class="number">2</span>].name = <span class="string">&#x27;ls&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(arr) <span class="comment">// [1, 2, &#123; name: &#x27;zs&#x27; &#125;]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>拷贝后 (针对对象/数组) 修改新变量会改变源变量的方式称为 <code>浅拷贝</code></p>
+<ul>
+<li>浅拷贝特点<ul>
+<li><strong>拷贝后生成的新数据的修改会影响原数据, 使得原数据不安全</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>拷贝后 (针对对象/数组) 修改新变量不会改变源变量的方式称为 <code>深拷贝</code></p>
+</li>
+</ul>
+<h2 id="如何实现深拷贝"><a href="#如何实现深拷贝" class="headerlink" title="如何实现深拷贝?"></a><font color=#c40>如何实现深拷贝?</font></h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 检测数据类型 返回 Array、Object、String...</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call() 方法返回的是 &#x27;[object Object/Array/String/Number]&#x27;</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call(&#x27;33&#x27;) =&gt; &#x27;[object String]&#x27;</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call(22) =&gt; &#x27;[object Number]&#x27;</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call([]) =&gt; &#x27;[object Array]&#x27;</span></span><br><span class="line"><span class="comment">// Object.prototype.toString.call(&#123;&#125;) =&gt; &#x27;[object Object]&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkType</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(target).slice(<span class="number">8</span>, -<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 深拷贝函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">let</span> targetType = checkType(target)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 1.判断数据类型</span></span><br><span class="line">    <span class="keyword">if</span> (targetType === <span class="string">&#x27;Array&#x27;</span>) &#123; <span class="comment">// 是数组</span></span><br><span class="line">        result = []</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (targetType === <span class="string">&#x27;Object&#x27;</span>) &#123; <span class="comment">// 是对象</span></span><br><span class="line">        result = &#123;&#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">// 是基本数据类型</span></span><br><span class="line">        <span class="keyword">return</span> target   </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2.一个一个拷贝</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> target) &#123;</span><br><span class="line">        <span class="keyword">let</span> value = target[i]</span><br><span class="line">        result[i] = clone(value) <span class="comment">// 递归克隆每一项值</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>JS 基础</tag>
       </tags>
   </entry>
   <entry>
@@ -6680,6 +6680,324 @@
 <h1 id="canvas-画气泡"><a href="#canvas-画气泡" class="headerlink" title="canvas 画气泡"></a>canvas 画气泡</h1><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">            *&#123;</span></span><br><span class="line"><span class="css">                <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            &#125;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">body</span>&#123;</span></span><br><span class="line"><span class="css">                <span class="attribute">background</span>: pink;</span></span><br><span class="line"><span class="css">            &#125;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">canvas</span>&#123;</span></span><br><span class="line"><span class="css">                <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">                <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">right</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">top</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">bottom</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">margin</span>: auto;</span></span><br><span class="line"><span class="css">                <span class="attribute">background</span>: white;</span></span><br><span class="line"><span class="css">            &#125;</span></span><br><span class="line"><span class="css">        </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">width</span>=<span class="string">&quot;150&quot;</span> <span class="attr">height</span>=<span class="string">&quot;400&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> oc = <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span>(oc.getContext)&#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> ctx = oc.getContext(<span class="string">&quot;2d&quot;</span>);</span></span><br><span class="line"><span class="javascript">                            </span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> arr=[];</span></span><br><span class="line"><span class="javascript">                </span></span><br><span class="line"><span class="javascript">                <span class="comment">//将数组中的圆绘制到画布上</span></span></span><br><span class="line"><span class="javascript">                <span class="built_in">setInterval</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="built_in">console</span>.log(arr)</span></span><br><span class="line"><span class="javascript">                    ctx.clearRect(<span class="number">0</span>,<span class="number">0</span>,oc.width,oc.height);</span></span><br><span class="line"><span class="javascript">                    <span class="comment">//动画</span></span></span><br><span class="line"><span class="javascript">                    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span></span><br><span class="line"><span class="javascript">                        arr[i].deg+=<span class="number">5</span>;</span></span><br><span class="line"><span class="javascript">                        arr[i].x = arr[i].startX +  <span class="built_in">Math</span>.sin( arr[i].deg*<span class="built_in">Math</span>.PI/<span class="number">180</span> )*arr[i].step*<span class="number">2</span>;</span></span><br><span class="line"><span class="javascript">                        arr[i].y = arr[i].startY - (arr[i].deg*<span class="built_in">Math</span>.PI/<span class="number">180</span>)*arr[i].step ;</span></span><br><span class="line"><span class="javascript">                        </span></span><br><span class="line"><span class="javascript">                        <span class="keyword">if</span>(arr[i].y &lt;=<span class="number">50</span>)&#123;</span></span><br><span class="line"><span class="javascript">                            arr.splice(i,<span class="number">1</span>) <span class="comment">// 清除已出界的数组元素</span></span></span><br><span class="line"><span class="javascript">                        &#125;</span></span><br><span class="line"><span class="javascript">                    &#125;</span></span><br><span class="line"><span class="javascript">                    </span></span><br><span class="line"><span class="javascript">                    </span></span><br><span class="line"><span class="javascript">                    <span class="comment">//绘制</span></span></span><br><span class="line"><span class="javascript">                    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span></span><br><span class="line"><span class="javascript">                        ctx.save();                     ctx.fillStyle=<span class="string">&quot;rgba(&quot;</span>+arr[i].red+<span class="string">&quot;,&quot;</span>+arr[i].green+<span class="string">&quot;,&quot;</span>+arr[i].blue+<span class="string">&quot;,&quot;</span>+arr[i].alp+<span class="string">&quot;)&quot;</span>;</span></span><br><span class="line"><span class="javascript">                        ctx.beginPath();</span></span><br><span class="line"><span class="javascript">                        ctx.arc(arr[i].x,arr[i].y,arr[i].r,<span class="number">0</span>,<span class="number">2</span>*<span class="built_in">Math</span>.PI);</span></span><br><span class="line"><span class="javascript">                        ctx.fill();</span></span><br><span class="line"><span class="javascript">                        ctx.restore();</span></span><br><span class="line"><span class="javascript">                    &#125;</span></span><br><span class="line"><span class="javascript">                &#125;,<span class="number">1000</span>/<span class="number">60</span>)              </span></span><br><span class="line"><span class="javascript">                </span></span><br><span class="line"><span class="javascript">                <span class="comment">//往arr中注入随机圆的信息</span></span></span><br><span class="line"><span class="javascript">                <span class="built_in">setInterval</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> r =<span class="built_in">Math</span>.random()*<span class="number">6</span>+<span class="number">2</span>;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> x = <span class="built_in">Math</span>.random()*oc.width;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> y = oc.height - r;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> red =   <span class="built_in">Math</span>.round(<span class="built_in">Math</span>.random()*<span class="number">255</span>);</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> green = <span class="built_in">Math</span>.round(<span class="built_in">Math</span>.random()*<span class="number">255</span>);</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> blue =  <span class="built_in">Math</span>.round(<span class="built_in">Math</span>.random()*<span class="number">255</span>);</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> alp = <span class="number">1</span>;</span></span><br><span class="line"><span class="javascript">                            </span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> deg = <span class="number">0</span>;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> startX = x;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> startY = y;</span></span><br><span class="line"><span class="javascript">                    <span class="comment">//曲线的运动形式</span></span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> step =<span class="built_in">Math</span>.random()*<span class="number">20</span>+<span class="number">10</span>;</span></span><br><span class="line"><span class="javascript">                    arr.push(&#123;</span></span><br><span class="line"><span class="javascript">                        <span class="attr">x</span>:x,</span></span><br><span class="line"><span class="javascript">                        <span class="attr">y</span>:y,</span></span><br><span class="line"><span class="javascript">                        <span class="attr">r</span>:r,</span></span><br><span class="line"><span class="javascript">                        <span class="attr">red</span>:red,</span></span><br><span class="line"><span class="javascript">                        <span class="attr">green</span>:green,</span></span><br><span class="line"><span class="javascript">                        <span class="attr">blue</span>:blue,</span></span><br><span class="line"><span class="javascript">                        <span class="attr">alp</span>:alp,</span></span><br><span class="line"><span class="javascript">                        <span class="attr">deg</span>:deg,</span></span><br><span class="line"><span class="javascript">                        <span class="attr">startX</span>:startX,</span></span><br><span class="line"><span class="javascript">                        <span class="attr">startY</span>:startY,</span></span><br><span class="line"><span class="javascript">                        <span class="attr">step</span>:step</span></span><br><span class="line"><span class="javascript">                    &#125;)</span></span><br><span class="line"><span class="javascript">                &#125;,<span class="number">50</span>)</span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;   </span></span><br><span class="line"><span class="javascript">        </span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>canvas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>webpack</title>
+    <url>/2016/07/28/26-webpack/</url>
+    <content><![CDATA[<h1 id="项目构建-build"><a href="#项目构建-build" class="headerlink" title="项目构建(build)"></a>项目构建(build)</h1><h2 id="静态资源"><a href="#静态资源" class="headerlink" title="静态资源"></a>静态资源</h2><p>什么叫静态资源？</p>
+<ul>
+<li>我们通过标签的某些属性 (href、src、url…) 引入的资源叫静态资源</li>
+</ul>
+<p>常见的静态资源？</p>
+<ol>
+<li>js</li>
+<li>css</li>
+<li>images</li>
+<li>fonts</li>
+</ol>
+<p>静态资源的特点？</p>
+<ol>
+<li>需要发送请求拿到具体内容</li>
+<li>会在页面请求位置加载对应的资源</li>
+</ol>
+<h2 id="什么是项目构建"><a href="#什么是项目构建" class="headerlink" title="什么是项目构建?"></a>什么是项目构建?</h2><ul>
+<li>编译项目中的 js、sass、less</li>
+<li>合并 js / css 等资源文件</li>
+<li>压缩 js / css / html 等资源文件</li>
+<li>js 语法检查</li>
+</ul>
+<h2 id="项目构建的作用"><a href="#项目构建的作用" class="headerlink" title="项目构建的作用"></a>项目构建的作用</h2><ul>
+<li>解决网页中引入静态资源过多加载速度慢、错综复杂的依赖关系的问题</li>
+<li>如何解决?<ul>
+<li>合并压缩</li>
+</ul>
+</li>
+<li>简化项目构建, 自动化完成构建</li>
+</ul>
+<h1 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h1><p><a href="https://www.webpackjs.com/">官网</a></p>
+<p>Gulp 是 <code>基于任务</code> 的, Webpack 是 <code>基于整个项目</code> 的</p>
+<span id="more"></span>
+
+<h2 id="什么是-webpack"><a href="#什么是-webpack" class="headerlink" title="什么是 webpack?"></a>什么是 webpack?</h2><ul>
+<li>webpack 是一个静态模块打包器, 是基于 node.js 开发出来的 <font color=#c40>前端工具</font></li>
+<li>在 webpack 看来, 前端所有的资源文件 (js / json / css / image / less) 都会作为模块处理<ul>
+<li><em>唯独不把 html 文件当作模块</em></li>
+</ul>
+</li>
+<li>它将根据模块的依赖关系进行静态分析, 生成对应的静态资源</li>
+</ul>
+<h2 id="webpack-能做什么"><a href="#webpack-能做什么" class="headerlink" title="webpack 能做什么?"></a>webpack 能做什么?</h2><ol>
+<li>能处理 js 文件的互相依赖关系</li>
+<li>能处理 js 语法兼容问题, <strong>把高级语法转为浏览器能正常识别的语法</strong></li>
+<li>默认 css 样式文件和较小的图片也会被打包到 js 文件中 (<em>我们可以在发布阶段再提取出来</em>)</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> webpack 要打包文件路径 输出文件路径</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> webpack ./src/main.js ./dist/bundle.js</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="webpack-基本概念"><a href="#webpack-基本概念" class="headerlink" title="webpack 基本概念"></a>webpack 基本概念</h2><p><a href="https://www.cnblogs.com/sanhuamao/p/13596032.html">核心概念</a></p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 全局安装</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm i webpack -g</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> or</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 局部安装</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm i webpack webpack-cli@3.3.12 -D</span></span><br></pre></td></tr></table></figure>
+
+<p>此时，我们只需在控制台输入 <code>webpack</code> 或者 <code> npx webpack</code> 就可以实现打包输出</p>
+<p>⚠️ webpack 4.x 以上必须安装 webpack-cli(<strong>最好用3.3.12版本，不然跟 webpack-dev-server 起冲突</strong>)</p>
+<h1 id="配置文件-webpack-config-js"><a href="#配置文件-webpack-config-js" class="headerlink" title="配置文件 webpack.config.js"></a>配置文件 webpack.config.js</h1><p>就是一个 js 文件, 通过 Node 中的模块操作, 向外暴露了一个配置对象</p>
+<ul>
+<li><p>在根目录下新建 <code>webpack.config.js</code> 配置文件</p>
+<ul>
+<li><p>在 webpack.config.js 里指定打包的入口 (entry) 和 出口 (output) 文件 </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;./src/main.js&#x27;</span>, <span class="comment">// 打包入口文件路径</span></span><br><span class="line">    <span class="attr">output</span>: &#123;  <span class="comment">// 输出</span></span><br><span class="line">        <span class="attr">path</span>: path.join(__dirname, <span class="string">&#x27;./dist&#x27;</span>), <span class="comment">// 打包输出根目录</span></span><br><span class="line">      <span class="attr">filename</span>: <span class="string">&#x27;js/[name].bundle.js&#x27;</span> <span class="comment">// 打包后输出的文件名</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>当我们在控制台输入 <code>webpack</code> 命令的时候, webpack 做了以下几步</p>
+<ol>
+<li>首先, webpack 发现我们并没有通过命令的形式指定入口和出口</li>
+<li>webapck 就会去项目根目录中找 webpack.config.js 配置文件</li>
+<li>当找到配置文件后, webpack 会去解析执行这个配置文件, 当解析执行完配置文件后, 就得到了配置文件中导出的配置对象</li>
+<li>当 webpack 拿到配置对象后, 就 <strong>拿到了配置对象中指定的入口和出口</strong> , 然后进行打包构建</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>⚠️ <font color=#c40>如果修改了配置文件必须重新编译</font></p>
+</blockquote>
+<h1 id="NPM-脚本-NPM-Scripts"><a href="#NPM-脚本-NPM-Scripts" class="headerlink" title="NPM 脚本(NPM Scripts)"></a>NPM 脚本(NPM Scripts)</h1><figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;test&quot;</span>: <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span>,</span><br><span class="line">+     <span class="attr">&quot;build&quot;</span>: <span class="string">&quot;webpack&quot;</span></span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>配置好脚本后，我们可以 <code>npm run build</code> 来实现构建</p>
+<h1 id="配置对象的基本属性"><a href="#配置对象的基本属性" class="headerlink" title="配置对象的基本属性"></a>配置对象的基本属性</h1><ul>
+<li><p>入口(entry)</p>
+<ul>
+<li><p>应用程序的起点入口</p>
+</li>
+<li><p>每个 HTML 页面都有一个入口起点。单页应用(SPA)：一个入口起点，多页应用(MPA)：多个入口起点</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">entry: path.join(__dirname, <span class="string">&#x27;./src/main.js&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// or</span></span><br><span class="line"><span class="attr">entry</span>: &#123;</span><br><span class="line">  <span class="attr">home</span>: <span class="string">&quot;./home.js&quot;</span>,</span><br><span class="line">  <span class="attr">about</span>: <span class="string">&quot;./about.js&quot;</span>,</span><br><span class="line">  <span class="attr">contact</span>: <span class="string">&quot;./contact.js&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>输出(output)</p>
+<ul>
+<li><p>指示 webpack 如何去输出、以及在哪里输出你的 bundle、asset 和其他你所打包或使用 webpack 载入的任何内容</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">output: &#123;</span><br><span class="line">    <span class="attr">path</span>: path.resolve(__dirname, <span class="string">&#x27;dist&#x27;</span>),</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;js/[name].bundle.js&#x27;</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>loader</p>
+<ul>
+<li><p>webpack 只能理解 JavaScript 和 JSON 文件</p>
+</li>
+<li><p>loader 让 webpack 能够去处理其他类型的文件，并将它们转换为有效 <a href="https://webpack.docschina.org/concepts/modules">模块</a>，以供应用程序使用</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.(js|jsx)$/</span>,</span><br><span class="line">        use: <span class="string">&#x27;babel-loader&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>插件(plugin)</p>
+<ul>
+<li><p>打包优化，资源管理，注入环境变量等</p>
+</li>
+<li><p>想要使用一个插件，你只需要 <code>require()</code> 它，然后把它添加到 <code>plugins</code> 数组中</p>
+<ul>
+<li>多数插件可以通过选项(option)自定义</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(),</span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;<span class="attr">template</span>: <span class="string">&#x27;./src/index.html&#x27;</span>&#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>mode</p>
+<ul>
+<li><p>通过选择 <code>development</code>, <code>production</code> 或 <code>none</code> 之中的一个，来设置 <code>mode</code> 参数</p>
+</li>
+<li><p>你可以启用 webpack 内置在相应环境下的优化</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">mode: <span class="string">&#x27;production&#x27;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="配置属性之-devServer"><a href="#配置属性之-devServer" class="headerlink" title="配置属性之 devServer"></a>配置属性之 devServer</h2><p>webpack-dev-server 能够用于快速开发应用程序，可以帮助你在代码发生变化后自动编译代码</p>
+<ul>
+<li><a href="https://www.webpackjs.com/guides/development/#%E4%BD%BF%E7%94%A8-webpack-dev-server">webpack-dev-server指南</a></li>
+<li><code>webpack-dev-server</code> 为你<em>提供了一个简单的 web 服务器</em>，并且能够实时重新加载 (live reloading)</li>
+</ul>
+<h3 id="安装-webpack-dev-server"><a href="#安装-webpack-dev-server" class="headerlink" title="安装 webpack-dev-server"></a>安装 webpack-dev-server</h3><p>webpack-dev-server 依赖于 webpack, 也就是说本地也必须安装 <code>webpack </code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install --save-dev webpack-dev-server webpack</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>告诉开发服务器(dev server)，在哪里查找文件：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> CleanWebpackPlugin = <span class="built_in">require</span>(<span class="string">&#x27;clean-webpack-plugin&#x27;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="attr">entry</span>: &#123;</span><br><span class="line">      <span class="attr">app</span>: <span class="string">&#x27;./src/index.js&#x27;</span>,</span><br><span class="line">      <span class="attr">print</span>: <span class="string">&#x27;./src/print.js&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">+   devServer: &#123;</span><br><span class="line">+     contentBase: <span class="string">&#x27;./dist&#x27;</span>, <span class="comment">// 指定托管的根目录</span></span><br><span class="line">+     open: <span class="literal">true</span>,            <span class="comment">// 自动打开浏览器</span></span><br><span class="line">+     port: <span class="number">3000</span>             <span class="comment">// 指定端口号</span></span><br><span class="line">+   &#125;,</span><br><span class="line">    <span class="attr">plugins</span>: [</span><br><span class="line">      <span class="keyword">new</span> CleanWebpackPlugin(),</span><br><span class="line">      <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;Development&#x27;</span></span><br><span class="line">      &#125;)</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">output</span>: &#123;</span><br><span class="line">      <span class="attr">filename</span>: <span class="string">&#x27;js/[name].bundle.js&#x27;</span>,</span><br><span class="line">      <span class="attr">path</span>: path.resolve(__dirname, <span class="string">&#x27;dist&#x27;</span>)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加开发脚本"><a href="#添加开发脚本" class="headerlink" title="添加开发脚本"></a>添加开发脚本</h3><figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;test&quot;</span>: <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span>,</span><br><span class="line">+     <span class="attr">&quot;start&quot;</span>: <span class="string">&quot;webpack-dev-server&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">// or 将 devServer 的配置写在脚本中</span></span><br><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;test&quot;</span>: <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span>,</span><br><span class="line">+     <span class="attr">&quot;dev&quot;</span>: <span class="string">&quot;webpack-dev-server --open --port 3000 --contentBase src --hot&quot;</span></span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>我们可以使用一下命令开启开发服务</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm start</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="管理输出"><a href="#管理输出" class="headerlink" title="管理输出"></a>管理输出</h1><h2 id="重新生成-html"><a href="#重新生成-html" class="headerlink" title="重新生成 html"></a>重新生成 html</h2><p>我们用插件 <code>HtmlWebpackPlugin</code> 生成的 <code>index.html</code> 注入了script 标签的文件替换掉我们的原来的 <code>dist/index.html</code></p>
+<blockquote>
+<p>执行 webpack-dev-server 生成的文件都存在于内存中，在输出目录下不可见<br>只有执行 webpack 时才会在输出目录生成打包后的文件</p>
+</blockquote>
+<ul>
+<li><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm i html-webpack-plugin -D</span></span><br></pre></td></tr></table></figure></li>
+<li><p>修改 webpack.config.js</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>)</span><br><span class="line"></span><br><span class="line">+   plugins: [</span><br><span class="line">+     <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">+       title: <span class="string">&#x27;Output Management&#x27;</span></span><br><span class="line">+     &#125;)</span><br><span class="line">+   ],</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>⚠️ <em>如果不指定模版文件，HtmlWebpackPlugin 会生成一个空的 html 页面</em></li>
+</ul>
+</li>
+<li><p><strong>如果有多页面的情况，new HtmlWebpackPlugin() 可以使用多次，且需要指定模版文件</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">        <span class="keyword">new</span> HtmlWebpackPlugin( &#123;   </span><br><span class="line">            <span class="comment">// 输出的文件名，可配置路径</span></span><br><span class="line">            <span class="attr">filename</span>: <span class="string">&quot;views/main.html&quot;</span>,   </span><br><span class="line">            <span class="comment">// 采用的模板文件，可配置路径  </span></span><br><span class="line">            <span class="attr">template</span>: <span class="string">&quot;src/views/main.html&quot;</span>,   </span><br><span class="line">            <span class="comment">// 生成的html文件中引入的js文件，与entry入口和slpitChunks分离等配置的js文件名相同</span></span><br><span class="line">            <span class="attr">chunks</span>: [ <span class="string">&quot;index&quot;</span>, <span class="string">&quot;vendors&quot;</span>, <span class="string">&quot;common&quot;</span> ]     </span><br><span class="line">        &#125; ),</span><br><span class="line">        <span class="keyword">new</span> HtmlWebpackPlugin( &#123;</span><br><span class="line">            <span class="attr">title</span>: <span class="string">&quot;about&quot;</span>,</span><br><span class="line">            <span class="attr">filename</span>: <span class="string">&quot;views/about.html&quot;</span>,</span><br><span class="line">            <span class="attr">template</span>: <span class="string">&quot;src/views/about.html&quot;</span>,</span><br><span class="line">            <span class="attr">chunks</span>: [ <span class="string">&quot;about&quot;</span>, <span class="string">&quot;vendors&quot;</span>, <span class="string">&quot;common&quot;</span> ]</span><br><span class="line">        &#125; ),</span><br><span class="line">        <span class="keyword">new</span> HtmlWebpackPlugin( &#123;</span><br><span class="line">            <span class="attr">title</span>: <span class="string">&quot;list&quot;</span>,</span><br><span class="line">            <span class="attr">filename</span>: <span class="string">&quot;views/list.html&quot;</span>,</span><br><span class="line">            <span class="attr">template</span>: <span class="string">&quot;src/views/list.html&quot;</span>,</span><br><span class="line">            <span class="attr">chunks</span>: [ <span class="string">&quot;list&quot;</span>, <span class="string">&quot;vendors&quot;</span>, <span class="string">&quot;common&quot;</span> ]</span><br><span class="line">        &#125; ),</span><br><span class="line">  ...</span><br><span class="line">  ]</span><br></pre></td></tr></table></figure></li>
+<li><p>还可以配置压缩选项</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">      <span class="attr">template</span>: path.resolve(__dirname, <span class="string">&#x27;./src/index.html&#x27;</span>),</span><br><span class="line">      <span class="attr">filename</span>: <span class="string">&#x27;index.html&#x27;</span>,</span><br><span class="line">      <span class="attr">minify</span>: &#123; <span class="comment">// 压缩 HTML 页面</span></span><br><span class="line">        <span class="attr">removeComments</span>: <span class="literal">true</span>, <span class="comment">// 删除注释</span></span><br><span class="line">        <span class="attr">removeScriptTypeAttributes</span>: <span class="literal">true</span> <span class="comment">// 删除 script 标签的 type 属性</span></span><br><span class="line">      &#125;</span><br><span class="line">&#125;),</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="每次打包先清除-dist-再重新生成"><a href="#每次打包先清除-dist-再重新生成" class="headerlink" title="每次打包先清除 dist 再重新生成"></a>每次打包先清除 dist 再重新生成</h2><p>我们利用插件 CleanWebpackPlugin 在每次构建前清理 <code>/dist</code> 文件夹</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm i clean-webpack-plugin -D</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; CleanWebpackPlugin &#125; = <span class="built_in">require</span>(<span class="string">&#x27;clean-webpack-plugin&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> CleanWebpackPlugin(), <span class="comment">// 每次打包先删除 dist 再重新生成</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="管理资源"><a href="#管理资源" class="headerlink" title="管理资源"></a>管理资源</h1><ul>
+<li><p><strong>webpack 本身只能加载 js / json 模块</strong>,</p>
+<ul>
+<li>如果要加载其他类型的文件(模块), 就需要使用对应的 loader 进行转换 / 加载</li>
+</ul>
+</li>
+<li><p>loader 本身也是运行在 node.js 环境中的 js 模块<br>它本身是一个函数, 接收源文件作为参数, 返回转换的结果</p>
+</li>
+<li><p>loader 一般以 xxx-loader 的方式命名, xxx 代表了这个 loader 要做的转换功能, 比如 json-loader</p>
+</li>
+<li><p>loader 调用是 <code>从右向左</code></p>
+</li>
+</ul>
+<h2 id="处理-CSS文件"><a href="#处理-CSS文件" class="headerlink" title="处理 CSS文件"></a>处理 CSS文件</h2><p>把 css 文件以 import ‘./css/index.css’ 的形式引入 index.js 中打包会报错，需要专门的 loader 去解析</p>
+<ul>
+<li><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i style-loader css-loader@2.1.0 -D</span><br></pre></td></tr></table></figure></li>
+<li><p>修改 webpack.config.js</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 新增 module 节点, 设置第三方文件的匹配和处理规则</span></span><br><span class="line"><span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">        &#123; </span><br><span class="line">            <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, </span><br><span class="line">            <span class="comment">// 先调用 css-loader, 处理结果交给 style-loader 进一步处理, 然后交给 webpack 处理</span></span><br><span class="line">            use: [ <span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span> ] </span><br><span class="line">        &#125;,   </span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="css-模块化"><a href="#css-模块化" class="headerlink" title="css 模块化"></a>css 模块化</h3><p><a href="https://www.webpackjs.com/loaders/css-loader/#modules">css 模块化</a></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</span><br><span class="line">  use: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">loader</span>: <span class="string">&#x27;css-loader&#x27;</span>,</span><br><span class="line">      <span class="attr">options</span>: &#123;</span><br><span class="line">        <span class="attr">modules</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">localIdentName</span>: <span class="string">&#x27;[path][name]__[local]--[hash:base64:5]&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="处理-Less-文件"><a href="#处理-Less-文件" class="headerlink" title="处理 Less 文件"></a>处理 Less 文件</h2><ul>
+<li><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i less-loader less -D</span><br></pre></td></tr></table></figure></li>
+<li><p>修改 webpack.config.js</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">        &#123; </span><br><span class="line">            <span class="attr">test</span>: <span class="regexp">/\.less$/</span>, </span><br><span class="line">            use: [<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>, <span class="string">&#x27;less-loader&#x27;</span>] </span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="处理图片路径-字体文件"><a href="#处理图片路径-字体文件" class="headerlink" title="处理图片路径 / 字体文件"></a>处理图片路径 / 字体文件</h2><ul>
+<li><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i url-loader file-loader@2.0.0 -D</span><br></pre></td></tr></table></figure></li>
+<li><p>修改 webpack.config.js</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">        <span class="comment">// limit 给定的值是图片大小, 单位是byte, 当引用的图片小于给定的值会转为base64位的字符串</span></span><br><span class="line">        <span class="comment">// name  设置编译后的图片路径 [hash:8]-[name].[ext]  8位 hash 值-原图名字</span></span><br><span class="line">        &#123; </span><br><span class="line">            <span class="attr">test</span>: <span class="regexp">/\.(jpg|png|gif|bmp|jpeg)$/</span>, </span><br><span class="line">            use: [</span><br><span class="line">              &#123;</span><br><span class="line">                <span class="attr">loader</span>: <span class="string">&#x27;url-loader&#x27;</span>,</span><br><span class="line">                <span class="attr">options</span>: &#123;</span><br><span class="line">                  <span class="attr">limit</span>: <span class="number">8192</span>,</span><br><span class="line">                  <span class="attr">name</span>: <span class="string">&#x27;[hash:6]-[name].[ext]&#x27;</span>,</span><br><span class="line">                  <span class="attr">outputPath</span>: <span class="string">&#x27;./images&#x27;</span></span><br><span class="line">                &#125;</span><br><span class="line">              &#125;</span><br><span class="line">          ]</span><br><span class="line">        &#125;, </span><br><span class="line">        <span class="comment">// 处理字体文件</span></span><br><span class="line">        &#123; </span><br><span class="line">            <span class="attr">test</span>: <span class="regexp">/\.(ttf|eot|svg|woff|woff2)$/</span>, </span><br><span class="line">            use: [<span class="string">&#x27;url-loader&#x27;</span>] </span><br><span class="line">        &#125; </span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="处理-img-标签中的图片"><a href="#处理-img-标签中的图片" class="headerlink" title="处理 img 标签中的图片"></a>处理 img 标签中的图片</h2><ul>
+<li><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm i -D html-loader</span></span><br></pre></td></tr></table></figure></li>
+<li><p>配置</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">rules: [&#123;</span><br><span class="line">    <span class="attr">test</span>: <span class="regexp">/\.html$/</span>,</span><br><span class="line">    use: [ &#123;</span><br><span class="line">      <span class="attr">loader</span>: <span class="string">&#x27;html-loader&#x27;</span>,</span><br><span class="line">      <span class="attr">options</span>: &#123;</span><br><span class="line">        <span class="attr">minimize</span>: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;],</span><br><span class="line">  &#125;]</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="处理-es6-语法-babel-的配置"><a href="#处理-es6-语法-babel-的配置" class="headerlink" title="处理 es6 语法(babel 的配置)"></a>处理 es6 语法(babel 的配置)</h2><p>webpack 默认只能处理一部分 es6 语法，其他不能处理的语法需要 babel-loader 来处理</p>
+<ul>
+<li><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i babel-loader @babel/core @babel/preset-env webpack -D</span><br><span class="line">npm i @babel/plugin-transform-runtime @babel/plugin-proposal-class-properties -D</span><br><span class="line">npm i @babel/runtime</span><br></pre></td></tr></table></figure></li>
+<li><p>修改 webpack.config.js</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">  <span class="attr">rules</span>: [ </span><br><span class="line">    &#123; </span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.js$/</span>, </span><br><span class="line">        exclude: <span class="regexp">/node_modules/</span>,   <span class="comment">// exclude 排除 node_modules 文件夹</span></span><br><span class="line">        use: [</span><br><span class="line">            &#123; </span><br><span class="line">                <span class="attr">loader</span>: <span class="string">&#x27;babel-loader&#x27;</span>, </span><br><span class="line">                <span class="attr">options</span>: &#123; </span><br><span class="line">                    <span class="attr">presets</span>: [<span class="string">&#x27;@babel/preset-env&#x27;</span>],</span><br><span class="line">                    <span class="attr">plugins</span>: [<span class="string">&#x27;@babel/plugin-proposal-class-properties&#x27;</span>, <span class="string">&#x27;@babel/transform-runtime&#x27;</span>]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        ] </span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="处理-vue-文件"><a href="#处理-vue-文件" class="headerlink" title="处理 vue 文件"></a>处理 vue 文件</h2><ul>
+<li><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i vue-loader vue-template-compiler -D</span><br></pre></td></tr></table></figure></li>
+<li><p>修改 webpack.config.js</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> VueLoaderPlugin = <span class="function"><span class="title">require</span>(<span class="params"><span class="string">&#x27;vue-loader/lib/plugin&#x27;</span></span>)</span></span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">test</span>: <span class="string">&#x27;/\.vue$/&#x27;</span>,</span><br><span class="line">    <span class="attr">use</span>: [<span class="string">&#x27;vue-loader&#x27;</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> VueLoaderPlugin()</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="publicPath"><a href="#publicPath" class="headerlink" title="publicPath"></a>publicPath</h1><p>为项目中的所有资源指定一个基础路径<br>指定在浏览器中所引用的资源对应的<strong>公开 URL</strong> (会在默认的 url 前加上指定的 publicPath)</p>
+<ol>
+<li>相对 URL(relative URL) 会被相对于 HTML 页面解析</li>
+<li>相对于服务的 URL(Server-relative URL) 会相对于托管目录来解析</li>
+<li>相对于协议的 URL(protocol-relative URL) 或绝对 URL(absolute URL) 也可是可能用到的<ul>
+<li>例如：当将资源托管到 CDN 时</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="comment">// One of the below</span></span><br><span class="line">    <span class="attr">publicPath</span>: <span class="string">&#x27;https://cdn.example.com/assets/&#x27;</span>, <span class="comment">// CDN（总是 HTTPS 协议）</span></span><br><span class="line">    <span class="attr">publicPath</span>: <span class="string">&#x27;//cdn.example.com/assets/&#x27;</span>, <span class="comment">// CDN（协议相同）</span></span><br><span class="line">    <span class="attr">publicPath</span>: <span class="string">&#x27;/assets/&#x27;</span>, <span class="comment">// 相对于服务(server-relative)</span></span><br><span class="line">    <span class="attr">publicPath</span>: <span class="string">&#x27;assets/&#x27;</span>, <span class="comment">// 相对于 HTML 页面</span></span><br><span class="line">    <span class="attr">publicPath</span>: <span class="string">&#x27;../assets/&#x27;</span>, <span class="comment">// 相对于 HTML 页面</span></span><br><span class="line">    <span class="attr">publicPath</span>: <span class="string">&#x27;&#x27;</span>, <span class="comment">// 相对于 HTML 页面（目录相同）</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h1><ul>
+<li>插件可以完成一些 loader 不能完成的功能</li>
+<li>插件的使用一般是在 webpack 的配置信息 plugins 选项中指定</li>
+</ul>
+<h2 id="webpack-ProvidePlugin"><a href="#webpack-ProvidePlugin" class="headerlink" title="webpack.ProvidePlugin"></a>webpack.ProvidePlugin</h2><p>全局暴露，会自动加载 jquery 注意 q 是小写，无需在 import jQuery from …</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> webpack.ProvidePlugin(&#123;   <span class="comment">// 全局暴露 jquery,则无需再在项目中引入</span></span><br><span class="line">      <span class="string">&quot;$&quot;</span>: <span class="string">&quot;jquery&quot;</span>,</span><br><span class="line">      <span class="string">&quot;jQuery&quot;</span>: <span class="string">&quot;jquery&quot;</span>,</span><br><span class="line">      <span class="string">&quot;window.jQuery&quot;</span>: <span class="string">&quot;jquery&quot;</span></span><br><span class="line">&#125;),</span><br></pre></td></tr></table></figure>
+
+<h1 id="webpack-config-js-配置参考基本模版"><a href="#webpack-config-js-配置参考基本模版" class="headerlink" title="webpack.config.js 配置参考基本模版"></a>webpack.config.js 配置参考基本模版</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">&#x27;webpack&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> &#123; CleanWebpackPlugin &#125; = <span class="built_in">require</span>(<span class="string">&#x27;clean-webpack-plugin&#x27;</span>)</span><br><span class="line"><span class="comment">// 用到 vue 才引入</span></span><br><span class="line"><span class="comment">// const VueLoaderPlugin = require(&#x27;vue-loader/lib/plugin&#x27;)</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">mode</span>: <span class="string">&#x27;development&#x27;</span>, <span class="comment">// 声明当前环境</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">entry</span>: &#123;</span><br><span class="line">    <span class="attr">app</span>: <span class="string">&#x27;./src/js/index.js&#x27;</span>,</span><br><span class="line">    <span class="attr">common</span>: <span class="string">&#x27;./src/js/common.js&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="comment">// 打包输出配置</span></span><br><span class="line">    <span class="attr">path</span>: path.join(__dirname, <span class="string">&#x27;./dist&#x27;</span>), <span class="comment">// 打包输出的根目录</span></span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;js/[name].bundle.js&#x27;</span>, <span class="comment">// 打包后输出的 js 文件名</span></span><br><span class="line">    <span class="attr">publicPath</span>: <span class="string">&#x27;&#x27;</span>, <span class="comment">// 指定静态资源的读取目录</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="comment">// new VueLoaderPlugin(),</span></span><br><span class="line">    <span class="keyword">new</span> CleanWebpackPlugin(), <span class="comment">// 每次打包先删除 dist 再重新生成</span></span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">      <span class="attr">title</span>: <span class="string">&#x27;index&#x27;</span>,</span><br><span class="line">      <span class="attr">filename</span>: <span class="string">&#x27;index.html&#x27;</span>, <span class="comment">// 输出的文件名，可配置路径</span></span><br><span class="line">      <span class="attr">template</span>: <span class="string">&#x27;src/index.html&#x27;</span>, <span class="comment">// 采用的模板文件，可配置路径</span></span><br><span class="line">      <span class="comment">// 生成的html文件中引入的js文件，与entry入口和slpitChunks分离等配置的js文件名相同</span></span><br><span class="line">      <span class="attr">chunks</span>: [<span class="string">&#x27;app&#x27;</span>, <span class="string">&#x27;vendors&#x27;</span>, <span class="string">&#x27;common&#x27;</span>],</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> webpack.ProvidePlugin(&#123;</span><br><span class="line">      <span class="comment">// 全局暴露 jquery,则无需再在项目中引入</span></span><br><span class="line">      <span class="attr">$</span>: <span class="string">&#x27;jquery&#x27;</span>,</span><br><span class="line">      <span class="attr">jQuery</span>: <span class="string">&#x27;jquery&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;window.jQuery&#x27;</span>: <span class="string">&#x27;jquery&#x27;</span>,</span><br><span class="line">    &#125;),</span><br><span class="line">  ],</span><br><span class="line"></span><br><span class="line">  <span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        <span class="comment">// 先调用 css-loader, 处理结果交给 style-loader 进一步处理, 然后交给 webpack 处理</span></span><br><span class="line">        use: [<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>],</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.less$/</span>,</span><br><span class="line">        use: [<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>, <span class="string">&#x27;less-loader&#x27;</span>],</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="comment">// limit 给定的值是图片大小, 单位是byte, 当引用的图片小于给定的值会转为base64位的字符串</span></span><br><span class="line">      <span class="comment">// name  设置编译后的图片路径 [hash:8]-[name].[ext]  8位 hash 值-原图名字</span></span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.(jpg|png|gif|bmp|jpeg)$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">loader</span>: <span class="string">&#x27;url-loader&#x27;</span>,</span><br><span class="line">            <span class="attr">options</span>: &#123;</span><br><span class="line">              <span class="attr">limit</span>: <span class="number">8192</span>,</span><br><span class="line">              <span class="attr">name</span>: <span class="string">&#x27;[hash:6]-[name].[ext]&#x27;</span>,</span><br><span class="line">              <span class="attr">outputPath</span>: <span class="string">&#x27;./images&#x27;</span>, <span class="comment">// 图片文件打包后的输出目录，相对于 dist</span></span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">        ],</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="comment">// 处理字体文件</span></span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.(ttf|eot|svg|woff|woff2)$/</span>,</span><br><span class="line">        use: [<span class="string">&#x27;url-loader&#x27;</span>],</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="comment">// 处理 img 标签中的图片</span></span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.html$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">loader</span>: <span class="string">&#x27;html-loader&#x27;</span>,</span><br><span class="line">            <span class="attr">options</span>: &#123;</span><br><span class="line">              <span class="attr">minimize</span>: <span class="literal">true</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">        ],</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        exclude: <span class="regexp">/node_modules/</span>, <span class="comment">// exclude 排除 node_modules 文件夹</span></span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">loader</span>: <span class="string">&#x27;babel-loader&#x27;</span>,</span><br><span class="line">            <span class="attr">options</span>: &#123;</span><br><span class="line">              <span class="attr">presets</span>: [<span class="string">&#x27;@babel/preset-env&#x27;</span>],</span><br><span class="line">              <span class="attr">plugins</span>: [<span class="string">&#x27;@babel/plugin-proposal-class-properties&#x27;</span>, <span class="string">&#x27;@babel/transform-runtime&#x27;</span>],</span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">        ],</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="string">&#x27;/.vue$/&#x27;</span>,</span><br><span class="line">        <span class="attr">use</span>: [<span class="string">&#x27;vue-loader&#x27;</span>],</span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="attr">resolve</span>: &#123;</span><br><span class="line">    <span class="attr">extensions</span>: [<span class="string">&#x27;.js&#x27;</span>, <span class="string">&#x27;.jsx&#x27;</span>, <span class="string">&#x27;.vue&#x27;</span>],</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="attr">devServer</span>: &#123;</span><br><span class="line">    <span class="attr">contentBase</span>: <span class="string">&#x27;./dist&#x27;</span>, <span class="comment">// 指定托管的根目录</span></span><br><span class="line">    <span class="attr">open</span>: <span class="literal">true</span>, <span class="comment">// 自动打开浏览器</span></span><br><span class="line">    <span class="attr">port</span>: <span class="number">3000</span>, <span class="comment">// 指定端口号</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="webpack-的发布策略"><a href="#webpack-的发布策略" class="headerlink" title="webpack 的发布策略"></a>webpack 的发布策略</h1><p><em>开发环境(development)<em>和</em>生产环境(production)<em>的构建目标差异很大。在</em>开发环境</em>中，我们追求高效的开发能力；</p>
+<p>生产环境则追求更小的 bundle，更轻量的 source map，以及更优化的资源，以改善加载时间。</p>
+<p>为此，通用有以下两种配置方案</p>
+<h2 id="新建一个完整配置文件-webpack-publish-config-js"><a href="#新建一个完整配置文件-webpack-publish-config-js" class="headerlink" title="新建一个完整配置文件 webpack.publish.config.js"></a>新建一个完整配置文件 <code>webpack.publish.config.js</code></h2><ol>
+<li>将 webpack.config.js 的配置拷贝过来, 删除一些开发配置即可</li>
+</ol>
+<ul>
+<li>删除那些用户用不到的测试数据和文件</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 删除 devServer 节点</span></span><br><span class="line"><span class="attr">devServer</span>: &#123;</span><br><span class="line">    <span class="attr">hot</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">open</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">port</span>: <span class="number">4321</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>新增 pub 命令<br>⚠️ 我们在开发阶段使用 webpack-dev-server 执行打包命令生成的 index.html、bundle.js、图片文件等存在于内存中（相当于托管在项目的根目录（contentBase）下，<em>但是我们看不到</em>）</li>
+</ol>
+<ul>
+<li><p><strong>但是，在发布阶段，我们需要生成的index.html、bundle.js、图片等文件存在于 dist 目录中，那么，我们就要使用 webpack 命令来进行打包；还需要指定图片存放路径</strong></p>
+</li>
+<li><p>在 <code>package.json</code> 中的script节点下新增 <code>pub</code> 命令，通过 <code>--config</code> 指定webpack启动时要读取的配置文件</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;pub&quot;</span>: <span class="string">&quot;webpack --config webpack.publish.config.js&quot;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="保留一个“通用”配置"><a href="#保留一个“通用”配置" class="headerlink" title="保留一个“通用”配置"></a>保留一个“通用”配置</h2><ul>
+<li>保留一个“通用”配置, 再根据环境分别合并开发和生产配置</li>
+<li><a href="https://www.webpackjs.com/guides/production/#%E9%85%8D%E7%BD%AE">配置参考</a></li>
+</ul>
+<ol>
+<li><p>安装 <code>webpack-merge</code> </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install --save-dev webpack-merge</span></span><br></pre></td></tr></table></figure></li>
+<li><p>新建三个配置文件</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">webpack-demo</span><br><span class="line">  |- package.json</span><br><span class="line">- |- webpack.config.js</span><br><span class="line">+ |- webpack.common.js</span><br><span class="line">+ |- webpack.dev.js</span><br><span class="line">+ |- webpack.prod.js</span><br><span class="line">  |- /dist</span><br><span class="line">  |- /src</span><br><span class="line">    |- index.js</span><br><span class="line">    |- math.js</span><br><span class="line">  |- /node_modules</span><br></pre></td></tr></table></figure></li>
+<li><p>从 webpack.config.js 中抽出公共代码</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// webpack.common.js</span></span><br><span class="line"><span class="comment">// 在 webpack.common.js 中，我们设置了 entry 和 output 配置</span></span><br><span class="line"><span class="comment">// 并且在其中引入这两个环境公用的全部插件</span></span><br><span class="line">+ <span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line">+ <span class="keyword">const</span> &#123;CleanWebpackPlugin&#125; = <span class="built_in">require</span>(<span class="string">&#x27;clean-webpack-plugin&#x27;</span>);</span><br><span class="line">+ <span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>);</span><br><span class="line">+</span><br><span class="line">+ <span class="built_in">module</span>.exports = &#123;</span><br><span class="line">+   entry: &#123;</span><br><span class="line">+     app: <span class="string">&#x27;./src/index.js&#x27;</span></span><br><span class="line">+   &#125;,</span><br><span class="line">+   plugins: [</span><br><span class="line">+     <span class="keyword">new</span> CleanWebpackPlugin(),</span><br><span class="line">+     <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">+       title: <span class="string">&#x27;Production&#x27;</span></span><br><span class="line">+     &#125;)</span><br><span class="line">+   ],</span><br><span class="line">+   output: &#123;</span><br><span class="line">+     filename: <span class="string">&#x27;js/[name].bundle.js&#x27;</span>,</span><br><span class="line">+     path: path.resolve(__dirname, <span class="string">&#x27;dist&#x27;</span>)</span><br><span class="line">+   &#125;</span><br><span class="line">+ &#125;;</span><br></pre></td></tr></table></figure></li>
+<li><p>配置开发环境</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// webpack.dev.js</span></span><br><span class="line">+ <span class="keyword">const</span> merge = <span class="built_in">require</span>(<span class="string">&#x27;webpack-merge&#x27;</span>);</span><br><span class="line">+ <span class="keyword">const</span> common = <span class="built_in">require</span>(<span class="string">&#x27;./webpack.common.js&#x27;</span>);</span><br><span class="line">+</span><br><span class="line">+ <span class="built_in">module</span>.exports = merge(common, &#123;</span><br><span class="line">+   devServer: &#123;</span><br><span class="line">+     contentBase: <span class="string">&#x27;./dist&#x27;</span>,</span><br><span class="line">+     open: <span class="literal">true</span>,</span><br><span class="line">+     port: <span class="number">3000</span></span><br><span class="line">+   &#125;</span><br><span class="line">+ &#125;);</span><br></pre></td></tr></table></figure></li>
+<li><p>配置生产环境</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// webpack.prod.js</span></span><br><span class="line">+ <span class="keyword">const</span> merge = <span class="built_in">require</span>(<span class="string">&#x27;webpack-merge&#x27;</span>);</span><br><span class="line">+ <span class="keyword">const</span> UglifyJSPlugin = <span class="built_in">require</span>(<span class="string">&#x27;uglifyjs-webpack-plugin&#x27;</span>);</span><br><span class="line">+ <span class="keyword">const</span> common = <span class="built_in">require</span>(<span class="string">&#x27;./webpack.common.js&#x27;</span>);</span><br><span class="line">+</span><br><span class="line">+ <span class="built_in">module</span>.exports = merge(common, &#123;</span><br><span class="line">+   plugins: [</span><br><span class="line">+     <span class="keyword">new</span> UglifyJSPlugin()</span><br><span class="line">+   ]</span><br><span class="line">+ &#125;);</span><br></pre></td></tr></table></figure></li>
+<li><p>配置 scripts</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="comment">// package.json</span></span><br><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">-     <span class="attr">&quot;start&quot;</span>: <span class="string">&quot;webpack-dev-server --open&quot;</span>,</span><br><span class="line">+     <span class="attr">&quot;start&quot;</span>: <span class="string">&quot;webpack-dev-server --open --config webpack.dev.js&quot;</span>,</span><br><span class="line">-     <span class="attr">&quot;build&quot;</span>: <span class="string">&quot;webpack&quot;</span></span><br><span class="line">+     <span class="string">&quot;build&quot;</span>: <span class="string">&quot;webpack --config webpack.prod.js&quot;</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="发布的进一步处理"><a href="#发布的进一步处理" class="headerlink" title="发布的进一步处理"></a>发布的进一步处理</h2><p><font color=#c40>我们需要对 webpack.prod.js 进行进一步处理</font></p>
+<blockquote>
+<p>压缩代码<br>抽离第三方包和公用模块</p>
+</blockquote>
+<h3 id="分离第三方包和公用模块"><a href="#分离第三方包和公用模块" class="headerlink" title="分离第三方包和公用模块"></a>分离第三方包和公用模块</h3><p><a href="https://webpack.js.org/plugins/split-chunks-plugin/">SplitChunksPlugin</a></p>
+<ul>
+<li><p>bundle.js 中只存放自己的代码</p>
+</li>
+<li><p>第三方包的引入代码抽离到另外的 js 文件中</p>
+</li>
+<li><p>公用模块也抽离出来</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// webpack.prod.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 提取公共模块，包括第三方库和自定义工具库等</span></span><br><span class="line">    <span class="attr">optimization</span>: &#123;</span><br><span class="line">        <span class="attr">splitChunks</span>: &#123;</span><br><span class="line">              <span class="comment">// async表示抽取异步模块，all表示对所有模块生效，initial表示对同步模块生效</span></span><br><span class="line">            <span class="attr">chunks</span>: <span class="string">&quot;all&quot;</span>,  </span><br><span class="line">            <span class="attr">cacheGroups</span>: &#123;</span><br><span class="line">                <span class="attr">vendors</span>: &#123;  <span class="comment">// 抽离第三方包</span></span><br><span class="line">                    <span class="attr">test</span>: <span class="regexp">/[\\/]node_modules[\\/]/</span>,  <span class="comment">// 指定是node_modules下的第三方包</span></span><br><span class="line">                    name: <span class="string">&quot;vendors&quot;</span>,</span><br><span class="line">                    <span class="attr">priority</span>: -<span class="number">10</span>                   <span class="comment">// 抽取优先级</span></span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="attr">commons</span>: &#123;   <span class="comment">// 抽离公用模块</span></span><br><span class="line">                    <span class="attr">name</span>: <span class="string">&quot;common&quot;</span>,</span><br><span class="line">                    <span class="attr">minChunks</span>: <span class="number">2</span>,   <span class="comment">// 表示公用模块被不同文件引用了多少次，才能抽离</span></span><br><span class="line">                    <span class="attr">priority</span>: -<span class="number">20</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="压缩-js-代码"><a href="#压缩-js-代码" class="headerlink" title="压缩 js 代码"></a>压缩 js 代码</h3><ul>
+<li><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i terser-webpack-plugin --D</span><br></pre></td></tr></table></figure></li>
+<li><p>配置压缩 js 代码</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> TerserPlugin = <span class="built_in">require</span>(<span class="string">&#x27;terser-webpack-plugin&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="attr">optimization</span>: &#123;</span><br><span class="line">    <span class="attr">minimize</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">minimizer</span>: [<span class="keyword">new</span> TerserPlugin()],</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="压缩-HTML-页面（可以放在-webpack-common-js-中）"><a href="#压缩-HTML-页面（可以放在-webpack-common-js-中）" class="headerlink" title="压缩 HTML 页面（可以放在 webpack.common.js 中）"></a>压缩 HTML 页面（可以放在 webpack.common.js 中）</h3><ul>
+<li><p>配置</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">        <span class="attr">template</span>: path.join(__dirname, <span class="string">&#x27;./src/index.html&#x27;</span>), </span><br><span class="line">        <span class="attr">filename</span>: <span class="string">&#x27;index.html&#x27;</span>,</span><br><span class="line">        <span class="attr">minify</span>: &#123;</span><br><span class="line">            <span class="attr">collapseWhitespace</span>: <span class="literal">true</span>, <span class="comment">// 移除空格</span></span><br><span class="line">                      <span class="attr">removeComments</span>: <span class="literal">true</span>,     <span class="comment">// 移除注释</span></span><br><span class="line">                      <span class="attr">removeScriptTypeAttributes</span>: <span class="literal">true</span>, <span class="comment">// 移除 script 标签的 type 属性</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="抽离样式文件，处理-CSS-路径问题（可以放在-webpack-common-js-中）"><a href="#抽离样式文件，处理-CSS-路径问题（可以放在-webpack-common-js-中）" class="headerlink" title="抽离样式文件，处理 CSS 路径问题（可以放在 webpack.common.js 中）"></a>抽离样式文件，处理 CSS 路径问题（可以放在 webpack.common.js 中）</h3><ul>
+<li><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i mini-css-extract-plugin -D</span><br></pre></td></tr></table></figure></li>
+<li><p>修改配置</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> MiniCssExtractPlugin = <span class="built_in">require</span>(<span class="string">&quot;mini-css-extract-plugin&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">loader</span>: MiniCssExtractPlugin.loader,</span><br><span class="line">            <span class="attr">options</span>: &#123;</span><br><span class="line">              <span class="attr">publicPath</span>: <span class="string">&#x27;../&#x27;</span> <span class="comment">// // 指定抽取的时候, 自动为路径加上../ 前缀</span></span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">          <span class="string">&#x27;css-loader&#x27;</span>,</span><br><span class="line">        ],</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">         <span class="attr">test</span>: <span class="regexp">/\.scss$/</span>,</span><br><span class="line">         use: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">loader</span>: MiniCssExtractPlugin.loader,</span><br><span class="line">            <span class="attr">options</span>: &#123;</span><br><span class="line">              <span class="attr">publicPath</span>: <span class="string">&#x27;../&#x27;</span> </span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">          <span class="string">&#x27;css-loader&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;sass-loader&#x27;</span></span><br><span class="line">        ],</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> MiniCssExtractPlugin(&#123;</span><br><span class="line">      <span class="comment">// Options similar to the same options in webpackOptions.output</span></span><br><span class="line">      <span class="comment">// all options are optional</span></span><br><span class="line">      <span class="attr">filename</span>: <span class="string">&#x27;css/styles.css&#x27;</span>,</span><br><span class="line">      <span class="attr">ignoreOrder</span>: <span class="literal">false</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="压缩-css"><a href="#压缩-css" class="headerlink" title="压缩 css"></a>压缩 css</h3><ul>
+<li><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i optimize-css-assets-webpack-plugin -D</span><br></pre></td></tr></table></figure></li>
+<li><p>配置</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> OptimizeCSSAssetsPlugin = <span class="built_in">require</span>(<span class="string">&#x27;optimize-css-assets-webpack-plugin&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="attr">plugins</span>: [ </span><br><span class="line">   <span class="keyword">new</span> OptimizeCSSAssetsPlugin()</span><br><span class="line"> ]</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="不显示-Entrypoint-mini-css-extract-plugin-警告"><a href="#不显示-Entrypoint-mini-css-extract-plugin-警告" class="headerlink" title="不显示 *Entrypoint mini-css-extract-plugin = ** 警告"></a>不显示 <code>*Entrypoint mini-css-extract-plugin = **</code> 警告</h3><p>加入</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// webpack.pub.config.js</span></span><br><span class="line">  <span class="attr">stats</span>: &#123;</span><br><span class="line">      <span class="comment">// One of the two if I remember right</span></span><br><span class="line">      <span class="attr">entrypoints</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">children</span>: <span class="literal">false</span></span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+<h1 id="使用参考"><a href="#使用参考" class="headerlink" title="使用参考"></a>使用参考</h1><p><a href="https://blog.csdn.net/lyandgh/article/details/90906110">多页面打包</a></p>
+]]></content>
+      <tags>
+        <tag>JS 高级</tag>
       </tags>
   </entry>
   <entry>
